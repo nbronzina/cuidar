@@ -7,6 +7,7 @@
     <title>Nodos Territoriales | CUIDAR.ar</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link href="styles.css" rel="stylesheet">
     <style>
         /* Estilos específicos para esta página */
@@ -177,6 +178,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            border: none;
+            cursor: pointer;
         }
         
         .btn-action.primary {
@@ -227,19 +230,145 @@
             color: #666;
         }
         
-        .map-placeholder {
-            background: linear-gradient(135deg, #E8F4FD 0%, #C8E4FB 100%);
-            border-radius: 8px;
-            padding: 60px 20px;
-            text-align: center;
-            margin-bottom: 40px;
-            border: 2px dashed #0072BB;
+        /* MODAL PARA SACAR TURNO */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s;
         }
         
-        .map-placeholder i {
-            font-size: 64px;
-            color: #0072BB;
-            margin-bottom: 16px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: slideDown 0.3s;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            background-color: #0072BB;
+            color: white;
+            padding: 24px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .close {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+        }
+        
+        .close:hover {
+            opacity: 0.7;
+        }
+        
+        .modal-body {
+            padding: 32px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #E0E0E0;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0072BB;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            background-color: #0072BB;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: #005A92;
+        }
+        
+        /* Estilos del mapa */
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .leaflet-popup-content {
+            margin: 16px;
+        }
+        .leaflet-popup-tip {
+            background-color: white;
+        }
+        .custom-div-icon {
+            background: none;
+            border: none;
         }
         
         @media (max-width: 767px) {
@@ -249,6 +378,11 @@
             
             .nodo-info {
                 grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
             }
         }
     </style>
@@ -340,13 +474,17 @@
         </div>
     </section>
     
-    <!-- MAPA PLACEHOLDER -->
+    <!-- MAPA INTERACTIVO -->
     <section style="padding: 0 0 60px 0;">
         <div class="container">
-            <div class="map-placeholder">
-                <i class="fa fa-map-marker"></i>
-                <h3 style="color: #0072BB; margin-bottom: 8px;">Mapa interactivo</h3>
-                <p style="color: #666;">Aquí iría un mapa interactivo de CABA con los 15 Nodos marcados</p>
+            <div style="background-color: white; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <h2 style="color: #0072BB; margin-bottom: 16px; text-align: center;">
+                    <i class="fa fa-map"></i> Mapa de los 15 Nodos
+                </h2>
+                <p style="text-align: center; color: #666; margin-bottom: 24px;">
+                    Hacé click en cada marcador para ver la información del Nodo
+                </p>
+                <div id="map" style="height: 600px; border-radius: 8px; border: 2px solid #E0E0E0;"></div>
             </div>
         </div>
     </section>
@@ -374,7 +512,7 @@
         <div class="container" id="nodosContainer">
             
             <!-- NODO 1 -->
-            <div class="nodo-card" data-zona="centro">
+            <div class="nodo-card" data-zona="centro" data-nodo="Nodo Centro" data-coords="-34.6089,-58.3736">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Centro</h3>
@@ -428,17 +566,17 @@
                     <a href="tel:1152341001" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Centro')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6089,-58.3736" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 2 -->
-            <div class="nodo-card" data-zona="norte">
+            <div class="nodo-card" data-zona="norte" data-nodo="Nodo Norte - Belgrano" data-coords="-34.5631,-58.4582">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Norte - Belgrano</h3>
@@ -491,17 +629,17 @@
                     <a href="tel:1152341002" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Norte - Belgrano')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.5631,-58.4582" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 3 -->
-            <div class="nodo-card" data-zona="norte">
+            <div class="nodo-card" data-zona="norte" data-nodo="Nodo Norte - Palermo" data-coords="-34.5885,-58.4199">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Norte - Palermo</h3>
@@ -553,17 +691,17 @@
                     <a href="tel:1152341003" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Norte - Palermo')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.5885,-58.4199" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 4 -->
-            <div class="nodo-card" data-zona="sur">
+            <div class="nodo-card" data-zona="sur" data-nodo="Nodo Sur - La Boca" data-coords="-34.6345,-58.3632">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Sur - La Boca</h3>
@@ -615,17 +753,17 @@
                     <a href="tel:1152341004" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Sur - La Boca')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6345,-58.3632" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 5 -->
-            <div class="nodo-card" data-zona="sur">
+            <div class="nodo-card" data-zona="sur" data-nodo="Nodo Sur - Parque Patricios" data-coords="-34.6395,-58.3950">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Sur - Parque Patricios</h3>
@@ -665,7 +803,7 @@
                     </div>
                     
                     <div class="info-item">
-                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-icon"><i class="fa-users"></i></div>
                         <div class="info-content">
                             <div class="info-label">Personas atendidas</div>
                             <div class="info-value">6,100 usuarios</div>
@@ -677,17 +815,17 @@
                     <a href="tel:1152341005" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Sur - Parque Patricios')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6395,-58.3950" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 6 -->
-            <div class="nodo-card" data-zona="sur">
+            <div class="nodo-card" data-zona="sur" data-nodo="Nodo Sur - Villa Soldati" data-coords="-34.6642,-58.4385">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Sur - Villa Soldati</h3>
@@ -739,17 +877,17 @@
                     <a href="tel:1152341006" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Sur - Villa Soldati')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6642,-58.4385" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 7 -->
-            <div class="nodo-card" data-zona="centro">
+            <div class="nodo-card" data-zona="centro" data-nodo="Nodo Centro - Almagro" data-coords="-34.6083,-58.4246">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Centro - Almagro</h3>
@@ -801,17 +939,17 @@
                     <a href="tel:1152341007" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Centro - Almagro')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6083,-58.4246" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 8 -->
-            <div class="nodo-card" data-zona="oeste">
+            <div class="nodo-card" data-zona="oeste" data-nodo="Nodo Oeste - Caballito" data-coords="-34.6177,-58.4368">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Caballito</h3>
@@ -863,17 +1001,17 @@
                     <a href="tel:1152341008" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Oeste - Caballito')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6177,-58.4368" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 9 -->
-            <div class="nodo-card" data-zona="oeste">
+            <div class="nodo-card" data-zona="oeste" data-nodo="Nodo Oeste - Flores" data-coords="-34.6283,-58.4651">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Flores</h3>
@@ -925,17 +1063,17 @@
                     <a href="tel:1152341009" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Oeste - Flores')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6283,-58.4651" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 10 -->
-            <div class="nodo-card" data-zona="oeste">
+            <div class="nodo-card" data-zona="oeste" data-nodo="Nodo Oeste - Villa Luro" data-coords="-34.6376,-58.5014">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Villa Luro</h3>
@@ -987,17 +1125,17 @@
                     <a href="tel:1152341010" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Oeste - Villa Luro')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6376,-58.5014" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 11 -->
-            <div class="nodo-card" data-zona="oeste">
+            <div class="nodo-card" data-zona="oeste" data-nodo="Nodo Oeste - Villa Devoto" data-coords="-34.6014,-58.5103">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Villa Devoto</h3>
@@ -1049,17 +1187,17 @@
                     <a href="tel:1152341011" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Oeste - Villa Devoto')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6014,-58.5103" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 12 -->
-            <div class="nodo-card" data-zona="oeste">
+            <div class="nodo-card" data-zona="oeste" data-nodo="Nodo Oeste - Mataderos" data-coords="-34.6598,-58.5037">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Mataderos</h3>
@@ -1111,17 +1249,17 @@
                     <a href="tel:1152341012" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Oeste - Mataderos')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6598,-58.5037" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 13 -->
-            <div class="nodo-card" data-zona="norte">
+            <div class="nodo-card" data-zona="norte" data-nodo="Nodo Norte - Núñez" data-coords="-34.5445,-58.4638">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Norte - Núñez</h3>
@@ -1173,17 +1311,17 @@
                     <a href="tel:1152341013" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Norte - Núñez')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.5445,-58.4638" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
             </div>
             
             <!-- NODO 14 -->
-            <div class="nodo-card" data-zona="centro">
+            <div class="nodo-card" data-zona="centro" data-nodo="Nodo Centro - Recoleta" data-coords="-34.5955,-58.3924">
                 <div class="nodo-header">
                     <div class="nodo-title">
                         <h3><i class="fa fa-map-marker"></i> Nodo Centro - Recoleta</h3>
@@ -1235,10 +1373,365 @@
                     <a href="tel:1152341014" class="btn-action primary">
                         <i class="fa fa-phone"></i> Llamar
                     </a>
-                    <a href="#" class="btn-action secondary">
+                    <button onclick="openTurnoModal('Nodo Centro - Recoleta')" class="btn-action secondary">
                         <i class="fa fa-calendar"></i> Sacar turno
-                    </a>
-                    <a href="#" class="btn-action secondary">
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.5955,-58.3924" target="_blank" class="btn-action secondary">
                         <i class="fa fa-map"></i> Cómo llegar
                     </a>
                 </div>
+            </div>
+            
+            <!-- NODO 15 -->
+            <div class="nodo-card" data-zona="sur" data-nodo="Nodo Sur - Barracas" data-coords="-34.6431,-58.3798">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Sur - Barracas</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 4</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Montes de Oca 1450, Barracas</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1015</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">4,900 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341015" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <button onclick="openTurnoModal('Nodo Sur - Barracas')" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-34.6431,-58.3798" target="_blank" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section style="padding: 60px 0; background-color: #E8F4FD; text-align: center;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 24px;">¿No encontrás tu Nodo?</h2>
+            <p style="font-size: 18px; margin-bottom: 32px;">
+                Llamá al 147 (opción 5) para que te orienten sobre el Nodo de tu zona
+            </p>
+            <a href="contacto.html" class="btn btn-primary btn-lg">
+                <i class="fa fa-phone"></i> Contactar al 147
+            </a>
+        </div>
+    </section>
+    
+    <!-- MODAL PARA SACAR TURNO -->
+    <div id="turnoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fa fa-calendar"></i> Sacar turno</h2>
+                <button class="close" onclick="closeTurnoModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="background-color: #E8F4FD; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                    <strong><i class="fa fa-map-marker"></i> <span id="modalNodoName"></span></strong>
+                </div>
+                
+                <form id="turnoForm" onsubmit="submitTurno(event)">
+                    <div class="form-group">
+                        <label for="nombreCompleto">Nombre completo *</label>
+                        <input type="text" id="nombreCompleto" required placeholder="Tu nombre y apellido">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dni">DNI *</label>
+                        <input type="text" id="dni" required placeholder="Sin puntos" pattern="[0-9]{7,8}" maxlength="8">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" required placeholder="Ej: 11-5234-5678">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="tu@email.com (opcional)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fechaTurno">Fecha preferida *</label>
+                        <input type="date" id="fechaTurno" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="horarioTurno">Horario preferido *</label>
+                        <select id="horarioTurno" required>
+                            <option value="">Seleccioná un horario</option>
+                            <option value="9-10">9:00 - 10:00hs</option>
+                            <option value="10-11">10:00 - 11:00hs</option>
+                            <option value="11-12">11:00 - 12:00hs</option>
+                            <option value="12-13">12:00 - 13:00hs</option>
+                            <option value="14-15">14:00 - 15:00hs</option>
+                            <option value="15-16">15:00 - 16:00hs</option>
+                            <option value="16-17">16:00 - 17:00hs</option>
+                            <option value="17-18">17:00 - 18:00hs</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivoTurno">Motivo de la consulta *</label>
+                        <select id="motivoTurno" required>
+                            <option value="">Seleccioná un motivo</option>
+                            <option value="inscripcion">Primera inscripción a CUIDAR.ar</option>
+                            <option value="consulta">Consulta sobre el servicio</option>
+                            <option value="evaluacion">Visita domiciliaria / Evaluación</option>
+                            <option value="reclamo">Reclamo o cambio de cuidadora</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comentarios">Comentarios adicionales</label>
+                        <textarea id="comentarios" placeholder="Información adicional que quieras compartir (opcional)"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <i class="fa fa-check"></i> Confirmar turno
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>NODOS</h4>
+                    <a href="#nodosContainer">Ver los 15 Nodos</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>INSCRIPCIÓN</h4>
+                    <a href="inscripcion.html">Inscribirme</a>
+                    <a href="elegibilidad.html">¿Soy elegible?</a>
+                    <a href="estado-tramite.html">Estado de trámite</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>AYUDA</h4>
+                    <p style="font-size: 14px; color: #CCCCCC;">
+                        <i class="fa fa-phone"></i> 147 (opción 5)<br>
+                        <i class="fa fa-envelope"></i> info@cuidar.ar
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h4>NAVEGACIÓN</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2032 GCBA - WCAG 2.1 AA</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- LEAFLET JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        function adjustTextSize(size) {
+            document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
+            document.body.classList.add('text-size-' + size);
+            localStorage.setItem('textSize', size);
+        }
+        
+        function toggleHighContrast() {
+            const body = document.body;
+            body.style.filter = body.style.filter === 'contrast(1.5)' ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', body.style.filter === 'contrast(1.5)' ? 'true' : 'false');
+        }
+        
+        window.addEventListener('load', function() {
+            const textSize = localStorage.getItem('textSize');
+            if (textSize) document.body.classList.add('text-size-' + textSize);
+            if (localStorage.getItem('highContrast') === 'true') document.body.style.filter = 'contrast(1.5)';
+        });
+        
+        // FILTRO DE NODOS
+        function filterNodos(zona) {
+            const cards = document.querySelectorAll('.nodo-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Actualizar botones
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filtrar cards
+            cards.forEach(card => {
+                if (zona === 'all' || card.dataset.zona === zona) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        // MODAL DE TURNO
+        function openTurnoModal(nodoName) {
+            document.getElementById('modalNodoName').textContent = nodoName;
+            document.getElementById('turnoModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Configurar fecha mínima (mañana)
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('fechaTurno').min = tomorrow.toISOString().split('T')[0];
+        }
+        
+        function closeTurnoModal() {
+            document.getElementById('turnoModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('turnoForm').reset();
+        }
+        
+        // Cerrar modal al hacer click fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('turnoModal');
+            if (event.target == modal) {
+                closeTurnoModal();
+            }
+        }
+        
+        function submitTurno(event) {
+            event.preventDefault();
+            
+            // En producción, aquí se enviaría a un servidor
+            alert('¡Turno solicitado con éxito!\n\nTe contactaremos en las próximas 24-48hs para confirmar tu turno al número de teléfono que proporcionaste.\n\nRecibirás un SMS y/o email de confirmación.');
+            
+            closeTurnoModal();
+        }
+        
+        // INICIALIZAR MAPA
+        const map = L.map('map').setView([-34.6037, -58.3816], 11);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 18
+        }).addTo(map);
+        
+        // Icono personalizado
+        const nodoIcon = L.divIcon({
+            html: '<div style="background-color: #0072BB; width: 30px; height: 30px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;"><i class="fa fa-map-marker" style="color: white; font-size: 16px;"></i></div>',
+            className: 'custom-div-icon',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+        });
+        
+        // Datos de los 15 nodos
+        const nodos = [
+            { nombre: 'Nodo Centro', comunas: 'Comunas 1, 2, 3', direccion: 'Av. de Mayo 525, Monserrat', telefono: '11-5234-1001', horario: 'Lun-Vie 9-18hs', usuarios: '5,200', coords: [-34.6089, -58.3736] },
+            { nombre: 'Nodo Norte - Belgrano', comunas: 'Comunas 12, 13', direccion: 'Av. Cabildo 3067, Belgrano', telefono: '11-5234-1002', horario: 'Lun-Vie 9-18hs', usuarios: '4,800', coords: [-34.5631, -58.4582] },
+            { nombre: 'Nodo Norte - Palermo', comunas: 'Comuna 14', direccion: 'Av. Santa Fe 4360, Palermo', telefono: '11-5234-1003', horario: 'Lun-Vie 9-18hs | Sáb 9-13hs', usuarios: '3,900', coords: [-34.5885, -58.4199] },
+            { nombre: 'Nodo Sur - La Boca', comunas: 'Comuna 4', direccion: 'Av. Almirante Brown 735, La Boca', telefono: '11-5234-1004', horario: 'Lun-Vie 9-18hs', usuarios: '5,600', coords: [-34.6345, -58.3632] },
+            { nombre: 'Nodo Sur - Parque Patricios', comunas: 'Comuna 8', direccion: 'Av. Caseros 2750, Parque Patricios', telefono: '11-5234-1005', horario: 'Lun-Vie 8-19hs', usuarios: '6,100', coords: [-34.6395, -58.3950] },
+            { nombre: 'Nodo Sur - Villa Soldati', comunas: 'Comuna 9', direccion: 'Av. Varela 3150, Villa Soldati', telefono: '11-5234-1006', horario: 'Lun-Vie 9-18hs', usuarios: '4,500', coords: [-34.6642, -58.4385] },
+            { nombre: 'Nodo Centro - Almagro', comunas: 'Comuna 5', direccion: 'Av. Rivadavia 4102, Almagro', telefono: '11-5234-1007', horario: 'Lun-Vie 9-18hs', usuarios: '4,300', coords: [-34.6083, -58.4246] },
+            { nombre: 'Nodo Oeste - Caballito', comunas: 'Comuna 6', direccion: 'Av. Pedro Goyena 935, Caballito', telefono: '11-5234-1008', horario: 'Lun-Vie 9-18hs | Sáb 9-13hs', usuarios: '5,800', coords: [-34.6177, -58.4368] },
+            { nombre: 'Nodo Oeste - Flores', comunas: 'Comuna 7', direccion: 'Av. Rivadavia 6840, Flores', telefono: '11-5234-1009', horario: 'Lun-Vie 9-18hs', usuarios: '4,700', coords: [-34.6283, -58.4651] },
+            { nombre: 'Nodo Oeste - Villa Luro', comunas: 'Comuna 10', direccion: 'Av. Rivadavia 9250, Villa Luro', telefono: '11-5234-1010', horario: 'Lun-Vie 9-18hs', usuarios: '3,800', coords: [-34.6376, -58.5014] },
+            { nombre: 'Nodo Oeste - Villa Devoto', comunas: 'Comuna 11', direccion: 'Av. San Martín 4780, Villa Devoto', telefono: '11-5234-1011', horario: 'Lun-Vie 9-18hs', usuarios: '4,200', coords: [-34.6014, -58.5103] },
+            { nombre: 'Nodo Oeste - Mataderos', comunas: 'Comuna 15', direccion: 'Av. Directorio 4220, Mataderos', telefono: '11-5234-1012', horario: 'Lun-Vie 9-18hs', usuarios: '3,600', coords: [-34.6598, -58.5037] },
+            { nombre: 'Nodo Norte - Núñez', comunas: 'Comuna 13', direccion: 'Av. Cabildo 4560, Núñez', telefono: '11-5234-1013', horario: 'Lun-Vie 9-18hs', usuarios: '3,500', coords: [-34.5445, -58.4638] },
+            { nombre: 'Nodo Centro - Recoleta', comunas: 'Comuna 2', direccion: 'Av. Callao 1250, Recoleta', telefono: '11-5234-1014', horario: 'Lun-Vie 9-18hs | Sáb 9-13hs', usuarios: '4,100', coords: [-34.5955, -58.3924] },
+            { nombre: 'Nodo Sur - Barracas', comunas: 'Comuna 4', direccion: 'Av. Montes de Oca 1450, Barracas', telefono: '11-5234-1015', horario: 'Lun-Vie 9-18hs', usuarios: '4,900', coords: [-34.6431, -58.3798] }
+        ];
+        
+        // Agregar marcadores
+        nodos.forEach(nodo => {
+            const marker = L.marker(nodo.coords, { icon: nodoIcon }).addTo(map);
+            
+            const popupContent = `
+                <div style="min-width: 250px;">
+                    <h3 style="color: #0072BB; margin: 0 0 12px 0; font-size: 16px;">
+                        <i class="fa fa-map-marker"></i> ${nodo.nombre}
+                    </h3>
+                    <p style="margin: 4px 0; font-size: 13px;">
+                        <strong style="color: #0072BB;">${nodo.comunas}</strong>
+                    </p>
+                    <hr style="margin: 8px 0; border: none; border-top: 1px solid #E0E0E0;">
+                    <p style="margin: 4px 0; font-size: 13px;">
+                        <i class="fa fa-map-marker" style="color: #0072BB; width: 16px;"></i> ${nodo.direccion}
+                    </p>
+                    <p style="margin: 4px 0; font-size: 13px;">
+                        <i class="fa fa-phone" style="color: #0072BB; width: 16px;"></i> 
+                        <a href="tel:${nodo.telefono.replace(/-/g, '')}" style="color: #0072BB;">${nodo.telefono}</a>
+                    </p>
+                    <p style="margin: 4px 0; font-size: 13px;">
+                        <i class="fa fa-clock-o" style="color: #0072BB; width: 16px;"></i> ${nodo.horario}
+                    </p>
+                    <p style="margin: 4px 0; font-size: 13px;">
+                        <i class="fa fa-users" style="color: #0072BB; width: 16px;"></i> ${nodo.usuarios} usuarios
+                    </p>
+                    <div style="margin-top: 12px; display: flex; gap: 8px;">
+                        <a href="tel:${nodo.telefono.replace(/-/g, '')}" 
+                           style="flex: 1; padding: 8px; background-color: #0072BB; color: white; text-align: center; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600;">
+                            <i class="fa fa-phone"></i> Llamar
+                        </a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=${nodo.coords[0]},${nodo.coords[1]}" 
+                           target="_blank"
+                           style="flex: 1; padding: 8px; background-color: white; color: #0072BB; border: 2px solid #0072BB; text-align: center; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600;">
+                            <i class="fa fa-map"></i> Ir
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            marker.bindPopup(popupContent, {
+                maxWidth: 300,
+                className: 'custom-popup'
+            });
+            
+            marker.on('mouseover', function() {
+                this.openPopup();
+            });
+        });
+    </script>
+</body>
+</html>
