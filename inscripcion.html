@@ -3,37 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Inscribite al sistema CUIDAR.ar en 3 pasos simples">
+    <meta name="description" content="Inscribite a CUIDAR.ar en 3 pasos simples. Te llamamos en 24-48hs.">
     <title>Inscripción | CUIDAR.ar</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0072BB;
+            --color-secondary: #66BB6A;
+            --color-accent: #FF9800;
+            --color-warm: #FFF8E1;
+            --color-error: #D32F2F;
+            --color-success: #388E3C;
+        }
+        
+        .hero-inscripcion {
+            background: linear-gradient(135deg, rgba(102,187,106,0.95), rgba(67,160,71,0.95)),
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&h=400&fit=crop') center/cover;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #E0E0E0;
+            z-index: 0;
+        }
+        
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .progress-step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #E0E0E0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .progress-step.active .progress-step-circle {
+            background-color: var(--color-secondary);
+            color: white;
+            transform: scale(1.2);
+        }
+        
+        .progress-step.completed .progress-step-circle {
+            background-color: var(--color-secondary);
+            color: white;
+        }
+        
+        .progress-step-circle i {
+            font-size: 20px;
+        }
+        
+        .progress-step-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .progress-step.active .progress-step-label {
+            color: var(--color-secondary);
+        }
+        
+        .form-section {
+            display: none;
+        }
+        
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 28px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .form-group label .required {
+            color: var(--color-error);
+            margin-left: 4px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 16px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: white;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--color-secondary);
+            outline: 3px solid rgba(102,187,106,0.2);
+            outline-offset: 2px;
+        }
+        
+        .form-group input.error,
+        .form-group select.error {
+            border-color: var(--color-error);
+        }
+        
+        .form-group input.error:focus,
+        .form-group select.error:focus {
+            outline-color: rgba(211,47,47,0.2);
+        }
+        
+        .error-message {
+            color: var(--color-error);
+            font-size: 14px;
+            margin-top: 6px;
+            display: none;
+            font-weight: 600;
+        }
+        
+        .error-message.visible {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .help-text {
+            font-size: 14px;
+            color: #666;
+            margin-top: 6px;
+            font-style: italic;
+        }
+        
+        .btn-navigation {
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .btn-back {
+            background-color: white;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-back:hover,
+        .btn-back:focus {
+            background-color: #F5F5F5;
+        }
+        
+        .btn-next,
+        .btn-submit {
+            background-color: var(--color-secondary);
+            color: white;
+            border: 2px solid var(--color-secondary);
+        }
+        
+        .btn-next:hover,
+        .btn-next:focus,
+        .btn-submit:hover,
+        .btn-submit:focus {
+            background-color: #43A047;
+            border-color: #43A047;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102,187,106,0.3);
+        }
+        
+        .info-box {
+            background-color: #E8F5E9;
+            border-left: 4px solid var(--color-secondary);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+        
+        .info-box-warning {
+            background-color: #FFF3E0;
+            border-left-color: var(--color-accent);
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background-color: var(--color-success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: white;
+            font-size: 48px;
+            animation: scaleIn 0.5s;
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+        
+        @media (max-width: 767px) {
+            .form-card {
+                padding: 24px;
+            }
+            
+            .progress-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .progress-bar::before {
+                display: none;
+            }
+            
+            .progress-step {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .progress-step-circle {
+                margin: 0 16px 0 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container">
             <div class="pull-left">
-                <button onclick="adjustTextSize('normal')">A</button>
-                <button onclick="adjustTextSize('large')">A+</button>
-                <button onclick="adjustTextSize('xlarge')">A++</button>
+                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
+                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
+                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
             </div>
             <div class="pull-right">
-                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
+                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
+                </button>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
     
-    <header class="header-gcba">
+    <header class="header-gcba" role="banner">
         <div class="container">
-            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
+                <i class="fa fa-home icon" aria-hidden="true"></i>
+                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            </a>
         </div>
     </header>
     
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
             <a href="index.html">Inicio</a>
             <a href="para-personas-mayores.html">Para Personas Mayores</a>
@@ -44,223 +322,740 @@
         </div>
     </nav>
     
-    <section class="hero" id="main-content" style="padding: 40px 0;">
+    <section class="hero-inscripcion" id="main-content" role="main">
         <div class="container">
-            <h1 style="font-size: 36px;">Inscripción al Sistema</h1>
-            <p class="lead" style="font-size: 18px;">
-                Iniciá tu inscripción en 3 pasos simples
-            </p>
+            <h1>Inscribite en 3 pasos simples</h1>
+            <p class="lead">Te llamamos en 24-48 horas para agendar la visita</p>
         </div>
     </section>
     
-    <!-- PASO A PASO -->
     <section style="padding: 60px 0;">
         <div class="container">
-            <div class="alert alert-info">
-                <strong><i class="fa fa-clock-o"></i> Tiempo estimado:</strong> 
-                La inscripción toma entre 15 y 45 días según la demanda en tu comuna.
+            
+            <!-- Progress Bar -->
+            <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" aria-label="Progreso del formulario">
+                <div class="progress-step active" data-step="1">
+                    <div class="progress-step-circle">1</div>
+                    <div class="progress-step-label">Tus datos</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="progress-step-circle">2</div>
+                    <div class="progress-step-label">Tu situación</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="progress-step-circle">3</div>
+                    <div class="progress-step-label">Confirmar</div>
+                </div>
             </div>
             
-            <div style="margin-top: 48px;">
-                <div class="card" style="background-color: #E8F5E9; border-left: 4px solid #4CAF50;">
-                    <h2 style="color: #4CAF50; margin-top: 0;">
-                        <span style="background-color: #4CAF50; color: white; border-radius: 50%; padding: 8px 16px; margin-right: 12px;">1</span>
-                        Elegí cómo inscribirte
-                    </h2>
-                    <div class="row" style="margin-top: 24px;">
-                        <div class="col-md-3">
-                            <div style="text-align: center; padding: 20px;">
-                                <i class="fa fa-phone" style="font-size: 48px; color: #4CAF50; margin-bottom: 16px;"></i>
-                                <h3 style="font-size: 18px;">Por teléfono</h3>
-                                <p style="font-size: 16px; font-weight: 700; color: #4CAF50;">147 (opción 5)</p>
-                                <p style="font-size: 14px;">Lun-Vie 8-20hs</p>
-                            </div>
+            <div class="form-card">
+                <form id="inscripcionForm" role="form" aria-label="Formulario de inscripción a CUIDAR.ar" novalidate>
+                    
+                    <!-- PASO 1: Datos Personales -->
+                    <div class="form-section active" id="step1">
+                        <h2 style="color: var(--color-secondary); margin-bottom: 24px; font-size: 28px;">
+                            <i class="fa fa-user" aria-hidden="true"></i> Paso 1: Tus datos personales
+                        </h2>
+                        
+                        <div class="info-box">
+                            <strong><i class="fa fa-info-circle" aria-hidden="true"></i> Tranquilo/a</strong><br>
+                            Solo te pedimos lo necesario. Tus datos están protegidos.
                         </div>
-                        <div class="col-md-3">
-                            <div style="text-align: center; padding: 20px;">
-                                <i class="fa fa-whatsapp" style="font-size: 48px; color: #25D366; margin-bottom: 16px;"></i>
-                                <h3 style="font-size: 18px;">WhatsApp</h3>
-                                <p style="font-size: 16px; font-weight: 700; color: #25D366;">+54 9 11 XXXX-XXXX</p>
-                                <p style="font-size: 14px;">24hs respuesta</p>
-                            </div>
+                        
+                        <div class="form-group">
+                            <label for="nombreCompleto">
+                                Nombre completo
+                                <span class="required" aria-label="campo obligatorio">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="nombreCompleto" 
+                                name="nombreCompleto"
+                                required 
+                                aria-required="true"
+                                aria-describedby="nombreCompleto-error nombreCompleto-help"
+                                placeholder="Ej: María González"
+                            >
+                            <span id="nombreCompleto-help" class="help-text">Tu nombre y apellido como aparece en el DNI</span>
+                            <span id="nombreCompleto-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                Por favor ingresá tu nombre completo
+                            </span>
                         </div>
-                        <div class="col-md-3">
-                            <div style="text-align: center; padding: 20px;">
-                                <i class="fa fa-map-marker" style="font-size: 48px; color: #4CAF50; margin-bottom: 16px;"></i>
-                                <h3 style="font-size: 18px;">Presencial</h3>
-                                <p style="font-size: 14px;"><a href="nodos.html" style="color: #4CAF50; font-weight: 700;">Ver Nodos</a></p>
-                                <p style="font-size: 14px;">Con turno previo</p>
-                            </div>
+                        
+                        <div class="form-group">
+                            <label for="dni">
+                                DNI (sin puntos)
+                                <span class="required" aria-label="campo obligatorio">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="dni" 
+                                name="dni"
+                                required 
+                                aria-required="true"
+                                aria-describedby="dni-error dni-help"
+                                placeholder="Ej: 12345678"
+                                pattern="[0-9]{7,8}"
+                                maxlength="8"
+                            >
+                            <span id="dni-help" class="help-text">Solo números, sin puntos ni espacios</span>
+                            <span id="dni-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                Por favor ingresá un DNI válido (7 u 8 números)
+                            </span>
                         </div>
-                        <div class="col-md-3">
-                            <div style="text-align: center; padding: 20px;">
-                                <i class="fa fa-envelope" style="font-size: 48px; color: #4CAF50; margin-bottom: 16px;"></i>
-                                <h3 style="font-size: 18px;">Email</h3>
-                                <p style="font-size: 14px; font-weight: 700; color: #4CAF50;">info@cuidar.ar</p>
-                                <p style="font-size: 14px;">48hs respuesta</p>
+                        
+                        <div class="form-group">
+                            <label for="fechaNacimiento">
+                                Fecha de nacimiento
+                                <span class="required" aria-label="campo obligatorio">*</span>
+                            </label>
+                            <input 
+                                type="date" 
+                                id="fechaNacimiento" 
+                                name="fechaNacimiento"
+                                required 
+                                aria-required="true"
+                                aria-describedby="fechaNacimiento-error fechaNacimiento-help"
+                                max="2005-01-01"
+                            >
+                            <span id="fechaNacimiento-help" class="help-text">Tenés que tener 60 años o más</span>
+                            <span id="fechaNacimiento-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                Debés tener al menos 60 años para inscribirte
+                            </span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">
+                                Teléfono de contacto
+                                <span class="required" aria-label="campo obligatorio">*</span>
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="telefono" 
+                                name="telefono"
+                                required 
+                                aria-required="true"
+                                aria-describedby="telefono-error telefono-help"
+                                placeholder="Ej: 11-5234-5678"
+                            >
+                            <span id="telefono-help" class="help-text">Te llamamos a este número en 24-48hs</span>
+                            <span id="telefono-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                Por favor ingresá un teléfono válido
+                            </span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">
+                                Email (opcional)
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email"
+                                aria-describedby="email-error email-help"
+                                placeholder="Ej: maria@email.com"
+                            >
+                            <span id="email-help" class="help-text">Si tenés, te mandamos confirmación por email</span>
+                            <span id="email-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                El formato del email no es válido
+                            </span>
+                        </div>
+                        
+                        <div class="btn-navigation">
+                            <div></div>
+                            <button type="button" class="btn btn-next btn-lg" onclick="nextStep(1)" aria-label="Ir al paso 2">
+                                Siguiente <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- PASO 2: Situación -->
+                    <div class="form-section" id="step2">
+                        <h2 style="color: var(--color-secondary); margin-bottom: 24px; font-size: 28px;">
+                            <i class="fa fa-home" aria-hidden="true"></i> Paso 2: Tu situación
+                        </h2>
+                        
+                        <div class="info-box">
+                            <strong><i class="fa fa-info-circle" aria-hidden="true"></i> ¿Por qué preguntamos esto?</strong><br>
+                            Para asignarte la cuidadora y servicios que mejor se adapten a vos.
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="direccion">
+                                Dirección completa
+                                <span class="required" aria-label="campo obligatorio">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="direccion" 
+                                name="direccion"
+                                required 
+                                aria-required="true"
+                                aria-describedby="direccion-error direccion-help"
+                                placeholder="Ej: Av. Rivadavia 1234, Piso 3, Depto B"
+                            >
+                            <span id="direccion-help" class="help-text">Calle, número, piso y departamento si aplica</span>
+                            <span id="direccion-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                Por favor ingresá tu dirección completa
+                            </span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="barrio">
+                                Barrio
+                                <span class="required" aria-label="campo obligatorio">*</span>
+                            </label>
+                            <select 
+                                id="barrio" 
+                                name="barrio"
+                                required 
+                                aria-required="true"
+                                aria-describedby="barrio-error"
+                            >
+                                <option value="">Seleccioná tu barrio</option>
+                                <option value="Agronomía">Agronomía</option>
+                                <option value="Almagro">Almagro</option>
+                                <option value="Balvanera">Balvanera</option>
+                                <option value="Barracas">Barracas</option>
+                                <option value="Belgrano">Belgrano</option>
+                                <option value="Boedo">Boedo</option>
+                                <option value="Caballito">Caballito</option>
+                                <option value="Chacarita">Chacarita</option>
+                                <option value="Coghlan">Coghlan</option>
+                                <option value="Colegiales">Colegiales</option>
+                                <option value="Constitución">Constitución</option>
+                                <option value="Flores">Flores</option>
+                                <option value="Floresta">Floresta</option>
+                                <option value="La Boca">La Boca</option>
+                                <option value="Liniers">Liniers</option>
+                                <option value="Mataderos">Mataderos</option>
+                                <option value="Monserrat">Monserrat</option>
+                                <option value="Monte Castro">Monte Castro</option>
+                                <option value="Nueva Pompeya">Nueva Pompeya</option>
+                                <option value="Núñez">Núñez</option>
+                                <option value="Palermo">Palermo</option>
+                                <option value="Parque Avellaneda">Parque Avellaneda</option>
+                                <option value="Parque Chacabuco">Parque Chacabuco</option>
+                                <option value="Parque Chas">Parque Chas</option>
+                                <option value="Parque Patricios">Parque Patricios</option>
+                                <option value="Puerto Madero">Puerto Madero</option>
+                                <option value="Recoleta">Recoleta</option>
+                                <option value="Retiro">Retiro</option>
+                                <option value="Saavedra">Saavedra</option>
+                                <option value="San Cristóbal">San Cristóbal</option>
+                                <option value="San Nicolás">San Nicolás</option>
+                                <option value="San Telmo">San Telmo</option>
+                                <option value="Vélez Sársfield">Vélez Sársfield</option>
+                                <option value="Versalles">Versalles</option>
+                                <option value="Villa Crespo">Villa Crespo</option>
+                                <option value="Villa del Parque">Villa del Parque</option>
+                                <option value="Villa Devoto">Villa Devoto</option>
+                                <option value="Villa General Mitre">Villa General Mitre</option>
+                                <option value="Villa Lugano">Villa Lugano</option>
+                                <option value="Villa Luro">Villa Luro</option>
+                                <option value="Villa Ortúzar">Villa Ortúzar</option>
+                                <option value="Villa Pueyrredón">Villa Pueyrredón</option>
+                                <option value="Villa Real">Villa Real</option>
+                                <option value="Villa Riachuelo">Villa Riachuelo</option>
+                                <option value="Villa Santa Rita">Villa Santa Rita</option>
+                                <option value="Villa Soldati">Villa Soldati</option>
+                                <option value="Villa Urquiza">Villa Urquiza</option>
+                            </select>
+                            <span id="barrio-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                Por favor seleccioná tu barrio
+                            </span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vivisSolo">
+                                ¿Vivís solo/a?
+                                <span class="required" aria-label="campo obligatorio">*</span>
+                            </label>
+                            <select 
+                                id="vivisSolo" 
+                                name="vivisSolo"
+                                required 
+                                aria-required="true"
+                                aria-describedby="vivisSolo-error"
+                            >
+                                <option value="">Seleccioná una opción</option>
+                                <option value="si">Sí, vivo solo/a</option>
+                                <option value="no-sinayuda">No, pero la persona con quien vivo no puede ayudarme</option>
+                                <option value="no-conayuda">No, vivo con alguien que me ayuda</option>
+                            </select>
+                            <span id="vivisSolo-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                Por favor indicá tu situación de vivienda
+                            </span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="obraSocial">
+                                ¿Tenés obra social con cobertura de cuidado domiciliario?
+                                <span class="required" aria-label="campo obligatorio">*</span>
+                            </label>
+                            <select 
+                                id="obraSocial" 
+                                name="obraSocial"
+                                required 
+                                aria-required="true"
+                                aria-describedby="obraSocial-error obraSocial-help"
+                            >
+                                <option value="">Seleccioná una opción</option>
+                                <option value="no">No tengo obra social</option>
+                                <option value="pami">PAMI (sin cobertura de cuidado)</option>
+                                <option value="si-sinusar">Sí, pero no la estoy usando</option>
+                                <option value="si-usando">Sí, y la estoy usando</option>
+                            </select>
+                            <span id="obraSocial-help" class="help-text">Si ya tenés cuidado domiciliario por obra social, no podés inscribirte</span>
+                            <span id="obraSocial-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                Por favor indicá tu situación de obra social
+                            </span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="necesidades">
+                                ¿Con qué actividades necesitás ayuda? (opcional)
+                            </label>
+                            <textarea 
+                                id="necesidades" 
+                                name="necesidades"
+                                rows="4"
+                                aria-describedby="necesidades-help"
+                                placeholder="Ej: compras, cocinar, medicación, limpieza, compañía..."
+                            ></textarea>
+                            <span id="necesidades-help" class="help-text">Esto nos ayuda a conocerte mejor</span>
+                        </div>
+                        
+                        <div class="btn-navigation">
+                            <button type="button" class="btn btn-back btn-lg" onclick="prevStep(2)" aria-label="Volver al paso 1">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i> Anterior
+                            </button>
+                            <button type="button" class="btn btn-next btn-lg" onclick="nextStep(2)" aria-label="Ir al paso 3">
+                                Siguiente <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- PASO 3: Confirmación -->
+                    <div class="form-section" id="step3">
+                        <h2 style="color: var(--color-secondary); margin-bottom: 24px; font-size: 28px;">
+                            <i class="fa fa-check-circle" aria-hidden="true"></i> Paso 3: Confirmá tus datos
+                        </h2>
+                        
+                        <div class="info-box info-box-warning">
+                            <strong><i class="fa fa-eye" aria-hidden="true"></i> Revisá que todo esté bien</strong><br>
+                            Podés volver atrás para corregir cualquier dato.
+                        </div>
+                        
+                        <div id="resumenDatos" style="background-color: #F5F5F5; padding: 24px; border-radius: 8px; margin-bottom: 32px;">
+                            <!-- Se llena con JavaScript -->
+                        </div>
+                        
+                        <div style="background-color: #E8F5E9; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-secondary); margin-bottom: 32px;">
+                            <h3 style="color: var(--color-secondary); margin-bottom: 12px; font-size: 18px;">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> ¿Qué pasa después?
+                            </h3>
+                            <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                                <li><strong>En 24-48 horas</strong> te llamamos al teléfono que dejaste</li>
+                                <li>Agendamos una <strong>visita domiciliaria</strong> para conocerte</li>
+                                <li>Un profesional evalúa tus necesidades</li>
+                                <li>Te asignamos una <strong>cuidadora de tu zona</strong></li>
+                                <li>En <strong>15-45 días</strong> empezás a recibir el servicio</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: start; gap: 12px; cursor: pointer;">
+                                <input 
+                                    type="checkbox" 
+                                    id="aceptoTerminos" 
+                                    name="aceptoTerminos"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="aceptoTerminos-error"
+                                    style="width: auto; margin-top: 4px;"
+                                >
+                                <span style="font-weight: 400;">
+                                    Acepto que mis datos sean procesados según la 
+                                    <a href="#" style="color: var(--color-primary); text-decoration: underline;">Ley de Protección de Datos Personales</a>
+                                    <span class="required" aria-label="campo obligatorio">*</span>
+                                </span>
+                            </label>
+                            <span id="aceptoTerminos-error" class="error-message" role="alert" aria-live="polite">
+                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                Debés aceptar los términos para continuar
+                            </span>
+                        </div>
+                        
+                        <div class="btn-navigation">
+                            <button type="button" class="btn btn-back btn-lg" onclick="prevStep(3)" aria-label="Volver al paso 2">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i> Anterior
+                            </button>
+                            <button type="submit" class="btn btn-submit btn-lg" aria-label="Enviar inscripción">
+                                <i class="fa fa-check" aria-hidden="true"></i> Confirmar inscripción
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- PASO 4: Éxito -->
+                    <div class="form-section" id="stepSuccess">
+                        <div class="success-message">
+                            <div class="success-icon">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </div>
+                            <h2 style="color: var(--color-success); margin-bottom: 16px; font-size: 32px;">
+                                ¡Listo! Ya estás inscripto/a
+                            </h2>
+                            <p style="font-size: 20px; margin-bottom: 32px; line-height: 1.8; color: #333;">
+                                Guardá este número de solicitud:
+                            </p>
+                            <div style="background-color: #FFF8E1; padding: 20px; border-radius: 8px; margin-bottom: 32px; border: 2px solid var(--color-accent);">
+                                <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Número de solicitud</div>
+                                <div id="numeroSolicitud" style="font-size: 36px; font-weight: 700; color: var(--color-accent);">
+                                    #CUIDAR-20321023-1234
+                                </div>
+                            </div>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin-bottom: 32px;">
+                                Te llamamos en las próximas <strong>24-48 horas</strong> al <span id="telefonoConfirmacion" style="color: var(--color-secondary); font-weight: 700;"></span>
+                            </p>
+                            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                                <a href="index.html" class="btn btn-primary btn-lg">
+                                    <i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
+                                </a>
+                                <a href="estado-tramite.html" class="btn btn-secondary btn-lg">
+                                    <i class="fa fa-search" aria-hidden="true"></i> Ver estado de mi solicitud
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="card" style="background-color: #E3F2FD; border-left: 4px solid #2196F3; margin-top: 32px;">
-                    <h2 style="color: #2196F3; margin-top: 0;">
-                        <span style="background-color: #2196F3; color: white; border-radius: 50%; padding: 8px 16px; margin-right: 12px;">2</span>
-                        Prepará tu documentación
-                    </h2>
-                    <ul style="font-size: 16px; line-height: 2;">
-                        <li><strong>DNI</strong> (tuyo o de quien te inscribe)</li>
-                        <li><strong>Comprobante de domicilio en CABA</strong> (factura de luz, gas, o certificado de residencia)</li>
-                        <li><strong>Último recibo de jubilación o comprobante de ingresos</strong></li>
-                        <li><strong>Teléfono de contacto</strong> (tuyo o de un familiar)</li>
-                    </ul>
-                    <div class="alert alert-warning" style="margin-top: 16px;">
-                        <strong><i class="fa fa-lightbulb-o"></i> No tenés algún documento?</strong> 
-                        No te preocupes, te ayudamos a conseguirlo. Iniciá la inscripción igual.
-                    </div>
-                </div>
-                
-                <div class="card" style="background-color: #FFF3CD; border-left: 4px solid #FFD100; margin-top: 32px;">
-                    <h2 style="color: #856404; margin-top: 0;">
-                        <span style="background-color: #FFD100; color: #1a1a1a; border-radius: 50%; padding: 8px 16px; margin-right: 12px;">3</span>
-                        Esperá la confirmación
-                    </h2>
-                    <p style="font-size: 16px; line-height: 1.8;">
-                        Una vez que iniciás la inscripción, tu caso se asigna al <strong>Nodo territorial</strong> de tu comuna. 
-                        En los próximos <strong>15-45 días</strong> te van a contactar para:
-                    </p>
-                    <ul style="font-size: 16px;">
-                        <li>Visita de evaluación en tu domicilio</li>
-                        <li>Asignación de cuidadora</li>
-                        <li>Coordinación de inicio del servicio</li>
-                    </ul>
-                    <p style="margin-top: 24px;">
-                        <a href="estado-tramite.html" class="btn btn-primary">
-                            <i class="fa fa-search"></i> Consultar estado de mi trámite
-                        </a>
-                    </p>
-                </div>
+                    
+                </form>
             </div>
+            
         </div>
     </section>
     
-    <!-- PREGUNTAS FRECUENTES -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;">
-        <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px;">Preguntas frecuentes sobre la inscripción</h2>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px;">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Puedo inscribir a otra persona?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    Sí, pero tenés que ser <strong>familiar directo</strong> (hijo/a, nieto/a, hermano/a) o tener 
-                    <strong>autorización firmada</strong> de la persona. Si es familiar directo, solo necesitás tu DNI 
-                    y el DNI de la persona que querés inscribir.
-                </p>
-            </details>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px;">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿La inscripción tiene costo?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    <strong>NO.</strong> La inscripción es 100% GRATUITA. Nadie te va a pedir dinero para inscribirte. 
-                    Si alguien te pide plata, es una estafa. Denuncialo llamando al 147 o escribiendo a denuncia@cuidar.ar
-                </p>
-            </details>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px;">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Qué pasa si no tengo domicilio en CABA?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    CUIDAR.ar es solo para residentes de la Ciudad de Buenos Aires. Si vivís en Provincia de Buenos Aires, 
-                    contactá al <strong>Ministerio de Desarrollo Social de la Provincia</strong> para consultar por programas similares.
-                </p>
-            </details>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px;">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Puedo elegir a mi cuidador/a?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    El Nodo te asigna una cuidadora según disponibilidad y compatibilidad. Si no te sentís cómodo/a con la persona 
-                    asignada, podés solicitar un cambio (hasta 2 veces).
-                </p>
-            </details>
-        </div>
-    </section>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5491112345678" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp"
+       style="position: fixed; width: 70px; height: 70px; bottom: 40px; right: 40px; background-color: #25D366; color: white; border-radius: 50%; text-align: center; font-size: 40px; box-shadow: 0 4px 16px rgba(37,211,102,0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: all 0.3s; text-decoration: none;">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
     
-    <!-- CTA -->
-    <section style="padding: 60px 0; text-align: center;">
-        <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 24px;">¿Listo para inscribirte?</h2>
-            <p style="font-size: 18px; margin-bottom: 32px;">
-                Iniciá tu inscripción ahora por el canal que prefieras
-            </p>
-            <a href="contacto.html" class="btn btn-primary btn-lg">
-                <i class="fa fa-phone"></i> Contactar al 147
-            </a>
-            <p style="margin-top: 16px;">
-                <a href="elegibilidad.html" style="color: #0072BB; text-decoration: underline;">
-                    Antes, verificá si sos elegible <i class="fa fa-arrow-right"></i>
-                </a>
-            </p>
-        </div>
-    </section>
-    
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <h4>INSCRIPCIÓN</h4>
-                    <a href="elegibilidad.html">¿Soy elegible?</a>
-                    <a href="nodos.html">Encontrar mi Nodo</a>
-                    <a href="estado-tramite.html">Estado de trámite</a>
-                    <a href="contacto.html">Contacto</a>
-                </div>
-                <div class="col-md-3">
+                <nav class="col-md-3" aria-label="Enlaces de inscripción">
+                    <h4>INSCRIBIRSE</h4>
+                    <a href="inscripcion.html" aria-current="page">Dejá tu teléfono</a>
+                    <a href="elegibilidad.html">¿Es para mí?</a>
+                    <a href="estado-tramite.html">Ver mi solicitud</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces informativos">
+                    <h4>INFORMACIÓN</h4>
+                    <a href="el-sistema.html">Cómo funciona</a>
+                    <a href="para-personas-mayores.html">Para personas mayores</a>
+                    <a href="para-cuidadores.html">Para cuidadores/as</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces de contacto">
                     <h4>CONTACTO</h4>
-                    <p style="font-size: 14px; color: #CCCCCC;">
-                        <i class="fa fa-phone"></i> 147 (opción 5)<br>
-                        <i class="fa fa-phone"></i> 0800-CUIDADO<br>
-                        <i class="fa fa-envelope"></i> info@cuidar.ar
-                    </p>
-                </div>
-                <div class="col-md-3">
-                    <h4>AYUDA</h4>
-                    <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
-                    <a href="contacto.html#evitar-estafas">Evitar estafas</a>
-                </div>
-                <div class="col-md-3">
-                    <h4>NAVEGACIÓN</h4>
-                    <a href="index.html">Inicio</a>
-                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
-                    <a href="el-sistema.html">El Sistema</a>
-                </div>
+                    <a href="tel:147" aria-label="Llamar al 147">147 (gratis)</a>
+                    <a href="nodos.html">Lugares en tu barrio</a>
+                    <a href="contacto.html">Todas las formas de contacto</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces institucionales">
+                    <h4>GOBIERNO ABIERTO</h4>
+                    <a href="transparencia.html">Datos abiertos</a>
+                    <a href="transparencia.html#presupuesto">Presupuesto</a>
+                    <a href="transparencia.html#informes">Informes</a>
+                </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 GCBA - WCAG 2.1 AA</p>
+                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
             </div>
         </div>
     </footer>
     
     <script>
+        // Variables globales
+        let currentStep = 1;
+        const totalSteps = 3;
+        
+        // Funciones de accesibilidad
         function adjustTextSize(size) {
             document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
             document.body.classList.add('text-size-' + size);
             localStorage.setItem('textSize', size);
+            announceToScreenReader('Tamaño de texto cambiado a ' + 
+                (size === 'normal' ? 'normal' : size === 'large' ? 'grande' : 'extra grande'));
         }
+        
         function toggleHighContrast() {
             const body = document.body;
-            body.style.filter = body.style.filter === 'contrast(1.5)' ? 'none' : 'contrast(1.5)';
-            localStorage.setItem('highContrast', body.style.filter === 'contrast(1.5)' ? 'true' : 'false');
+            const isHighContrast = body.style.filter === 'contrast(1.5)';
+            body.style.filter = isHighContrast ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', isHighContrast ? 'false' : 'true');
+            announceToScreenReader(isHighContrast ? 
+                'Alto contraste desactivado' : 
+                'Alto contraste activado');
         }
+        
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.textContent = message;
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-10000px';
+            announcement.style.width = '1px';
+            announcement.style.height = '1px';
+            announcement.style.overflow = 'hidden';
+            document.body.appendChild(announcement);
+            setTimeout(() => document.body.removeChild(announcement), 1000);
+        }
+        
+        // Validación de campos
+        function validateField(field) {
+            const value = field.value.trim();
+            const fieldId = field.id;
+            const errorSpan = document.getElementById(fieldId + '-error');
+            let isValid = true;
+            
+            // Limpiar error previo
+            field.classList.remove('error');
+            if (errorSpan) errorSpan.classList.remove('visible');
+            field.setAttribute('aria-invalid', 'false');
+            
+            // Validaciones específicas
+            if (field.hasAttribute('required') && !value) {
+                isValid = false;
+            } else if (fieldId === 'dni') {
+                const dniRegex = /^[0-9]{7,8}$/;
+                if (value && !dniRegex.test(value)) {
+                    isValid = false;
+                }
+            } else if (fieldId === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    isValid = false;
+                }
+            } else if (fieldId === 'telefono') {
+                if (value && value.length < 8) {
+                    isValid = false;
+                }
+            } else if (fieldId === 'fechaNacimiento' && value) {
+                const birthDate = new Date(value);
+                const today = new Date();
+                const age = today.getFullYear() - birthDate.getFullYear();
+                if (age < 60) {
+                    isValid = false;
+                }
+            }
+            
+            // Mostrar error si no es válido
+            if (!isValid) {
+                field.classList.add('error');
+                if (errorSpan) errorSpan.classList.add('visible');
+                field.setAttribute('aria-invalid', 'true');
+            }
+            
+            return isValid;
+        }
+        
+        // Validar paso completo
+        function validateStep(stepNumber) {
+            const stepDiv = document.getElementById('step' + stepNumber);
+            const fields = stepDiv.querySelectorAll('input[required], select[required], textarea[required]');
+            let allValid = true;
+            
+            fields.forEach(field => {
+                if (!validateField(field)) {
+                    allValid = false;
+                }
+            });
+            
+            // Validar checkbox de términos en paso 3
+            if (stepNumber === 3) {
+                const checkbox = document.getElementById('aceptoTerminos');
+                if (!checkbox.checked) {
+                    allValid = false;
+                    checkbox.classList.add('error');
+                    document.getElementById('aceptoTerminos-error').classList.add('visible');
+                    checkbox.setAttribute('aria-invalid', 'true');
+                }
+            }
+            
+            return allValid;
+        }
+        
+        // Navegación entre pasos
+        function nextStep(currentStepNum) {
+            if (!validateStep(currentStepNum)) {
+                announceToScreenReader('Por favor corregí los errores antes de continuar');
+                // Hacer scroll al primer error
+                const firstError = document.querySelector('.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+                return;
+            }
+            
+            // Si estamos en el paso 2, mostrar resumen en paso 3
+            if (currentStepNum === 2) {
+                mostrarResumen();
+            }
+            
+            // Cambiar de paso
+            document.getElementById('step' + currentStepNum).classList.remove('active');
+            document.getElementById('step' + (currentStepNum + 1)).classList.add('active');
+            
+            // Actualizar progress bar
+            document.querySelector('[data-step="' + currentStepNum + '"]').classList.remove('active');
+            document.querySelector('[data-step="' + currentStepNum + '"]').classList.add('completed');
+            document.querySelector('[data-step="' + (currentStepNum + 1) + '"]').classList.add('active');
+            
+            // Actualizar aria-valuenow
+            const progressBar = document.querySelector('.progress-bar');
+            progressBar.setAttribute('aria-valuenow', currentStepNum + 1);
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Anunciar cambio
+            announceToScreenReader('Paso ' + (currentStepNum + 1) + ' de ' + totalSteps);
+        }
+        
+        function prevStep(currentStepNum) {
+            document.getElementById('step' + currentStepNum).classList.remove('active');
+            document.getElementById('step' + (currentStepNum - 1)).classList.add('active');
+            
+            // Actualizar progress bar
+            document.querySelector('[data-step="' + currentStepNum + '"]').classList.remove('active');
+            document.querySelector('[data-step="' + (currentStepNum - 1) + '"]').classList.remove('completed');
+            document.querySelector('[data-step="' + (currentStepNum - 1) + '"]').classList.add('active');
+            
+            // Actualizar aria-valuenow
+            const progressBar = document.querySelector('.progress-bar');
+            progressBar.setAttribute('aria-valuenow', currentStepNum - 1);
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Anunciar cambio
+            announceToScreenReader('Volviste al paso ' + (currentStepNum - 1) + ' de ' + totalSteps);
+        }
+        
+        // Mostrar resumen de datos
+        function mostrarResumen() {
+            const resumenDiv = document.getElementById('resumenDatos');
+            const formData = {
+                'Nombre': document.getElementById('nombreCompleto').value,
+                'DNI': document.getElementById('dni').value,
+                'Fecha de nacimiento': document.getElementById('fechaNacimiento').value,
+                'Teléfono': document.getElementById('telefono').value,
+                'Email': document.getElementById('email').value || 'No proporcionado',
+                'Dirección': document.getElementById('direccion').value,
+                'Barrio': document.getElementById('barrio').value,
+                '¿Vivís solo/a?': document.getElementById('vivisSolo').options[document.getElementById('vivisSolo').selectedIndex].text,
+                'Obra social': document.getElementById('obraSocial').options[document.getElementById('obraSocial').selectedIndex].text,
+                'Necesidades': document.getElementById('necesidades').value || 'No especificadas'
+            };
+            
+            let html = '<h3 style="color: var(--color-secondary); margin-bottom: 16px;">Tus datos:</h3>';
+            for (let key in formData) {
+                html += `
+                    <div style="padding: 12px 0; border-bottom: 1px solid #E0E0E0; display: flex; justify-content: space-between; gap: 20px;">
+                        <strong style="color: #666;">${key}:</strong>
+                        <span style="text-align: right;">${formData[key]}</span>
+                    </div>
+                `;
+            }
+            
+            resumenDiv.innerHTML = html;
+        }
+        
+        // Envío del formulario
+        document.getElementById('inscripcionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateStep(3)) {
+                announceToScreenReader('Por favor aceptá los términos para continuar');
+                return;
+            }
+            
+            // Simular envío (en producción iría a un servidor)
+            const telefono = document.getElementById('telefono').value;
+            const numeroSolicitud = 'CUIDAR-' + new Date().getFullYear() + 
+                                   ('0' + (new Date().getMonth() + 1)).slice(-2) + 
+                                   ('0' + new Date().getDate()).slice(-2) + '-' + 
+                                   Math.floor(Math.random() * 10000);
+            
+            // Mostrar pantalla de éxito
+            document.getElementById('step3').classList.remove('active');
+            document.getElementById('stepSuccess').classList.add('active');
+            document.getElementById('numeroSolicitud').textContent = '#' + numeroSolicitud;
+            document.getElementById('telefonoConfirmacion').textContent = telefono;
+            
+            // Actualizar progress bar (todos completos)
+            document.querySelector('[data-step="3"]').classList.remove('active');
+            document.querySelector('[data-step="3"]').classList.add('completed');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Anunciar éxito
+            announceToScreenReader('Inscripción enviada con éxito. Tu número de solicitud es ' + numeroSolicitud);
+        });
+        
+        // Validación en tiempo real
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('blur', function() {
+                if (this.value.trim() !== '' || this.hasAttribute('required')) {
+                    validateField(this);
+                }
+            });
+            
+            // Limpiar error al empezar a escribir
+            field.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    this.classList.remove('error');
+                    const errorSpan = document.getElementById(this.id + '-error');
+                    if (errorSpan) errorSpan.classList.remove('visible');
+                    this.setAttribute('aria-invalid', 'false');
+                }
+            });
+        });
+        
+        // Checkbox de términos
+        document.getElementById('aceptoTerminos').addEventListener('change', function() {
+            if (this.checked) {
+                this.classList.remove('error');
+                document.getElementById('aceptoTerminos-error').classList.remove('visible');
+                this.setAttribute('aria-invalid', 'false');
+            }
+        });
+        
+        // Restaurar preferencias de accesibilidad
         window.addEventListener('load', function() {
             const textSize = localStorage.getItem('textSize');
             if (textSize) document.body.classList.add('text-size-' + textSize);
-            if (localStorage.getItem('highContrast') === 'true') document.body.style.filter = 'contrast(1.5)';
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.body.style.filter = 'contrast(1.5)';
+            }
         });
     </script>
 </body>
