@@ -3,53 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CUIDAR.ar - Sistema de Ecosistemas de Cuidado para personas mayores en Buenos Aires">
-    <title>CUIDAR.ar | Gobierno de la Ciudad de Buenos Aires</title>
+    <meta name="description" content="CUIDAR.ar - Sistema público de cuidado para personas mayores en la Ciudad de Buenos Aires. Acompañamiento, tecnología y red comunitaria.">
+    <title>CUIDAR.ar | Sistema de Cuidado - Gobierno de la Ciudad de Buenos Aires</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    
+    <!-- Skip to main content -->
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <!-- BARRA DE ACCESIBILIDAD -->
-    <div class="accessibility-bar">
+    <!-- Accessibility Bar -->
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container">
             <div class="pull-left">
-                <button onclick="adjustTextSize('normal')">A</button>
-                <button onclick="adjustTextSize('large')">A+</button>
-                <button onclick="adjustTextSize('xlarge')">A++</button>
+                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
+                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
+                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
             </div>
             <div class="pull-right">
-                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
+                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
+                </button>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
     
-    <!-- HEADER -->
-    <header class="header-gcba">
+    <!-- Header -->
+    <header class="header-gcba" role="banner">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <a href="index.html" class="logo">
-                        <i class="fa fa-home icon"></i>
-                        CUIDAR.ar | Buenos Aires Ciudad
-                    </a>
-                </div>
-                <div class="col-md-6 text-right" style="padding-top: 6px; color: white;">
-                    <small>Gobierno de la Ciudad Autónoma de Buenos Aires</small>
-                </div>
-            </div>
+            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
+                <i class="fa fa-home icon" aria-hidden="true"></i>
+                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            </a>
         </div>
     </header>
     
-    <!-- NAVEGACIÓN PRINCIPAL -->
-    <nav class="main-nav">
+    <!-- Main Navigation -->
+    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <a href="index.html" class="active">Inicio</a>
+            <a href="index.html" aria-current="page" class="active">Inicio</a>
             <a href="para-personas-mayores.html">Para Personas Mayores</a>
             <a href="para-cuidadores.html">Para Cuidadores/as</a>
             <a href="el-sistema.html">El Sistema</a>
@@ -58,242 +53,410 @@
         </div>
     </nav>
     
-    <!-- HERO -->
-    <section class="hero" id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" id="main-content" role="main">
         <div class="container">
-            <h1>Sistema de Ecosistemas de Cuidado</h1>
+            <h1>Sistema Público de Cuidado para Personas Mayores</h1>
             <p class="lead">
-                Envejecer en comunidad es un derecho. Cuidar con dignidad es un trabajo.
+                Acompañamiento, tecnología y red comunitaria para vivir mejor en tu casa
             </p>
+            <div style="margin-top: 32px;">
+                <a href="inscripcion.html" class="btn btn-primary btn-lg" aria-label="Ir al formulario de inscripción">
+                    <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme ahora
+                </a>
+                <a href="elegibilidad.html" class="btn btn-secondary btn-lg" aria-label="Verificar si soy elegible para el programa">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i> ¿Soy elegible?
+                </a>
+            </div>
         </div>
     </section>
     
-    <!-- ACCESOS RÁPIDOS (Estilo PAMI) -->
-    <section style="padding: 60px 0; background-color: white;">
+    <!-- Stats -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-label="Estadísticas del programa">
         <div class="container">
-            <h2 style="text-align: center; color: #0072BB; margin-bottom: 48px; font-size: 32px;">
-                Accesos Rápidos
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div style="font-size: 48px; font-weight: 700; color: #0072BB;" aria-label="68 mil personas atendidas">68.000</div>
+                        <p style="font-size: 18px; color: #666;">Personas atendidas</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div style="font-size: 48px; font-weight: 700; color: #4CAF50;" aria-label="4200 cuidadoras trabajando">4.200</div>
+                        <p style="font-size: 18px; color: #666;">Cuidadoras trabajando</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div style="font-size: 48px; font-weight: 700; color: #F0AD4E;" aria-label="15 nodos en toda la ciudad">15</div>
+                        <p style="font-size: 18px; color: #666;">Nodos territoriales</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div style="font-size: 48px; font-weight: 700; color: #E91E63;" aria-label="7 años de funcionamiento">7</div>
+                        <p style="font-size: 18px; color: #666;">Años funcionando (2025-2032)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ¿Qué es CUIDAR.ar? -->
+    <section style="padding: 60px 0;" aria-labelledby="que-es-titulo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <h2 id="que-es-titulo" style="color: #0072BB; text-align: center; margin-bottom: 32px;">
+                        ¿Qué es CUIDAR.ar?
+                    </h2>
+                    <p style="font-size: 18px; line-height: 1.8; text-align: center; margin-bottom: 32px;">
+                        Es el <strong>sistema público de cuidado</strong> del Gobierno de la Ciudad de Buenos Aires 
+                        para personas mayores de 60 años que viven solas o necesitan acompañamiento. 
+                        Combinamos <strong>cuidadoras profesionales</strong>, <strong>tecnología inteligente</strong> 
+                        y <strong>redes comunitarias</strong> para que puedas seguir viviendo en tu casa con autonomía y seguridad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ¿Cómo funciona? -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="como-funciona-titulo">
+        <div class="container">
+            <h2 id="como-funciona-titulo" style="color: #0072BB; text-align: center; margin-bottom: 48px;">
+                ¿Cómo funciona?
             </h2>
             
             <div class="row">
-                <div class="col-md-3">
-                    <a href="inscripcion.html" class="quick-access-card">
-                        <i class="fa fa-edit" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
-                        <h3>Inscribirme al Sistema</h3>
-                        <p>Iniciá tu inscripción en 3 pasos simples</p>
-                        <span class="quick-access-arrow"><i class="fa fa-arrow-right"></i></span>
-                    </a>
-                </div>
+                <article class="col-md-4">
+                    <div class="card" style="text-align: center; height: 100%;">
+                        <div style="font-size: 64px; color: #0072BB; margin-bottom: 16px;" aria-hidden="true">
+                            <i class="fa fa-user-plus"></i>
+                        </div>
+                        <h3 style="color: #0072BB; font-size: 20px; margin-bottom: 16px;">1. Te inscribís</h3>
+                        <p style="font-size: 16px; line-height: 1.6;">
+                            Completás el formulario y un referente del Nodo de tu zona te contacta 
+                            para hacer una evaluación en tu casa.
+                        </p>
+                    </div>
+                </article>
                 
-                <div class="col-md-3">
-                    <a href="elegibilidad.html" class="quick-access-card">
-                        <i class="fa fa-check-circle" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
-                        <h3>¿Soy Elegible?</h3>
-                        <p>Verificá si cumplís los requisitos</p>
-                        <span class="quick-access-arrow"><i class="fa fa-arrow-right"></i></span>
-                    </a>
-                </div>
+                <article class="col-md-4">
+                    <div class="card" style="text-align: center; height: 100%;">
+                        <div style="font-size: 64px; color: #4CAF50; margin-bottom: 16px;" aria-hidden="true">
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <h3 style="color: #4CAF50; font-size: 20px; margin-bottom: 16px;">2. Te asignan una cuidadora</h3>
+                        <p style="font-size: 16px; line-height: 1.6;">
+                            Una cuidadora profesional de una cooperativa certificada te acompaña 
+                            3-5 veces por semana según tu nivel de necesidad.
+                        </p>
+                    </div>
+                </article>
                 
-                <div class="col-md-3">
-                    <a href="nodos.html" class="quick-access-card">
-                        <i class="fa fa-map-marker" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
-                        <h3>Encontrar mi Nodo</h3>
-                        <p>15 Nodos en toda la Ciudad</p>
-                        <span class="quick-access-arrow"><i class="fa fa-arrow-right"></i></span>
-                    </a>
-                </div>
-                
-                <div class="col-md-3">
-                    <a href="contacto.html" class="quick-access-card">
-                        <i class="fa fa-phone" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
-                        <h3>Contacto</h3>
-                        <p>147 (opción 5) | 0800-CUIDADO</p>
-                        <span class="quick-access-arrow"><i class="fa fa-arrow-right"></i></span>
-                    </a>
-                </div>
+                <article class="col-md-4">
+                    <div class="card" style="text-align: center; height: 100%;">
+                        <div style="font-size: 64px; color: #F0AD4E; margin-bottom: 16px;" aria-hidden="true">
+                            <i class="fa fa-mobile"></i>
+                        </div>
+                        <h3 style="color: #F0AD4E; font-size: 20px; margin-bottom: 16px;">3. Tecnología te cuida</h3>
+                        <p style="font-size: 16px; line-height: 1.6;">
+                            Tita (asistente virtual), sensores en tu casa y una pulsera de emergencia 
+                            te protegen 24/7.
+                        </p>
+                    </div>
+                </article>
             </div>
             
-            <div class="row" style="margin-top: 32px;">
-                <div class="col-md-3">
-                    <a href="estado-tramite.html" class="quick-access-card secondary">
-                        <i class="fa fa-search"></i>
-                        <h4>Estado de Trámite</h4>
-                    </a>
-                </div>
-                
-                <div class="col-md-3">
-                    <a href="mi-cuenta.html" class="quick-access-card secondary">
-                        <i class="fa fa-user"></i>
-                        <h4>Mi Cuenta CUIDAR</h4>
-                    </a>
-                </div>
-                
-                <div class="col-md-3">
-                    <a href="trabajar.html" class="quick-access-card secondary">
-                        <i class="fa fa-briefcase"></i>
-                        <h4>Trabajar como Cuidador/a</h4>
-                    </a>
-                </div>
-                
-                <div class="col-md-3">
-                    <a href="preguntas-frecuentes.html" class="quick-access-card secondary">
-                        <i class="fa fa-question-circle"></i>
-                        <h4>Preguntas Frecuentes</h4>
-                    </a>
-                </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="el-sistema.html" class="btn btn-primary" aria-label="Ver información completa sobre cómo funciona el sistema">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> Ver cómo funciona en detalle
+                </a>
             </div>
         </div>
     </section>
     
-    <!-- ESTADÍSTICAS -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;">
+    <!-- Qué incluye -->
+    <section style="padding: 60px 0;" aria-labelledby="que-incluye-titulo">
         <div class="container">
-            <h2 style="text-align: center; color: #0072BB; margin-bottom: 48px;">
-                CUIDAR.ar en números
+            <h2 id="que-incluye-titulo" style="color: #0072BB; text-align: center; margin-bottom: 48px;">
+                ¿Qué incluye CUIDAR.ar?
             </h2>
-            <div class="row" style="text-align: center;">
-                <div class="col-md-3">
-                    <div style="font-size: 48px; font-weight: 700; color: #0072BB; margin-bottom: 8px;">68.000</div>
-                    <p style="font-size: 18px; color: #666;">personas atendidas</p>
-                </div>
-                <div class="col-md-3">
-                    <div style="font-size: 48px; font-weight: 700; color: #0072BB; margin-bottom: 8px;">4.200</div>
-                    <p style="font-size: 18px; color: #666;">cuidadoras trabajando</p>
-                </div>
-                <div class="col-md-3">
-                    <div style="font-size: 48px; font-weight: 700; color: #0072BB; margin-bottom: 8px;">15</div>
-                    <p style="font-size: 18px; color: #666;">nodos territoriales</p>
-                </div>
-                <div class="col-md-3">
-                    <div style="font-size: 48px; font-weight: 700; color: #0072BB; margin-bottom: 8px;">34%</div>
-                    <p style="font-size: 18px; color: #666;">cobertura actual</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SECCIONES PRINCIPALES -->
-    <section style="padding: 60px 0; background-color: white;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card" style="background-color: #E8F5E9; border-left: 4px solid #4CAF50;">
-                        <h3 style="color: #4CAF50;"><i class="fa fa-users"></i> Para Personas Mayores</h3>
-                        <ul style="list-style: none; padding: 0; margin: 24px 0;">
-                            <li style="padding: 8px 0;"><a href="para-personas-mayores.html"><i class="fa fa-angle-right"></i> ¿Cómo funciona el sistema?</a></li>
-                            <li style="padding: 8px 0;"><a href="inscripcion.html"><i class="fa fa-angle-right"></i> Inscripción paso a paso</a></li>
-                            <li style="padding: 8px 0;"><a href="elegibilidad.html"><i class="fa fa-angle-right"></i> Requisitos y elegibilidad</a></li>
-                            <li style="padding: 8px 0;"><a href="para-personas-mayores.html#beneficios"><i class="fa fa-angle-right"></i> Mis beneficios</a></li>
-                            <li style="padding: 8px 0;"><a href="nodos.html"><i class="fa fa-angle-right"></i> Encontrar mi Nodo</a></li>
-                        </ul>
-                        <a href="para-personas-mayores.html" class="btn btn-primary">Ver todo <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="card" style="background-color: #E3F2FD; border-left: 4px solid #2196F3;">
-                        <h3 style="color: #2196F3;"><i class="fa fa-briefcase"></i> Para Cuidadores/as</h3>
-                        <ul style="list-style: none; padding: 0; margin: 24px 0;">
-                            <li style="padding: 8px 0;"><a href="trabajar.html"><i class="fa fa-angle-right"></i> Trabajar como cuidador/a</a></li>
-                            <li style="padding: 8px 0;"><a href="para-cuidadores.html#capacitacion"><i class="fa fa-angle-right"></i> Capacitación gratuita</a></li>
-                            <li style="padding: 8px 0;"><a href="para-cuidadores.html#cooperativas"><i class="fa fa-angle-right"></i> Cooperativas certificadas</a></li>
-                            <li style="padding: 8px 0;"><a href="mi-cuenta.html"><i class="fa fa-angle-right"></i> Mis turnos (login)</a></li>
-                            <li style="padding: 8px 0;"><a href="para-cuidadores.html#recursos"><i class="fa fa-angle-right"></i> Recursos y apoyo</a></li>
-                        </ul>
-                        <a href="para-cuidadores.html" class="btn btn-primary">Ver todo <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
             
-            <div class="row" style="margin-top: 32px;">
+            <div class="row">
                 <div class="col-md-6">
-                    <div class="card">
-                        <h3 style="color: #0072BB;"><i class="fa fa-info-circle"></i> El Sistema</h3>
-                        <p>Conocé cómo funciona CUIDAR.ar y las tres realidades del cuidado en Buenos Aires.</p>
-                        <ul style="list-style: none; padding: 0; margin: 16px 0;">
-                            <li style="padding: 8px 0;"><a href="el-sistema.html#publico"><i class="fa fa-angle-right"></i> Sistema Público (34%)</a></li>
-                            <li style="padding: 8px 0;"><a href="el-sistema.html#privado"><i class="fa fa-angle-right"></i> Sistema Privado (1%)</a></li>
-                            <li style="padding: 8px 0;"><a href="el-sistema.html#sin-acceso"><i class="fa fa-angle-right"></i> Sin Acceso (65%)</a></li>
+                    <article class="card">
+                        <h3 style="color: #0072BB;">
+                            <i class="fa fa-female" aria-hidden="true"></i> Cuidadora personal
+                        </h3>
+                        <ul class="list-check">
+                            <li>3 a 5 visitas semanales (2-4 horas cada una)</li>
+                            <li>Acompañamiento en actividades diarias</li>
+                            <li>Ayuda con medicación y alimentación</li>
+                            <li>Capacitación continua y supervisión</li>
                         </ul>
-                        <a href="el-sistema.html" class="btn btn-primary">Conocer el sistema <i class="fa fa-arrow-right"></i></a>
-                    </div>
+                    </article>
                 </div>
                 
                 <div class="col-md-6">
-                    <div class="card">
-                        <h3 style="color: #0072BB;"><i class="fa fa-bar-chart"></i> Transparencia</h3>
-                        <p>Accedé a datos abiertos, presupuestos e informes del sistema.</p>
-                        <ul style="list-style: none; padding: 0; margin: 16px 0;">
-                            <li style="padding: 8px 0;"><a href="transparencia.html#datos"><i class="fa fa-angle-right"></i> Datos abiertos</a></li>
-                            <li style="padding: 8px 0;"><a href="transparencia.html#presupuesto"><i class="fa fa-angle-right"></i> Presupuesto 2032</a></li>
-                            <li style="padding: 8px 0;"><a href="transparencia.html#informes"><i class="fa fa-angle-right"></i> Informes anuales</a></li>
+                    <article class="card">
+                        <h3 style="color: #0072BB;">
+                            <i class="fa fa-comments" aria-hidden="true"></i> Tita (asistente virtual)
+                        </h3>
+                        <ul class="list-check">
+                            <li>Recordatorios de medicación y turnos médicos</li>
+                            <li>Videollamadas con familia y amigos</li>
+                            <li>Juegos cognitivos y entretenimiento</li>
+                            <li>Alertas automáticas ante emergencias</li>
                         </ul>
-                        <a href="transparencia.html" class="btn btn-primary">Ver transparencia <i class="fa fa-arrow-right"></i></a>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="card">
+                        <h3 style="color: #0072BB;">
+                            <i class="fa fa-home" aria-hidden="true"></i> Tecnología en tu casa
+                        </h3>
+                        <ul class="list-check">
+                            <li>Sensores de movimiento y caídas</li>
+                            <li>Pulsera de emergencia con GPS</li>
+                            <li>Tablet con Tita incluida</li>
+                            <li>Monitoreo 24/7 sin cámaras (respetamos tu privacidad)</li>
+                        </ul>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="card">
+                        <h3 style="color: #0072BB;">
+                            <i class="fa fa-users" aria-hidden="true"></i> Red comunitaria
+                        </h3>
+                        <ul class="list-check">
+                            <li>Acceso a centros de día en tu barrio</li>
+                            <li>Banco de Tiempo para intercambio de servicios</li>
+                            <li>Talleres y actividades sociales</li>
+                            <li>Coordinación con el Nodo territorial</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Requisitos -->
+    <section style="padding: 60px 0; background-color: #E8F4FD;" aria-labelledby="requisitos-titulo">
+        <div class="container">
+            <h2 id="requisitos-titulo" style="color: #0072BB; text-align: center; margin-bottom: 48px;">
+                ¿Puedo inscribirme?
+            </h2>
+            
+            <div class="row">
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <div class="card">
+                        <h3 style="color: #4CAF50; margin-bottom: 24px;">
+                            <i class="fa fa-check-circle" aria-hidden="true"></i> Requisitos básicos
+                        </h3>
+                        <ul class="list-check">
+                            <li><strong>Tener 60 años o más</strong> (sin límite máximo de edad)</li>
+                            <li><strong>Vivir en CABA</strong> con domicilio legal comprobable</li>
+                            <li><strong>Vivir solo/a</strong> o sin red de apoyo familiar inmediata</li>
+                            <li><strong>Necesitar ayuda</strong> con algunas actividades diarias (autonomía parcial)</li>
+                            <li><strong>No tener obra social</strong> con cobertura de cuidado domiciliario</li>
+                        </ul>
+                        
+                        <div style="margin-top: 32px; text-align: center;">
+                            <a href="elegibilidad.html" class="btn btn-primary btn-lg" aria-label="Hacer el test de elegibilidad">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i> Hacer el test de elegibilidad (2 min)
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- ALERTA IMPORTANTE -->
-    <section style="padding: 40px 0; background-color: #FFF3CD;">
+    <!-- Copago -->
+    <section style="padding: 60px 0;" aria-labelledby="copago-titulo">
         <div class="container">
-            <div style="text-align: center;">
-                <i class="fa fa-exclamation-triangle" style="font-size: 48px; color: #856404; margin-bottom: 16px;"></i>
-                <h3 style="color: #856404; margin-bottom: 16px;">Evitá estafas</h3>
-                <p style="font-size: 18px; color: #856404; max-width: 700px; margin: 0 auto;">
-                    El proceso de inscripción a CUIDAR.ar es <strong>GRATUITO</strong>. 
-                    Nadie te va a pedir dinero para inscribirte. No hace falta intermediarios.
-                </p>
-                <p style="margin-top: 16px;">
-                    <a href="contacto.html#evitar-estafas" style="color: #856404; font-weight: 700; text-decoration: underline;">
-                        Conocé cómo identificar estafas <i class="fa fa-arrow-right"></i>
-                    </a>
-                </p>
+            <h2 id="copago-titulo" style="color: #0072BB; text-align: center; margin-bottom: 32px;">
+                ¿Cuánto cuesta?
+            </h2>
+            
+            <div class="row">
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <div class="alert alert-info" role="complementary">
+                        <strong><i class="fa fa-info-circle" aria-hidden="true"></i> Sistema de copago progresivo</strong><br>
+                        El costo depende de tus ingresos. Cuanto más ganás, más aportás. 
+                        Si cobrás la jubilación mínima, <strong>no pagás nada</strong>.
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #0072BB; margin-bottom: 24px;">Escala de copago (2032)</h3>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background-color: #F5F5F5;">
+                                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #0072BB;">Ingresos mensuales</th>
+                                    <th style="padding: 12px; text-align: right; border-bottom: 2px solid #0072BB;">Copago mensual</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 12px; border-bottom: 1px solid #E0E0E0;">Hasta $180,000</td>
+                                    <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0; font-weight: 700; color: #4CAF50;">$0 (gratis)</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border-bottom: 1px solid #E0E0E0;">$180,001 - $360,000</td>
+                                    <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">$180,000</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border-bottom: 1px solid #E0E0E0;">$360,001 - $540,000</td>
+                                    <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">$360,000</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px;">Más de $540,000</td>
+                                    <td style="padding: 12px; text-align: right; font-weight: 700;">$540,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p style="margin-top: 24px; font-size: 14px; color: #666;">
+                            * El copago se calcula según el recibo de jubilación más reciente. 
+                            Si tenés dudas, consultá en tu Nodo.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
-    <!-- FOOTER -->
-    <footer>
+    <!-- CTA Final -->
+    <section style="padding: 80px 0; background: linear-gradient(135deg, #0072BB 0%, #005A92 100%); color: white; text-align: center;" aria-labelledby="cta-titulo">
+        <div class="container">
+            <h2 id="cta-titulo" style="font-size: 36px; margin-bottom: 24px; color: white;">
+                ¿Listo para empezar?
+            </h2>
+            <p style="font-size: 20px; margin-bottom: 40px; opacity: 0.95;">
+                El proceso de inscripción toma 15 minutos. Te contactamos en 24-48hs.
+            </p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="inscripcion.html" class="btn btn-primary btn-lg" style="background-color: white; color: #0072BB; border-color: white;" aria-label="Ir al formulario de inscripción">
+                    <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme ahora
+                </a>
+                <a href="contacto.html" class="btn btn-secondary btn-lg" style="background-color: transparent; color: white; border-color: white;" aria-label="Ver opciones de contacto">
+                    <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
+                </a>
+                <a href="estado-tramite.html" class="btn btn-secondary btn-lg" style="background-color: transparent; color: white; border-color: white;" aria-label="Consultar el estado de mi trámite">
+                    <i class="fa fa-search" aria-hidden="true"></i> Ver estado de mi trámite
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Preguntas frecuentes -->
+    <section style="padding: 60px 0;" aria-labelledby="faq-titulo">
+        <div class="container">
+            <h2 id="faq-titulo" style="color: #0072BB; text-align: center; margin-bottom: 48px;">
+                Preguntas frecuentes
+            </h2>
+            
+            <div class="row">
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                            ¿Cuánto tarda el proceso de inscripción?
+                        </summary>
+                        <p style="margin-top: 16px; padding-left: 16px;">
+                            Entre <strong>15 y 45 días</strong> desde que completás la inscripción hasta que 
+                            empezás a recibir el servicio. El tiempo depende de la demanda en tu comuna.
+                        </p>
+                    </details>
+                    
+                    <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                            ¿Puedo elegir a mi cuidadora?
+                        </summary>
+                        <p style="margin-top: 16px; padding-left: 16px;">
+                            El Nodo te asigna una cuidadora según tu zona y disponibilidad. Si no te sentís 
+                            cómodo/a, podés solicitar cambio (hasta 2 veces). La idea es que encuentres a alguien 
+                            con quien te lleves bien.
+                        </p>
+                    </details>
+                    
+                    <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                            ¿La tecnología es obligatoria?
+                        </summary>
+                        <p style="margin-top: 16px; padding-left: 16px;">
+                            Sí, porque es parte integral del sistema de seguridad. Pero no te preocupes: 
+                            Tita es muy fácil de usar y la cuidadora te enseña. Si tenés problemas con la 
+                            tecnología, el Nodo te da soporte.
+                        </p>
+                    </details>
+                    
+                    <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                            ¿Qué pasa si me voy de vacaciones?
+                        </summary>
+                        <p style="margin-top: 16px; padding-left: 16px;">
+                            Avisás al Nodo y podés pausar el servicio hasta 30 días al año sin perder tu lugar. 
+                            Si te vas más tiempo, se evalúa caso por caso.
+                        </p>
+                    </details>
+                    
+                    <details style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                            ¿Hay lista de espera?
+                        </summary>
+                        <p style="margin-top: 16px; padding-left: 16px;">
+                            En algunas comunas sí, especialmente en las del sur. El tiempo de espera promedio es 
+                            de <strong>8-12 meses</strong>, pero depende mucho de tu zona y nivel de urgencia. 
+                            Los casos de mayor vulnerabilidad se priorizan.
+                        </p>
+                    </details>
+                    
+                    <div style="text-align: center; margin-top: 32px;">
+                        <a href="contacto.html" class="btn btn-primary" aria-label="Ver más preguntas frecuentes">
+                            <i class="fa fa-question-circle" aria-hidden="true"></i> Ver todas las preguntas frecuentes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer role="contentinfo">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <h4>PARA PERSONAS MAYORES</h4>
+                <nav class="col-md-3" aria-label="Enlaces de inscripción">
+                    <h4>INSCRIPCIÓN</h4>
                     <a href="inscripcion.html">Inscribirme</a>
                     <a href="elegibilidad.html">¿Soy elegible?</a>
-                    <a href="nodos.html">Encontrar mi Nodo</a>
-                    <a href="mi-cuenta.html">Mi cuenta</a>
                     <a href="estado-tramite.html">Estado de trámite</a>
-                </div>
-                <div class="col-md-3">
-                    <h4>PARA CUIDADORES/AS</h4>
-                    <a href="trabajar.html">Trabajar como cuidador/a</a>
-                    <a href="para-cuidadores.html#capacitacion">Capacitación</a>
-                    <a href="para-cuidadores.html#cooperativas">Cooperativas</a>
-                    <a href="mi-cuenta.html">Mis turnos</a>
-                </div>
-                <div class="col-md-3">
-                    <h4>INSTITUCIONAL</h4>
-                    <a href="el-sistema.html">¿Qué es CUIDAR.ar?</a>
-                    <a href="transparencia.html">Transparencia</a>
-                    <a href="el-sistema.html">El sistema</a>
-                    <a href="transparencia.html#informes">Informes</a>
-                </div>
-                <div class="col-md-3">
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces sobre el sistema">
+                    <h4>EL SISTEMA</h4>
+                    <a href="el-sistema.html">Cómo funciona</a>
+                    <a href="para-personas-mayores.html">Para personas mayores</a>
+                    <a href="para-cuidadores.html">Para cuidadores/as</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces de contacto y ayuda">
                     <h4>CONTACTO</h4>
-                    <p style="font-size: 14px; color: #CCCCCC;">
-                        <i class="fa fa-phone"></i> 147 (opción 5)<br>
-                        <i class="fa fa-phone"></i> 0800-CUIDADO<br>
-                        <i class="fa fa-envelope"></i> info@cuidar.ar
-                    </p>
-                    <a href="contacto.html">Contactate con CUIDAR</a>
-                    <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
-                </div>
+                    <a href="contacto.html">Contacto</a>
+                    <a href="nodos.html">15 Nodos territoriales</a>
+                    <a href="tel:147" aria-label="Llamar al 147">147 (línea gratuita)</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces institucionales">
+                    <h4>TRANSPARENCIA</h4>
+                    <a href="transparencia.html">Datos abiertos</a>
+                    <a href="transparencia.html#presupuesto">Presupuesto</a>
+                    <a href="transparencia.html#informes">Informes</a>
+                </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad Autónoma de Buenos Aires<br>
-                <small>Este sitio cumple con WCAG 2.1 AA</small></p>
+                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
             </div>
         </div>
     </footer>
@@ -303,16 +466,55 @@
             document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
             document.body.classList.add('text-size-' + size);
             localStorage.setItem('textSize', size);
+            
+            // Anuncio para lectores de pantalla
+            announceToScreenReader('Tamaño de texto cambiado a ' + 
+                (size === 'normal' ? 'normal' : size === 'large' ? 'grande' : 'extra grande'));
         }
+        
         function toggleHighContrast() {
             const body = document.body;
-            body.style.filter = body.style.filter === 'contrast(1.5)' ? 'none' : 'contrast(1.5)';
-            localStorage.setItem('highContrast', body.style.filter === 'contrast(1.5)' ? 'true' : 'false');
+            const isHighContrast = body.style.filter === 'contrast(1.5)';
+            body.style.filter = isHighContrast ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', isHighContrast ? 'false' : 'true');
+            
+            // Anuncio para lectores de pantalla
+            announceToScreenReader(isHighContrast ? 
+                'Alto contraste desactivado' : 
+                'Alto contraste activado');
         }
+        
+        // Función auxiliar para anuncios a lectores de pantalla
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = message;
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-10000px';
+            announcement.style.width = '1px';
+            announcement.style.height = '1px';
+            announcement.style.overflow = 'hidden';
+            
+            document.body.appendChild(announcement);
+            
+            setTimeout(() => {
+                document.body.removeChild(announcement);
+            }, 1000);
+        }
+        
+        // Restaurar preferencias guardadas
         window.addEventListener('load', function() {
             const textSize = localStorage.getItem('textSize');
-            if (textSize) document.body.classList.add('text-size-' + textSize);
-            if (localStorage.getItem('highContrast') === 'true') document.body.style.filter = 'contrast(1.5)';
+            if (textSize) {
+                document.body.classList.add('text-size-' + textSize);
+            }
+            
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.body.style.filter = 'contrast(1.5)';
+            }
         });
     </script>
 </body>
