@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="15 Nodos territoriales de CUIDAR.ar en toda la Ciudad de Buenos Aires">
+    <title>Nodos Territoriales | CUIDAR.ar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        /* Estilos específicos para esta página */
+        .filter-bar {
+            background-color: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: #F5F5F5;
+            border: 2px solid #E0E0E0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .filter-btn:hover {
+            background-color: #E8F4FD;
+            border-color: #0072BB;
+            color: #0072BB;
+        }
+        
+        .filter-btn.active {
+            background-color: #0072BB;
+            border-color: #0072BB;
+            color: white;
+        }
+        
+        .nodo-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #0072BB;
+            transition: all 0.3s;
+        }
+        
+        .nodo-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+        
+        .nodo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .nodo-title {
+            flex: 1;
+        }
+        
+        .nodo-title h3 {
+            color: #0072BB;
+            font-size: 24px;
+            margin: 0 0 8px 0;
+        }
+        
+        .nodo-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: #E8F4FD;
+            color: #0072BB;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        
+        .nodo-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            animation: pulse-dot 2s infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .nodo-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #E8F4FD;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0072BB;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .info-value {
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .nodo-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 1px solid #E0E0E0;
+        }
+        
+        .btn-action {
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-action.primary {
+            background-color: #0072BB;
+            color: white;
+            border: 2px solid #0072BB;
+        }
+        
+        .btn-action.primary:hover {
+            background-color: #005A92;
+            border-color: #005A92;
+        }
+        
+        .btn-action.secondary {
+            background-color: white;
+            color: #0072BB;
+            border: 2px solid #0072BB;
+        }
+        
+        .btn-action.secondary:hover {
+            background-color: #E8F4FD;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background-color: white;
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #0072BB;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .map-placeholder {
+            background: linear-gradient(135deg, #E8F4FD 0%, #C8E4FB 100%);
+            border-radius: 8px;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border: 2px dashed #0072BB;
+        }
+        
+        .map-placeholder i {
+            font-size: 64px;
+            color: #0072BB;
+            margin-bottom: 16px;
+        }
+        
+        @media (max-width: 767px) {
+            .nodo-header {
+                flex-direction: column;
+            }
+            
+            .nodo-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
+    
+    <div class="accessibility-bar">
+        <div class="container">
+            <div class="pull-left">
+                <button onclick="adjustTextSize('normal')">A</button>
+                <button onclick="adjustTextSize('large')">A+</button>
+                <button onclick="adjustTextSize('xlarge')">A++</button>
+            </div>
+            <div class="pull-right">
+                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    
+    <header class="header-gcba">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="para-personas-mayores.html">Para Personas Mayores</a>
+            <a href="para-cuidadores.html">Para Cuidadores/as</a>
+            <a href="el-sistema.html">El Sistema</a>
+            <a href="transparencia.html">Transparencia</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </nav>
+    
+    <section class="hero" id="main-content" style="padding: 40px 0;">
+        <div class="container">
+            <h1 style="font-size: 36px;">15 Nodos Territoriales</h1>
+            <p class="lead" style="font-size: 18px;">
+                Encontrá el Nodo más cercano a tu domicilio
+            </p>
+        </div>
+    </section>
+    
+    <!-- QUÉ ES UN NODO -->
+    <section style="padding: 40px 0; background-color: #E8F4FD;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <div style="text-align: center;">
+                        <i class="fa fa-info-circle" style="font-size: 64px; color: #0072BB; margin-bottom: 16px;"></i>
+                        <h2 style="color: #0072BB; margin-bottom: 16px;">¿Qué es un Nodo?</h2>
+                        <p style="font-size: 18px; line-height: 1.8; color: #333;">
+                            Los Nodos son los <strong>centros de operaciones territoriales</strong> de CUIDAR.ar. 
+                            Coordinan a las cuidadoras, los centros de día, los bancos de tiempo y toda la red 
+                            de cuidado de tu barrio. Cada Nodo atiende a las personas mayores de una o varias comunas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ESTADÍSTICAS -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Nodos activos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">68.000</div>
+                    <div class="stat-label">Personas atendidas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.200</div>
+                    <div class="stat-label">Cuidadoras trabajando</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Comunas cubiertas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- MAPA PLACEHOLDER -->
+    <section style="padding: 0 0 60px 0;">
+        <div class="container">
+            <div class="map-placeholder">
+                <i class="fa fa-map-marker"></i>
+                <h3 style="color: #0072BB; margin-bottom: 8px;">Mapa interactivo</h3>
+                <p style="color: #666;">Aquí iría un mapa interactivo de CABA con los 15 Nodos marcados</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FILTROS -->
+    <section style="padding: 0 0 40px 0;">
+        <div class="container">
+            <div class="filter-bar">
+                <h3 style="text-align: center; margin-bottom: 20px; color: #333;">
+                    <i class="fa fa-filter"></i> Filtrar por zona
+                </h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterNodos('all')">Todos (15)</button>
+                    <button class="filter-btn" onclick="filterNodos('norte')">Norte (3)</button>
+                    <button class="filter-btn" onclick="filterNodos('sur')">Sur (4)</button>
+                    <button class="filter-btn" onclick="filterNodos('centro')">Centro (3)</button>
+                    <button class="filter-btn" onclick="filterNodos('oeste')">Oeste (5)</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- LISTADO DE NODOS -->
+    <section style="padding: 0 0 60px 0;">
+        <div class="container" id="nodosContainer">
+            
+            <!-- NODO 1 -->
+            <div class="nodo-card" data-zona="centro">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Centro</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 1</span>
+                            <span class="nodo-badge">Comuna 2</span>
+                            <span class="nodo-badge">Comuna 3</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. de Mayo 525, Monserrat</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1001</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">5,200 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341001" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 2 -->
+            <div class="nodo-card" data-zona="norte">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Norte - Belgrano</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 12</span>
+                            <span class="nodo-badge">Comuna 13</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Cabildo 3067, Belgrano</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1002</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">4,800 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341002" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 3 -->
+            <div class="nodo-card" data-zona="norte">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Norte - Palermo</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 14</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Santa Fe 4360, Palermo</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1003</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs | Sáb 9-13hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">3,900 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341003" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 4 -->
+            <div class="nodo-card" data-zona="sur">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Sur - La Boca</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 4</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Almirante Brown 735, La Boca</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1004</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">5,600 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341004" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 5 -->
+            <div class="nodo-card" data-zona="sur">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Sur - Parque Patricios</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 8</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Caseros 2750, Parque Patricios</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1005</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 8-19hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">6,100 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341005" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 6 -->
+            <div class="nodo-card" data-zona="sur">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Sur - Villa Soldati</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 9</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Varela 3150, Villa Soldati</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1006</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">4,500 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341006" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 7 -->
+            <div class="nodo-card" data-zona="centro">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Centro - Almagro</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 5</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Rivadavia 4102, Almagro</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1007</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">4,300 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341007" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 8 -->
+            <div class="nodo-card" data-zona="oeste">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Caballito</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 6</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Pedro Goyena 935, Caballito</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1008</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs | Sáb 9-13hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">5,800 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341008" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 9 -->
+            <div class="nodo-card" data-zona="oeste">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Flores</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 7</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Rivadavia 6840, Flores</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1009</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">4,700 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341009" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 10 -->
+            <div class="nodo-card" data-zona="oeste">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Villa Luro</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 10</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Rivadavia 9250, Villa Luro</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1010</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">3,800 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341010" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 11 -->
+            <div class="nodo-card" data-zona="oeste">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Villa Devoto</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 11</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. San Martín 4780, Villa Devoto</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1011</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">4,200 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341011" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 12 -->
+            <div class="nodo-card" data-zona="oeste">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Oeste - Mataderos</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 15</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Directorio 4220, Mataderos</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1012</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">3,600 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341012" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 13 -->
+            <div class="nodo-card" data-zona="norte">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Norte - Núñez</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 13</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Cabildo 4560, Núñez</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1013</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">3,500 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341013" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- NODO 14 -->
+            <div class="nodo-card" data-zona="centro">
+                <div class="nodo-header">
+                    <div class="nodo-title">
+                        <h3><i class="fa fa-map-marker"></i> Nodo Centro - Recoleta</h3>
+                        <div>
+                            <span class="nodo-badge">Comuna 2</span>
+                        </div>
+                    </div>
+                    <div class="nodo-status">
+                        <span class="status-dot"></span>
+                        Abierto ahora
+                    </div>
+                </div>
+                
+                <div class="nodo-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Av. Callao 1250, Recoleta</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Teléfono</div>
+                            <div class="info-value">11-5234-1014</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lun-Vie 9-18hs | Sáb 9-13hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa fa-users"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Personas atendidas</div>
+                            <div class="info-value">4,100 usuarios</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nodo-actions">
+                    <a href="tel:1152341014" class="btn-action primary">
+                        <i class="fa fa-phone"></i> Llamar
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-calendar"></i> Sacar turno
+                    </a>
+                    <a href="#" class="btn-action secondary">
+                        <i class="fa fa-map"></i> Cómo llegar
+                    </a>
+                </div>
