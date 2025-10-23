@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verificá si cumplís los requisitos para inscribirte a CUIDAR.ar">
+    <title>¿Soy Elegible? | CUIDAR.ar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        /* Estilos específicos para esta página */
+        .test-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .question {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .question-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-color: #0072BB;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+        
+        .question h3 {
+            display: inline;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .question-description {
+            margin: 12px 0 16px 44px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .options {
+            margin-left: 44px;
+        }
+        
+        .option {
+            display: block;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+            background-color: #F5F5F5;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .option:hover {
+            background-color: #E8F4FD;
+            border-color: #0072BB;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .option label {
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .option.selected {
+            background-color: #E8F4FD;
+            border-color: #0072BB;
+            font-weight: 600;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            background-color: #0072BB;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 24px;
+        }
+        
+        .btn-submit:hover {
+            background-color: #005A92;
+        }
+        
+        .btn-submit:disabled {
+            background-color: #CCCCCC;
+            cursor: not-allowed;
+        }
+        
+        .result-container {
+            max-width: 700px;
+            margin: 40px auto;
+            display: none;
+        }
+        
+        .result-box {
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .result-box.elegible {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border: 3px solid #4CAF50;
+        }
+        
+        .result-box.no-elegible {
+            background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+            border: 3px solid #D9534F;
+        }
+        
+        .result-box.parcial {
+            background: linear-gradient(135deg, #FFF3CD 0%, #FFE082 100%);
+            border: 3px solid #F0AD4E;
+        }
+        
+        .result-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+        }
+        
+        .result-box.elegible .result-icon {
+            color: #4CAF50;
+        }
+        
+        .result-box.no-elegible .result-icon {
+            color: #D9534F;
+        }
+        
+        .result-box.parcial .result-icon {
+            color: #F0AD4E;
+        }
+        
+        .result-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .result-box.elegible .result-title {
+            color: #2E7D32;
+        }
+        
+        .result-box.no-elegible .result-title {
+            color: #C62828;
+        }
+        
+        .result-box.parcial .result-title {
+            color: #856404;
+        }
+        
+        .result-description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        
+        .result-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .progress-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            padding: 0 20px;
+        }
+        
+        .progress-step {
+            width: 18%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .progress-step::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: -50%;
+            width: 100%;
+            height: 2px;
+            background-color: #E0E0E0;
+            z-index: -1;
+        }
+        
+        .progress-step:first-child::before {
+            display: none;
+        }
+        
+        .progress-circle {
+            width: 30px;
+            height: 30px;
+            background-color: #E0E0E0;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #999;
+        }
+        
+        .progress-step.completed .progress-circle {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .progress-step.completed::before {
+            background-color: #4CAF50;
+        }
+        
+        .progress-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        @media (max-width: 767px) {
+            .progress-label {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
+    
+    <div class="accessibility-bar">
+        <div class="container">
+            <div class="pull-left">
+                <button onclick="adjustTextSize('normal')">A</button>
+                <button onclick="adjustTextSize('large')">A+</button>
+                <button onclick="adjustTextSize('xlarge')">A++</button>
+            </div>
+            <div class="pull-right">
+                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    
+    <header class="header-gcba">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="para-personas-mayores.html">Para Personas Mayores</a>
+            <a href="para-cuidadores.html">Para Cuidadores/as</a>
+            <a href="el-sistema.html">El Sistema</a>
+            <a href="transparencia.html">Transparencia</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </nav>
+    
+    <section class="hero" id="main-content" style="padding: 40px 0;">
+        <div class="container">
+            <h1 style="font-size: 36px;">¿Soy Elegible?</h1>
+            <p class="lead" style="font-size: 18px;">
+                Verificá en 2 minutos si cumplís los requisitos para CUIDAR.ar
+            </p>
+        </div>
+    </section>
+    
+    <!-- TEST DE ELEGIBILIDAD -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <!-- INDICADOR DE PROGRESO -->
+            <div class="progress-indicator">
+                <div class="progress-step completed" id="step1">
+                    <div class="progress-circle">1</div>
+                    <div class="progress-label">Edad</div>
+                </div>
+                <div class="progress-step" id="step2">
+                    <div class="progress-circle">2</div>
+                    <div class="progress-label">Residencia</div>
+                </div>
+                <div class="progress-step" id="step3">
+                    <div class="progress-circle">3</div>
+                    <div class="progress-label">Vivienda</div>
+                </div>
+                <div class="progress-step" id="step4">
+                    <div class="progress-circle">4</div>
+                    <div class="progress-label">Autonomía</div>
+                </div>
+                <div class="progress-step" id="step5">
+                    <div class="progress-circle">5</div>
+                    <div class="progress-label">Cobertura</div>
+                </div>
+            </div>
+            
+            <div class="test-container">
+                <form id="eligibilityForm">
+                    <!-- PREGUNTA 1: EDAD -->
+                    <div class="question">
+                        <span class="question-number">1</span>
+                        <h3>¿Cuál es tu edad?</h3>
+                        <p class="question-description">
+                            CUIDAR.ar está destinado a personas mayores de 60 años
+                        </p>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" id="edad1" name="edad" value="menor" required>
+                                <label for="edad1">Menos de 60 años</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="edad2" name="edad" value="60-75">
+                                <label for="edad2">Entre 60 y 75 años</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="edad3" name="edad" value="mayor75">
+                                <label for="edad3">Más de 75 años</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PREGUNTA 2: RESIDENCIA -->
+                    <div class="question">
+                        <span class="question-number">2</span>
+                        <h3>¿Dónde vivís actualmente?</h3>
+                        <p class="question-description">
+                            Necesitás tener domicilio legal en la Ciudad Autónoma de Buenos Aires
+                        </p>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" id="residencia1" name="residencia" value="caba" required>
+                                <label for="residencia1">Ciudad de Buenos Aires (CABA)</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="residencia2" name="residencia" value="provincia">
+                                <label for="residencia2">Provincia de Buenos Aires</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="residencia3" name="residencia" value="otro">
+                                <label for="residencia3">Otra provincia o país</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PREGUNTA 3: VIVE SOLO -->
+                    <div class="question">
+                        <span class="question-number">3</span>
+                        <h3>¿Vivís solo/a?</h3>
+                        <p class="question-description">
+                            El sistema prioriza a personas que viven solas sin red de apoyo inmediata
+                        </p>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" id="vivienda1" name="vivienda" value="solo" required>
+                                <label for="vivienda1">Sí, vivo solo/a</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="vivienda2" name="vivienda" value="familia-lejos">
+                                <label for="vivienda2">Vivo solo/a pero tengo familia cercana</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="vivienda3" name="vivienda" value="acompañado">
+                                <label for="vivienda3">Vivo con otra persona (familiar, cuidador, etc)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PREGUNTA 4: AUTONOMÍA -->
+                    <div class="question">
+                        <span class="question-number">4</span>
+                        <h3>¿Necesitás ayuda con actividades diarias?</h3>
+                        <p class="question-description">
+                            Por ejemplo: bañarte, vestirte, cocinar, tomar medicamentos, hacer compras
+                        </p>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" id="autonomia1" name="autonomia" value="autonomo" required>
+                                <label for="autonomia1">No, hago todo solo/a sin dificultad</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="autonomia2" name="autonomia" value="parcial">
+                                <label for="autonomia2">Sí, necesito ayuda con algunas cosas</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="autonomia3" name="autonomia" value="dependiente">
+                                <label for="autonomia3">Sí, necesito ayuda para casi todo</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PREGUNTA 5: OBRA SOCIAL -->
+                    <div class="question">
+                        <span class="question-number">5</span>
+                        <h3>¿Tenés obra social con cobertura de cuidado?</h3>
+                        <p class="question-description">
+                            Algunas obras sociales ya incluyen servicios de cuidado domiciliario
+                        </p>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" id="cobertura1" name="cobertura" value="sin-obra" required>
+                                <label for="cobertura1">No tengo obra social</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="cobertura2" name="cobertura" value="obra-sin-cuidado">
+                                <label for="cobertura2">Tengo obra social pero sin cobertura de cuidado</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="cobertura3" name="cobertura" value="obra-con-cuidado">
+                                <label for="cobertura3">Tengo obra social con cobertura de cuidado</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit" id="submitBtn" disabled>
+                        <i class="fa fa-check-circle"></i> Ver resultado
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- RESULTADO -->
+    <section id="resultSection" class="result-container">
+        <div class="container">
+            <div class="result-box" id="resultBox">
+                <div class="result-icon" id="resultIcon">
+                    <!-- Se genera con JS -->
+                </div>
+                <h2 class="result-title" id="resultTitle">
+                    <!-- Se genera con JS -->
+                </h2>
+                <p class="result-description" id="resultDescription">
+                    <!-- Se genera con JS -->
+                </p>
+                <div class="result-actions" id="resultActions">
+                    <!-- Se genera con JS -->
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 32px;" id="resultDetails">
+                <!-- Se genera con JS -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 32px;">
+                <button onclick="resetTest()" class="btn btn-primary">
+                    <i class="fa fa-refresh"></i> Hacer el test de nuevo
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- INFORMACIÓN ADICIONAL -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px; text-align: center;">Requisitos de elegibilidad</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-user" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
+                        <h3 style="color: #0072BB;">Edad</h3>
+                        <p>Tener <strong>60 años o más</strong>. No hay límite máximo de edad.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-map-marker" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
+                        <h3 style="color: #0072BB;">Residencia</h3>
+                        <p>Vivir en la <strong>Ciudad de Buenos Aires</strong> con domicilio legal comprobable.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-home" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
+                        <h3 style="color: #0072BB;">Vivienda</h3>
+                        <p><strong>Vivir solo/a</strong> o sin red de apoyo familiar inmediata.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" style="margin-top: 24px;">
+                <div class="col-md-4">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-hand-paper-o" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
+                        <h3 style="color: #0072BB;">Autonomía parcial</h3>
+                        <p>Necesitar ayuda con <strong>algunas actividades diarias</strong>, pero no atención médica intensiva.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-hospital-o" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
+                        <h3 style="color: #0072BB;">Sin cobertura</h3>
+                        <p><strong>No tener obra social</strong> con cobertura de cuidado domiciliario.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-money" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
+                        <h3 style="color: #0072BB;">Copago</h3>
+                        <p>Hay un <strong>copago según ingresos</strong>, desde $0 hasta $540,000/mes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px;">Preguntas sobre elegibilidad</h2>
+            
+            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                    Tengo 59 años pero en 2 meses cumplo 60, ¿puedo inscribirme?
+                </summary>
+                <p style="margin-top: 16px; padding-left: 16px;">
+                    Sí, podés iniciar la inscripción ahora. El proceso toma entre 15 y 45 días, 
+                    así que probablemente ya tengas 60 años cuando empiece el servicio.
+                </p>
+            </details>
+            
+            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                    Vivo con mi hijo pero está todo el día trabajando, ¿califico?
+                </summary>
+                <p style="margin-top: 16px; padding-left: 16px;">
+                    Depende de la evaluación. Si pasás muchas horas solo/a y necesitás acompañamiento, 
+                    podés ser elegible. La visita domiciliaria determinará tu situación específica.
+                </p>
+            </details>
+            
+            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                    Necesito ayuda médica intensiva, ¿puedo inscribirme?
+                </summary>
+                <p style="margin-top: 16px; padding-left: 16px;">
+                    No. CUIDAR.ar es para personas con <strong>autonomía parcial</strong>, no para casos 
+                    que requieren atención médica especializada. En esos casos, te derivamos al sistema de salud 
+                    o programas específicos.
+                </p>
+            </details>
+            
+            <details style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                    Tengo PAMI, ¿puedo acceder a CUIDAR.ar?
+                </summary>
+                <p style="margin-top: 16px; padding-left: 16px;">
+                    Depende. Si PAMI te cubre servicios de cuidado domiciliario, <strong>no</strong> podés 
+                    inscribirte a CUIDAR.ar (no hay doble cobertura). Si PAMI no te cubre cuidado, sí podés inscribirte.
+                </p>
+            </details>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>INSCRIPCIÓN</h4>
+                    <a href="inscripcion.html">Inscribirme</a>
+                    <a href="estado-tramite.html">Estado de trámite</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>REQUISITOS</h4>
+                    <a href="para-personas-mayores.html">¿Cómo funciona?</a>
+                    <a href="para-personas-mayores.html#beneficios">Qué incluye</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>AYUDA</h4>
+                    <p style="font-size: 14px; color: #CCCCCC;">
+                        <i class="fa fa-phone"></i> 147 (opción 5)<br>
+                        <i class="fa fa-envelope"></i> info@cuidar.ar
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h4>NAVEGACIÓN</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2032 GCBA - WCAG 2.1 AA</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function adjustTextSize(size) {
+            document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
+            document.body.classList.add('text-size-' + size);
+            localStorage.setItem('textSize', size);
+        }
+        
+        function toggleHighContrast() {
+            const body = document.body;
+            body.style.filter = body.style.filter === 'contrast(1.5)' ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', body.style.filter === 'contrast(1.5)' ? 'true' : 'false');
+        }
+        
+        window.addEventListener('load', function() {
+            const textSize = localStorage.getItem('textSize');
+            if (textSize) document.body.classList.add('text-size-' + textSize);
+            if (localStorage.getItem('highContrast') === 'true') document.body.style.filter = 'contrast(1.5)';
+        });
+        
+        // MANEJO DEL FORMULARIO
+        const form = document.getElementById('eligibilityForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const allOptions = document.querySelectorAll('.option');
+        
+        // Manejar selección de opciones
+        allOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                radio.checked = true;
+                
+                // Remover selected de todas las opciones del mismo grupo
+                const name = radio.name;
+                document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                    r.parentElement.classList.remove('selected');
+                });
+                
+                // Agregar selected a la opción clickeada
+                this.classList.add('selected');
+                
+                // Actualizar progreso
+                updateProgress();
+                
+                // Habilitar botón si todas las preguntas están respondidas
+                checkFormCompletion();
+            });
+        });
+        
+        function updateProgress() {
+            const questions = ['edad', 'residencia', 'vivienda', 'autonomia', 'cobertura'];
+            questions.forEach((q, index) => {
+                const answered = document.querySelector(`input[name="${q}"]:checked`);
+                const step = document.getElementById(`step${index + 1}`);
+                if (answered) {
+                    step.classList.add('completed');
+                } else {
+                    step.classList.remove('completed');
+                }
+            });
+        }
+        
+        function checkFormCompletion() {
+            const allAnswered = ['edad', 'residencia', 'vivienda', 'autonomia', 'cobertura']
+                .every(q => document.querySelector(`input[name="${q}"]:checked`));
+            submitBtn.disabled = !allAnswered;
+        }
+        
+        // Evaluar elegibilidad
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const edad = document.querySelector('input[name="edad"]:checked').value;
+            const residencia = document.querySelector('input[name="residencia"]:checked').value;
+            const vivienda = document.querySelector('input[name="vivienda"]:checked').value;
+            const autonomia = document.querySelector('input[name="autonomia"]:checked').value;
+            const cobertura = document.querySelector('input[name="cobertura"]:checked').value;
+            
+            let resultado = 'elegible';
+            let problemas = [];
+            
+            // Criterios eliminatorios
+            if (edad === 'menor') {
+                resultado = 'no-elegible';
+                problemas.push('Tenés que tener 60 años o más');
+            }
+            
+            if (residencia !== 'caba') {
+                resultado = 'no-elegible';
+                problemas.push('Tenés que vivir en CABA con domicilio legal');
+            }
+            
+            if (cobertura === 'obra-con-cuidado') {
+                resultado = 'no-elegible';
+                problemas.push('Ya tenés cobertura de cuidado por tu obra social');
+            }
+            
+            if (autonomia === 'autonomo' && resultado === 'elegible') {
+                resultado = 'parcial';
+                problemas.push('CUIDAR.ar es para personas que necesitan ayuda con actividades diarias');
+            }
+            
+            if (autonomia === 'dependiente' && resultado === 'elegible') {
+                resultado = 'parcial';
+                problemas.push('Podés necesitar atención más intensiva que la que ofrece CUIDAR.ar');
+            }
+            
+            if (vivienda === 'acompañado' && resultado === 'elegible') {
+                resultado = 'parcial';
+                problemas.push('Se prioriza a personas que viven solas, pero podés ser elegible según evaluación');
+            }
+            
+            mostrarResultado(resultado, problemas);
+        });
+        
+        function mostrarResultado(resultado, problemas) {
+            const resultBox = document.getElementById('resultBox');
+            const resultIcon = document.getElementById('resultIcon');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultDescription = document.getElementById('resultDescription');
+            const resultActions = document.getElementById('resultActions');
+            const resultDetails = document.getElementById('resultDetails');
+            
+            // Limpiar clases
+            resultBox.className = 'result-box ' + resultado;
+            
+            if (resultado === 'elegible') {
+                resultIcon.innerHTML = '<i class="fa fa-check-circle"></i>';
+                resultTitle.textContent = '¡Sos elegible! ✓';
+                resultDescription.textContent = 'Cumplís con todos los requisitos para inscribirte a CUIDAR.ar. Podés iniciar tu inscripción ahora mismo y empezar a recibir el servicio en 15-45 días.';
+                
+                resultActions.innerHTML = `
+                    <a href="inscripcion.html" class="btn btn-primary btn-lg">
+                        <i class="fa fa-edit"></i> Inscribirme ahora
+                    </a>
+                    <a href="para-personas-mayores.html" class="btn btn-primary">
+                        <i class="fa fa-info-circle"></i> Conocer más
+                    </a>
+                `;
+                
+                resultDetails.innerHTML = `
+                    <h3 style="color: #4CAF50;"><i class="fa fa-check"></i> Próximos pasos</h3>
+                    <ol style="font-size: 16px; line-height: 2; margin: 16px 0;">
+                        <li><strong>Inscribite</strong> llamando al 147 (opción 5) o por WhatsApp</li>
+                        <li><strong>Prepará tu documentación:</strong> DNI, comprobante de domicilio, recibo de jubilación</li>
+                        <li><strong>Esperá la visita domiciliaria</strong> del Nodo de tu zona (15-45 días)</li>
+                        <li><strong>Te asignan una cuidadora</strong> y empezás el servicio</li>
+                    </ol>
+                    <p style="margin-top: 24px; padding: 16px; background-color: #E8F5E9; border-radius: 8px;">
+                        <strong><i class="fa fa-lightbulb-o"></i> Importante:</strong> 
+                        El proceso es 100% gratuito. Nadie te va a pedir dinero para inscribirte.
+                    </p>
+                `;
+                
+            } else if (resultado === 'parcial') {
+                resultIcon.innerHTML = '<i class="fa fa-exclamation-triangle"></i>';
+                resultTitle.textContent = 'Podés ser elegible';
+                resultDescription.textContent = 'Cumplís algunos requisitos, pero necesitamos evaluar tu caso específico. Te recomendamos contactarte con nosotros para que un referente analice tu situación.';
+                
+                resultActions.innerHTML = `
+                    <a href="contacto.html" class="btn btn-primary btn-lg">
+                        <i class="fa fa-phone"></i> Contactar al 147
+                    </a>
+                    <a href="inscripcion.html" class="btn btn-primary">
+                        <i class="fa fa-edit"></i> Intentar inscribirme
+                    </a>
+                `;
+                
+                resultDetails.innerHTML = `
+                    <h3 style="color: #F0AD4E;"><i class="fa fa-info-circle"></i> Aspectos a considerar</h3>
+                    <ul style="font-size: 16px; line-height: 2; margin: 16px 0;">
+                        ${problemas.map(p => `<li>${p}</li>`).join('')}
+                    </ul>
+                    <p style="margin-top: 24px; padding: 16px; background-color: #FFF3CD; border-radius: 8px;">
+                        <strong><i class="fa fa-phone"></i> Recomendación:</strong> 
+                        Llamá al <strong>147 (opción 5)</strong> para hablar con un referente que pueda evaluar 
+                        tu caso particular y orientarte sobre las mejores opciones disponibles.
+                    </p>
+                `;
+                
+            } else {
+                resultIcon.innerHTML = '<i class="fa fa-times-circle"></i>';
+                resultTitle.textContent = 'No sos elegible por ahora';
+                resultDescription.textContent = 'Lamentablemente no cumplís con los requisitos básicos de CUIDAR.ar en este momento. Te explicamos por qué y qué alternativas tenés.';
+                
+                resultActions.innerHTML = `
+                    <a href="contacto.html" class="btn btn-primary">
+                        <i class="fa fa-phone"></i> Consultar alternativas
+                    </a>
+                    <a href="el-sistema.html" class="btn btn-primary">
+                        <i class="fa fa-info-circle"></i> Conocer el sistema
+                    </a>
+                `;
+                
+                resultDetails.innerHTML = `
+                    <h3 style="color: #D9534F;"><i class="fa fa-times"></i> Requisitos no cumplidos</h3>
+                    <ul style="font-size: 16px; line-height: 2; margin: 16px 0;">
+                        ${problemas.map(p => `<li>${p}</li>`).join('')}
+                    </ul>
+                    <p style="margin-top: 24px; padding: 16px; background-color: #FFEBEE; border-radius: 8px;">
+                        <strong><i class="fa fa-heart"></i> No te preocupes:</strong> 
+                        Existen otros programas y recursos. Llamá al <strong>147 (opción 5)</strong> para que 
+                        te orienten sobre las alternativas disponibles según tu situación.
+                    </p>
+                `;
+            }
+            
+            // Mostrar resultado y hacer scroll
+            document.getElementById('resultSection').style.display = 'block';
+            document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function resetTest() {
+            form.reset();
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelectorAll('.progress-step').forEach(step => step.classList.remove('completed'));
+            document.getElementById('step1').classList.add('completed');
+            submitBtn.disabled = true;
+            document.getElementById('resultSection').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
