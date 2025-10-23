@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Información para personas mayores sobre el sistema CUIDAR.ar">
+    <title>Para Personas Mayores | CUIDAR.ar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
+    
+    <div class="accessibility-bar">
+        <div class="container">
+            <div class="pull-left">
+                <button onclick="adjustTextSize('normal')">A</button>
+                <button onclick="adjustTextSize('large')">A+</button>
+                <button onclick="adjustTextSize('xlarge')">A++</button>
+            </div>
+            <div class="pull-right">
+                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    
+    <header class="header-gcba">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="para-personas-mayores.html" class="active">Para Personas Mayores</a>
+            <a href="para-cuidadores.html">Para Cuidadores/as</a>
+            <a href="el-sistema.html">El Sistema</a>
+            <a href="transparencia.html">Transparencia</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </nav>
+    
+    <section class="hero" id="main-content" style="padding: 40px 0;">
+        <div class="container">
+            <h1 style="font-size: 36px;">Para Personas Mayores</h1>
+            <p class="lead" style="font-size: 18px;">
+                Todo lo que necesitás saber sobre CUIDAR.ar
+            </p>
+        </div>
+    </section>
+    
+    <!-- ACCESOS RÁPIDOS -->
+    <section style="padding: 40px 0; background-color: #F5F5F5;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="inscripcion.html" class="quick-access-card">
+                        <i class="fa fa-edit" style="font-size: 40px; color: #0072BB;"></i>
+                        <h3>Inscribirme</h3>
+                        <p>Iniciar inscripción online</p>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="elegibilidad.html" class="quick-access-card">
+                        <i class="fa fa-check-circle" style="font-size: 40px; color: #0072BB;"></i>
+                        <h3>¿Soy elegible?</h3>
+                        <p>Verificá requisitos</p>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="nodos.html" class="quick-access-card">
+                        <i class="fa fa-map-marker" style="font-size: 40px; color: #0072BB;"></i>
+                        <h3>Mi Nodo</h3>
+                        <p>Encontrá el más cercano</p>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="estado-tramite.html" class="quick-access-card">
+                        <i class="fa fa-search" style="font-size: 40px; color: #0072BB;"></i>
+                        <h3>Estado de Trámite</h3>
+                        <p>Consultá tu inscripción</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CÓMO FUNCIONA -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px;">¿Cómo funciona el sistema?</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <h3><i class="fa fa-info-circle" style="color: #0072BB;"></i> Qué es CUIDAR.ar</h3>
+                        <p style="font-size: 16px; line-height: 1.8;">
+                            Es un sistema que coordina <strong>cooperativas de cuidado</strong>, 
+                            <strong>vecinos</strong> y el <strong>Estado</strong> para que personas mayores 
+                            que viven solas puedan recibir acompañamiento en sus hogares.
+                        </p>
+                        <p style="font-size: 16px; line-height: 1.8;">
+                            No es un geriátrico. No te tenés que mudar. El cuidado viene a tu casa.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card" style="background-color: #E8F4FD;">
+                        <h3><i class="fa fa-users" style="color: #0072BB;"></i> Quién puede inscribirse</h3>
+                        <ul class="list-check">
+                            <li>Personas mayores de 60 años</li>
+                            <li>Que vivan solas en CABA</li>
+                            <li>Con dificultad en actividades diarias</li>
+                            <li>Sin obra social con cobertura de cuidado</li>
+                        </ul>
+                        <p style="margin-top: 16px;">
+                            <a href="elegibilidad.html" class="btn btn-primary">
+                                Verificar si soy elegible <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- QUÉ INCLUYE -->
+    <section id="beneficios" style="padding: 60px 0; background-color: #F5F5F5;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px;">Qué incluye el sistema</h2>
+            
+            <div class="card" style="background-color: white;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 style="color: #4CAF50;"><i class="fa fa-check-circle"></i> Lo que SÍ incluye</h3>
+                        <ul class="list-check">
+                            <li><strong>120 horas/mes de cuidado humano</strong> - Una cuidadora te visita regularmente</li>
+                            <li><strong>Centro de día</strong> - 3 veces por semana</li>
+                            <li><strong>Asistente de voz "Tita"</strong> - Recordatorios y compañía</li>
+                            <li><strong>Pulsera de teleasistencia</strong> - Botón de pánico y GPS</li>
+                            <li><strong>Sensores en el hogar</strong> - Detectan anomalías sin cámaras</li>
+                            <li><strong>Banco de tiempo barrial</strong> - Red de vecinos</li>
+                            <li><strong>Coordinación desde el Nodo</strong> - Referente asignado</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h3 style="color: #D9534F;"><i class="fa fa-times-circle"></i> Lo que NO incluye</h3>
+                        <ul class="list-check list-cross">
+                            <li>Cuidado 24 horas continuo</li>
+                            <li>Atención médica especializada</li>
+                            <li>Reparaciones del hogar</li>
+                            <li>Mudanzas o transporte</li>
+                            <li>Trámites legales</li>
+                            <li>Internación o geriátrico</li>
+                        </ul>
+                        
+                        <div class="alert alert-info" style="margin-top: 24px;">
+                            <strong><i class="fa fa-info-circle"></i> Importante:</strong> 
+                            CUIDAR.ar es para personas con autonomía parcial. 
+                            Si necesitás atención médica intensiva, te derivamos al sistema de salud.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- COPAGO -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px;">¿Cuánto voy a pagar?</h2>
+            
+            <div class="alert alert-info">
+                <strong><i class="fa fa-calculator"></i> El copago es según tus ingresos.</strong> 
+                El costo total del servicio es $540,000/mes, pero vos pagás solo una parte según tu jubilación.
+            </div>
+            
+            <div class="row" style="margin-top: 32px;">
+                <div class="col-md-3">
+                    <div class="card" style="text-align: center; background-color: #E8F5E9;">
+                        <h4 style="color: #4CAF50;">Jubilación Mínima</h4>
+                        <p style="font-size: 14px; color: #666;">Hasta $520,000/mes</p>
+                        <div style="font-size: 36px; font-weight: 700; color: #4CAF50; margin: 16px 0;">
+                            $0 - $80.000
+                        </div>
+                        <p style="font-size: 13px;">por mes</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card" style="text-align: center; background-color: #FFF3CD;">
+                        <h4 style="color: #856404;">Jubilación Media</h4>
+                        <p style="font-size: 14px; color: #666;">$520,000 - $800,000</p>
+                        <div style="font-size: 36px; font-weight: 700; color: #856404; margin: 16px 0;">
+                            $150.000 - $300.000
+                        </div>
+                        <p style="font-size: 13px;">por mes</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card" style="text-align: center; background-color: #FCE4EC;">
+                        <h4 style="color: #E91E63;">Jubilación Alta</h4>
+                        <p style="font-size: 14px; color: #666;">Más de $800,000</p>
+                        <div style="font-size: 36px; font-weight: 700; color: #E91E63; margin: 16px 0;">
+                            $400.000 - $540.000
+                        </div>
+                        <p style="font-size: 13px;">por mes</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card" style="text-align: center; background-color: #E3F2FD;">
+                        <h4 style="color: #2196F3;">Tecnología</h4>
+                        <p style="font-size: 14px; color: #666;">Costo inicial</p>
+                        <div style="font-size: 36px; font-weight: 700; color: #2196F3; margin: 16px 0;">
+                            $0 - $50.000
+                        </div>
+                        <p style="font-size: 13px;">pago único</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- TESTIMONIO -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px; text-align: center;">Testimonios</h2>
+            
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Antes vivía sola y tenía miedo todo el tiempo. Ahora Gladys viene tres veces por semana, 
+                    vamos al Centro de Día los martes y jueves, y tengo el Tita que me recuerda las pastillas. 
+                    Ya no me siento tan sola."
+                </div>
+                <div class="testimonial-author">Marta, 74 años</div>
+                <div class="testimonial-role">Usuaria en Caballito desde 2030</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA FINAL -->
+    <section style="padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 24px;">¿Listo para inscribirte?</h2>
+            <p style="font-size: 18px; margin-bottom: 32px;">
+                El proceso toma entre 15 y 45 días según tu comuna
+            </p>
+            <a href="inscripcion.html" class="btn btn-primary btn-lg">
+                <i class="fa fa-edit"></i> Iniciar inscripción
+            </a>
+            <p style="margin-top: 16px; color: #666;">
+                También podés llamar al 147 (opción 5) o al 0800-CUIDADO
+            </p>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>PARA PERSONAS MAYORES</h4>
+                    <a href="inscripcion.html">Inscribirme</a>
+                    <a href="elegibilidad.html">¿Soy elegible?</a>
+                    <a href="nodos.html">Encontrar mi Nodo</a>
+                    <a href="mi-cuenta.html">Mi cuenta</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>CONTACTO</h4>
+                    <p style="font-size: 14px; color: #CCCCCC;">
+                        <i class="fa fa-phone"></i> 147 (opción 5)<br>
+                        <i class="fa fa-phone"></i> 0800-CUIDADO<br>
+                        <i class="fa fa-envelope"></i> info@cuidar.ar
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h4>NAVEGACIÓN</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                    <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>SEGUINOS</h4>
+                    <a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+                    <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class=
