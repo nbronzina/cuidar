@@ -3,40 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Información para personas mayores sobre el sistema CUIDAR.ar">
+    <meta name="description" content="CUIDAR.ar te acompaña en tu casa con respeto y cariño. Conocé todos los servicios para vivir mejor.">
     <title>Para Personas Mayores | CUIDAR.ar</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0072BB;
+            --color-secondary: #66BB6A;
+            --color-accent: #FF9800;
+            --color-warm: #FFF8E1;
+        }
+        
+        .hero-personas {
+            background: linear-gradient(135deg, rgba(255,152,0,0.95), rgba(245,124,0,0.95)),
+                        url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1600&h=500&fit=crop') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-personas h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero-personas .lead {
+            font-size: 26px;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+            transition: all 0.3s;
+            border-top: 4px solid var(--color-secondary);
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: white;
+            font-size: 36px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            gap: 20px;
+            padding: 24px;
+            background-color: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+        }
+        
+        .benefit-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transform: translateX(8px);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-warm);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        
+        .faq-item details {
+            padding: 24px;
+        }
+        
+        .faq-item summary {
+            font-weight: 700;
+            font-size: 20px;
+            cursor: pointer;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            list-style: none;
+        }
+        
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        .faq-item summary::before {
+            content: '+';
+            width: 32px;
+            height: 32px;
+            background-color: var(--color-secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .faq-item details[open] summary::before {
+            content: '−';
+        }
+        
+        .faq-item details p {
+            margin-top: 20px;
+            padding-left: 48px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 24px;
+            margin-bottom: 24px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 32px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--color-secondary);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            color: white;
+            padding: 48px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(102,187,106,0.3);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 40px;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37,211,102,0.6);
+            color: white;
+        }
+        
+        @media (max-width: 767px) {
+            .hero-personas h1 {
+                font-size: 32px;
+            }
+            .hero-personas .lead {
+                font-size: 20px;
+            }
+            .service-card {
+                padding: 24px;
+            }
+            .timeline {
+                padding-left: 24px;
+            }
+            .timeline::before {
+                left: 7px;
+            }
+            .timeline-item::before {
+                left: -21px;
+            }
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container">
             <div class="pull-left">
-                <button onclick="adjustTextSize('normal')">A</button>
-                <button onclick="adjustTextSize('large')">A+</button>
-                <button onclick="adjustTextSize('xlarge')">A++</button>
+                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
+                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
+                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
             </div>
             <div class="pull-right">
-                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
+                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
+                </button>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
     
-    <header class="header-gcba">
+    <header class="header-gcba" role="banner">
         <div class="container">
-            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
+                <i class="fa fa-home icon" aria-hidden="true"></i>
+                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            </a>
         </div>
     </header>
     
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
             <a href="index.html">Inicio</a>
-            <a href="para-personas-mayores.html" class="active">Para Personas Mayores</a>
+            <a href="para-personas-mayores.html" aria-current="page" class="active">Para Personas Mayores</a>
             <a href="para-cuidadores.html">Para Cuidadores/as</a>
             <a href="el-sistema.html">El Sistema</a>
             <a href="transparencia.html">Transparencia</a>
@@ -44,250 +292,502 @@
         </div>
     </nav>
     
-    <section class="hero" id="main-content" style="padding: 40px 0;">
+    <section class="hero-personas" id="main-content" role="main">
         <div class="container">
-            <h1 style="font-size: 36px;">Para Personas Mayores</h1>
-            <p class="lead" style="font-size: 18px;">
-                Todo lo que necesitás saber sobre CUIDAR.ar
+            <h1>Te acompañamos para que vivas mejor</h1>
+            <p class="lead">
+                En tu casa, a tu ritmo, con respeto y cariño
             </p>
-        </div>
-    </section>
-    
-    <!-- ACCESOS RÁPIDOS -->
-    <section style="padding: 40px 0; background-color: #F5F5F5;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="inscripcion.html" class="quick-access-card">
-                        <i class="fa fa-edit" style="font-size: 40px; color: #0072BB;"></i>
-                        <h3>Inscribirme</h3>
-                        <p>Iniciar inscripción online</p>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="elegibilidad.html" class="quick-access-card">
-                        <i class="fa fa-check-circle" style="font-size: 40px; color: #0072BB;"></i>
-                        <h3>¿Soy elegible?</h3>
-                        <p>Verificá requisitos</p>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="nodos.html" class="quick-access-card">
-                        <i class="fa fa-map-marker" style="font-size: 40px; color: #0072BB;"></i>
-                        <h3>Mi Nodo</h3>
-                        <p>Encontrá el más cercano</p>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="estado-tramite.html" class="quick-access-card">
-                        <i class="fa fa-search" style="font-size: 40px; color: #0072BB;"></i>
-                        <h3>Estado de Trámite</h3>
-                        <p>Consultá tu inscripción</p>
-                    </a>
-                </div>
+            <div style="margin-top: 40px;">
+                <a href="tel:147" class="btn btn-lg" style="background-color: white; color: var(--color-accent); border-color: white; font-size: 20px; padding: 18px 40px;" aria-label="Llamar al 147">
+                    <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
+                </a>
             </div>
         </div>
     </section>
     
-    <!-- CÓMO FUNCIONA -->
-    <section style="padding: 60px 0;">
+    <!-- Qué recibís -->
+    <section style="padding: 60px 0;" aria-labelledby="servicios-titulo">
         <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px;">¿Cómo funciona el sistema?</h2>
+            <h2 id="servicios-titulo" style="color: var(--color-accent); text-align: center; margin-bottom: 24px; font-size: 36px;">
+                ¿Qué recibís con CUIDAR.ar?
+            </h2>
+            <p style="text-align: center; font-size: 20px; color: #666; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                No es solo una cuidadora. Es todo un sistema pensado para vos.
+            </p>
+            
+            <div class="row">
+                <article class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 16px; text-align: center;">
+                            Una persona que te cuida
+                        </h3>
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Te visita 3 a 5 veces por semana</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Te ayuda con lo que necesites</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Compañía y charla</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Profesional capacitada</span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-accent), #F57C00);">
+                            <i class="fa fa-tablet" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: var(--color-accent); font-size: 24px; margin-bottom: 16px; text-align: center;">
+                            Tita, tu asistente
+                        </h3>
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Te recuerda tus medicamentos</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Videollamadas con tu familia</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Juegos para la memoria</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Muy fácil de usar</span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-primary), #005A92);">
+                            <i class="fa fa-shield" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: var(--color-primary); font-size: 24px; margin-bottom: 16px; text-align: center;">
+                            Seguridad 24/7
+                        </h3>
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Pulsera de emergencia</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Sensores en tu casa</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Sin cámaras (privacidad)</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Alertas automáticas</span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Beneficios -->
+    <section style="padding: 60px 0; background-color: var(--color-warm);" aria-labelledby="beneficios-titulo">
+        <div class="container">
+            <h2 id="beneficios-titulo" style="color: var(--color-accent); text-align: center; margin-bottom: 48px; font-size: 36px;">
+                ¿Qué ganás vos?
+            </h2>
             
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card">
-                        <h3><i class="fa fa-info-circle" style="color: #0072BB;"></i> Qué es CUIDAR.ar</h3>
-                        <p style="font-size: 16px; line-height: 1.8;">
-                            Es un sistema que coordina <strong>cooperativas de cuidado</strong>, 
-                            <strong>vecinos</strong> y el <strong>Estado</strong> para que personas mayores 
-                            que viven solas puedan recibir acompañamiento en sus hogares.
-                        </p>
-                        <p style="font-size: 16px; line-height: 1.8;">
-                            No es un geriátrico. No te tenés que mudar. El cuidado viene a tu casa.
-                        </p>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                                Seguís en tu casa
+                            </h3>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                No tenés que ir a un geriátrico ni mudarte. Te cuidamos donde vos querés estar.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="col-md-6">
-                    <div class="card" style="background-color: #E8F4FD;">
-                        <h3><i class="fa fa-users" style="color: #0072BB;"></i> Quién puede inscribirse</h3>
-                        <ul class="list-check">
-                            <li>Personas mayores de 60 años</li>
-                            <li>Que vivan solas en CABA</li>
-                            <li>Con dificultad en actividades diarias</li>
-                            <li>Sin obra social con cobertura de cuidado</li>
-                        </ul>
-                        <p style="margin-top: 16px;">
-                            <a href="elegibilidad.html" class="btn btn-primary">
-                                Verificar si soy elegible <i class="fa fa-arrow-right"></i>
-                            </a>
-                        </p>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                                Menos soledad
+                            </h3>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Tenés con quien charlar, compartir un mate, contar tus historias.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                                Mejor salud
+                            </h3>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Te ayudamos a tomar tus medicamentos a horario y controlar tu salud.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fa fa-smile-o" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                                Más tranquilidad
+                            </h3>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Sabés que si pasa algo, hay alguien que te va a ayudar de inmediato.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                                Más independencia
+                            </h3>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Te ayudamos con las tareas difíciles para que puedas hacer lo que te gusta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                                Dignidad y respeto
+                            </h3>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Tu cuidadora respeta tus tiempos, tus gustos, tu forma de ser.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- QUÉ INCLUYE -->
-    <section id="beneficios" style="padding: 60px 0; background-color: #F5F5F5;">
+    <!-- Cómo es un día con CUIDAR.ar -->
+    <section style="padding: 60px 0;" aria-labelledby="dia-titulo">
         <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px;">Qué incluye el sistema</h2>
+            <h2 id="dia-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 24px; font-size: 36px;">
+                Un día con CUIDAR.ar
+            </h2>
+            <p style="text-align: center; font-size: 20px; color: #666; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Así es un día típico de María, usuaria de CUIDAR.ar
+            </p>
             
-            <div class="card" style="background-color: white;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 style="color: #4CAF50;"><i class="fa fa-check-circle"></i> Lo que SÍ incluye</h3>
-                        <ul class="list-check">
-                            <li><strong>120 horas/mes de cuidado humano</strong> - Una cuidadora te visita regularmente</li>
-                            <li><strong>Centro de día</strong> - 3 veces por semana</li>
-                            <li><strong>Asistente de voz "Tita"</strong> - Recordatorios y compañía</li>
-                            <li><strong>Pulsera de teleasistencia</strong> - Botón de pánico y GPS</li>
-                            <li><strong>Sensores en el hogar</strong> - Detectan anomalías sin cámaras</li>
-                            <li><strong>Banco de tiempo barrial</strong> - Red de vecinos</li>
-                            <li><strong>Coordinación desde el Nodo</strong> - Referente asignado</li>
-                        </ul>
+            <div class="row">
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 8:00 AM
+                            </strong>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Tita te despierta suavemente y te recuerda tus medicamentos de la mañana.
+                            </p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 10:00 AM
+                            </strong>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Llega Gladys, tu cuidadora. Tomás un mate juntas mientras ella te pregunta cómo dormiste.
+                            </p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 AM
+                            </strong>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Van juntas al supermercado del barrio. Gladys te ayuda a cargar las bolsas.
+                            </p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM
+                            </strong>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Preparan el almuerzo juntas. Gladys te ayuda a cortar las verduras.
+                            </p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 3:00 PM
+                            </strong>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Videollamada con tu nieto por Tita. Le contás cómo te fue en la semana.
+                            </p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 7:00 PM
+                            </strong>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Tita te recuerda tu medicación de la noche y te pone tu programa favorito.
+                            </p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 PM
+                            </strong>
+                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                                Te acostás tranquila sabiendo que si pasa algo, tu pulsera de emergencia está ahí.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Preguntas frecuentes -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="preguntas-titulo">
+        <div class="container">
+            <h2 id="preguntas-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 48px; font-size: 36px;">
+                Preguntas que nos hacen seguido
+            </h2>
+            
+            <div class="row">
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <div class="faq-item">
+                        <details>
+                            <summary>¿La cuidadora entra con llave a mi casa?</summary>
+                            <p>
+                                Solo si vos querés. Muchas personas nos dan una copia de la llave para emergencias, 
+                                pero es totalmente opcional. Lo que vos decidas está bien.
+                            </p>
+                        </details>
                     </div>
                     
-                    <div class="col-md-6">
-                        <h3 style="color: #D9534F;"><i class="fa fa-times-circle"></i> Lo que NO incluye</h3>
-                        <ul class="list-check list-cross">
-                            <li>Cuidado 24 horas continuo</li>
-                            <li>Atención médica especializada</li>
-                            <li>Reparaciones del hogar</li>
-                            <li>Mudanzas o transporte</li>
-                            <li>Trámites legales</li>
-                            <li>Internación o geriátrico</li>
-                        </ul>
-                        
-                        <div class="alert alert-info" style="margin-top: 24px;">
-                            <strong><i class="fa fa-info-circle"></i> Importante:</strong> 
-                            CUIDAR.ar es para personas con autonomía parcial. 
-                            Si necesitás atención médica intensiva, te derivamos al sistema de salud.
-                        </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>¿Puedo pedir que me cambien la cuidadora?</summary>
+                            <p>
+                                Sí, sin problema. Lo importante es que te sientas cómodo/a. Podés pedir cambio 
+                                hasta 2 veces. Queremos que encuentres a alguien con quien te lleves bien.
+                            </p>
+                        </details>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <details>
+                            <summary>¿Qué pasa si me caigo y no puedo apretar el botón?</summary>
+                            <p>
+                                Los sensores en tu casa detectan si te caés o si no te movés por mucho tiempo. 
+                                Automáticamente avisan al Nodo y a tu cuidadora. No te preocupes, estamos atentos.
+                            </p>
+                        </details>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <details>
+                            <summary>¿Me van a obligar a hacer cosas que no quiero?</summary>
+                            <p>
+                                Jamás. Vos decidís qué ayuda necesitás y cuándo. Si un día no querés hacer algo, 
+                                no hay problema. Respetamos tus tiempos y tus ganas.
+                            </p>
+                        </details>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <details>
+                            <summary>¿Puedo usar CUIDAR.ar si ya tengo una empleada doméstica?</summary>
+                            <p>
+                                Sí, son cosas diferentes. Tu empleada doméstica se encarga de la limpieza y otras tareas. 
+                                La cuidadora de CUIDAR.ar se enfoca en tu bienestar y compañía. Pueden trabajar juntas sin problema.
+                            </p>
+                        </details>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <details>
+                            <summary>¿Qué pasa si me voy de vacaciones?</summary>
+                            <p>
+                                Avisanos y pausamos el servicio hasta 30 días al año sin perder tu lugar. 
+                                Si te vas más tiempo, hablamos y vemos qué hacemos.
+                            </p>
+                        </details>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <details>
+                            <summary>¿Puedo elegir los días que viene la cuidadora?</summary>
+                            <p>
+                                En parte sí. Tratamos de adaptarnos a tus preferencias (ej: martes y jueves), 
+                                pero depende de la disponibilidad de las cuidadoras de tu zona. Lo coordinamos juntos.
+                            </p>
+                        </details>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- COPAGO -->
-    <section style="padding: 60px 0;">
-        <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px;">¿Cuánto voy a pagar?</h2>
-            
-            <div class="alert alert-info">
-                <strong><i class="fa fa-calculator"></i> El copago es según tus ingresos.</strong> 
-                El costo total del servicio es $540,000/mes, pero vos pagás solo una parte según tu jubilación.
-            </div>
-            
-            <div class="row" style="margin-top: 32px;">
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center; background-color: #E8F5E9;">
-                        <h4 style="color: #4CAF50;">Jubilación Mínima</h4>
-                        <p style="font-size: 14px; color: #666;">Hasta $520,000/mes</p>
-                        <div style="font-size: 36px; font-weight: 700; color: #4CAF50; margin: 16px 0;">
-                            $0 - $80.000
-                        </div>
-                        <p style="font-size: 13px;">por mes</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center; background-color: #FFF3CD;">
-                        <h4 style="color: #856404;">Jubilación Media</h4>
-                        <p style="font-size: 14px; color: #666;">$520,000 - $800,000</p>
-                        <div style="font-size: 36px; font-weight: 700; color: #856404; margin: 16px 0;">
-                            $150.000 - $300.000
-                        </div>
-                        <p style="font-size: 13px;">por mes</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center; background-color: #FCE4EC;">
-                        <h4 style="color: #E91E63;">Jubilación Alta</h4>
-                        <p style="font-size: 14px; color: #666;">Más de $800,000</p>
-                        <div style="font-size: 36px; font-weight: 700; color: #E91E63; margin: 16px 0;">
-                            $400.000 - $540.000
-                        </div>
-                        <p style="font-size: 13px;">por mes</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center; background-color: #E3F2FD;">
-                        <h4 style="color: #2196F3;">Tecnología</h4>
-                        <p style="font-size: 14px; color: #666;">Costo inicial</p>
-                        <div style="font-size: 36px; font-weight: 700; color: #2196F3; margin: 16px 0;">
-                            $0 - $50.000
-                        </div>
-                        <p style="font-size: 13px;">pago único</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- TESTIMONIO -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;">
-        <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px; text-align: center;">Testimonios</h2>
-            
-            <div class="testimonial">
-                <div class="testimonial-text">
-                    "Antes vivía sola y tenía miedo todo el tiempo. Ahora Gladys viene tres veces por semana, 
-                    vamos al Centro de Día los martes y jueves, y tengo el Tita que me recuerda las pastillas. 
-                    Ya no me siento tan sola."
-                </div>
-                <div class="testimonial-author">Marta, 74 años</div>
-                <div class="testimonial-role">Usuaria en Caballito desde 2030</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA FINAL -->
-    <section style="padding: 60px 0; text-align: center;">
-        <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 24px;">¿Listo para inscribirte?</h2>
-            <p style="font-size: 18px; margin-bottom: 32px;">
-                El proceso toma entre 15 y 45 días según tu comuna
-            </p>
-            <a href="inscripcion.html" class="btn btn-primary btn-lg">
-                <i class="fa fa-edit"></i> Iniciar inscripción
-            </a>
-            <p style="margin-top: 16px; color: #666;">
-                También podés llamar al 147 (opción 5) o al 0800-CUIDADO
-            </p>
-        </div>
-    </section>
-    
-    <footer>
+    <!-- CTA Final -->
+    <section style="padding: 80px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <h4>PARA PERSONAS MAYORES</h4>
-                    <a href="inscripcion.html">Inscribirme</a>
-                    <a href="elegibilidad.html">¿Soy elegible?</a>
-                    <a href="nodos.html">Encontrar mi Nodo</a>
-                    <a href="mi-cuenta.html">Mi cuenta</a>
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <div class="cta-box">
+                        <h2 style="font-size: 36px; margin-bottom: 24px; color: white;">
+                            ¿Te gustaría recibir este acompañamiento?
+                        </h2>
+                        <p style="font-size: 22px; margin-bottom: 40px;">
+                            Llamanos gratis al 147 o inscribite online. Te contactamos en 24-48hs.
+                        </p>
+                        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                            <a href="tel:147" class="btn btn-lg" style="background-color: white; color: var(--color-secondary); border-color: white; font-size: 20px; padding: 18px 40px;" aria-label="Llamar al 147">
+                                <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
+                            </a>
+                            <a href="inscripcion.html" class="btn btn-lg" style="background-color: transparent; color: white; border: 3px solid white; font-size: 20px; padding: 18px 40px;" aria-label="Inscribirme online">
+                                <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme online
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
+            </div>
+        </div>
+    </section>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5491112345678" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-3" aria-label="Enlaces de inscripción">
+                    <h4>INSCRIBIRSE</h4>
+                    <a href="inscripcion.html">Dejá tu teléfono</a>
+                    <a href="elegibilidad.html">¿Es para mí?</a>
+                    <a href="estado-tramite.html">Ver mi solicitud</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces informativos">
+                    <h4>INFORMACIÓN</h4>
+                    <a href="el-sistema.html">Cómo funciona</a>
+                    <a href="para-personas-mayores.html" aria-current="page">Para personas mayores</a>
+                    <a href="para-cuidadores.html">Para cuidadores/as</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces de contacto">
                     <h4>CONTACTO</h4>
-                    <p style="font-size: 14px; color: #CCCCCC;">
-                        <i class="fa fa-phone"></i> 147 (opción 5)<br>
-                        <i class="fa fa-phone"></i> 0800-CUIDADO<br>
-                        <i class="fa fa-envelope"></i> info@cuidar.ar
-                    </p>
-                </div>
-                <div class="col-md-3">
-                    <h4>NAVEGACIÓN</h4>
-                    <a href="index.html">Inicio</a>
-                    <a href="el-sistema.html">El Sistema</a>
-                    <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
-                </div>
-                <div class="col-md-3">
-                    <h4>SEGUINOS</h4>
-                    <a href="#"><i class="fa fa-facebook"></i> Facebook</a>
-                    <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
-                    <a href="#"><i class=
+                    <a href="tel:147" aria-label="Llamar al 147">147 (gratis)</a>
+                    <a href="nodos.html">Lugares en tu barrio</a>
+                    <a href="contacto.html">Todas las formas de contacto</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces institucionales">
+                    <h4>GOBIERNO ABIERTO</h4>
+                    <a href="transparencia.html">Datos abiertos</a>
+                    <a href="transparencia.html#presupuesto">Presupuesto</a>
+                    <a href="transparencia.html#informes">Informes</a>
+                </nav>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function adjustTextSize(size) {
+            document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
+            document.body.classList.add('text-size-' + size);
+            localStorage.setItem('textSize', size);
+            announceToScreenReader('Tamaño de texto cambiado a ' + 
+                (size === 'normal' ? 'normal' : size === 'large' ? 'grande' : 'extra grande'));
+        }
+        
+        function toggleHighContrast() {
+            const body = document.body;
+            const isHighContrast = body.style.filter === 'contrast(1.5)';
+            body.style.filter = isHighContrast ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', isHighContrast ? 'false' : 'true');
+            announceToScreenReader(isHighContrast ? 
+                'Alto contraste desactivado' : 
+                'Alto contraste activado');
+        }
+        
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.textContent = message;
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-10000px';
+            announcement.style.width = '1px';
+            announcement.style.height = '1px';
+            announcement.style.overflow = 'hidden';
+            document.body.appendChild(announcement);
+            setTimeout(() => document.body.removeChild(announcement), 1000);
+        }
+        
+        window.addEventListener('load', function() {
+            const textSize = localStorage.getItem('textSize');
+            if (textSize) document.body.classList.add('text-size-' + textSize);
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.body.style.filter = 'contrast(1.5)';
+            }
+        });
+    </script>
+</body>
+</html>
