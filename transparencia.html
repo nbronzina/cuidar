@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transparencia, datos abiertos y presupuesto del sistema CUIDAR.ar">
+    <title>Transparencia | CUIDAR.ar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
+    
+    <div class="accessibility-bar">
+        <div class="container">
+            <div class="pull-left">
+                <button onclick="adjustTextSize('normal')">A</button>
+                <button onclick="adjustTextSize('large')">A+</button>
+                <button onclick="adjustTextSize('xlarge')">A++</button>
+            </div>
+            <div class="pull-right">
+                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    
+    <header class="header-gcba">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="para-personas-mayores.html">Para Personas Mayores</a>
+            <a href="para-cuidadores.html">Para Cuidadores/as</a>
+            <a href="el-sistema.html">El Sistema</a>
+            <a href="transparencia.html" class="active">Transparencia</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </nav>
+    
+    <section class="hero" id="main-content" style="padding: 40px 0;">
+        <div class="container">
+            <h1 style="font-size: 36px;">Transparencia y Datos Abiertos</h1>
+            <p class="lead" style="font-size: 18px;">
+                Toda la información del sistema CUIDAR.ar disponible para la ciudadanía
+            </p>
+        </div>
+    </section>
+    
+    <!-- ACCESOS RÁPIDOS -->
+    <section style="padding: 40px 0; background-color: #F5F5F5;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#datos" class="quick-access-card">
+                        <i class="fa fa-database" style="font-size: 40px; color: #0072BB;"></i>
+                        <h3>Datos Abiertos</h3>
+                        <p>Datasets descargables</p>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#presupuesto" class="quick-access-card">
+                        <i class="fa fa-money" style="font-size: 40px; color: #0072BB;"></i>
+                        <h3>Presupuesto</h3>
+                        <p>Ejecución 2032</p>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#informes" class="quick-access-card">
+                        <i class="fa fa-file-text" style="font-size: 40px; color: #0072BB;"></i>
+                        <h3>Informes</h3>
+                        <p>Anuales y trimestrales</p>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#plan-2035" class="quick-access-card">
+                        <i class="fa fa-line-chart" style="font-size: 40px; color: #0072BB;"></i>
+                        <h3>Plan 2025-2035</h3>
+                        <p>Metas y objetivos</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- DATOS ABIERTOS -->
+    <section id="datos" style="padding: 60px 0;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px;">Datos Abiertos</h2>
+            
+            <div class="alert alert-info">
+                <strong><i class="fa fa-info-circle"></i> Compromiso con la transparencia</strong><br>
+                Todos los datos de CUIDAR.ar están disponibles en formatos abiertos (CSV, JSON) 
+                bajo licencia Creative Commons. Actualizados mensualmente.
+            </div>
+            
+            <div class="card">
+                <h3>Datasets disponibles</h3>
+                
+                <div style="margin-top: 24px;">
+                    <div style="padding: 20px; border-bottom: 1px solid #E0E0E0;">
+                        <h4 style="color: #0072BB; margin-bottom: 8px;">
+                            <i class="fa fa-download"></i> Usuarios del sistema (2025-2032)
+                        </h4>
+                        <p style="color: #666; margin-bottom: 12px;">
+                            Datos anonimizados: edad, comuna, nivel de dependencia, fecha de ingreso.
+                        </p>
+                        <p>
+                            <strong>68,000 registros</strong> | Actualizado: Septiembre 2032<br>
+                            <a href="#" style="color: #0072BB; margin-right: 16px;">
+                                <i class="fa fa-file-text-o"></i> CSV (2.4 MB)
+                            </a>
+                            <a href="#" style="color: #0072BB; margin-right: 16px;">
+                                <i class="fa fa-code"></i> JSON (3.1 MB)
+                            </a>
+                            <a href="#" style="color: #0072BB;">
+                                <i class="fa fa-book"></i> Documentación
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 20px; border-bottom: 1px solid #E0E0E0;">
+                        <h4 style="color: #0072BB; margin-bottom: 8px;">
+                            <i class="fa fa-download"></i> Cuidadoras activas
+                        </h4>
+                        <p style="color: #666; margin-bottom: 12px;">
+                            Cooperativa, comuna asignada, años de antigüedad, nivel de certificación.
+                        </p>
+                        <p>
+                            <strong>4,200 registros</strong> | Actualizado: Septiembre 2032<br>
+                            <a href="#" style="color: #0072BB; margin-right: 16px;">
+                                <i class="fa fa-file-text-o"></i> CSV (380 KB)
+                            </a>
+                            <a href="#" style="color: #0072BB; margin-right: 16px;">
+                                <i class="fa fa-code"></i> JSON (520 KB)
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 20px; border-bottom: 1px solid #E0E0E0;">
+                        <h4 style="color: #0072BB; margin-bottom: 8px;">
+                            <i class="fa fa-download"></i> Ejecución presupuestaria mensual
+                        </h4>
+                        <p style="color: #666; margin-bottom: 12px;">
+                            Gastos por rubro: salarios, tecnología, infraestructura, capacitación.
+                        </p>
+                        <p>
+                            <strong>96 meses</strong> (2025-2032) | Actualizado: Septiembre 2032<br>
+                            <a href="#" style="color: #0072BB; margin-right: 16px;">
+                                <i class="fa fa-file-text-o"></i> CSV (124 KB)
+                            </a>
+                            <a href="#" style="color: #0072BB; margin-right: 16px;">
+                                <i class="fa fa-code"></i> JSON (180 KB)
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 20px; border-bottom: 1px solid #E0E0E0;">
+                        <h4 style="color: #0072BB; margin-bottom: 8px;">
+                            <i class="fa fa-download"></i> Incidentes y emergencias
+                        </h4>
+                        <p style="color: #666; margin-bottom: 12px;">
+                            Tipo de incidente, tiempo de respuesta, resolución. Datos anonimizados.
+                        </p>
+                        <p>
+                            <strong>1,847 registros</strong> (últimos 12 meses) | Actualizado: Septiembre 2032<br>
+                            <a href="#" style="color: #0072BB; margin-right: 16px;">
+                                <i class="fa fa-file-text-o"></i> CSV (210 KB)
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 20px;">
+                        <h4 style="color: #0072BB; margin-bottom: 8px;">
+                            <i class="fa fa-download"></i> Cooperativas certificadas
+                        </h4>
+                        <p style="color: #666; margin-bottom: 12px;">
+                            Listado completo con datos de contacto, zonas de cobertura y socias.
+                        </p>
+                        <p>
+                            <strong>15 cooperativas</strong> | Actualizado: Septiembre 2032<br>
+                            <a href="#" style="color: #0072BB; margin-right: 16px;">
+                                <i class="fa fa-file-text-o"></i> CSV (8 KB)
+                            </a>
+                            <a href="#" style="color: #0072BB; margin-right: 16px;">
+                                <i class="fa fa-code"></i> JSON (12 KB)
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PRESUPUESTO -->
+    <section id="presupuesto" style="padding: 60px 0; background-color: #F5F5F5;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px;">Presupuesto 2032</h2>
+            
+            <div class="card">
+                <div style="text-align: center; margin-bottom: 32px;">
+                    <div style="font-size: 48px; font-weight: 700; color: #0072BB;">$42,000,000,000</div>
+                    <p style="font-size: 18px; color: #666;">Presupuesto anual total</p>
+                    <p style="color: #4CAF50; font-weight: 700;">
+                        <i class="fa fa-check-circle"></i> Ejecutado al 75% (Septiembre 2032)
+                    </p>
+                </div>
+                
+                <h3>Distribución por rubro</h3>
+                <div style="margin-top: 24px;">
+                    <div style="padding: 16px; background-color: #E8F5E9; margin-bottom: 8px; border-radius: 4px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Salarios de cuidadoras</strong><br>
+                                <small style="color: #666;">4,200 trabajadoras | $520,000 promedio/mes</small>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 24px; font-weight: 700; color: #4CAF50;">$26,000M</div>
+                                <small>62%</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 16px; background-color: #E3F2FD; margin-bottom: 8px; border-radius: 4px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Tecnología y equipamiento</strong><br>
+                                <small style="color: #666;">Tita, sensores, pulseras, mantenimiento</small>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 24px; font-weight: 700; color: #2196F3;">$6,300M</div>
+                                <small>15%</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 16px; background-color: #FFF3CD; margin-bottom: 8px; border-radius: 4px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Infraestructura de Nodos</strong><br>
+                                <small style="color: #666;">15 Nodos + Centros de día</small>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 24px; font-weight: 700; color: #F0AD4E;">$5,040M</div>
+                                <small>12%</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 16px; background-color: #FCE4EC; margin-bottom: 8px; border-radius: 4px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Capacitación y formación</strong><br>
+                                <small style="color: #666;">Cursos, talleres, certificaciones</small>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 24px; font-weight: 700; color: #E91E63;">$2,520M</div>
+                                <small>6%</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 16px; background-color: #F5F5F5; border-radius: 4px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Administración y coordinación</strong><br>
+                                <small style="color: #666;">Personal administrativo, sistemas</small>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 24px; font-weight: 700; color: #666;">$2,140M</div>
+                                <small>5%</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 32px;">
+                <h3>Evolución histórica (2025-2032)</h3>
+                <table style="width: 100%; margin-top: 16px; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background-color: #F5F5F5;">
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #0072BB;">Año</th>
+                            <th style="padding: 12px; text-align: right; border-bottom: 2px solid #0072BB;">Presupuesto</th>
+                            <th style="padding: 12px; text-align: right; border-bottom: 2px solid #0072BB;">Usuarios</th>
+                            <th style="padding: 12px; text-align: right; border-bottom: 2px solid #0072BB;">Costo/usuario/año</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0;">2025</td>
+                            <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">$8,000M</td>
+                            <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">12,000</td>
+                            <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">$667,000</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0;">2028</td>
+                            <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">$24,000M</td>
+                            <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">38,000</td>
+                            <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">$632,000</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0;">2030</td>
+                            <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">$35,000M</td>
+                            <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">56,000</td>
+                            <td style="padding: 12px; text-align: right; border-bottom: 1px solid #E0E0E0;">$625,000</td>
+                        </tr>
+                        <tr style="background-color: #E8F5E9;">
+                            <td style="padding: 12px; font-weight: 700;">2032</td>
+                            <td style="padding: 12px; text-align: right; font-weight: 700;">$42,000M</td>
+                            <td style="padding: 12px; text-align: right; font-weight: 700;">68,000</td>
+                            <td style="padding: 12px; text-align: right; font-weight: 700;">$618,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- INFORMES -->
+    <section id="informes" style="padding: 60px 0;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px;">Informes y Reportes</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <h3><i class="fa fa-file-pdf-o" style="color: #D9534F;"></i> Informes Anuales</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 12px 0; border-bottom: 1px solid #E0E0E0;">
+                                <a href="#" style="color: #0072BB; font-weight: 700;">
+                                    <i class="fa fa-download"></i> Informe Anual 2031
+                                </a><br>
+                                <small style="color: #666;">128 páginas | PDF 8.2 MB</small>
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid #E0E0E0;">
+                                <a href="#" style="color: #0072BB; font-weight: 700;">
+                                    <i class="fa fa-download"></i> Informe Anual 2030
+                                </a><br>
+                                <small style="color: #666;">112 páginas | PDF 7.4 MB</small>
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid #E0E0E0;">
+                                <a href="#" style="color: #0072BB; font-weight: 700;">
+                                    <i class="fa fa-download"></i> Informe Anual 2029
+                                </a><br>
+                                <small style="color: #666;">96 páginas | PDF 6.8 MB</small>
+                            </li>
+                            <li style="padding: 12px 0;">
+                                <a href="#" style="color: #0072BB;">Ver todos los informes anuales <i class="fa fa-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <h3><i class="fa fa-bar-chart" style="color: #2196F3;"></i> Reportes Trimestrales</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 12px 0; border-bottom: 1px solid #E0E0E0;">
+                                <a href="#" style="color: #0072BB; font-weight: 700;">
+                                    <i class="fa fa-download"></i> Q3 2032 (Jul-Sep)
+                                </a><br>
+                                <small style="color: #666;">Actualizado hace 2 días | PDF 2.1 MB</small>
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid #E0E0E0;">
+                                <a href="#" style="color: #0072BB; font-weight: 700;">
+                                    <i class="fa fa-download"></i> Q2 2032 (Abr-Jun)
+                                </a><br>
+                                <small style="color: #666;">PDF 1.9 MB</small>
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid #E0E0E0;">
+                                <a href="#" style="color: #0072BB; font-weight: 700;">
+                                    <i class="fa fa-download"></i> Q1 2032 (Ene-Mar)
+                                </a><br>
+                                <small style="color: #666;">PDF 2.0 MB</small>
+                            </li>
+                            <li style="padding: 12px 0;">
+                                <a href="#" style="color: #0072BB;">Ver todos los reportes <i class="fa fa-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PLAN 2035 -->
+    <section id="plan-2035" style="padding: 60px 0; background-color: #F5F5F5;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px;">Plan Estratégico 2025-2035</h2>
+            
+            <div class="card">
+                <h3>Meta: 50% de cobertura para 2035</h3>
+                <p style="font-size: 18px; margin: 16px 0;">
+                    Pasar de 68,000 personas atendidas (34%) a 100,000 (50%) en los próximos 3 años.
+                </p>
+                
+                <div style="margin-top: 32px;">
+                    <h4 style="color: #4CAF50; margin-bottom: 16px;">Objetivos del Plan:</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-check">
+                                <li>Ampliar presupuesto 40% (a $59,000M anuales)</li>
+                                <li>Abrir 8 Nodos nuevos (prioridad comunas 4, 8, 9)</li>
+                                <li>Formar 2,000 cuidadoras adicionales</li>
+                                <li>Duplicar Bancos de Tiempo barriales</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-check">
+                                <li>Reducir lista de espera de 12 a 4 meses</li>
+                                <li>Mejorar tecnología (nueva versión de Tita)</li>
+                                <li>Expandir centros de día (+15 nuevos)</li>
+                                <li>Certificar 10 cooperativas más</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 32px;">
+                <h3>Hitos clave 2033-2035</h3>
+                <div style="margin-top: 24px;">
+                    <div style="padding: 16px; background-color: #E8F5E9; margin-bottom: 12px; border-radius: 4px; border-left: 4px solid #4CAF50;">
+                        <strong>2033</strong> - Alcanzar 80,000 usuarios (40% de cobertura)
+                    </div>
+                    <div style="padding: 16px; background-color: #E3F2FD; margin-bottom: 12px; border-radius: 4px; border-left: 4px solid #2196F3;">
+                        <strong>2034</strong> - Alcanzar 90,000 usuarios (45% de cobertura)
+                    </div>
+                    <div style="padding: 16px; background-color: #FFF3CD; border-radius: 4px; border-left: 4px solid #FFD100;">
+                        <strong>2035</strong> - Meta: 100,000 usuarios (50% de cobertura)
+                    </div>
+                </div>
+                <p style="margin-top: 24px;">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fa fa-download"></i> Descargar Plan completo (PDF)
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CONTACTO TRANSPARENCIA -->
+    <section style="padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 24px;">¿Necesitás más información?</h2>
+            <p style="font-size: 18px; margin-bottom: 32px;">
+                Podés solicitar datos adicionales o hacer consultas sobre el presupuesto
+            </p>
+            <a href="contacto.html" class="btn btn-primary btn-lg">
+                <i class="fa fa-envelope"></i> Contactar a Transparencia
+            </a>
+            <p style="margin-top: 16px; color: #666;">
+                Email: transparencia@cuidar.ar | Tel: 147 (opción 7)
+            </p>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>TRANSPARENCIA</h4>
+                    <a href="#datos">Datos abiertos</a>
+                    <a href="#presupuesto">Presupuesto</a>
+                    <a href="#informes">Informes</a>
+                    <a href="#plan-2035">Plan 2025-2035</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>DESCARGAS</h4>
+                    <a href="#">Datasets (CSV/JSON)</a>
+                    <a href="#">Informes anuales</a>
+                    <a href="#">Reportes trimestrales</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>CONTACTO</h4>
+                    <p style="font-size: 14px; color: #CCCCCC;">
+                        <i class="fa fa-envelope"></i> transparencia@cuidar.ar<br>
+                        <i class="fa fa-phone"></i> 147 (opción 7)
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h4>NAVEGACIÓN</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2032 GCBA - WCAG 2.1 AA</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function adjustTextSize(size) {
+            document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
+            document.body.classList.add('text-size-' + size);
+            localStorage.setItem('textSize', size);
+        }
+        function toggleHighContrast() {
+            const body = document.body;
+            body.style.filter = body.style.filter === 'contrast(1.5)' ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', body.style.filter === 'contrast(1.5)' ? 'true' : 'false');
+        }
+        window.addEventListener('load', function() {
+            const textSize = localStorage.getItem('textSize');
+            if (textSize) document.body.classList.add('text-size-' + textSize);
+            if (localStorage.getItem('highContrast') === 'true') document.body.style.filter = 'contrast(1.5)';
+        });
+    </script>
+</body>
+</html>
