@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultá el estado de tu trámite de inscripción a CUIDAR.ar">
+    <title>Estado de Trámite | CUIDAR.ar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        /* Estilos específicos para esta página */
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 16px;
+            border: 2px solid #E0E0E0;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #0072BB;
+        }
+        
+        .btn-search {
+            width: 100%;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            background-color: #0072BB;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-search:hover {
+            background-color: #005A92;
+        }
+        
+        .result-container {
+            max-width: 800px;
+            margin: 40px auto;
+            display: none;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 0 0 40px 60px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background-color: #E0E0E0;
+        }
+        
+        .timeline-item:last-child:before {
+            display: none;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #E0E0E0;
+            border: 3px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-item.completed .timeline-icon {
+            background-color: #4CAF50;
+        }
+        
+        .timeline-item.active .timeline-icon {
+            background-color: #0072BB;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 2px 8px rgba(0,114,187,0.3); }
+            50% { box-shadow: 0 2px 20px rgba(0,114,187,0.6); }
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .timeline-item.active .timeline-content {
+            border-left: 4px solid #0072BB;
+        }
+        
+        .timeline-content h3 {
+            color: #0072BB;
+            margin: 0 0 8px 0;
+            font-size: 20px;
+        }
+        
+        .timeline-content .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-content p {
+            margin: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .status-badge.en-proceso {
+            background-color: #E3F2FD;
+            color: #0072BB;
+        }
+        
+        .status-badge.completado {
+            background-color: #E8F5E9;
+            color: #4CAF50;
+        }
+        
+        .user-info {
+            background-color: #F5F5F5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+        
+        .user-info h2 {
+            margin: 0 0 16px 0;
+            color: #0072BB;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .info-value {
+            color: #333;
+        }
+        
+        .next-steps {
+            background-color: #FFF3CD;
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 4px solid #F0AD4E;
+            margin-top: 32px;
+        }
+        
+        .next-steps h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
+    
+    <div class="accessibility-bar">
+        <div class="container">
+            <div class="pull-left">
+                <button onclick="adjustTextSize('normal')">A</button>
+                <button onclick="adjustTextSize('large')">A+</button>
+                <button onclick="adjustTextSize('xlarge')">A++</button>
+            </div>
+            <div class="pull-right">
+                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    
+    <header class="header-gcba">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="para-personas-mayores.html">Para Personas Mayores</a>
+            <a href="para-cuidadores.html">Para Cuidadores/as</a>
+            <a href="el-sistema.html">El Sistema</a>
+            <a href="transparencia.html">Transparencia</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </nav>
+    
+    <section class="hero" id="main-content" style="padding: 40px 0;">
+        <div class="container">
+            <h1 style="font-size: 36px;">Estado de mi Trámite</h1>
+            <p class="lead" style="font-size: 18px;">
+                Consultá el estado de tu inscripción a CUIDAR.ar
+            </p>
+        </div>
+    </section>
+    
+    <!-- FORMULARIO DE BÚSQUEDA -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <div class="search-box">
+                <h2 style="text-align: center; color: #0072BB; margin-bottom: 24px;">
+                    Ingresá tu DNI
+                </h2>
+                <p style="text-align: center; color: #666; margin-bottom: 32px;">
+                    Consultá el estado de tu trámite ingresando tu número de documento
+                </p>
+                
+                <form id="searchForm" onsubmit="searchTramite(event)">
+                    <div class="form-group">
+                        <label for="dni">Número de DNI (sin puntos)</label>
+                        <input 
+                            type="text" 
+                            id="dni" 
+                            name="dni" 
+                            placeholder="Ej: 12345678"
+                            pattern="[0-9]{7,8}"
+                            required
+                            maxlength="8"
+                        >
+                        <small style="color: #666; font-size: 13px;">Ingresá solo números, sin puntos ni espacios</small>
+                    </div>
+                    
+                    <button type="submit" class="btn-search">
+                        <i class="fa fa-search"></i> Consultar estado
+                    </button>
+                </form>
+                
+                <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #E0E0E0; text-align: center;">
+                    <p style="color: #666; font-size: 14px; margin-bottom: 8px;">
+                        ¿No te inscribiste todavía?
+                    </p>
+                    <a href="inscripcion.html" style="color: #0072BB; font-weight: 600;">
+                        Iniciar inscripción <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- RESULTADO (oculto por defecto) -->
+    <section id="resultSection" class="result-container">
+        <div class="container">
+            <!-- INFO DEL USUARIO -->
+            <div class="user-info">
+                <h2><i class="fa fa-user"></i> Información del trámite</h2>
+                <div class="info-row">
+                    <span class="info-label">DNI:</span>
+                    <span class="info-value" id="resultDni">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Nombre:</span>
+                    <span class="info-value" id="resultName">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Fecha de inscripción:</span>
+                    <span class="info-value" id="resultDate">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Comuna:</span>
+                    <span class="info-value" id="resultComuna">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Nodo asignado:</span>
+                    <span class="info-value" id="resultNodo">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Estado actual:</span>
+                    <span class="status-badge" id="resultStatus">En proceso</span>
+                </div>
+            </div>
+            
+            <!-- TIMELINE -->
+            <div class="card">
+                <h2 style="color: #0072BB; margin-bottom: 32px;">
+                    <i class="fa fa-list-ol"></i> Seguimiento del trámite
+                </h2>
+                
+                <ul class="timeline" id="timeline">
+                    <!-- Se genera dinámicamente con JavaScript -->
+                </ul>
+            </div>
+            
+            <!-- PRÓXIMOS PASOS -->
+            <div class="next-steps" id="nextSteps">
+                <h3><i class="fa fa-info-circle"></i> Próximos pasos</h3>
+                <p id="nextStepsText">-</p>
+            </div>
+            
+            <!-- BOTONES DE ACCIÓN -->
+            <div style="text-align: center; margin-top: 32px;">
+                <button onclick="location.reload()" class="btn btn-primary" style="margin-right: 16px;">
+                    <i class="fa fa-refresh"></i> Nueva consulta
+                </button>
+                <a href="contacto.html" class="btn btn-primary">
+                    <i class="fa fa-phone"></i> Contactar al Nodo
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- INFORMACIÓN ADICIONAL -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px; text-align: center;">Estados del trámite</h2>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-check-circle" style="font-size: 48px; color: #4CAF50; margin-bottom: 16px;"></i>
+                        <h3 style="color: #4CAF50;">1. Recibido</h3>
+                        <p style="font-size: 14px;">Tu inscripción fue recibida y está siendo procesada por el Nodo de tu zona.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-search" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
+                        <h3 style="color: #0072BB;">2. En evaluación</h3>
+                        <p style="font-size: 14px;">Un referente está evaluando tu caso y coordinando la visita domiciliaria.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-user-plus" style="font-size: 48px; color: #F0AD4E; margin-bottom: 16px;"></i>
+                        <h3 style="color: #F0AD4E;">3. Asignado</h3>
+                        <p style="font-size: 14px;">Ya tenés cuidadora asignada. Estamos coordinando el inicio del servicio.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card" style="text-align: center;">
+                        <i class="fa fa-heart" style="font-size: 48px; color: #E91E63; margin-bottom: 16px;"></i>
+                        <h3 style="color: #E91E63;">4. Activo</h3>
+                        <p style="font-size: 14px;">¡Ya estás recibiendo el servicio de CUIDAR.ar!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PREGUNTAS FRECUENTES -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <h2 style="color: #0072BB; margin-bottom: 32px;">Preguntas sobre el trámite</h2>
+            
+            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                    ¿Cuánto tiempo tarda el trámite?
+                </summary>
+                <p style="margin-top: 16px; padding-left: 16px;">
+                    El tiempo promedio es de <strong>15 a 45 días</strong> desde que completás la inscripción 
+                    hasta que empezás a recibir el servicio. El tiempo depende de la demanda en tu comuna 
+                    y la disponibilidad de cuidadoras en tu zona.
+                </p>
+            </details>
+            
+            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                    Mi trámite está hace más de 2 meses en "Recibido"
+                </summary>
+                <p style="margin-top: 16px; padding-left: 16px;">
+                    Si tu trámite lleva más de 60 días sin avances, comunicate con el <strong>147 (opción 5)</strong> 
+                    o con tu Nodo directamente. Puede haber faltado algún documento o información.
+                </p>
+            </details>
+            
+            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                    ¿Me van a avisar cuando cambie el estado?
+                </summary>
+                <p style="margin-top: 16px; padding-left: 16px;">
+                    Sí, el Nodo te contacta por teléfono o WhatsApp cada vez que hay un avance importante. 
+                    También podés consultar el estado en esta página las veces que quieras.
+                </p>
+            </details>
+            
+            <details style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
+                    No aparece mi DNI en el sistema
+                </summary>
+                <p style="margin-top: 16px; padding-left: 16px;">
+                    Si no aparece tu DNI puede ser porque: (1) todavía no completaste la inscripción inicial, 
+                    (2) hay un error en el DNI que ingresaste, o (3) tu inscripción fue rechazada. 
+                    Llamá al 147 (opción 5) para verificar.
+                </p>
+            </details>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>CONSULTAS</h4>
+                    <a href="contacto.html"><i class="fa fa-phone"></i> 147 (opción 5)</a>
+                    <a href="contacto.html"><i class="fa fa-whatsapp"></i> WhatsApp</a>
+                    <a href="inscripcion.html">Inscribirme</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>AYUDA</h4>
+                    <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+                    <a href="contacto.html#nodos">Encontrar mi Nodo</a>
+                </div>
+                <div class="col-md-3">
+                    <h4>CONTACTO</h4>
+                    <p style="font-size: 14px; color: #CCCCCC;">
+                        <i class="fa fa-envelope"></i> info@cuidar.ar<br>
+                        <i class="fa fa-phone"></i> 0800-CUIDADO
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h4>NAVEGACIÓN</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2032 GCBA - WCAG 2.1 AA</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function adjustTextSize(size) {
+            document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
+            document.body.classList.add('text-size-' + size);
+            localStorage.setItem('textSize', size);
+        }
+        
+        function toggleHighContrast() {
+            const body = document.body;
+            body.style.filter = body.style.filter === 'contrast(1.5)' ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', body.style.filter === 'contrast(1.5)' ? 'true' : 'false');
+        }
+        
+        window.addEventListener('load', function() {
+            const textSize = localStorage.getItem('textSize');
+            if (textSize) document.body.classList.add('text-size-' + textSize);
+            if (localStorage.getItem('highContrast') === 'true') document.body.style.filter = 'contrast(1.5)';
+        });
+        
+        // SIMULACIÓN DE BÚSQUEDA
+        function searchTramite(event) {
+            event.preventDefault();
+            
+            const dni = document.getElementById('dni').value;
+            
+            // Simulación de datos (en producción esto vendría de una API)
+            const ejemplos = {
+                '12345678': {
+                    name: 'María González',
+                    date: '15/08/2032',
+                    comuna: 'Comuna 6 (Caballito)',
+                    nodo: 'Nodo Caballito',
+                    stage: 3, // 1=Recibido, 2=En evaluación, 3=Asignado, 4=Activo
+                    timeline: [
+                        { title: 'Inscripción recibida', date: '15/08/2032', description: 'Tu inscripción fue recibida correctamente y asignada al Nodo Caballito.', completed: true },
+                        { title: 'Documentación verificada', date: '22/08/2032', description: 'Verificamos tu DNI, domicilio y recibo de jubilación. Todo en orden.', completed: true },
+                        { title: 'Visita domiciliaria realizada', date: '05/09/2032', description: 'La referente Claudia realizó la visita de evaluación en tu domicilio.', completed: true },
+                        { title: 'Cuidadora asignada', date: '18/09/2032', description: 'Te asignamos a Gladys Martínez de la Coop. Manos Solidarias. Estamos coordinando el inicio.', completed: true, active: true },
+                        { title: 'Servicio iniciado', date: 'Pendiente', description: 'Inicio estimado: Primera semana de Octubre 2032', completed: false }
+                    ],
+                    nextSteps: 'Tu cuidadora Gladys te va a contactar en los próximos 5 días para coordinar el primer encuentro. Mientras tanto, te llegará por correo el kit de tecnología (pulsera + sensores).'
+                },
+                '87654321': {
+                    name: 'Roberto Fernández',
+                    date: '28/09/2032',
+                    comuna: 'Comuna 10 (Flores)',
+                    nodo: 'Nodo Oeste',
+                    stage: 2,
+                    timeline: [
+                        { title: 'Inscripción recibida', date: '28/09/2032', description: 'Tu inscripción fue recibida correctamente y asignada al Nodo Oeste.', completed: true },
+                        { title: 'Documentación en revisión', date: '01/10/2032', description: 'Estamos verificando tu documentación. Nos puede faltar el comprobante de domicilio actualizado.', completed: true, active: true },
+                        { title: 'Visita domiciliaria', date: 'Pendiente', description: 'Te contactaremos para coordinar la visita en los próximos 7-10 días.', completed: false },
+                        { title: 'Asignación de cuidadora', date: 'Pendiente', description: 'Una vez completada la evaluación, te asignaremos tu cuidadora.', completed: false },
+                        { title: 'Servicio iniciado', date: 'Pendiente', description: 'Inicio estimado según demanda en tu zona.', completed: false }
+                    ],
+                    nextSteps: 'Estamos verificando tu documentación. Si nos falta algo, te contactaremos por teléfono. Estimamos coordinar la visita domiciliaria en 7-10 días.'
+                }
+            };
+            
+            const result = ejemplos[dni];
+            
+            if (result) {
+                // Mostrar resultado
+                document.getElementById('resultDni').textContent = dni;
+                document.getElementById('resultName').textContent = result.name;
+                document.getElementById('resultDate').textContent = result.date;
+                document.getElementById('resultComuna').textContent = result.comuna;
+                document.getElementById('resultNodo').textContent = result.nodo;
+                
+                const statusBadge = document.getElementById('resultStatus');
+                if (result.stage === 4) {
+                    statusBadge.textContent = 'Servicio activo';
+                    statusBadge.className = 'status-badge completado';
+                } else {
+                    statusBadge.textContent = 'En proceso';
+                    statusBadge.className = 'status-badge en-proceso';
+                }
+                
+                // Generar timeline
+                const timeline = document.getElementById('timeline');
+                timeline.innerHTML = '';
+                result.timeline.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'timeline-item';
+                    if (item.completed) li.classList.add('completed');
+                    if (item.active) li.classList.add('active');
+                    
+                    li.innerHTML = `
+                        <div class="timeline-icon">
+                            <i class="fa fa-${item.completed ? 'check' : 'clock-o'}"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>${item.title}</h3>
+                            <div class="date"><i class="fa fa-calendar"></i> ${item.date}</div>
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+                    timeline.appendChild(li);
+                });
+                
+                // Próximos pasos
+                document.getElementById('nextStepsText').textContent = result.nextSteps;
+                
+                // Mostrar sección de resultado
+                document.getElementById('resultSection').style.display = 'block';
+                
+                // Scroll al resultado
+                document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('No se encontró ningún trámite con el DNI ' + dni + '.\n\nPosibles razones:\n- Todavía no completaste la inscripción\n- Hay un error en el DNI ingresado\n- Tu trámite fue derivado a otra área\n\nLlamá al 147 (opción 5) para más información.');
+            }
+        }
+    </script>
+</body>
+</html>
