@@ -317,11 +317,13 @@
             margin-bottom: 16px;
         }
         
-        .final-cta > p {
+        .final-cta-subtitle {
             text-align: center;
             font-size: 20px;
             color: #666;
-            margin-bottom: 48px;
+            margin: 0 auto 48px;
+            max-width: 700px;
+            line-height: 1.5;
         }
         
         .contact-options {
@@ -382,6 +384,9 @@
             .final-cta h2,
             .cta-inscripcion h2 {
                 font-size: 28px;
+            }
+            .final-cta-subtitle {
+                font-size: 16px;
             }
             .step-arrow {
                 display: none;
@@ -636,7 +641,7 @@
     <section class="final-cta">
         <div class="container">
             <h2>¿Necesitás más información?</h2>
-            <p>Estamos disponibles para ayudarte por múltiples canales</p>
+            <p class="final-cta-subtitle">Estamos disponibles para ayudarte por múltiples canales</p>
             <div class="contact-options">
                 <a href="tel:147" class="contact-option">
                     <i class="fa fa-phone" aria-hidden="true"></i>
@@ -696,6 +701,18 @@
             <div class="footer-legal">
                 <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
             </div>
+        </div>
+        
+        <!-- DISCLAIMER DE AUTORÍA -->
+        <div class="author-disclaimer">
+            <p>
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <strong>Proyecto de diseño especulativo</strong> · 
+                CUIDAR.ar es una obra de ficción que explora futuros posibles para el cuidado 
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong> (2025). 
+                Todo el contenido, concepto, diseño y código es de su autoría.
+            </p>
         </div>
     </footer>
     
