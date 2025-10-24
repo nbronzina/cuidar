@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Inscribite a CUIDAR.ar en 3 pasos simples. Te llamamos en 24-48hs.">
+    <meta name="description" content="Inscribite en CUIDAR.ar en 5 minutos. Dejá tus datos y te contactamos en 24-48hs.">
     <title>Inscripción | CUIDAR.ar</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -14,8 +14,7 @@
             --color-secondary: #66BB6A;
             --color-accent: #FF9800;
             --color-warm: #FFF8E1;
-            --color-error: #D32F2F;
-            --color-success: #388E3C;
+            --color-purple: #9C27B0;
         }
         
         .hero-inscripcion {
@@ -26,96 +25,105 @@
             text-align: center;
         }
         
-        .progress-bar {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .progress-bar::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background-color: #E0E0E0;
-            z-index: 0;
-        }
-        
-        .progress-step {
-            flex: 1;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .progress-step-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #E0E0E0;
-            color: #666;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
+        .hero-inscripcion h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
             font-weight: 700;
-            font-size: 18px;
-            transition: all 0.3s;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         
-        .progress-step.active .progress-step-circle {
-            background-color: var(--color-secondary);
-            color: white;
-            transform: scale(1.2);
-        }
-        
-        .progress-step.completed .progress-step-circle {
-            background-color: var(--color-secondary);
-            color: white;
-        }
-        
-        .progress-step-circle i {
+        .hero-inscripcion .lead {
             font-size: 20px;
-        }
-        
-        .progress-step-label {
-            font-size: 14px;
-            color: #666;
-            font-weight: 600;
-        }
-        
-        .progress-step.active .progress-step-label {
-            color: var(--color-secondary);
-        }
-        
-        .form-section {
-            display: none;
-        }
-        
-        .form-section.active {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .form-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            line-height: 1.5;
             max-width: 700px;
             margin: 0 auto;
         }
         
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: #999;
+        }
+        
+        .step.active {
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            color: white;
+            box-shadow: 0 4px 12px rgba(102,187,106,0.3);
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .step.active .step-number {
+            background-color: rgba(255,255,255,0.3);
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+        
+        .form-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .form-section h3 {
+            color: var(--color-secondary);
+            font-size: 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
         .form-group {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
         
         .form-group label {
@@ -126,158 +134,234 @@
             font-size: 16px;
         }
         
-        .form-group label .required {
-            color: var(--color-error);
-            margin-left: 4px;
-        }
-        
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
             padding: 14px 16px;
-            font-size: 16px;
             border: 2px solid #E0E0E0;
             border-radius: 8px;
-            transition: all 0.3s;
+            font-size: 16px;
             font-family: 'Roboto', sans-serif;
-            color: #333;
-            background-color: white;
+            transition: all 0.3s;
         }
         
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
+            outline: none;
             border-color: var(--color-secondary);
-            outline: 3px solid rgba(102,187,106,0.2);
-            outline-offset: 2px;
+            box-shadow: 0 0 0 3px rgba(102,187,106,0.1);
         }
         
-        .form-group input.error,
-        .form-group select.error {
-            border-color: var(--color-error);
-        }
-        
-        .form-group input.error:focus,
-        .form-group select.error:focus {
-            outline-color: rgba(211,47,47,0.2);
-        }
-        
-        .error-message {
-            color: var(--color-error);
-            font-size: 14px;
+        .form-group small {
+            display: block;
             margin-top: 6px;
-            display: none;
-            font-weight: 600;
+            color: #666;
+            font-size: 14px;
         }
         
-        .error-message.visible {
+        .form-group .help-text {
+            display: flex;
+            align-items: start;
+            gap: 8px;
+            margin-top: 6px;
+            padding: 12px;
+            background-color: #E3F2FD;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #1565C0;
+        }
+        
+        .required {
+            color: #D32F2F;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .radio-option {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            cursor: pointer;
         }
         
-        .help-text {
-            font-size: 14px;
-            color: #666;
-            margin-top: 6px;
-            font-style: italic;
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
         }
         
-        .btn-navigation {
+        .checkbox-group {
             display: flex;
-            gap: 16px;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .btn-back {
-            background-color: white;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-        }
-        
-        .btn-back:hover,
-        .btn-back:focus {
+            align-items: start;
+            gap: 12px;
+            padding: 16px;
             background-color: #F5F5F5;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
         
-        .btn-next,
-        .btn-submit {
-            background-color: var(--color-secondary);
-            color: white;
-            border: 2px solid var(--color-secondary);
+        .checkbox-group:hover {
+            background-color: #E8F5E9;
         }
         
-        .btn-next:hover,
-        .btn-next:focus,
-        .btn-submit:hover,
-        .btn-submit:focus {
-            background-color: #43A047;
-            border-color: #43A047;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102,187,106,0.3);
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
         }
         
         .info-box {
-            background-color: #E8F5E9;
-            border-left: 4px solid var(--color-secondary);
-            padding: 20px;
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-left: 4px solid var(--color-primary);
+            padding: 24px;
             border-radius: 8px;
             margin-bottom: 32px;
         }
         
-        .info-box-warning {
-            background-color: #FFF3E0;
-            border-left-color: var(--color-accent);
+        .info-box h4 {
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-box ul {
+            margin: 0;
+            padding-left: 24px;
+        }
+        
+        .info-box li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .alternative-methods {
+            background-color: var(--color-warm);
+            padding: 32px;
+            border-radius: 12px;
+            margin-top: 48px;
+            text-align: center;
+        }
+        
+        .alternative-methods h3 {
+            color: var(--color-accent);
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+        
+        .alt-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         .success-message {
-            text-align: center;
+            display: none;
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border: 2px solid var(--color-secondary);
+            border-radius: 12px;
             padding: 40px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .success-message.show {
+            display: block;
         }
         
         .success-icon {
-            width: 100px;
-            height: 100px;
-            background-color: var(--color-success);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 24px;
             color: white;
-            font-size: 48px;
-            animation: scaleIn 0.5s;
+            font-size: 40px;
+            animation: scaleIn 0.5s ease-out;
         }
         
         @keyframes scaleIn {
-            from { transform: scale(0); }
-            to { transform: scale(1); }
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 40px;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37,211,102,0.6);
+            color: white;
         }
         
         @media (max-width: 767px) {
-            .form-card {
+            .hero-inscripcion h1 {
+                font-size: 28px;
+            }
+            .hero-inscripcion .lead {
+                font-size: 16px;
+            }
+            .form-container {
                 padding: 24px;
             }
-            
-            .progress-bar {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .progress-steps {
                 flex-direction: column;
-                gap: 20px;
+                align-items: stretch;
             }
-            
-            .progress-bar::before {
-                display: none;
+            .step {
+                justify-content: center;
             }
-            
-            .progress-step {
-                display: flex;
-                align-items: center;
-                text-align: left;
-            }
-            
-            .progress-step-circle {
-                margin: 0 16px 0 0;
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -324,200 +408,173 @@
     
     <section class="hero-inscripcion" id="main-content" role="main">
         <div class="container">
-            <h1>Inscribite en 3 pasos simples</h1>
-            <p class="lead">Te llamamos en 24-48 horas para agendar la visita</p>
+            <h1>Inscribite en 5 minutos</h1>
+            <p class="lead">
+                Completá el formulario y te contactamos en 24-48hs
+            </p>
         </div>
     </section>
     
     <section style="padding: 60px 0;">
         <div class="container">
-            
-            <!-- Progress Bar -->
-            <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" aria-label="Progreso del formulario">
-                <div class="progress-step active" data-step="1">
-                    <div class="progress-step-circle">1</div>
-                    <div class="progress-step-label">Tus datos</div>
+            <!-- Progress Steps -->
+            <div class="progress-steps" role="progressbar" aria-label="Progreso de inscripción" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <span>Tus datos</span>
                 </div>
-                <div class="progress-step" data-step="2">
-                    <div class="progress-step-circle">2</div>
-                    <div class="progress-step-label">Tu situación</div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <span>Te contactamos</span>
                 </div>
-                <div class="progress-step" data-step="3">
-                    <div class="progress-step-circle">3</div>
-                    <div class="progress-step-label">Confirmar</div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <span>Evaluación</span>
                 </div>
             </div>
             
-            <div class="form-card">
-                <form id="inscripcionForm" role="form" aria-label="Formulario de inscripción a CUIDAR.ar" novalidate>
+            <!-- Success Message (hidden by default) -->
+            <div id="successMessage" class="success-message" role="alert">
+                <div class="success-icon">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </div>
+                <h2 style="color: var(--color-secondary); font-size: 32px; margin-bottom: 16px;">
+                    ¡Inscripción recibida!
+                </h2>
+                <p style="font-size: 20px; color: #333; margin-bottom: 24px; line-height: 1.6;">
+                    Gracias por inscribirte en CUIDAR.ar. 
+                    <strong>Te vamos a contactar en las próximas 24-48hs</strong> al teléfono que nos dejaste.
+                </p>
+                <p style="font-size: 16px; color: #666; margin-bottom: 32px;">
+                    También te enviamos un email de confirmación a <strong id="confirmedEmail"></strong>
+                </p>
+                <div style="background-color: white; padding: 24px; border-radius: 8px; max-width: 500px; margin: 0 auto;">
+                    <h3 style="color: var(--color-accent); margin-bottom: 16px; font-size: 20px;">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i> ¿Qué sigue ahora?
+                    </h3>
+                    <ol style="text-align: left; padding-left: 24px; margin: 0; line-height: 1.8;">
+                        <li>Te llamamos del <strong>Nodo de tu zona</strong></li>
+                        <li>Coordinamos una <strong>visita a tu domicilio</strong></li>
+                        <li>Evaluamos tus necesidades</li>
+                        <li>¡Empezás con el servicio!</li>
+                    </ol>
+                </div>
+                <div style="margin-top: 32px;">
+                    <a href="index.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 14px 32px; font-size: 18px;">
+                        <i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Info Box -->
+            <div class="info-box">
+                <h4>
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    Antes de empezar, tené en cuenta:
+                </h4>
+                <ul>
+                    <li>El servicio es <strong>gratuito o con copago</strong> según tus ingresos</li>
+                    <li>Tiene que ser para una persona <strong>mayor de 60 años</strong></li>
+                    <li>Que viva en <strong>CABA</strong> (no importa si sos inquilino)</li>
+                    <li>Te vamos a llamar en <strong>24-48 horas hábiles</strong></li>
+                    <li>Toda tu información es <strong>confidencial</strong></li>
+                </ul>
+            </div>
+            
+            <!-- Form -->
+            <form class="form-container" id="inscriptionForm" onsubmit="return handleInscription(event)">
+                <!-- Sección 1: Datos personales -->
+                <div class="form-section">
+                    <h3>
+                        <div class="section-icon">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        Datos de la persona que recibirá el cuidado
+                    </h3>
                     
-                    <!-- PASO 1: Datos Personales -->
-                    <div class="form-section active" id="step1">
-                        <h2 style="color: var(--color-secondary); margin-bottom: 24px; font-size: 28px;">
-                            <i class="fa fa-user" aria-hidden="true"></i> Paso 1: Tus datos personales
-                        </h2>
-                        
-                        <div class="info-box">
-                            <strong><i class="fa fa-info-circle" aria-hidden="true"></i> Tranquilo/a</strong><br>
-                            Solo te pedimos lo necesario. Tus datos están protegidos.
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="nombreCompleto">
-                                Nombre completo
-                                <span class="required" aria-label="campo obligatorio">*</span>
-                            </label>
-                            <input 
-                                type="text" 
-                                id="nombreCompleto" 
-                                name="nombreCompleto"
-                                required 
-                                aria-required="true"
-                                aria-describedby="nombreCompleto-error nombreCompleto-help"
-                                placeholder="Ej: María González"
-                            >
-                            <span id="nombreCompleto-help" class="help-text">Tu nombre y apellido como aparece en el DNI</span>
-                            <span id="nombreCompleto-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                Por favor ingresá tu nombre completo
-                            </span>
-                        </div>
-                        
+                    <div class="form-group">
+                        <label for="nombreCompleto">
+                            Nombre y apellido completo <span class="required" aria-label="campo requerido">*</span>
+                        </label>
+                        <input type="text" id="nombreCompleto" name="nombreCompleto" required aria-required="true" placeholder="Ej: María Isabel González">
+                    </div>
+                    
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="dni">
-                                DNI (sin puntos)
-                                <span class="required" aria-label="campo obligatorio">*</span>
+                                DNI <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <input 
-                                type="text" 
-                                id="dni" 
-                                name="dni"
-                                required 
-                                aria-required="true"
-                                aria-describedby="dni-error dni-help"
-                                placeholder="Ej: 12345678"
-                                pattern="[0-9]{7,8}"
-                                maxlength="8"
-                            >
-                            <span id="dni-help" class="help-text">Solo números, sin puntos ni espacios</span>
-                            <span id="dni-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                Por favor ingresá un DNI válido (7 u 8 números)
-                            </span>
+                            <input type="text" id="dni" name="dni" required aria-required="true" placeholder="12345678" pattern="[0-9]{7,8}" maxlength="8">
+                            <small>Sin puntos ni espacios</small>
                         </div>
                         
                         <div class="form-group">
                             <label for="fechaNacimiento">
-                                Fecha de nacimiento
-                                <span class="required" aria-label="campo obligatorio">*</span>
+                                Fecha de nacimiento <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <input 
-                                type="date" 
-                                id="fechaNacimiento" 
-                                name="fechaNacimiento"
-                                required 
-                                aria-required="true"
-                                aria-describedby="fechaNacimiento-error fechaNacimiento-help"
-                                max="2005-01-01"
-                            >
-                            <span id="fechaNacimiento-help" class="help-text">Tenés que tener 60 años o más</span>
-                            <span id="fechaNacimiento-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                Debés tener al menos 60 años para inscribirte
-                            </span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="telefono">
-                                Teléfono de contacto
-                                <span class="required" aria-label="campo obligatorio">*</span>
-                            </label>
-                            <input 
-                                type="tel" 
-                                id="telefono" 
-                                name="telefono"
-                                required 
-                                aria-required="true"
-                                aria-describedby="telefono-error telefono-help"
-                                placeholder="Ej: 11-5234-5678"
-                            >
-                            <span id="telefono-help" class="help-text">Te llamamos a este número en 24-48hs</span>
-                            <span id="telefono-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                Por favor ingresá un teléfono válido
-                            </span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">
-                                Email (opcional)
-                            </label>
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email"
-                                aria-describedby="email-error email-help"
-                                placeholder="Ej: maria@email.com"
-                            >
-                            <span id="email-help" class="help-text">Si tenés, te mandamos confirmación por email</span>
-                            <span id="email-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                El formato del email no es válido
-                            </span>
-                        </div>
-                        
-                        <div class="btn-navigation">
-                            <div></div>
-                            <button type="button" class="btn btn-next btn-lg" onclick="nextStep(1)" aria-label="Ir al paso 2">
-                                Siguiente <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                            </button>
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required aria-required="true" max="2005-01-01">
                         </div>
                     </div>
                     
-                    <!-- PASO 2: Situación -->
-                    <div class="form-section" id="step2">
-                        <h2 style="color: var(--color-secondary); margin-bottom: 24px; font-size: 28px;">
-                            <i class="fa fa-home" aria-hidden="true"></i> Paso 2: Tu situación
-                        </h2>
-                        
-                        <div class="info-box">
-                            <strong><i class="fa fa-info-circle" aria-hidden="true"></i> ¿Por qué preguntamos esto?</strong><br>
-                            Para asignarte la cuidadora y servicios que mejor se adapten a vos.
+                    <div class="form-group">
+                        <label>
+                            Género <span class="required" aria-label="campo requerido">*</span>
+                        </label>
+                        <div class="radio-group" role="radiogroup" aria-label="Seleccionar género">
+                            <label class="radio-option">
+                                <input type="radio" name="genero" value="femenino" required>
+                                <span>Femenino</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="genero" value="masculino">
+                                <span>Masculino</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="genero" value="otro">
+                                <span>Otro / Prefiero no decir</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sección 2: Domicilio -->
+                <div class="form-section">
+                    <h3>
+                        <div class="section-icon">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                        </div>
+                        Domicilio
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label for="calle">
+                            Calle <span class="required" aria-label="campo requerido">*</span>
+                        </label>
+                        <input type="text" id="calle" name="calle" required aria-required="true" placeholder="Ej: Av. Corrientes">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numero">
+                                Número <span class="required" aria-label="campo requerido">*</span>
+                            </label>
+                            <input type="text" id="numero" name="numero" required aria-required="true" placeholder="1234">
                         </div>
                         
                         <div class="form-group">
-                            <label for="direccion">
-                                Dirección completa
-                                <span class="required" aria-label="campo obligatorio">*</span>
+                            <label for="piso">
+                                Piso / Depto (opcional)
                             </label>
-                            <input 
-                                type="text" 
-                                id="direccion" 
-                                name="direccion"
-                                required 
-                                aria-required="true"
-                                aria-describedby="direccion-error direccion-help"
-                                placeholder="Ej: Av. Rivadavia 1234, Piso 3, Depto B"
-                            >
-                            <span id="direccion-help" class="help-text">Calle, número, piso y departamento si aplica</span>
-                            <span id="direccion-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                Por favor ingresá tu dirección completa
-                            </span>
+                            <input type="text" id="piso" name="piso" placeholder="5° B">
                         </div>
-                        
+                    </div>
+                    
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="barrio">
-                                Barrio
-                                <span class="required" aria-label="campo obligatorio">*</span>
+                                Barrio <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <select 
-                                id="barrio" 
-                                name="barrio"
-                                required 
-                                aria-required="true"
-                                aria-describedby="barrio-error"
-                            >
+                            <select id="barrio" name="barrio" required aria-required="true">
                                 <option value="">Seleccioná tu barrio</option>
                                 <option value="Agronomía">Agronomía</option>
                                 <option value="Almagro">Almagro</option>
@@ -533,10 +590,11 @@
                                 <option value="Flores">Flores</option>
                                 <option value="Floresta">Floresta</option>
                                 <option value="La Boca">La Boca</option>
+                                <option value="La Paternal">La Paternal</option>
                                 <option value="Liniers">Liniers</option>
                                 <option value="Mataderos">Mataderos</option>
-                                <option value="Monserrat">Monserrat</option>
                                 <option value="Monte Castro">Monte Castro</option>
+                                <option value="Montserrat">Montserrat</option>
                                 <option value="Nueva Pompeya">Nueva Pompeya</option>
                                 <option value="Núñez">Núñez</option>
                                 <option value="Palermo">Palermo</option>
@@ -551,7 +609,6 @@
                                 <option value="San Cristóbal">San Cristóbal</option>
                                 <option value="San Nicolás">San Nicolás</option>
                                 <option value="San Telmo">San Telmo</option>
-                                <option value="Vélez Sársfield">Vélez Sársfield</option>
                                 <option value="Versalles">Versalles</option>
                                 <option value="Villa Crespo">Villa Crespo</option>
                                 <option value="Villa del Parque">Villa del Parque</option>
@@ -567,190 +624,183 @@
                                 <option value="Villa Soldati">Villa Soldati</option>
                                 <option value="Villa Urquiza">Villa Urquiza</option>
                             </select>
-                            <span id="barrio-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                Por favor seleccioná tu barrio
-                            </span>
                         </div>
                         
                         <div class="form-group">
-                            <label for="vivisSolo">
-                                ¿Vivís solo/a?
-                                <span class="required" aria-label="campo obligatorio">*</span>
+                            <label for="codigoPostal">
+                                Código Postal <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <select 
-                                id="vivisSolo" 
-                                name="vivisSolo"
-                                required 
-                                aria-required="true"
-                                aria-describedby="vivisSolo-error"
-                            >
-                                <option value="">Seleccioná una opción</option>
-                                <option value="si">Sí, vivo solo/a</option>
-                                <option value="no-sinayuda">No, pero la persona con quien vivo no puede ayudarme</option>
-                                <option value="no-conayuda">No, vivo con alguien que me ayuda</option>
-                            </select>
-                            <span id="vivisSolo-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                Por favor indicá tu situación de vivienda
-                            </span>
+                            <input type="text" id="codigoPostal" name="codigoPostal" required aria-required="true" placeholder="C1234ABC" pattern="[Cc][0-9]{4}[A-Za-z]{3}">
+                            <small>Formato: C1234ABC</small>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="obraSocial">
-                                ¿Tenés obra social con cobertura de cuidado domiciliario?
-                                <span class="required" aria-label="campo obligatorio">*</span>
-                            </label>
-                            <select 
-                                id="obraSocial" 
-                                name="obraSocial"
-                                required 
-                                aria-required="true"
-                                aria-describedby="obraSocial-error obraSocial-help"
-                            >
-                                <option value="">Seleccioná una opción</option>
-                                <option value="no">No tengo obra social</option>
-                                <option value="pami">PAMI (sin cobertura de cuidado)</option>
-                                <option value="si-sinusar">Sí, pero no la estoy usando</option>
-                                <option value="si-usando">Sí, y la estoy usando</option>
-                            </select>
-                            <span id="obraSocial-help" class="help-text">Si ya tenés cuidado domiciliario por obra social, no podés inscribirte</span>
-                            <span id="obraSocial-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                Por favor indicá tu situación de obra social
-                            </span>
+                    </div>
+                </div>
+                
+                <!-- Sección 3: Contacto -->
+                <div class="form-section">
+                    <h3>
+                        <div class="section-icon">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="necesidades">
-                                ¿Con qué actividades necesitás ayuda? (opcional)
-                            </label>
-                            <textarea 
-                                id="necesidades" 
-                                name="necesidades"
-                                rows="4"
-                                aria-describedby="necesidades-help"
-                                placeholder="Ej: compras, cocinar, medicación, limpieza, compañía..."
-                            ></textarea>
-                            <span id="necesidades-help" class="help-text">Esto nos ayuda a conocerte mejor</span>
-                        </div>
-                        
-                        <div class="btn-navigation">
-                            <button type="button" class="btn btn-back btn-lg" onclick="prevStep(2)" aria-label="Volver al paso 1">
-                                <i class="fa fa-arrow-left" aria-hidden="true"></i> Anterior
-                            </button>
-                            <button type="button" class="btn btn-next btn-lg" onclick="nextStep(2)" aria-label="Ir al paso 3">
-                                Siguiente <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                            </button>
+                        Datos de contacto
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label for="telefono">
+                            Teléfono <span class="required" aria-label="campo requerido">*</span>
+                        </label>
+                        <input type="tel" id="telefono" name="telefono" required aria-required="true" placeholder="11 1234-5678" pattern="[0-9]{2,4}[\s\-]?[0-9]{4}[\s\-]?[0-9]{4}">
+                        <div class="help-text">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            <span>A este número te vamos a llamar en 24-48hs. Asegurate que esté activo.</span>
                         </div>
                     </div>
                     
-                    <!-- PASO 3: Confirmación -->
-                    <div class="form-section" id="step3">
-                        <h2 style="color: var(--color-secondary); margin-bottom: 24px; font-size: 28px;">
-                            <i class="fa fa-check-circle" aria-hidden="true"></i> Paso 3: Confirmá tus datos
-                        </h2>
-                        
-                        <div class="info-box info-box-warning">
-                            <strong><i class="fa fa-eye" aria-hidden="true"></i> Revisá que todo esté bien</strong><br>
-                            Podés volver atrás para corregir cualquier dato.
+                    <div class="form-group">
+                        <label for="email">
+                            Email <span class="required" aria-label="campo requerido">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="ejemplo@email.com">
+                        <small>Te enviaremos la confirmación de inscripción</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="relacionPersona">
+                            ¿Quién completa este formulario? <span class="required" aria-label="campo requerido">*</span>
+                        </label>
+                        <select id="relacionPersona" name="relacionPersona" required aria-required="true">
+                            <option value="">Seleccioná una opción</option>
+                            <option value="yo">Yo mismo/a (la persona que recibirá el cuidado)</option>
+                            <option value="hijo">Hijo/a</option>
+                            <option value="nieto">Nieto/a</option>
+                            <option value="sobrino">Sobrino/a</option>
+                            <option value="conyuge">Cónyuge / Pareja</option>
+                            <option value="vecino">Vecino/a</option>
+                            <option value="otro-familiar">Otro familiar</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Sección 4: Situación -->
+                <div class="form-section">
+                    <h3>
+                        <div class="section-icon">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
                         </div>
-                        
-                        <div id="resumenDatos" style="background-color: #F5F5F5; padding: 24px; border-radius: 8px; margin-bottom: 32px;">
-                            <!-- Se llena con JavaScript -->
-                        </div>
-                        
-                        <div style="background-color: #E8F5E9; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-secondary); margin-bottom: 32px;">
-                            <h3 style="color: var(--color-secondary); margin-bottom: 12px; font-size: 18px;">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i> ¿Qué pasa después?
-                            </h3>
-                            <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
-                                <li><strong>En 24-48 horas</strong> te llamamos al teléfono que dejaste</li>
-                                <li>Agendamos una <strong>visita domiciliaria</strong> para conocerte</li>
-                                <li>Un profesional evalúa tus necesidades</li>
-                                <li>Te asignamos una <strong>cuidadora de tu zona</strong></li>
-                                <li>En <strong>15-45 días</strong> empezás a recibir el servicio</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label style="display: flex; align-items: start; gap: 12px; cursor: pointer;">
-                                <input 
-                                    type="checkbox" 
-                                    id="aceptoTerminos" 
-                                    name="aceptoTerminos"
-                                    required
-                                    aria-required="true"
-                                    aria-describedby="aceptoTerminos-error"
-                                    style="width: auto; margin-top: 4px;"
-                                >
-                                <span style="font-weight: 400;">
-                                    Acepto que mis datos sean procesados según la 
-                                    <a href="#" style="color: var(--color-primary); text-decoration: underline;">Ley de Protección de Datos Personales</a>
-                                    <span class="required" aria-label="campo obligatorio">*</span>
-                                </span>
+                        Situación actual
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label for="situacion">
+                            ¿Por qué querés inscribirte en CUIDAR.ar? <span class="required" aria-label="campo requerido">*</span>
+                        </label>
+                        <textarea id="situacion" name="situacion" required aria-required="true" rows="4" placeholder="Contanos brevemente tu situación. Por ejemplo: vivo solo/a, necesito compañía, tengo dificultades para cocinar, etc."></textarea>
+                        <small>No hace falta dar muchos detalles, esto lo charlamos en la visita domiciliaria</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            ¿Vivís solo/a? <span class="required" aria-label="campo requerido">*</span>
+                        </label>
+                        <div class="radio-group" role="radiogroup" aria-label="¿Vivís solo/a?">
+                            <label class="radio-option">
+                                <input type="radio" name="viveSolo" value="si" required>
+                                <span>Sí, vivo solo/a</span>
                             </label>
-                            <span id="aceptoTerminos-error" class="error-message" role="alert" aria-live="polite">
-                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                Debés aceptar los términos para continuar
+                            <label class="radio-option">
+                                <input type="radio" name="viveSolo" value="no">
+                                <span>No, vivo con otras personas</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            ¿Tenés alguna obra social o prepaga? <span class="required" aria-label="campo requerido">*</span>
+                        </label>
+                        <div class="radio-group" role="radiogroup" aria-label="¿Tenés obra social?">
+                            <label class="radio-option">
+                                <input type="radio" name="obraSocial" value="pami" required>
+                                <span>PAMI</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="obraSocial" value="otra">
+                                <span>Otra obra social</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="obraSocial" value="prepaga">
+                                <span>Prepaga</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="obraSocial" value="no">
+                                <span>No tengo</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sección 5: Términos -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="privacidad" name="privacidad" required aria-required="true">
+                            <span>
+                                He leído y acepto la <a href="#" style="color: var(--color-primary); text-decoration: underline;" target="_blank">Política de Privacidad</a> 
+                                y autorizo el tratamiento de mis datos personales de acuerdo con la Ley 25.326 de Protección de Datos Personales. 
+                                <span class="required" aria-label="campo requerido">*</span>
                             </span>
-                        </div>
-                        
-                        <div class="btn-navigation">
-                            <button type="button" class="btn btn-back btn-lg" onclick="prevStep(3)" aria-label="Volver al paso 2">
-                                <i class="fa fa-arrow-left" aria-hidden="true"></i> Anterior
-                            </button>
-                            <button type="submit" class="btn btn-submit btn-lg" aria-label="Enviar inscripción">
-                                <i class="fa fa-check" aria-hidden="true"></i> Confirmar inscripción
-                            </button>
-                        </div>
+                        </label>
                     </div>
                     
-                    <!-- PASO 4: Éxito -->
-                    <div class="form-section" id="stepSuccess">
-                        <div class="success-message">
-                            <div class="success-icon">
-                                <i class="fa fa-check" aria-hidden="true"></i>
-                            </div>
-                            <h2 style="color: var(--color-success); margin-bottom: 16px; font-size: 32px;">
-                                ¡Listo! Ya estás inscripto/a
-                            </h2>
-                            <p style="font-size: 20px; margin-bottom: 32px; line-height: 1.8; color: #333;">
-                                Guardá este número de solicitud:
-                            </p>
-                            <div style="background-color: #FFF8E1; padding: 20px; border-radius: 8px; margin-bottom: 32px; border: 2px solid var(--color-accent);">
-                                <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Número de solicitud</div>
-                                <div id="numeroSolicitud" style="font-size: 36px; font-weight: 700; color: var(--color-accent);">
-                                    #CUIDAR-20321023-1234
-                                </div>
-                            </div>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin-bottom: 32px;">
-                                Te llamamos en las próximas <strong>24-48 horas</strong> al <span id="telefonoConfirmacion" style="color: var(--color-secondary); font-weight: 700;"></span>
-                            </p>
-                            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                                <a href="index.html" class="btn btn-primary btn-lg">
-                                    <i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
-                                </a>
-                                <a href="estado-tramite.html" class="btn btn-secondary btn-lg">
-                                    <i class="fa fa-search" aria-hidden="true"></i> Ver estado de mi solicitud
-                                </a>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="comunicaciones" name="comunicaciones">
+                            <span>
+                                Acepto recibir comunicaciones de CUIDAR.ar sobre el programa y servicios relacionados (opcional)
+                            </span>
+                        </label>
                     </div>
-                    
-                </form>
-            </div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div style="text-align: center; margin-top: 40px;">
+                    <button type="submit" class="btn btn-lg" style="background: linear-gradient(135deg, var(--color-secondary), #43A047); color: white; padding: 18px 48px; font-size: 20px; box-shadow: 0 4px 16px rgba(102,187,106,0.3);">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i> Completar inscripción
+                    </button>
+                </div>
+            </form>
             
+            <!-- Alternative Methods -->
+            <div class="alternative-methods">
+                <h3>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    ¿Preferís inscribirte de otra forma?
+                </h3>
+                <p style="color: #666; margin-bottom: 24px; font-size: 16px;">
+                    Podés hacerlo por teléfono o presencialmente en cualquiera de nuestros Nodos
+                </p>
+                <div class="alt-buttons">
+                    <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 14px 32px;">
+                        <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
+                    </a>
+                    <a href="contacto.html#nodos-titulo" class="btn" style="background-color: var(--color-secondary); color: white; padding: 14px 32px;">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> Ver Nodos cercanos
+                    </a>
+                    <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #25D366; color: white; padding: 14px 32px;">
+                        <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
     
-    <!-- WhatsApp Float Button -->
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/5491112345678" 
        class="whatsapp-float" 
        target="_blank" 
        rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp"
-       style="position: fixed; width: 70px; height: 70px; bottom: 40px; right: 40px; background-color: #25D366; color: white; border-radius: 50%; text-align: center; font-size: 40px; box-shadow: 0 4px 16px rgba(37,211,102,0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: all 0.3s; text-decoration: none;">
+       aria-label="Contactar por WhatsApp">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
     </a>
     
@@ -789,11 +839,6 @@
     </footer>
     
     <script>
-        // Variables globales
-        let currentStep = 1;
-        const totalSteps = 3;
-        
-        // Funciones de accesibilidad
         function adjustTextSize(size) {
             document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
             document.body.classList.add('text-size-' + size);
@@ -827,229 +872,31 @@
             setTimeout(() => document.body.removeChild(announcement), 1000);
         }
         
-        // Validación de campos
-        function validateField(field) {
-            const value = field.value.trim();
-            const fieldId = field.id;
-            const errorSpan = document.getElementById(fieldId + '-error');
-            let isValid = true;
+        function handleInscription(event) {
+            event.preventDefault();
             
-            // Limpiar error previo
-            field.classList.remove('error');
-            if (errorSpan) errorSpan.classList.remove('visible');
-            field.setAttribute('aria-invalid', 'false');
+            // Get email value
+            const email = document.getElementById('email').value;
             
-            // Validaciones específicas
-            if (field.hasAttribute('required') && !value) {
-                isValid = false;
-            } else if (fieldId === 'dni') {
-                const dniRegex = /^[0-9]{7,8}$/;
-                if (value && !dniRegex.test(value)) {
-                    isValid = false;
-                }
-            } else if (fieldId === 'email' && value) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(value)) {
-                    isValid = false;
-                }
-            } else if (fieldId === 'telefono') {
-                if (value && value.length < 8) {
-                    isValid = false;
-                }
-            } else if (fieldId === 'fechaNacimiento' && value) {
-                const birthDate = new Date(value);
-                const today = new Date();
-                const age = today.getFullYear() - birthDate.getFullYear();
-                if (age < 60) {
-                    isValid = false;
-                }
-            }
+            // Hide form
+            document.getElementById('inscriptionForm').style.display = 'none';
+            document.querySelector('.info-box').style.display = 'none';
+            document.querySelector('.alternative-methods').style.display = 'none';
             
-            // Mostrar error si no es válido
-            if (!isValid) {
-                field.classList.add('error');
-                if (errorSpan) errorSpan.classList.add('visible');
-                field.setAttribute('aria-invalid', 'true');
-            }
-            
-            return isValid;
-        }
-        
-        // Validar paso completo
-        function validateStep(stepNumber) {
-            const stepDiv = document.getElementById('step' + stepNumber);
-            const fields = stepDiv.querySelectorAll('input[required], select[required], textarea[required]');
-            let allValid = true;
-            
-            fields.forEach(field => {
-                if (!validateField(field)) {
-                    allValid = false;
-                }
-            });
-            
-            // Validar checkbox de términos en paso 3
-            if (stepNumber === 3) {
-                const checkbox = document.getElementById('aceptoTerminos');
-                if (!checkbox.checked) {
-                    allValid = false;
-                    checkbox.classList.add('error');
-                    document.getElementById('aceptoTerminos-error').classList.add('visible');
-                    checkbox.setAttribute('aria-invalid', 'true');
-                }
-            }
-            
-            return allValid;
-        }
-        
-        // Navegación entre pasos
-        function nextStep(currentStepNum) {
-            if (!validateStep(currentStepNum)) {
-                announceToScreenReader('Por favor corregí los errores antes de continuar');
-                // Hacer scroll al primer error
-                const firstError = document.querySelector('.error');
-                if (firstError) {
-                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    firstError.focus();
-                }
-                return;
-            }
-            
-            // Si estamos en el paso 2, mostrar resumen en paso 3
-            if (currentStepNum === 2) {
-                mostrarResumen();
-            }
-            
-            // Cambiar de paso
-            document.getElementById('step' + currentStepNum).classList.remove('active');
-            document.getElementById('step' + (currentStepNum + 1)).classList.add('active');
-            
-            // Actualizar progress bar
-            document.querySelector('[data-step="' + currentStepNum + '"]').classList.remove('active');
-            document.querySelector('[data-step="' + currentStepNum + '"]').classList.add('completed');
-            document.querySelector('[data-step="' + (currentStepNum + 1) + '"]').classList.add('active');
-            
-            // Actualizar aria-valuenow
-            const progressBar = document.querySelector('.progress-bar');
-            progressBar.setAttribute('aria-valuenow', currentStepNum + 1);
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            document.getElementById('confirmedEmail').textContent = email;
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // Anunciar cambio
-            announceToScreenReader('Paso ' + (currentStepNum + 1) + ' de ' + totalSteps);
+            // Announce to screen reader
+            announceToScreenReader('Inscripción completada exitosamente. Te contactaremos en 24 a 48 horas.');
+            
+            return false;
         }
         
-        function prevStep(currentStepNum) {
-            document.getElementById('step' + currentStepNum).classList.remove('active');
-            document.getElementById('step' + (currentStepNum - 1)).classList.add('active');
-            
-            // Actualizar progress bar
-            document.querySelector('[data-step="' + currentStepNum + '"]').classList.remove('active');
-            document.querySelector('[data-step="' + (currentStepNum - 1) + '"]').classList.remove('completed');
-            document.querySelector('[data-step="' + (currentStepNum - 1) + '"]').classList.add('active');
-            
-            // Actualizar aria-valuenow
-            const progressBar = document.querySelector('.progress-bar');
-            progressBar.setAttribute('aria-valuenow', currentStepNum - 1);
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Anunciar cambio
-            announceToScreenReader('Volviste al paso ' + (currentStepNum - 1) + ' de ' + totalSteps);
-        }
-        
-        // Mostrar resumen de datos
-        function mostrarResumen() {
-            const resumenDiv = document.getElementById('resumenDatos');
-            const formData = {
-                'Nombre': document.getElementById('nombreCompleto').value,
-                'DNI': document.getElementById('dni').value,
-                'Fecha de nacimiento': document.getElementById('fechaNacimiento').value,
-                'Teléfono': document.getElementById('telefono').value,
-                'Email': document.getElementById('email').value || 'No proporcionado',
-                'Dirección': document.getElementById('direccion').value,
-                'Barrio': document.getElementById('barrio').value,
-                '¿Vivís solo/a?': document.getElementById('vivisSolo').options[document.getElementById('vivisSolo').selectedIndex].text,
-                'Obra social': document.getElementById('obraSocial').options[document.getElementById('obraSocial').selectedIndex].text,
-                'Necesidades': document.getElementById('necesidades').value || 'No especificadas'
-            };
-            
-            let html = '<h3 style="color: var(--color-secondary); margin-bottom: 16px;">Tus datos:</h3>';
-            for (let key in formData) {
-                html += `
-                    <div style="padding: 12px 0; border-bottom: 1px solid #E0E0E0; display: flex; justify-content: space-between; gap: 20px;">
-                        <strong style="color: #666;">${key}:</strong>
-                        <span style="text-align: right;">${formData[key]}</span>
-                    </div>
-                `;
-            }
-            
-            resumenDiv.innerHTML = html;
-        }
-        
-        // Envío del formulario
-        document.getElementById('inscripcionForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (!validateStep(3)) {
-                announceToScreenReader('Por favor aceptá los términos para continuar');
-                return;
-            }
-            
-            // Simular envío (en producción iría a un servidor)
-            const telefono = document.getElementById('telefono').value;
-            const numeroSolicitud = 'CUIDAR-' + new Date().getFullYear() + 
-                                   ('0' + (new Date().getMonth() + 1)).slice(-2) + 
-                                   ('0' + new Date().getDate()).slice(-2) + '-' + 
-                                   Math.floor(Math.random() * 10000);
-            
-            // Mostrar pantalla de éxito
-            document.getElementById('step3').classList.remove('active');
-            document.getElementById('stepSuccess').classList.add('active');
-            document.getElementById('numeroSolicitud').textContent = '#' + numeroSolicitud;
-            document.getElementById('telefonoConfirmacion').textContent = telefono;
-            
-            // Actualizar progress bar (todos completos)
-            document.querySelector('[data-step="3"]').classList.remove('active');
-            document.querySelector('[data-step="3"]').classList.add('completed');
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Anunciar éxito
-            announceToScreenReader('Inscripción enviada con éxito. Tu número de solicitud es ' + numeroSolicitud);
-        });
-        
-        // Validación en tiempo real
-        document.querySelectorAll('input, select, textarea').forEach(field => {
-            field.addEventListener('blur', function() {
-                if (this.value.trim() !== '' || this.hasAttribute('required')) {
-                    validateField(this);
-                }
-            });
-            
-            // Limpiar error al empezar a escribir
-            field.addEventListener('input', function() {
-                if (this.classList.contains('error')) {
-                    this.classList.remove('error');
-                    const errorSpan = document.getElementById(this.id + '-error');
-                    if (errorSpan) errorSpan.classList.remove('visible');
-                    this.setAttribute('aria-invalid', 'false');
-                }
-            });
-        });
-        
-        // Checkbox de términos
-        document.getElementById('aceptoTerminos').addEventListener('change', function() {
-            if (this.checked) {
-                this.classList.remove('error');
-                document.getElementById('aceptoTerminos-error').classList.remove('visible');
-                this.setAttribute('aria-invalid', 'false');
-            }
-        });
-        
-        // Restaurar preferencias de accesibilidad
         window.addEventListener('load', function() {
             const textSize = localStorage.getItem('textSize');
             if (textSize) document.body.classList.add('text-size-' + textSize);
