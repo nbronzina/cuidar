@@ -358,15 +358,13 @@
     <div class="accessibility-bar">
         <div class="container">
             <div class="pull-left">
-                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
-                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
-                <button onclick="adjustTextSize('xlarge')" aria-label="Tamaño de texto extra grande">A++</button>
+                <button onclick="adjustTextSize('normal')">A</button>
+                <button onclick="adjustTextSize('large')">A+</button>
+                <button onclick="adjustTextSize('xlarge')">A++</button>
             </div>
             <div class="pull-right">
-                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Alternar alto contraste">
-                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
-                </button>
+                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -375,18 +373,18 @@
     <header class="header-gcba">
         <div class="container">
             <a href="index.html" class="logo">
-                <i class="fa fa-home icon" aria-hidden="true"></i>CUIDAR.ar | Buenos Aires Ciudad
+                <i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad
             </a>
         </div>
     </header>
     
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+    <nav class="main-nav">
         <div class="container">
             <a href="index.html">Inicio</a>
             <a href="para-personas-mayores.html">Para Personas Mayores</a>
             <a href="para-cuidadores.html">Para Cuidadores/as</a>
             <a href="el-sistema.html">El Sistema</a>
-            <a href="transparencia.html" class="active" aria-current="page">Transparencia</a>
+            <a href="transparencia.html" class="active">Transparencia</a>
             <a href="contacto.html">Contacto</a>
         </div>
     </nav>
