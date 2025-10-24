@@ -9,14 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
-        :root {
-            --color-primary: #0072BB;
-            --color-secondary: #66BB6A;
-            --color-accent: #FF9800;
-            --color-warm: #FFF8E1;
-            --color-purple: #9C27B0;
-        }
-        
+        /* Estilos específicos solo para transparencia.html */
         .hero-transparencia {
             background: linear-gradient(135deg, rgba(102,187,106,0.95), rgba(67,160,71,0.95)),
                         url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&h=400&fit=crop') center/cover;
@@ -48,11 +41,16 @@
             transition: all 0.3s;
             height: 100%;
             border-top: 4px solid var(--color-secondary);
+            margin-bottom: 20px;
         }
         
         .stat-box:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        
+        .stat-box.friction {
+            border-top-color: var(--color-friction-warning-border);
         }
         
         .stat-number {
@@ -63,10 +61,21 @@
             margin-bottom: 8px;
         }
         
+        .stat-number.warning {
+            color: var(--color-friction-emphasis);
+        }
+        
         .stat-label {
             font-size: 18px;
             color: #666;
             font-weight: 500;
+        }
+        
+        .friction-note {
+            font-size: 14px;
+            color: #999;
+            font-style: italic;
+            margin-top: 8px;
         }
         
         .budget-section {
@@ -90,6 +99,11 @@
         
         .budget-item:hover {
             background-color: #E8F5E9;
+        }
+        
+        .budget-item.delayed {
+            background-color: #FFF3E0;
+            border-left: 4px solid var(--color-friction-warning-border);
         }
         
         .budget-icon {
@@ -137,6 +151,20 @@
             font-weight: 700;
             font-size: 14px;
             transition: width 1s ease-out;
+        }
+        
+        .progress-bar-fill.delayed {
+            background: linear-gradient(90deg, var(--color-friction-emphasis), var(--color-accent));
+        }
+        
+        .delayed-info {
+            background-color: #FFF3E0;
+            border-left: 3px solid var(--color-friction-warning-border);
+            padding: 12px 16px;
+            margin-top: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #666;
         }
         
         .download-card {
@@ -188,167 +216,155 @@
             cursor: pointer;
         }
         
-        .btn-download:hover,
-        .btn-download:focus {
+        .btn-download:hover {
             background-color: #005A92;
             transform: translateY(-2px);
             color: white;
         }
         
-        .indicator-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-        
-        .indicator-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .indicator-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-accent), #F57C00);
-        }
-        
-        .indicator-value {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--color-accent);
-            margin: 16px 0;
-        }
-        
-        .indicator-label {
-            font-size: 16px;
-            color: #666;
-            font-weight: 500;
-        }
-        
         .timeline-item {
             display: flex;
-            gap: 24px;
-            margin-bottom: 32px;
-            position: relative;
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #E0E0E0;
         }
         
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 19px;
-            top: 40px;
-            bottom: -32px;
-            width: 2px;
-            background-color: #E0E0E0;
+        .timeline-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
         }
         
-        .timeline-item:last-child::before {
-            display: none;
+        .timeline-item.friction {
+            opacity: 0.9;
         }
         
-        .timeline-date {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background-color: var(--color-secondary);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
+            margin-top: 4px;
             flex-shrink: 0;
-            position: relative;
-            z-index: 1;
         }
         
-        .timeline-content {
-            flex: 1;
+        .timeline-item.friction .timeline-dot {
+            background-color: var(--color-friction-emphasis);
+        }
+        
+        .timeline-content strong {
+            color: var(--color-secondary);
+            font-size: 20px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-item.friction .timeline-content strong {
+            color: var(--color-friction-emphasis);
+        }
+        
+        .timeline-content p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .section-bg-gray {
+            background-color: #F5F5F5;
+            padding: 60px 0;
+        }
+        
+        .section-bg-white {
             background-color: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 60px 0;
         }
         
-        .whatsapp-float {
-            position: fixed;
-            width: 70px;
-            height: 70px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50%;
+        .section-bg-warm {
+            background-color: var(--color-warm);
+            padding: 60px 0;
+        }
+        
+        .section-title {
             text-align: center;
-            font-size: 40px;
-            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            text-decoration: none;
+            margin-bottom: 48px;
+            color: var(--color-primary);
+            font-size: 36px;
         }
         
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 24px rgba(37,211,102,0.6);
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 48px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        
+        .api-code {
+            background-color: #F5F5F5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .api-list {
+            list-style: none;
+            padding: 0;
+            font-size: 16px;
+            line-height: 2;
+        }
+        
+        .api-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .api-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--color-primary), #005A92);
+            text-align: center;
             color: white;
         }
         
-        @media (max-width: 767px) {
-            .hero-transparencia h1 {
-                font-size: 32px;
-            }
-            .hero-transparencia .lead {
-                font-size: 18px;
-            }
-            .budget-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            .download-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .stat-number {
-                font-size: 42px;
-            }
-            .indicator-value {
-                font-size: 36px;
-            }
-            .whatsapp-float {
-                width: 60px;
-                height: 60px;
-                font-size: 32px;
-                bottom: 20px;
-                right: 20px;
-            }
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+            color: white;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-section a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+    <div class="accessibility-bar">
         <div class="container">
             <div class="pull-left">
                 <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
                 <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
-                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
+                <button onclick="adjustTextSize('xlarge')" aria-label="Tamaño de texto extra grande">A++</button>
             </div>
             <div class="pull-right">
                 <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
+                <button onclick="toggleHighContrast()" aria-label="Alternar alto contraste">
                     <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
                 </button>
             </div>
@@ -356,11 +372,10 @@
         </div>
     </div>
     
-    <header class="header-gcba" role="banner">
+    <header class="header-gcba">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
-                <i class="fa fa-home icon" aria-hidden="true"></i>
-                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            <a href="index.html" class="logo">
+                <i class="fa fa-home icon" aria-hidden="true"></i>CUIDAR.ar | Buenos Aires Ciudad
             </a>
         </div>
     </header>
@@ -371,544 +386,463 @@
             <a href="para-personas-mayores.html">Para Personas Mayores</a>
             <a href="para-cuidadores.html">Para Cuidadores/as</a>
             <a href="el-sistema.html">El Sistema</a>
-            <a href="transparencia.html" aria-current="page" class="active">Transparencia</a>
+            <a href="transparencia.html" class="active" aria-current="page">Transparencia</a>
             <a href="contacto.html">Contacto</a>
         </div>
     </nav>
     
-    <section class="hero-transparencia" id="main-content" role="main">
+    <section class="hero-transparencia" id="main-content">
         <div class="container">
-            <h1>Gobierno Abierto y Transparente</h1>
+            <h1>Transparencia y Datos Abiertos</h1>
             <p class="lead">
-                Todos los datos de CUIDAR.ar son públicos. Conocé cómo usamos cada peso.
+                Rendimos cuentas de cada peso invertido. Mostramos lo que funciona y lo que aún necesita mejorar.
             </p>
         </div>
     </section>
     
-    <!-- Datos en tiempo real -->
-    <section style="padding: 60px 0;" aria-labelledby="datos-titulo">
+    <!-- Estadísticas clave CON FRICCIÓN -->
+    <section class="section-bg-gray" aria-labelledby="estadisticas-titulo">
         <div class="container">
-            <h2 id="datos-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 24px; font-size: 36px;">
-                Datos en tiempo real
+            <h2 id="estadisticas-titulo" class="section-title">
+                Impacto en números (Actualizado: Octubre 2032)
             </h2>
-            <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Actualizados automáticamente cada 24 horas
-            </p>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number">42.187</div>
+                        <div class="stat-label">Personas mayores atendidas</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number">2.543</div>
+                        <div class="stat-label">Cuidadoras certificadas</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box friction">
+                        <div class="stat-number warning">847</div>
+                        <div class="stat-label">En lista de espera</div>
+                        <div class="friction-note">Tiempo promedio: 6-8 meses</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Nodos Horizontales activos</div>
+                    </div>
+                </div>
+            </div>
             
             <div class="row">
                 <div class="col-md-3">
                     <div class="stat-box">
-                        <div class="stat-number" aria-label="68 mil 245 personas atendidas">68.245</div>
-                        <div class="stat-label">Personas atendidas</div>
-                        <div style="font-size: 14px; color: #999; margin-top: 8px;">
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i> +3,2% vs mes anterior
-                        </div>
+                        <div class="stat-number">93.2%</div>
+                        <div class="stat-label">Satisfacción general</div>
                     </div>
                 </div>
-                
                 <div class="col-md-3">
-                    <div class="stat-box">
-                        <div class="stat-number" style="color: var(--color-accent);" aria-label="4 mil 187 cuidadoras">4.187</div>
-                        <div class="stat-label">Cuidadoras trabajando</div>
-                        <div style="font-size: 14px; color: #999; margin-top: 8px;">
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i> +1,8% vs mes anterior
-                        </div>
+                    <div class="stat-box friction">
+                        <div class="stat-number warning">68%</div>
+                        <div class="stat-label">Desembolsos a tiempo</div>
+                        <div class="friction-note">32% con demoras de 15-30 días</div>
                     </div>
                 </div>
-                
                 <div class="col-md-3">
                     <div class="stat-box">
-                        <div class="stat-number" style="color: var(--color-primary);" aria-label="342 mil horas de cuidado">342.450</div>
-                        <div class="stat-label">Horas de cuidado este mes</div>
-                        <div style="font-size: 14px; color: #999; margin-top: 8px;">
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i> +2,1% vs mes anterior
-                        </div>
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Comunas con cobertura</div>
                     </div>
                 </div>
-                
                 <div class="col-md-3">
-                    <div class="stat-box">
-                        <div class="stat-number" style="color: var(--color-purple);" aria-label="95,8 por ciento">95,8%</div>
-                        <div class="stat-label">Satisfacción de usuarios</div>
-                        <div style="font-size: 14px; color: #999; margin-top: 8px;">
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i> +0,3% vs trimestre anterior
-                        </div>
+                    <div class="stat-box friction">
+                        <div class="stat-number warning">27</div>
+                        <div class="stat-label">Reclamos vecinales activos</div>
+                        <div class="friction-note">Principalmente por ruido/tránsito</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Presupuesto -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="presupuesto-titulo" id="presupuesto">
+    <!-- BLOQUE REALITY CHECK -->
+    <section class="section-bg-white">
         <div class="container">
-            <h2 id="presupuesto-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 24px; font-size: 36px;">
+            <div class="reality-check">
+                <h4>
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    Lo que todavía no funciona del todo
+                </h4>
+                <ul>
+                    <li>
+                        <strong>Listas de espera desiguales:</strong> Los Nodos en Palermo, Caballito y Belgrano tienen 6-8 meses de demora. Los de zona sur tienen cupo inmediato pero menos servicios especializados.
+                    </li>
+                    <li>
+                        <strong>Demoras en pagos:</strong> El 32% de los pagos a cuidadoras se demoran entre 15 y 30 días por cuestiones administrativas. Estamos trabajando en automatizar el sistema.
+                    </li>
+                    <li>
+                        <strong>Conflictos vecinales:</strong> 27 edificios linderos a Nodos presentaron quejas por "movimiento excesivo" (ambulancias, cuidadores). Se implementó un protocolo de "buen vecino" pero persiste cierta tensión.
+                    </li>
+                    <li>
+                        <strong>Brecha digital:</strong> El 23% de personas mayores que inician el trámite online no lo completan sin ayuda presencial. Aumentamos los facilitadores en Nodos pero aún insuficiente.
+                    </li>
+                    <li>
+                        <strong>Rotación de cuidadoras:</strong> 18% de rotación anual en cuidadoras debido a condiciones laborales que aún necesitan mejorar (salarios, licencias, reconocimiento profesional).
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Presupuesto CON FRICCIÓN -->
+    <section id="presupuesto" class="section-bg-gray" aria-labelledby="presupuesto-titulo">
+        <div class="container">
+            <h2 id="presupuesto-titulo" class="section-title">
                 Presupuesto 2032
             </h2>
-            <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Inversión total: <strong style="color: var(--color-secondary); font-size: 24px;">$127.000 millones</strong>
+            <p class="section-subtitle">
+                Inversión total: <strong>$82.500 millones</strong> (86% de fondos nacionales coparticipados, 14% GCBA)
+                <span class="friction-badge">Ejecución: 91%</span>
             </p>
             
             <div class="budget-section">
                 <div class="budget-item">
                     <div class="budget-icon">
-                        <i class="fa fa-female" aria-hidden="true"></i>
+                        <i class="fa fa-users" aria-hidden="true"></i>
                     </div>
                     <div class="budget-bar">
                         <div class="budget-label">
                             <span>Salarios de cuidadoras</span>
-                            <span style="color: var(--color-secondary); font-size: 18px;">$89.900 millones (71%)</span>
+                            <span>$45.800 millones (55.5%)</span>
                         </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar-fill" style="width: 71%;" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" aria-label="71 por ciento del presupuesto">
-                                71%
-                            </div>
+                        <div class="progress-bar-container" role="progressbar" aria-valuenow="55.5" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar-fill" style="width: 55.5%;">55.5%</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="budget-item">
-                    <div class="budget-icon" style="background: linear-gradient(135deg, var(--color-accent), #F57C00);">
-                        <i class="fa fa-cogs" aria-hidden="true"></i>
-                    </div>
-                    <div class="budget-bar">
-                        <div class="budget-label">
-                            <span>Tecnología (Tita, sensores, pulseras)</span>
-                            <span style="color: var(--color-accent); font-size: 18px;">$19.050 millones (15%)</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar-fill" style="width: 15%; background: linear-gradient(90deg, var(--color-accent), #F57C00);" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" aria-label="15 por ciento del presupuesto">
-                                15%
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="budget-item">
-                    <div class="budget-icon" style="background: linear-gradient(135deg, var(--color-primary), #005A92);">
+                <div class="budget-item delayed">
+                    <div class="budget-icon">
                         <i class="fa fa-building" aria-hidden="true"></i>
                     </div>
                     <div class="budget-bar">
                         <div class="budget-label">
-                            <span>Operación de 15 Nodos</span>
-                            <span style="color: var(--color-primary); font-size: 18px;">$10.160 millones (8%)</span>
+                            <span>Infraestructura de Nodos <span class="friction-badge">DEMORADO</span></span>
+                            <span>$18.200 millones (22%)</span>
                         </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar-fill" style="width: 8%; background: linear-gradient(90deg, var(--color-primary), #005A92);" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="8 por ciento del presupuesto">
-                                8%
-                            </div>
+                        <div class="progress-bar-container" role="progressbar" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar-fill delayed" style="width: 22%;">22%</div>
+                        </div>
+                        <div class="delayed-info">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                            Obras de Nodos en Villa Lugano y Villa Soldati tienen 4 meses de demora por conflictos con empresa constructora.
                         </div>
                     </div>
                 </div>
                 
                 <div class="budget-item">
-                    <div class="budget-icon" style="background: linear-gradient(135deg, var(--color-purple), #7B1FA2);">
+                    <div class="budget-icon">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                     </div>
                     <div class="budget-bar">
                         <div class="budget-label">
-                            <span>Capacitación y formación</span>
-                            <span style="color: var(--color-purple); font-size: 18px;">$5.080 millones (4%)</span>
+                            <span>Capacitación y certificación</span>
+                            <span>$9.900 millones (12%)</span>
                         </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar-fill" style="width: 4%; background: linear-gradient(90deg, var(--color-purple), #7B1FA2);" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" aria-label="4 por ciento del presupuesto">
-                                4%
-                            </div>
+                        <div class="progress-bar-container" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar-fill" style="width: 12%;">12%</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="budget-item">
-                    <div class="budget-icon" style="background: linear-gradient(135deg, #E91E63, #C2185B);">
-                        <i class="fa fa-line-chart" aria-hidden="true"></i>
+                    <div class="budget-icon">
+                        <i class="fa fa-laptop" aria-hidden="true"></i>
                     </div>
                     <div class="budget-bar">
                         <div class="budget-label">
-                            <span>Monitoreo y evaluación</span>
-                            <span style="color: #E91E63; font-size: 18px;">$2.810 millones (2%)</span>
+                            <span>Tecnología y sistemas</span>
+                            <span>$5.700 millones (7%)</span>
                         </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar-fill" style="width: 2%; background: linear-gradient(90deg, #E91E63, #C2185B);" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" aria-label="2 por ciento del presupuesto">
-                                2%
-                            </div>
+                        <div class="progress-bar-container" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar-fill" style="width: 7%;">7%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="budget-item">
+                    <div class="budget-icon">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                    </div>
+                    <div class="budget-bar">
+                        <div class="budget-label">
+                            <span>Administración</span>
+                            <span>$2.900 millones (3.5%)</span>
+                        </div>
+                        <div class="progress-bar-container" role="progressbar" aria-valuenow="3.5" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar-fill" style="width: 3.5%;">3.5%</div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 32px;">
-                <a href="#" class="btn-download" aria-label="Descargar presupuesto detallado en Excel">
-                    <i class="fa fa-download" aria-hidden="true"></i>
-                    Descargar presupuesto detallado (Excel)
-                </a>
-            </div>
         </div>
     </section>
     
-    <!-- Indicadores de gestión -->
-    <section style="padding: 60px 0;" aria-labelledby="indicadores-titulo">
+    <!-- Informes descargables -->
+    <section id="informes" class="section-bg-white" aria-labelledby="informes-titulo">
         <div class="container">
-            <h2 id="indicadores-titulo" style="color: var(--color-accent); text-align: center; margin-bottom: 48px; font-size: 36px;">
-                Indicadores de gestión
-            </h2>
-            
-            <div class="indicator-grid">
-                <article class="indicator-card">
-                    <i class="fa fa-clock-o" style="font-size: 32px; color: var(--color-accent);" aria-hidden="true"></i>
-                    <div class="indicator-value" aria-label="28 días">28</div>
-                    <div class="indicator-label">Tiempo promedio de espera (días)</div>
-                    <div style="font-size: 14px; color: #4CAF50; margin-top: 8px;">
-                        <i class="fa fa-arrow-down" aria-hidden="true"></i> Mejora del 15% vs 2031
-                    </div>
-                </article>
-                
-                <article class="indicator-card">
-                    <i class="fa fa-thumbs-up" style="font-size: 32px; color: var(--color-accent);" aria-hidden="true"></i>
-                    <div class="indicator-value" aria-label="95,8 por ciento">95,8%</div>
-                    <div class="indicator-label">Usuarios satisfechos o muy satisfechos</div>
-                    <div style="font-size: 14px; color: #4CAF50; margin-top: 8px;">
-                        <i class="fa fa-arrow-up" aria-hidden="true"></i> +2,1% vs 2031
-                    </div>
-                </article>
-                
-                <article class="indicator-card">
-                    <i class="fa fa-exchange" style="font-size: 32px; color: var(--color-accent);" aria-hidden="true"></i>
-                    <div class="indicator-value" aria-label="8,3 por ciento">8,3%</div>
-                    <div class="indicator-label">Rotación de cuidadoras (anual)</div>
-                    <div style="font-size: 14px; color: #4CAF50; margin-top: 8px;">
-                        <i class="fa fa-arrow-down" aria-hidden="true"></i> -3,2% vs 2031
-                    </div>
-                </article>
-                
-                <article class="indicator-card">
-                    <i class="fa fa-hospital-o" style="font-size: 32px; color: var(--color-accent);" aria-hidden="true"></i>
-                    <div class="indicator-value" aria-label="23 por ciento">23%</div>
-                    <div class="indicator-label">Reducción en internaciones evitables</div>
-                    <div style="font-size: 14px; color: #4CAF50; margin-top: 8px;">
-                        <i class="fa fa-arrow-down" aria-hidden="true"></i> Comparado con grupo control
-                    </div>
-                </article>
-                
-                <article class="indicator-card">
-                    <i class="fa fa-phone" style="font-size: 32px; color: var(--color-accent);" aria-hidden="true"></i>
-                    <div class="indicator-value" aria-label="2,4 minutos">2,4</div>
-                    <div class="indicator-label">Tiempo promedio de respuesta emergencias (min)</div>
-                    <div style="font-size: 14px; color: #4CAF50; margin-top: 8px;">
-                        <i class="fa fa-arrow-down" aria-hidden="true"></i> -18% vs 2031
-                    </div>
-                </article>
-                
-                <article class="indicator-card">
-                    <i class="fa fa-home" style="font-size: 32px; color: var(--color-accent);" aria-hidden="true"></i>
-                    <div class="indicator-value" aria-label="92 por ciento">92%</div>
-                    <div class="indicator-label">Usuarios que siguen en su casa después de 2 años</div>
-                    <div style="font-size: 14px; color: #4CAF50; margin-top: 8px;">
-                        <i class="fa fa-arrow-up" aria-hidden="true"></i> +5,3% vs 2031
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Informes y documentos -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="informes-titulo" id="informes">
-        <div class="container">
-            <h2 id="informes-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 48px; font-size: 36px;">
-                Informes públicos
+            <h2 id="informes-titulo" class="section-title">
+                Informes y reportes
             </h2>
             
             <div class="row">
-                <article class="col-md-6">
+                <div class="col-md-6">
                     <div class="download-card">
                         <div class="download-header">
                             <div class="download-icon">
                                 <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="color: var(--color-primary); font-size: 22px; margin: 0 0 8px 0;">
-                                    Informe Anual 2032
-                                </h3>
-                                <p style="color: #666; margin: 0; font-size: 16px;">
-                                    Resultados, indicadores y testimonios del año
-                                </p>
+                                <h3 style="margin: 0 0 8px 0; font-size: 22px; color: #333;">Informe Anual 2031-2032</h3>
+                                <p style="margin: 0; color: #666; font-size: 16px;">Resultados, desafíos y aprendizajes del último año</p>
                             </div>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
-                            <div style="color: #999; font-size: 14px;">
-                                <i class="fa fa-calendar" aria-hidden="true"></i> Publicado: 15/03/2033<br>
-                                <i class="fa fa-file-text" aria-hidden="true"></i> 156 páginas | 12.4 MB
-                            </div>
-                            <a href="#" class="btn-download" aria-label="Descargar informe anual 2032">
-                                <i class="fa fa-download" aria-hidden="true"></i> Descargar PDF
-                            </a>
-                        </div>
+                        <p style="margin-bottom: 20px; font-size: 15px; color: #666; line-height: 1.6;">
+                            156 páginas con análisis de cobertura, satisfacción de usuarios, indicadores de calidad, 
+                            <strong>incluyendo sección de "lecciones aprendidas" sobre demoras y conflictos.</strong>
+                        </p>
+                        <a href="#" class="btn-download" aria-label="Descargar Informe Anual 2031-2032">
+                            <i class="fa fa-download" aria-hidden="true"></i> Descargar PDF (8.2 MB)
+                        </a>
                     </div>
-                </article>
+                </div>
                 
-                <article class="col-md-6">
-                    <div class="download-card">
-                        <div class="download-header">
-                            <div class="download-icon">
-                                <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h3 style="color: var(--color-primary); font-size: 22px; margin: 0 0 8px 0;">
-                                    Base de datos abiertos Q4 2032
-                                </h3>
-                                <p style="color: #666; margin: 0; font-size: 16px;">
-                                    Estadísticas por comuna, edad, género
-                                </p>
-                            </div>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
-                            <div style="color: #999; font-size: 14px;">
-                                <i class="fa fa-calendar" aria-hidden="true"></i> Actualizado: 10/01/2033<br>
-                                <i class="fa fa-table" aria-hidden="true"></i> 68.245 registros | 8.2 MB
-                            </div>
-                            <a href="#" class="btn-download" aria-label="Descargar base de datos Q4 2032">
-                                <i class="fa fa-download" aria-hidden="true"></i> Descargar CSV
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="col-md-6">
+                <div class="col-md-6">
                     <div class="download-card">
                         <div class="download-header">
                             <div class="download-icon">
                                 <i class="fa fa-line-chart" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="color: var(--color-primary); font-size: 22px; margin: 0 0 8px 0;">
-                                    Evaluación de Impacto 2028-2032
-                                </h3>
-                                <p style="color: #666; margin: 0; font-size: 16px;">
-                                    Estudio longitudinal de 5 años
-                                </p>
+                                <h3 style="margin: 0 0 8px 0; font-size: 22px; color: #333;">Datos trimestrales Q3 2032</h3>
+                                <p style="margin: 0; color: #666; font-size: 16px;">Indicadores de gestión y métricas de impacto</p>
                             </div>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
-                            <div style="color: #999; font-size: 14px;">
-                                <i class="fa fa-calendar" aria-hidden="true"></i> Publicado: 20/02/2033<br>
-                                <i class="fa fa-file-text" aria-hidden="true"></i> 284 páginas | 18.7 MB
-                            </div>
-                            <a href="#" class="btn-download" aria-label="Descargar evaluación de impacto">
-                                <i class="fa fa-download" aria-hidden="true"></i> Descargar PDF
-                            </a>
-                        </div>
+                        <p style="margin-bottom: 20px; font-size: 15px; color: #666; line-height: 1.6;">
+                            Dashboard interactivo con 47 indicadores clave. Datos desagregados por comuna, edad y tipo de servicio.
+                            <strong>Incluye sección de "alertas rojas" sobre áreas problemáticas.</strong>
+                        </p>
+                        <a href="#" class="btn-download" aria-label="Ver Dashboard de Q3 2032">
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i> Ver Dashboard
+                        </a>
                     </div>
-                </article>
-                
-                <article class="col-md-6">
-                    <div class="download-card">
-                        <div class="download-header">
-                            <div class="download-icon">
-                                <i class="fa fa-money" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h3 style="color: var(--color-primary); font-size: 22px; margin: 0 0 8px 0;">
-                                    Ejecución Presupuestaria 2032
-                                </h3>
-                                <p style="color: #666; margin: 0; font-size: 16px;">
-                                    Detalle mensual de ingresos y gastos
-                                </p>
-                            </div>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
-                            <div style="color: #999; font-size: 14px;">
-                                <i class="fa fa-calendar" aria-hidden="true"></i> Actualizado: 05/01/2033<br>
-                                <i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel | 4.8 MB
-                            </div>
-                            <a href="#" class="btn-download" aria-label="Descargar ejecución presupuestaria">
-                                <i class="fa fa-download" aria-hidden="true"></i> Descargar Excel
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="col-md-6">
-                    <div class="download-card">
-                        <div class="download-header">
-                            <div class="download-icon">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h3 style="color: var(--color-primary); font-size: 22px; margin: 0 0 8px 0;">
-                                    Encuesta de Satisfacción 2032
-                                </h3>
-                                <p style="color: #666; margin: 0; font-size: 16px;">
-                                    12.450 usuarios y familias consultados
-                                </p>
-                            </div>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
-                            <div style="color: #999; font-size: 14px;">
-                                <i class="fa fa-calendar" aria-hidden="true"></i> Publicado: 28/12/2032<br>
-                                <i class="fa fa-file-text" aria-hidden="true"></i> 89 páginas | 6.2 MB
-                            </div>
-                            <a href="#" class="btn-download" aria-label="Descargar encuesta de satisfacción">
-                                <i class="fa fa-download" aria-hidden="true"></i> Descargar PDF
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="col-md-6">
-                    <div class="download-card">
-                        <div class="download-header">
-                            <div class="download-icon">
-                                <i class="fa fa-shield" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h3 style="color: var(--color-primary); font-size: 22px; margin: 0 0 8px 0;">
-                                    Auditoría Externa 2032
-                                </h3>
-                                <p style="color: #666; margin: 0; font-size: 16px;">
-                                    Realizada por la Auditoría General de la Ciudad
-                                </p>
-                            </div>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
-                            <div style="color: #999; font-size: 14px;">
-                                <i class="fa fa-calendar" aria-hidden="true"></i> Publicado: 10/02/2033<br>
-                                <i class="fa fa-file-text" aria-hidden="true"></i> 124 páginas | 9.1 MB
-                            </div>
-                            <a href="#" class="btn-download" aria-label="Descargar auditoría externa">
-                                <i class="fa fa-download" aria-hidden="true"></i> Descargar PDF
-                            </a>
-                        </div>
-                    </div>
-                </article>
+                </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Historial -->
-    <section style="padding: 60px 0;" aria-labelledby="historial-titulo">
-        <div class="container">
-            <h2 id="historial-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 48px; font-size: 36px;">
-                Evolución del programa
-            </h2>
             
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <i class="fa fa-rocket" aria-hidden="true"></i>
+                <div class="col-md-6">
+                    <div class="download-card">
+                        <div class="download-header">
+                            <div class="download-icon">
+                                <i class="fa fa-database" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0 0 8px 0; font-size: 22px; color: #333;">Dataset completo 2025-2032</h3>
+                                <p style="margin: 0; color: #666; font-size: 16px;">Datos abiertos en formato CSV y JSON</p>
+                            </div>
                         </div>
-                        <div class="timeline-content">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                2025 - Lanzamiento
-                            </strong>
-                            <p style="font-size: 16px; color: #666; margin: 0; line-height: 1.6;">
-                                Programa piloto en 3 comunas (1, 8 y 14) con 150 usuarios y 25 cuidadoras. 
-                                Presupuesto inicial: $2.100 millones.
-                            </p>
-                        </div>
+                        <p style="margin-bottom: 20px; font-size: 15px; color: #666; line-height: 1.6;">
+                            Todos los datos históricos anonimizados para investigación, análisis y desarrollo. 
+                            Incluye información sobre usuarios, servicios, costos y satisfacción.
+                        </p>
+                        <a href="#" class="btn-download" aria-label="Descargar Dataset completo">
+                            <i class="fa fa-download" aria-hidden="true"></i> Descargar (42 MB)
+                        </a>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="download-card">
+                        <div class="download-header">
+                            <div class="download-icon">
+                                <i class="fa fa-comments" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0 0 8px 0; font-size: 22px; color: #333;">Informe de reclamos y sugerencias</h3>
+                                <p style="margin: 0; color: #666; font-size: 16px;">Transparencia en quejas y resoluciones</p>
+                            </div>
                         </div>
-                        <div class="timeline-content">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                2027 - Primera expansión
-                            </strong>
-                            <p style="font-size: 16px; color: #666; margin: 0; line-height: 1.6;">
-                                Cobertura en 8 comunas. 5.200 usuarios, 380 cuidadoras. 
-                                Incorporación de tecnología Tita. Presupuesto: $18.500 millones.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <i class="fa fa-trophy" aria-hidden="true"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                2029 - Premio internacional
-                            </strong>
-                            <p style="font-size: 16px; color: #666; margin: 0; line-height: 1.6;">
-                                CUIDAR.ar recibe el <strong>Bloomberg Mayors Challenge Award</strong> como 
-                                mejor política pública de cuidado en América Latina. Cobertura: 12 comunas, 28.400 usuarios.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                2030 - Cobertura universal en CABA
-                            </strong>
-                            <p style="font-size: 16px; color: #666; margin: 0; line-height: 1.6;">
-                                15 Nodos operativos en todas las comunas. 52.000 usuarios, 3.200 cuidadoras. 
-                                Red de 45 Centros de Día. Presupuesto: $89.300 millones.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                2032 - Consolidación y mejora continua
-                            </strong>
-                            <p style="font-size: 16px; color: #666; margin: 0; line-height: 1.6;">
-                                68.245 usuarios activos, 4.187 cuidadoras profesionales. 
-                                Satisfacción de usuarios: 95,8%. Presupuesto: $127.000 millones. 
-                                5 provincias replican el modelo.
-                            </p>
-                        </div>
+                        <p style="margin-bottom: 20px; font-size: 15px; color: #666; line-height: 1.6;">
+                            <strong>1.247 reclamos recibidos en 2032.</strong> 68% resueltos satisfactoriamente. 
+                            Principales motivos: demoras en pagos, conflictos vecinales y problemas de coordinación.
+                        </p>
+                        <a href="#" class="btn-download" aria-label="Ver informe de reclamos">
+                            <i class="fa fa-file-text" aria-hidden="true"></i> Ver informe
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- API y datos abiertos -->
-    <section style="padding: 60px 0; background-color: var(--color-warm);" aria-labelledby="api-titulo">
+    <!-- Timeline del sistema CON FRICCIÓN -->
+    <section class="section-bg-gray" aria-labelledby="historia-titulo">
         <div class="container">
-            <h2 id="api-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 24px; font-size: 36px;">
+            <h2 id="historia-titulo" class="section-title">
+                Historia del sistema: de la idea a la realidad
+            </h2>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="background-color: white; border-radius: 12px; padding: 48px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+                    
+                    <!-- 2025 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2025 - Piloto experimental</strong>
+                            <p>
+                                Se lanza el primer Nodo Horizontal en Palermo con 8 personas mayores y 3 cuidadoras. 
+                                Presupuesto: $180 millones. Financiamiento 100% GCBA.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2026 FRICCIÓN -->
+                    <div class="timeline-item friction">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2026 - Primera crisis <span class="friction-badge">CONFLICTO</span></strong>
+                            <p>
+                                El Nodo de Palermo recibe quejas vecinales por "exceso de movimiento". 
+                                Se suspenden las operaciones por 2 meses hasta firmar protocolo de convivencia. 
+                                <strong>Aprendizaje clave:</strong> necesidad de trabajo comunitario previo.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2027 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2027 - Expansión cautelosa</strong>
+                            <p>
+                                Se abren 3 nuevos Nodos (Caballito, Villa Urquiza, Almagro). 
+                                187 personas mayores atendidas, 24 cuidadoras certificadas. 
+                                Presupuesto: $1.200 millones (60% Nación, 40% GCBA).
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2028 FRICCIÓN -->
+                    <div class="timeline-item friction">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2028 - Crisis de pagos <span class="friction-badge">DEMORAS</span></strong>
+                            <p>
+                                Por descoordinación administrativa, los pagos a cuidadoras se demoran hasta 45 días. 
+                                16 cuidadoras renuncian. Se implementa sistema de pagos automatizados. 
+                                <strong>Costo del error:</strong> retroceso de 8 meses en expansión.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2029 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2029 - Institucionalización</strong>
+                            <p>
+                                Se crea la Dirección de Cuidados Horizontales dentro del gobierno porteño. 
+                                10 Nodos activos, 3.428 usuarios, 187 cuidadoras. 
+                                Presupuesto: $8.500 millones. Primera auditoría externa.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2030 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2030 - Reconocimiento nacional</strong>
+                            <p>
+                                El modelo CUIDAR.ar recibe premio internacional "Ciudades del Futuro" en Dubai. 
+                                Rosario y Córdoba anuncian adaptaciones del sistema. 
+                                Satisfacción de usuarios: 91,3%.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2031 FRICCIÓN -->
+                    <div class="timeline-item friction">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2031 - Tensión por demanda <span class="friction-badge">DESBORDE</span></strong>
+                            <p>
+                                Las listas de espera alcanzan 1.200 personas. Manifestación de familiares frente a Legislatura. 
+                                Se aprueba presupuesto de emergencia. <strong>Lección:</strong> el éxito genera demanda que debe anticiparse.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2032 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2032 - Consolidación imperfecta</strong>
+                            <p>
+                                15 Nodos activos, 42.187 personas atendidas, 2.543 cuidadoras. 
+                                Presupuesto: $82.500 millones. Satisfacción: 93,2%. 
+                                <strong>Desafíos pendientes:</strong> listas de espera, demoras en pagos, conflictos vecinales aún sin resolver completamente.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- API y datos abiertos -->
+    <section class="section-bg-warm" aria-labelledby="api-titulo">
+        <div class="container">
+            <h2 id="api-titulo" class="section-title">
                 API de datos abiertos
             </h2>
-            <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 48px; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+            <p class="section-subtitle">
                 Desarrolladores, investigadores y organizaciones pueden acceder a nuestros datos en tiempo real 
                 a través de nuestra <strong>API pública gratuita</strong>.
             </p>
             
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
-                    <div style="background-color: white; border-radius: 12px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+                <div class="col-md-12">
+                    <div style="background-color: white; border-radius: 12px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); max-width: 800px; margin: 0 auto;">
                         <h3 style="color: var(--color-primary); margin-bottom: 20px; font-size: 22px;">
                             <i class="fa fa-code" aria-hidden="true"></i> Endpoints disponibles
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 2;">
-                            <li style="padding: 8px 0; border-bottom: 1px solid #E0E0E0;">
-                                <code style="background-color: #F5F5F5; padding: 4px 8px; border-radius: 4px; font-family: monospace;">GET /api/v1/stats</code> 
+                        <ul class="api-list">
+                            <li>
+                                <code class="api-code">GET /api/v1/stats</code> 
                                 - Estadísticas generales
                             </li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #E0E0E0;">
-                                <code style="background-color: #F5F5F5; padding: 4px 8px; border-radius: 4px; font-family: monospace;">GET /api/v1/nodos</code> 
+                            <li>
+                                <code class="api-code">GET /api/v1/nodos</code> 
                                 - Información de los 15 Nodos
                             </li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #E0E0E0;">
-                                <code style="background-color: #F5F5F5; padding: 4px 8px; border-radius: 4px; font-family: monospace;">GET /api/v1/comunas/:id</code> 
+                            <li>
+                                <code class="api-code">GET /api/v1/comunas/:id</code> 
                                 - Datos por comuna
                             </li>
-                            <li style="padding: 8px 0;">
-                                <code style="background-color: #F5F5F5; padding: 4px 8px; border-radius: 4px; font-family: monospace;">GET /api/v1/indicadores</code> 
+                            <li>
+                                <code class="api-code">GET /api/v1/indicadores</code> 
                                 - Indicadores de gestión
+                            </li>
+                            <li>
+                                <code class="api-code">GET /api/v1/reclamos</code> 
+                                - Registro de reclamos y resoluciones <span class="friction-badge">NUEVO</span>
                             </li>
                         </ul>
                         
-                        <div style="margin-top: 32px; text-align: center;">
+                        <div class="text-center mt-4">
                             <a href="https://api.cuidar.ar/docs" class="btn-download" target="_blank" rel="noopener noreferrer" aria-label="Ver documentación completa de la API">
                                 <i class="fa fa-book" aria-hidden="true"></i> Ver documentación completa
                             </a>
@@ -920,19 +854,15 @@
     </section>
     
     <!-- CTA -->
-    <section style="padding: 80px 0; background: linear-gradient(135deg, var(--color-primary), #005A92);">
+    <section class="cta-section">
         <div class="container">
-            <div style="text-align: center; color: white;">
-                <h2 style="font-size: 36px; margin-bottom: 24px; color: white;">
-                    ¿Tenés alguna consulta sobre estos datos?
-                </h2>
-                <p style="font-size: 20px; margin-bottom: 40px;">
-                    Escribinos a <a href="mailto:transparencia@cuidar.ar" style="color: white; text-decoration: underline; font-weight: 700;">transparencia@cuidar.ar</a>
-                </p>
-                <a href="contacto.html" class="btn btn-lg" style="background-color: white; color: var(--color-primary); border-color: white; font-size: 20px; padding: 18px 40px;" aria-label="Ir a la página de contacto">
-                    <i class="fa fa-envelope" aria-hidden="true"></i> Contactanos
-                </a>
-            </div>
+            <h2>¿Tenés alguna consulta sobre estos datos?</h2>
+            <p>
+                Escribinos a <a href="mailto:transparencia@cuidar.ar">transparencia@cuidar.ar</a>
+            </p>
+            <a href="contacto.html" class="btn btn-lg" style="background-color: white; color: var(--color-primary); border-color: white;" aria-label="Ir a la página de contacto">
+                <i class="fa fa-envelope" aria-hidden="true"></i> Contactanos
+            </a>
         </div>
     </section>
     
@@ -977,17 +907,16 @@
                 <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
             </div>
         </div>
-                    <!-- NUEVO DISCLAIMER DE AUTORÍA -->
-    <div class="author-disclaimer">
-        <p>
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-            <strong>Proyecto de diseño especulativo</strong> · 
-            CUIDAR.ar es una obra de ficción que explora futuros posibles para el cuidado 
-            de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-            es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
-            Todo el contenido, concepto, diseño y código es de su autoría.
-        </p>
-    </div>
+        <div class="author-disclaimer">
+            <p>
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <strong>Proyecto de diseño especulativo</strong> · 
+                CUIDAR.ar es una obra de ficción que explora futuros posibles para el cuidado 
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                Todo el contenido, concepto, diseño y código es de su autoría.
+            </p>
+        </div>
     </footer>
     
     <script>
