@@ -3,24 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Consultá el estado de tu trámite de inscripción a CUIDAR.ar">
-    <title>Estado de Trámite | CUIDAR.ar</title>
+    <meta name="description" content="Consultá el estado de tu solicitud en CUIDAR.ar con tu DNI o número de trámite.">
+    <title>Estado de mi Solicitud | CUIDAR.ar</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
-        /* Estilos específicos para esta página */
-        .search-box {
-            max-width: 600px;
+        :root {
+            --color-primary: #0072BB;
+            --color-secondary: #66BB6A;
+            --color-accent: #FF9800;
+            --color-warm: #FFF8E1;
+            --color-purple: #9C27B0;
+        }
+        
+        .hero-estado {
+            background: linear-gradient(135deg, rgba(0,114,187,0.95), rgba(0,90,146,0.95)),
+                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&h=400&fit=crop') center/cover;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero-estado h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero-estado .lead {
+            font-size: 20px;
+            line-height: 1.5;
+            max-width: 700px;
             margin: 0 auto;
+        }
+        
+        .search-container {
             background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 0;
         }
         
         .form-group label {
@@ -28,220 +63,413 @@
             font-weight: 600;
             margin-bottom: 8px;
             color: #333;
+            font-size: 16px;
         }
         
         .form-group input {
             width: 100%;
-            padding: 14px 16px;
-            font-size: 16px;
+            padding: 16px 20px;
             border: 2px solid #E0E0E0;
-            border-radius: 4px;
-            transition: border-color 0.3s;
+            border-radius: 8px;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s;
         }
         
         .form-group input:focus {
             outline: none;
-            border-color: #0072BB;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(0,114,187,0.1);
+        }
+        
+        .form-group small {
+            display: block;
+            margin-top: 6px;
+            color: #666;
+            font-size: 14px;
         }
         
         .btn-search {
-            width: 100%;
-            padding: 16px;
-            font-size: 18px;
-            font-weight: 600;
-            background-color: #0072BB;
+            background: linear-gradient(135deg, var(--color-primary), #005A92);
             color: white;
+            padding: 18px 48px;
+            font-size: 20px;
+            border-radius: 8px;
             border: none;
-            border-radius: 4px;
+            font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(0,114,187,0.3);
         }
         
-        .btn-search:hover {
-            background-color: #005A92;
+        .btn-search:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,114,187,0.4);
         }
         
-        .result-container {
-            max-width: 800px;
-            margin: 40px auto;
+        .btn-search:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .status-result {
             display: none;
+            margin-top: 40px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .status-result.show {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .status-card {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border: 3px solid var(--color-secondary);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .status-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .status-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            flex-shrink: 0;
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .status-info h2 {
+            color: var(--color-secondary);
+            font-size: 28px;
+            margin: 0 0 8px 0;
+        }
+        
+        .status-info p {
+            color: #666;
+            margin: 0;
+            font-size: 16px;
         }
         
         .timeline {
             position: relative;
-            padding: 0;
-            list-style: none;
+            padding: 20px 0;
         }
         
-        .timeline-item {
-            position: relative;
-            padding: 0 0 40px 60px;
-        }
-        
-        .timeline-item:before {
+        .timeline::before {
             content: '';
             position: absolute;
-            left: 20px;
-            top: 30px;
-            height: calc(100% - 30px);
-            width: 2px;
-            background-color: #E0E0E0;
+            left: 39px;
+            top: 60px;
+            bottom: 40px;
+            width: 4px;
+            background: linear-gradient(180deg, var(--color-secondary) 0%, #E0E0E0 100%);
+            border-radius: 2px;
         }
         
-        .timeline-item:last-child:before {
-            display: none;
+        .timeline-step {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            position: relative;
         }
         
-        .timeline-icon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            height: 40px;
+        .timeline-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-marker {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            background-color: #E0E0E0;
-            border: 3px solid white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 32px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .step-marker.completed {
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
             color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
         
-        .timeline-item.completed .timeline-icon {
-            background-color: #4CAF50;
-        }
-        
-        .timeline-item.active .timeline-icon {
-            background-color: #0072BB;
+        .step-marker.current {
+            background: linear-gradient(135deg, var(--color-accent), #F57C00);
+            color: white;
             animation: pulse 2s infinite;
         }
         
+        .step-marker.pending {
+            background-color: #E0E0E0;
+            color: #999;
+        }
+        
         @keyframes pulse {
-            0%, 100% { box-shadow: 0 2px 8px rgba(0,114,187,0.3); }
-            50% { box-shadow: 0 2px 20px rgba(0,114,187,0.6); }
+            0%, 100% {
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 0 0 rgba(255,152,0,0.7);
+            }
+            50% {
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 0 10px rgba(255,152,0,0);
+            }
         }
         
-        .timeline-content {
+        .step-content {
+            flex: 1;
             background-color: white;
+            border-radius: 12px;
             padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
         
-        .timeline-item.active .timeline-content {
-            border-left: 4px solid #0072BB;
-        }
-        
-        .timeline-content h3 {
-            color: #0072BB;
-            margin: 0 0 8px 0;
-            font-size: 20px;
-        }
-        
-        .timeline-content .date {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-        
-        .timeline-content p {
-            margin: 0;
+        .step-content h3 {
             color: #333;
+            font-size: 20px;
+            margin: 0 0 12px 0;
+        }
+        
+        .step-content p {
+            color: #666;
+            margin: 0 0 16px 0;
             line-height: 1.6;
         }
         
-        .status-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 20px;
+        .step-content .date {
+            color: var(--color-secondary);
+            font-weight: 600;
             font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        
-        .status-badge.en-proceso {
-            background-color: #E3F2FD;
-            color: #0072BB;
-        }
-        
-        .status-badge.completado {
-            background-color: #E8F5E9;
-            color: #4CAF50;
-        }
-        
-        .user-info {
-            background-color: #F5F5F5;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 32px;
-        }
-        
-        .user-info h2 {
-            margin: 0 0 16px 0;
-            color: #0072BB;
-        }
-        
-        .info-row {
             display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #E0E0E0;
+            align-items: center;
+            gap: 6px;
         }
         
-        .info-row:last-child {
-            border-bottom: none;
-        }
-        
-        .info-label {
-            font-weight: 600;
-            color: #666;
-        }
-        
-        .info-value {
-            color: #333;
+        .step-content.current {
+            border: 2px solid var(--color-accent);
         }
         
         .next-steps {
-            background-color: #FFF3CD;
+            background-color: var(--color-warm);
+            border-left: 4px solid var(--color-accent);
             padding: 24px;
             border-radius: 8px;
-            border-left: 4px solid #F0AD4E;
             margin-top: 32px;
         }
         
         .next-steps h3 {
-            color: #856404;
-            margin-top: 0;
+            color: var(--color-accent);
+            font-size: 22px;
+            margin: 0 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .next-steps ul {
+            margin: 0;
+            padding-left: 24px;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .contact-box {
+            background-color: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-top: 24px;
+        }
+        
+        .contact-box h4 {
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+        
+        .info-banner {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-left: 4px solid var(--color-primary);
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+        
+        .info-banner h3 {
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .states-guide {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            margin-top: 48px;
+        }
+        
+        .state-item {
+            display: flex;
+            align-items: start;
+            gap: 20px;
+            padding: 24px;
+            margin-bottom: 16px;
+            background-color: #F5F5F5;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-secondary);
+        }
+        
+        .state-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 40px;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37,211,102,0.6);
+            color: white;
+        }
+        
+        @media (max-width: 767px) {
+            .hero-estado h1 {
+                font-size: 28px;
+            }
+            .hero-estado .lead {
+                font-size: 16px;
+            }
+            .search-container {
+                padding: 24px;
+            }
+            .status-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .timeline::before {
+                left: 19px;
+            }
+            .step-marker {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .status-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+            }
+            .state-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container">
             <div class="pull-left">
-                <button onclick="adjustTextSize('normal')">A</button>
-                <button onclick="adjustTextSize('large')">A+</button>
-                <button onclick="adjustTextSize('xlarge')">A++</button>
+                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
+                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
+                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
             </div>
             <div class="pull-right">
-                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
+                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
+                </button>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
     
-    <header class="header-gcba">
+    <header class="header-gcba" role="banner">
         <div class="container">
-            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
+                <i class="fa fa-home icon" aria-hidden="true"></i>
+                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            </a>
         </div>
     </header>
     
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
             <a href="index.html">Inicio</a>
             <a href="para-personas-mayores.html">Para Personas Mayores</a>
@@ -252,239 +480,369 @@
         </div>
     </nav>
     
-    <section class="hero" id="main-content" style="padding: 40px 0;">
+    <section class="hero-estado" id="main-content" role="main">
         <div class="container">
-            <h1 style="font-size: 36px;">Estado de mi Trámite</h1>
-            <p class="lead" style="font-size: 18px;">
-                Consultá el estado de tu inscripción a CUIDAR.ar
+            <h1>Estado de mi solicitud</h1>
+            <p class="lead">
+                Consultá en qué etapa está tu inscripción a CUIDAR.ar
             </p>
         </div>
     </section>
     
-    <!-- FORMULARIO DE BÚSQUEDA -->
     <section style="padding: 60px 0;">
         <div class="container">
-            <div class="search-box">
-                <h2 style="text-align: center; color: #0072BB; margin-bottom: 24px;">
-                    Ingresá tu DNI
-                </h2>
-                <p style="text-align: center; color: #666; margin-bottom: 32px;">
-                    Consultá el estado de tu trámite ingresando tu número de documento
+            <div class="info-banner">
+                <h3>
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    ¿Cómo consultar?
+                </h3>
+                <p style="color: #333; margin: 0; line-height: 1.6;">
+                    Ingresá tu <strong>DNI</strong> o el <strong>número de trámite</strong> que recibiste por email 
+                    cuando te inscribiste. Si no lo recordás o tenés problemas, llamá al 
+                    <a href="tel:147" style="color: var(--color-primary); font-weight: 700;">147</a>.
                 </p>
+            </div>
+            
+            <!-- Search Form -->
+            <div class="search-container">
+                <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 28px;">
+                    Consultá tu solicitud
+                </h2>
                 
-                <form id="searchForm" onsubmit="searchTramite(event)">
+                <form class="search-form" id="searchForm" onsubmit="return searchStatus(event)">
                     <div class="form-group">
-                        <label for="dni">Número de DNI (sin puntos)</label>
+                        <label for="dni">
+                            DNI (sin puntos ni espacios)
+                        </label>
                         <input 
                             type="text" 
                             id="dni" 
                             name="dni" 
-                            placeholder="Ej: 12345678"
-                            pattern="[0-9]{7,8}"
-                            required
+                            placeholder="12345678" 
+                            pattern="[0-9]{7,8}" 
                             maxlength="8"
+                            required
+                            aria-required="true"
                         >
-                        <small style="color: #666; font-size: 13px;">Ingresá solo números, sin puntos ni espacios</small>
+                        <small>Ingresá el DNI de la persona que se inscribió</small>
                     </div>
                     
-                    <button type="submit" class="btn-search">
-                        <i class="fa fa-search"></i> Consultar estado
-                    </button>
+                    <div style="text-align: center;">
+                        <span style="color: #999; font-size: 16px;">o</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tramite">
+                            Número de trámite (opcional)
+                        </label>
+                        <input 
+                            type="text" 
+                            id="tramite" 
+                            name="tramite" 
+                            placeholder="CUIDAR-2032-123456"
+                            pattern="CUIDAR-[0-9]{4}-[0-9]{6}"
+                        >
+                        <small>Lo recibiste por email al inscribirte</small>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 24px;">
+                        <button type="submit" class="btn-search">
+                            <i class="fa fa-search" aria-hidden="true"></i> Consultar estado
+                        </button>
+                    </div>
                 </form>
-                
-                <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #E0E0E0; text-align: center;">
-                    <p style="color: #666; font-size: 14px; margin-bottom: 8px;">
-                        ¿No te inscribiste todavía?
-                    </p>
-                    <a href="inscripcion.html" style="color: #0072BB; font-weight: 600;">
-                        Iniciar inscripción <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- RESULTADO (oculto por defecto) -->
-    <section id="resultSection" class="result-container">
-        <div class="container">
-            <!-- INFO DEL USUARIO -->
-            <div class="user-info">
-                <h2><i class="fa fa-user"></i> Información del trámite</h2>
-                <div class="info-row">
-                    <span class="info-label">DNI:</span>
-                    <span class="info-value" id="resultDni">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Nombre:</span>
-                    <span class="info-value" id="resultName">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Fecha de inscripción:</span>
-                    <span class="info-value" id="resultDate">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Comuna:</span>
-                    <span class="info-value" id="resultComuna">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Nodo asignado:</span>
-                    <span class="info-value" id="resultNodo">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Estado actual:</span>
-                    <span class="status-badge" id="resultStatus">En proceso</span>
+            
+            <!-- Status Result (Hidden by default) -->
+            <div id="statusResult" class="status-result" role="alert" aria-live="polite">
+                <div class="status-card">
+                    <div class="status-header">
+                        <div class="status-icon">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <div class="status-info">
+                            <h2 id="userName">María Isabel González</h2>
+                            <p>DNI: <strong id="userDni">12.345.678</strong> | Trámite: <strong id="userTramite">CUIDAR-2032-123456</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-bottom: 32px;">
+                        <div style="display: inline-block; padding: 12px 24px; background-color: rgba(255,255,255,0.7); border-radius: 8px;">
+                            <strong style="color: var(--color-accent); font-size: 16px;">
+                                Estado actual: <span id="currentStatus" style="font-size: 20px;">En evaluación domiciliaria</span>
+                            </strong>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline -->
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="step-marker completed">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>1. Inscripción recibida</h3>
+                                <p>Tu solicitud fue registrada exitosamente en nuestro sistema.</p>
+                                <div class="date">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    15/10/2025
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="step-marker completed">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>2. Contacto inicial</h3>
+                                <p>El Nodo Caballito se comunicó con vos y se coordinó la visita domiciliaria.</p>
+                                <div class="date">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    17/10/2025
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="step-marker current">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                            </div>
+                            <div class="step-content current">
+                                <h3>3. Evaluación domiciliaria</h3>
+                                <p>Estamos evaluando tus necesidades para armar tu plan personalizado de cuidado.</p>
+                                <div class="date">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    En progreso
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="step-marker pending">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>4. Asignación de cuidadora</h3>
+                                <p>Te asignaremos una cuidadora de tu zona y coordinaremos la reunión de presentación.</p>
+                                <div class="date">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    Pendiente
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="step-marker pending">
+                                <i class="fa fa-rocket" aria-hidden="true"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>5. Inicio del servicio</h3>
+                                <p>¡Empezás a recibir el acompañamiento de CUIDAR.ar!</p>
+                                <div class="date">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    Pendiente
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Next Steps -->
+                    <div class="next-steps">
+                        <h3>
+                            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                            ¿Qué tenés que hacer ahora?
+                        </h3>
+                        <ul id="nextStepsList">
+                            <li><strong>Esperá nuestro llamado</strong> para confirmar la fecha de la visita domiciliaria</li>
+                            <li>Tené a mano tu <strong>DNI y documentación médica</strong> (si tenés)</li>
+                            <li>Pensá qué tipo de ayuda necesitás para contarle al equipo</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact Box -->
+                    <div class="contact-box">
+                        <h4><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Tenés alguna duda?</h4>
+                        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
+                            <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 12px 24px;">
+                                <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
+                            </a>
+                            <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #25D366; color: white; padding: 12px 24px;">
+                                <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <!-- TIMELINE -->
-            <div class="card">
-                <h2 style="color: #0072BB; margin-bottom: 32px;">
-                    <i class="fa fa-list-ol"></i> Seguimiento del trámite
+            <!-- States Guide -->
+            <div class="states-guide">
+                <h2 style="color: var(--color-secondary); text-align: center; margin-bottom: 32px; font-size: 32px;">
+                    Estados posibles de tu solicitud
                 </h2>
                 
-                <ul class="timeline" id="timeline">
-                    <!-- Se genera dinámicamente con JavaScript -->
-                </ul>
-            </div>
-            
-            <!-- PRÓXIMOS PASOS -->
-            <div class="next-steps" id="nextSteps">
-                <h3><i class="fa fa-info-circle"></i> Próximos pasos</h3>
-                <p id="nextStepsText">-</p>
-            </div>
-            
-            <!-- BOTONES DE ACCIÓN -->
-            <div style="text-align: center; margin-top: 32px;">
-                <button onclick="location.reload()" class="btn btn-primary" style="margin-right: 16px;">
-                    <i class="fa fa-refresh"></i> Nueva consulta
-                </button>
-                <a href="contacto.html" class="btn btn-primary">
-                    <i class="fa fa-phone"></i> Contactar al Nodo
-                </a>
+                <div class="state-item">
+                    <div class="state-icon">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                            Inscripción recibida
+                        </h3>
+                        <p style="color: #666; margin: 0; line-height: 1.6;">
+                            Tu solicitud fue registrada. <strong>En 24-48hs hábiles</strong> te vamos a contactar 
+                            del Nodo de tu zona para coordinar la evaluación domiciliaria.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="state-item">
+                    <div class="state-icon">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                            Contacto inicial
+                        </h3>
+                        <p style="color: #666; margin: 0; line-height: 1.6;">
+                            Ya nos comunicamos con vos y coordinamos la visita. Esperá nuestro llamado 
+                            para confirmar día y hora.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="state-item">
+                    <div class="state-icon">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                            Evaluación domiciliaria
+                        </h3>
+                        <p style="color: #666; margin: 0; line-height: 1.6;">
+                            El equipo interdisciplinario está evaluando tus necesidades en tu domicilio. 
+                            Esto tarda <strong>entre 5 y 15 días</strong> dependiendo de la complejidad del caso.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="state-item">
+                    <div class="state-icon">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                            Asignación de cuidadora
+                        </h3>
+                        <p style="color: #666; margin: 0; line-height: 1.6;">
+                            Estamos buscando la cuidadora ideal para vos en tu zona. Te llamamos para 
+                            coordinar la reunión de presentación.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="state-item">
+                    <div class="state-icon">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                            Instalación de tecnología
+                        </h3>
+                        <p style="color: #666; margin: 0; line-height: 1.6;">
+                            Estamos instalando los sensores, la pulsera de emergencia y Tita en tu domicilio. 
+                            El técnico te explica cómo usar todo.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="state-item">
+                    <div class="state-icon" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: #2E7D32; font-size: 20px; margin: 0 0 8px 0;">
+                            Servicio activo
+                        </h3>
+                        <p style="color: #666; margin: 0; line-height: 1.6;">
+                            <strong>¡Ya estás recibiendo el servicio!</strong> Tu cuidadora te visita según 
+                            lo acordado y el sistema de monitoreo está funcionando.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="state-item" style="border-left-color: var(--color-accent);">
+                    <div class="state-icon" style="background: linear-gradient(135deg, var(--color-accent), #F57C00);">
+                        <i class="fa fa-pause" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-accent); font-size: 20px; margin: 0 0 8px 0;">
+                            En espera (lista de espera)
+                        </h3>
+                        <p style="color: #666; margin: 0; line-height: 1.6;">
+                            Cumplís los requisitos pero temporalmente no hay cupo disponible en tu zona. 
+                            Te avisamos cuando se libere un lugar. <strong>Tiempo promedio: 30-45 días.</strong>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="state-item" style="border-left-color: #D32F2F;">
+                    <div class="state-icon" style="background: linear-gradient(135deg, #F44336, #C62828);">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: #D32F2F; font-size: 20px; margin: 0 0 8px 0;">
+                            No admitido
+                        </h3>
+                        <p style="color: #666; margin: 0; line-height: 1.6;">
+                            Luego de la evaluación, determinamos que CUIDAR.ar no es el programa adecuado 
+                            para tu situación. Te orientamos hacia otros servicios más apropiados.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
-    <!-- INFORMACIÓN ADICIONAL -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5491112345678" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    
+    <footer role="contentinfo">
         <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px; text-align: center;">Estados del trámite</h2>
-            
             <div class="row">
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center;">
-                        <i class="fa fa-check-circle" style="font-size: 48px; color: #4CAF50; margin-bottom: 16px;"></i>
-                        <h3 style="color: #4CAF50;">1. Recibido</h3>
-                        <p style="font-size: 14px;">Tu inscripción fue recibida y está siendo procesada por el Nodo de tu zona.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center;">
-                        <i class="fa fa-search" style="font-size: 48px; color: #0072BB; margin-bottom: 16px;"></i>
-                        <h3 style="color: #0072BB;">2. En evaluación</h3>
-                        <p style="font-size: 14px;">Un referente está evaluando tu caso y coordinando la visita domiciliaria.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center;">
-                        <i class="fa fa-user-plus" style="font-size: 48px; color: #F0AD4E; margin-bottom: 16px;"></i>
-                        <h3 style="color: #F0AD4E;">3. Asignado</h3>
-                        <p style="font-size: 14px;">Ya tenés cuidadora asignada. Estamos coordinando el inicio del servicio.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center;">
-                        <i class="fa fa-heart" style="font-size: 48px; color: #E91E63; margin-bottom: 16px;"></i>
-                        <h3 style="color: #E91E63;">4. Activo</h3>
-                        <p style="font-size: 14px;">¡Ya estás recibiendo el servicio de CUIDAR.ar!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- PREGUNTAS FRECUENTES -->
-    <section style="padding: 60px 0;">
-        <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px;">Preguntas sobre el trámite</h2>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Cuánto tiempo tarda el trámite?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    El tiempo promedio es de <strong>15 a 45 días</strong> desde que completás la inscripción 
-                    hasta que empezás a recibir el servicio. El tiempo depende de la demanda en tu comuna 
-                    y la disponibilidad de cuidadoras en tu zona.
-                </p>
-            </details>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    Mi trámite está hace más de 2 meses en "Recibido"
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    Si tu trámite lleva más de 60 días sin avances, comunicate con el <strong>147 (opción 5)</strong> 
-                    o con tu Nodo directamente. Puede haber faltado algún documento o información.
-                </p>
-            </details>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Me van a avisar cuando cambie el estado?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    Sí, el Nodo te contacta por teléfono o WhatsApp cada vez que hay un avance importante. 
-                    También podés consultar el estado en esta página las veces que quieras.
-                </p>
-            </details>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    No aparece mi DNI en el sistema
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    Si no aparece tu DNI puede ser porque: (1) todavía no completaste la inscripción inicial, 
-                    (2) hay un error en el DNI que ingresaste, o (3) tu inscripción fue rechazada. 
-                    Llamá al 147 (opción 5) para verificar.
-                </p>
-            </details>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h4>CONSULTAS</h4>
-                    <a href="contacto.html"><i class="fa fa-phone"></i> 147 (opción 5)</a>
-                    <a href="contacto.html"><i class="fa fa-whatsapp"></i> WhatsApp</a>
-                    <a href="inscripcion.html">Inscribirme</a>
-                </div>
-                <div class="col-md-3">
-                    <h4>AYUDA</h4>
-                    <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
-                    <a href="contacto.html#nodos">Encontrar mi Nodo</a>
-                </div>
-                <div class="col-md-3">
+                <nav class="col-md-3" aria-label="Enlaces de inscripción">
+                    <h4>INSCRIBIRSE</h4>
+                    <a href="inscripcion.html">Dejá tu teléfono</a>
+                    <a href="elegibilidad.html">¿Es para mí?</a>
+                    <a href="estado-tramite.html" aria-current="page">Ver mi solicitud</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces informativos">
+                    <h4>INFORMACIÓN</h4>
+                    <a href="el-sistema.html">Cómo funciona</a>
+                    <a href="para-personas-mayores.html">Para personas mayores</a>
+                    <a href="para-cuidadores.html">Para cuidadores/as</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces de contacto">
                     <h4>CONTACTO</h4>
-                    <p style="font-size: 14px; color: #CCCCCC;">
-                        <i class="fa fa-envelope"></i> info@cuidar.ar<br>
-                        <i class="fa fa-phone"></i> 0800-CUIDADO
-                    </p>
-                </div>
-                <div class="col-md-3">
-                    <h4>NAVEGACIÓN</h4>
-                    <a href="index.html">Inicio</a>
-                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
-                    <a href="el-sistema.html">El Sistema</a>
-                </div>
+                    <a href="tel:147" aria-label="Llamar al 147">147 (gratis)</a>
+                    <a href="nodos.html">Lugares en tu barrio</a>
+                    <a href="contacto.html">Todas las formas de contacto</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces institucionales">
+                    <h4>GOBIERNO ABIERTO</h4>
+                    <a href="transparencia.html">Datos abiertos</a>
+                    <a href="transparencia.html#presupuesto">Presupuesto</a>
+                    <a href="transparencia.html#informes">Informes</a>
+                </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 GCBA - WCAG 2.1 AA</p>
+                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
             </div>
         </div>
     </footer>
@@ -494,113 +852,70 @@
             document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
             document.body.classList.add('text-size-' + size);
             localStorage.setItem('textSize', size);
+            announceToScreenReader('Tamaño de texto cambiado a ' + 
+                (size === 'normal' ? 'normal' : size === 'large' ? 'grande' : 'extra grande'));
         }
         
         function toggleHighContrast() {
             const body = document.body;
-            body.style.filter = body.style.filter === 'contrast(1.5)' ? 'none' : 'contrast(1.5)';
-            localStorage.setItem('highContrast', body.style.filter === 'contrast(1.5)' ? 'true' : 'false');
+            const isHighContrast = body.style.filter === 'contrast(1.5)';
+            body.style.filter = isHighContrast ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', isHighContrast ? 'false' : 'true');
+            announceToScreenReader(isHighContrast ? 
+                'Alto contraste desactivado' : 
+                'Alto contraste activado');
+        }
+        
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.textContent = message;
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-10000px';
+            announcement.style.width = '1px';
+            announcement.style.height = '1px';
+            announcement.style.overflow = 'hidden';
+            document.body.appendChild(announcement);
+            setTimeout(() => document.body.removeChild(announcement), 1000);
+        }
+        
+        function searchStatus(event) {
+            event.preventDefault();
+            
+            const dni = document.getElementById('dni').value;
+            const tramite = document.getElementById('tramite').value;
+            
+            // In production, this would call an API
+            // For demo, we show hardcoded data
+            
+            // Update user info
+            document.getElementById('userDni').textContent = dni.replace(/(\d{2})(\d{3})(\d{3})/, '$1.$2.$3');
+            document.getElementById('userTramite').textContent = tramite || 'CUIDAR-2032-123456';
+            
+            // Show result
+            const resultBox = document.getElementById('statusResult');
+            resultBox.classList.add('show');
+            
+            // Scroll to result
+            setTimeout(() => {
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+            
+            // Announce to screen reader
+            announceToScreenReader('Estado de solicitud encontrado. La solicitud está en evaluación domiciliaria.');
+            
+            return false;
         }
         
         window.addEventListener('load', function() {
             const textSize = localStorage.getItem('textSize');
             if (textSize) document.body.classList.add('text-size-' + textSize);
-            if (localStorage.getItem('highContrast') === 'true') document.body.style.filter = 'contrast(1.5)';
-        });
-        
-        // SIMULACIÓN DE BÚSQUEDA
-        function searchTramite(event) {
-            event.preventDefault();
-            
-            const dni = document.getElementById('dni').value;
-            
-            // Simulación de datos (en producción esto vendría de una API)
-            const ejemplos = {
-                '12345678': {
-                    name: 'María González',
-                    date: '15/08/2032',
-                    comuna: 'Comuna 6 (Caballito)',
-                    nodo: 'Nodo Caballito',
-                    stage: 3, // 1=Recibido, 2=En evaluación, 3=Asignado, 4=Activo
-                    timeline: [
-                        { title: 'Inscripción recibida', date: '15/08/2032', description: 'Tu inscripción fue recibida correctamente y asignada al Nodo Caballito.', completed: true },
-                        { title: 'Documentación verificada', date: '22/08/2032', description: 'Verificamos tu DNI, domicilio y recibo de jubilación. Todo en orden.', completed: true },
-                        { title: 'Visita domiciliaria realizada', date: '05/09/2032', description: 'La referente Claudia realizó la visita de evaluación en tu domicilio.', completed: true },
-                        { title: 'Cuidadora asignada', date: '18/09/2032', description: 'Te asignamos a Gladys Martínez de la Coop. Manos Solidarias. Estamos coordinando el inicio.', completed: true, active: true },
-                        { title: 'Servicio iniciado', date: 'Pendiente', description: 'Inicio estimado: Primera semana de Octubre 2032', completed: false }
-                    ],
-                    nextSteps: 'Tu cuidadora Gladys te va a contactar en los próximos 5 días para coordinar el primer encuentro. Mientras tanto, te llegará por correo el kit de tecnología (pulsera + sensores).'
-                },
-                '87654321': {
-                    name: 'Roberto Fernández',
-                    date: '28/09/2032',
-                    comuna: 'Comuna 10 (Flores)',
-                    nodo: 'Nodo Oeste',
-                    stage: 2,
-                    timeline: [
-                        { title: 'Inscripción recibida', date: '28/09/2032', description: 'Tu inscripción fue recibida correctamente y asignada al Nodo Oeste.', completed: true },
-                        { title: 'Documentación en revisión', date: '01/10/2032', description: 'Estamos verificando tu documentación. Nos puede faltar el comprobante de domicilio actualizado.', completed: true, active: true },
-                        { title: 'Visita domiciliaria', date: 'Pendiente', description: 'Te contactaremos para coordinar la visita en los próximos 7-10 días.', completed: false },
-                        { title: 'Asignación de cuidadora', date: 'Pendiente', description: 'Una vez completada la evaluación, te asignaremos tu cuidadora.', completed: false },
-                        { title: 'Servicio iniciado', date: 'Pendiente', description: 'Inicio estimado según demanda en tu zona.', completed: false }
-                    ],
-                    nextSteps: 'Estamos verificando tu documentación. Si nos falta algo, te contactaremos por teléfono. Estimamos coordinar la visita domiciliaria en 7-10 días.'
-                }
-            };
-            
-            const result = ejemplos[dni];
-            
-            if (result) {
-                // Mostrar resultado
-                document.getElementById('resultDni').textContent = dni;
-                document.getElementById('resultName').textContent = result.name;
-                document.getElementById('resultDate').textContent = result.date;
-                document.getElementById('resultComuna').textContent = result.comuna;
-                document.getElementById('resultNodo').textContent = result.nodo;
-                
-                const statusBadge = document.getElementById('resultStatus');
-                if (result.stage === 4) {
-                    statusBadge.textContent = 'Servicio activo';
-                    statusBadge.className = 'status-badge completado';
-                } else {
-                    statusBadge.textContent = 'En proceso';
-                    statusBadge.className = 'status-badge en-proceso';
-                }
-                
-                // Generar timeline
-                const timeline = document.getElementById('timeline');
-                timeline.innerHTML = '';
-                result.timeline.forEach(item => {
-                    const li = document.createElement('li');
-                    li.className = 'timeline-item';
-                    if (item.completed) li.classList.add('completed');
-                    if (item.active) li.classList.add('active');
-                    
-                    li.innerHTML = `
-                        <div class="timeline-icon">
-                            <i class="fa fa-${item.completed ? 'check' : 'clock-o'}"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>${item.title}</h3>
-                            <div class="date"><i class="fa fa-calendar"></i> ${item.date}</div>
-                            <p>${item.description}</p>
-                        </div>
-                    `;
-                    timeline.appendChild(li);
-                });
-                
-                // Próximos pasos
-                document.getElementById('nextStepsText').textContent = result.nextSteps;
-                
-                // Mostrar sección de resultado
-                document.getElementById('resultSection').style.display = 'block';
-                
-                // Scroll al resultado
-                document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                alert('No se encontró ningún trámite con el DNI ' + dni + '.\n\nPosibles razones:\n- Todavía no completaste la inscripción\n- Hay un error en el DNI ingresado\n- Tu trámite fue derivado a otra área\n\nLlamá al 147 (opción 5) para más información.');
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.body.style.filter = 'contrast(1.5)';
             }
-        }
+        });
     </script>
 </body>
 </html>
