@@ -571,3 +571,37 @@ button {
         content: " (" attr(href) ")";
     }
 }
+
+.author-disclaimer {
+    background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+    border-top: 3px solid #FF9800;
+    padding: 24px 0;
+    margin-top: 40px;
+}
+
+.author-disclaimer p {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    color: #5D4037;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.author-disclaimer strong {
+    color: #E65100;
+    font-weight: 600;
+}
+
+.author-disclaimer i {
+    margin-right: 8px;
+    color: #FF9800;
+}
+
+@media (max-width: 767px) {
+    .author-disclaimer p {
+        font-size: 13px;
+        text-align: left;
+    }
+}
