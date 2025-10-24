@@ -88,6 +88,18 @@
             line-height: 1.6;
         }
         
+        /* NUEVO: Badge de fricción */
+        .friction-badge {
+            display: inline-block;
+            background-color: #FFF3CD;
+            color: #856404;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+        
         .about-program {
             padding: 80px 0;
         }
@@ -168,20 +180,21 @@
         .steps-simple {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 24px;
+            align-items: stretch;
+            gap: 16px;
             flex-wrap: wrap;
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1200px;
+            margin: 0 auto 48px;
         }
         
         .step-simple {
             background-color: rgba(255,255,255,0.15);
-            padding: 32px;
+            padding: 24px;
             border-radius: 12px;
             text-align: center;
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
+            max-width: 220px;
         }
         
         .step-number-simple {
@@ -200,14 +213,52 @@
         
         .step-simple p {
             margin: 0;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        /* NUEVO: Estilos para tiempos de espera */
+        .step-time {
+            font-size: 13px;
+            opacity: 0.85;
+            font-weight: 400;
+            margin-top: 8px;
         }
         
         .step-arrow {
             font-size: 32px;
             font-weight: 300;
             opacity: 0.7;
+            align-self: center;
+        }
+        
+        /* NUEVO: Sección de expectativas realistas */
+        .reality-check {
+            background-color: #FFF9E6;
+            border-left: 4px solid #FFC107;
+            padding: 24px;
+            margin: 32px auto;
+            max-width: 900px;
+            border-radius: 8px;
+        }
+        
+        .reality-check h4 {
+            color: #F57C00;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        
+        .reality-check ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .reality-check ul li {
+            margin-bottom: 8px;
         }
         
         .btn-cta {
@@ -215,25 +266,74 @@
             color: #66BB6A;
             padding: 18px 48px;
             font-size: 20px;
-            font-weight: 700;
-            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            text-decoration: none;
+            cursor: pointer;
             transition: all 0.3s;
+            text-decoration: none;
             box-shadow: 0 4px 16px rgba(0,0,0,0.2);
         }
         
         .btn-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.3);
             color: #66BB6A;
+            text-decoration: none;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: #0072BB;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0072BB, #005A92);
+            color: white;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0,114,187,0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0,114,187,0.4);
+            color: white;
+            text-decoration: none;
         }
         
         .testimonials {
-            padding: 80px 0;
             background-color: #F5F5F5;
+            padding: 80px 0;
         }
         
         .testimonials h2 {
@@ -249,418 +349,565 @@
             border-radius: 12px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             height: 100%;
-            position: relative;
+            display: flex;
+            flex-direction: column;
         }
         
         .testimonial-quote {
-            color: #66BB6A;
+            color: #0072BB;
             font-size: 48px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            line-height: 1;
         }
         
         .testimonial-text {
-            color: #666;
+            color: #333;
             font-size: 18px;
             line-height: 1.8;
+            flex-grow: 1;
             margin-bottom: 24px;
             font-style: italic;
         }
         
+        .testimonial-author {
+            border-top: 2px solid #E0E0E0;
+            padding-top: 20px;
+        }
+        
         .testimonial-author strong {
             display: block;
-            color: #333;
+            color: #0072BB;
             font-size: 18px;
             margin-bottom: 4px;
         }
         
         .testimonial-author span {
-            color: #999;
+            color: #666;
             font-size: 14px;
         }
         
+        /* NUEVO: Testimonial con fricción */
+        .testimonial-card.realistic {
+            border-left: 4px solid #FFC107;
+        }
+        
         .stats {
-            background: linear-gradient(135deg, #0072BB, #005A92);
-            color: white;
             padding: 80px 0;
+            background-color: white;
         }
         
         .stats h2 {
             text-align: center;
+            color: #0072BB;
             font-size: 42px;
             margin-bottom: 60px;
         }
         
         .stat-card {
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
         
         .stat-number {
             font-size: 56px;
             font-weight: 700;
-            margin-bottom: 8px;
+            color: #0072BB;
+            margin-bottom: 16px;
         }
         
         .stat-label {
             font-size: 18px;
-            opacity: 0.9;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        /* NUEVO: Stat de fricción */
+        .stat-card.friction .stat-number {
+            color: #F57C00;
+        }
+        
+        .stat-sublabel {
+            font-size: 14px;
+            color: #999;
+            margin-top: 8px;
         }
         
         .final-cta {
+            background-color: #F5F5F5;
             padding: 80px 0;
+            text-align: center;
         }
         
         .final-cta h2 {
-            text-align: center;
             color: #0072BB;
             font-size: 42px;
             margin-bottom: 16px;
         }
         
         .final-cta-subtitle {
-            text-align: center;
             font-size: 20px;
             color: #666;
-            margin: 0 auto 48px;
-            max-width: 700px;
-            line-height: 1.5;
+            margin-bottom: 48px;
         }
         
         .contact-options {
             display: flex;
             justify-content: center;
-            gap: 32px;
+            gap: 40px;
             flex-wrap: wrap;
-            max-width: 1000px;
-            margin: 0 auto;
         }
         
         .contact-option {
             background-color: white;
             padding: 32px;
             border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             text-align: center;
-            flex: 1;
-            min-width: 250px;
-            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             transition: all 0.3s;
+            text-decoration: none;
+            color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
+            min-width: 200px;
         }
         
         .contact-option:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            color: #0072BB;
+            text-decoration: none;
         }
         
         .contact-option i {
             font-size: 48px;
-            color: #66BB6A;
+            color: #0072BB;
         }
         
         .contact-option strong {
-            color: #333;
             font-size: 20px;
+            color: #0072BB;
         }
         
         .contact-option span {
-            color: #666;
             font-size: 16px;
+            color: #666;
         }
         
-        @media (max-width: 767px) {
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        footer {
+            background-color: #1A1A1A;
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        footer h4 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        footer a {
+            color: #CCCCCC;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+        
+        .footer-legal {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding: 30px 0;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .author-disclaimer {
+            background-color: #0A0A0A;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .author-disclaimer p {
+            margin: 0;
+            font-size: 13px;
+            color: #999;
+            line-height: 1.6;
+        }
+        
+        .author-disclaimer strong {
+            color: #0072BB;
+        }
+        
+        @media (max-width: 768px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
+            
             .hero .lead {
                 font-size: 18px;
             }
-            .about-program h2,
-            .testimonials h2,
-            .stats h2,
-            .final-cta h2,
-            .cta-inscripcion h2 {
-                font-size: 28px;
+            
+            .steps-simple {
+                flex-direction: column;
+                align-items: center;
             }
-            .final-cta-subtitle {
-                font-size: 16px;
-            }
+            
             .step-arrow {
                 display: none;
+            }
+            
+            .contact-options {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
-    
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
-        <div class="container">
-            <div class="pull-left">
-                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
-                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
-                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
+    <header role="banner">
+        <div class="top-bar">
+            <div class="container">
+                <div class="accessibility-controls" role="group" aria-label="Controles de accesibilidad">
+                    <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
+                    <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
+                    <button onclick="adjustTextSize('xlarge')" aria-label="Tamaño de texto extra grande">A++</button>
+                    <button onclick="toggleHighContrast()" aria-label="Activar alto contraste">
+                        <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
+                    </button>
+                </div>
             </div>
-            <div class="pull-right">
-                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
-                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
-                </button>
+        </div>
+        <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+            <div class="container">
+                <a href="index.html" class="logo" aria-label="CUIDAR.ar - Inicio">
+                    <span class="logo-icon" aria-hidden="true">🏥</span>
+                    <span class="logo-text">CUIDAR<span class="logo-ar">.ar</span></span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="el-sistema.html">Cómo funciona</a></li>
+                    <li><a href="nodos.html">Nodos</a></li>
+                    <li><a href="para-personas-mayores.html">Para personas mayores</a></li>
+                    <li><a href="para-cuidadores.html">Para cuidadores/as</a></li>
+                    <li><a href="inscripcion.html" class="cta-button" aria-label="Inscribirme ahora">Inscribirme</a></li>
+                </ul>
             </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-    
-    <header class="header-gcba" role="banner">
-        <div class="container">
-            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
-                <i class="fa fa-home icon" aria-hidden="true"></i>
-                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
-            </a>
-        </div>
+        </nav>
     </header>
     
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
-        <div class="container">
-            <a href="index.html" aria-current="page" class="active">Inicio</a>
-            <a href="para-personas-mayores.html">Para Personas Mayores</a>
-            <a href="para-cuidadores.html">Para Cuidadores/as</a>
-            <a href="el-sistema.html">El Sistema</a>
-            <a href="transparencia.html">Transparencia</a>
-            <a href="contacto.html">Contacto</a>
-        </div>
-    </nav>
-    
-    <section class="hero" id="main-content" role="main">
-        <div class="container">
-            <h1>Cuidamos a quienes cuidaron de nosotros</h1>
-            <p class="lead">
-                Un sistema integral que combina acompañamiento humano con tecnología inteligente 
-                para que las personas mayores vivan con dignidad en sus hogares.
-            </p>
-            <div class="hero-buttons">
-                <a href="inscripcion.html" class="btn btn-primary btn-lg">
-                    <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme ahora
-                </a>
-                <a href="elegibilidad.html" class="btn btn-secondary btn-lg">
-                    <i class="fa fa-question-circle" aria-hidden="true"></i> ¿Es para mí?
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <section class="quick-info">
-        <div class="container">
-            <div class="row">
-                <article class="col-md-4">
-                    <div class="quick-card">
-                        <div class="quick-icon">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                        </div>
-                        <h3>Línea 147</h3>
-                        <p>Atención telefónica gratuita, 24 horas, los 7 días de la semana</p>
-                        <a href="tel:147" class="btn-link">Llamar ahora <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </article>
-                <article class="col-md-4">
-                    <div class="quick-card">
-                        <div class="quick-icon">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        </div>
-                        <h3>15 Nodos</h3>
-                        <p>Centros de atención en todas las comunas de la Ciudad</p>
-                        <a href="nodos.html" class="btn-link">Ver ubicaciones <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </article>
-                <article class="col-md-4">
-                    <div class="quick-card">
-                        <div class="quick-icon">
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                        </div>
-                        <h3>8.500+ personas</h3>
-                        <p>Ya reciben acompañamiento y cuidado domiciliario</p>
-                        <a href="transparencia.html" class="btn-link">Ver datos <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-    
-    <section class="about-program">
-        <div class="container">
-            <h2>¿Qué es CUIDAR.ar?</h2>
-            <p class="section-intro">
-                Es el primer sistema público integral de cuidados para personas mayores en Argentina, 
-                que combina tres componentes clave:
-            </p>
-            <div class="row">
-                <article class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fa fa-heart" aria-hidden="true"></i>
-                        </div>
-                        <h3>Acompañamiento humano</h3>
-                        <p>Cuidadoras profesionales capacitadas que visitan tu domicilio según tus necesidades: desde 2 horas semanales hasta acompañamiento diario.</p>
-                    </div>
-                </article>
-                <article class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fa fa-mobile" aria-hidden="true"></i>
-                        </div>
-                        <h3>Tecnología inteligente</h3>
-                        <p>Sensores de movimiento, pulsera de emergencia y Tita (asistente de voz) que monitorean tu bienestar 24/7.</p>
-                    </div>
-                </article>
-                <article class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                        </div>
-                        <h3>Equipo interdisciplinario</h3>
-                        <p>Trabajadores sociales, enfermeras, psicólogas y terapistas que diseñan tu plan personalizado de cuidado.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-    
-    <section class="cta-inscripcion">
-        <div class="container">
-            <h2>Empezá ahora</h2>
-            <p>El proceso de inscripción es simple y te acompañamos en cada paso</p>
-            <div class="steps-simple">
-                <div class="step-simple">
-                    <div class="step-number-simple">1</div>
-                    <p>Inscribite online o llamá al 147</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step-simple">
-                    <div class="step-number-simple">2</div>
-                    <p>Evaluamos tus necesidades</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step-simple">
-                    <div class="step-number-simple">3</div>
-                    <p>¡Empezás con el servicio!</p>
+    <main id="main-content" role="main">
+        <section class="hero">
+            <div class="container">
+                <h1>Nadie cuida solo</h1>
+                <p class="lead">
+                    Un sistema público que acompaña a personas mayores en su casa, con cuidado profesional, 
+                    tecnología accesible y seguimiento personalizado.
+                </p>
+                <div class="hero-buttons">
+                    <a href="inscripcion.html" class="btn-primary">
+                        <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme ahora
+                    </a>
+                    <a href="el-sistema.html" class="btn-secondary">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i> Conocer más
+                    </a>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 32px;">
-                <a href="inscripcion.html" class="btn btn-cta">
-                    <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme ahora
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <section class="testimonials">
-        <div class="container">
-            <h2>Historias reales</h2>
-            <div class="row">
-                <article class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+        </section>
+        
+        <section class="quick-info">
+            <div class="container">
+                <div class="row">
+                    <article class="col-md-4">
+                        <div class="quick-card">
+                            <div class="quick-icon">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                            </div>
+                            <h3>Cuidado en casa</h3>
+                            <p>Profesionales van a tu domicilio. No te movés, te atendemos donde estés.</p>
+                            <span class="friction-badge">Según disponibilidad en tu zona</span>
+                            <a href="para-personas-mayores.html" class="btn-primary" style="margin-top: 16px;">Más información</a>
                         </div>
-                        <p class="testimonial-text">
-                            "Desde que está Rosa viniendo, mi mamá está mucho más animada. Le cocina, la acompaña al médico y charlamos los tres. Es como tener familia cerca."
-                        </p>
-                        <div class="testimonial-author">
-                            <strong>Javier M.</strong>
-                            <span>Hijo de beneficiaria, Caballito</span>
+                    </article>
+                    <article class="col-md-4">
+                        <div class="quick-card">
+                            <div class="quick-icon">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                            </div>
+                            <h3>Equipos territoriales</h3>
+                            <p>15 Nodos en toda la Ciudad. Cada barrio tiene su equipo que te conoce.</p>
+                            <a href="nodos.html" class="btn-primary" style="margin-top: 16px;">Ver Nodos</a>
                         </div>
-                    </div>
-                </article>
-                <article class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    </article>
+                    <article class="col-md-4">
+                        <div class="quick-card">
+                            <div class="quick-icon">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <h3>Monitoreo 24/7</h3>
+                            <p>Tecnología simple que alerta ante emergencias. Siempre conectados.</p>
+                            <span class="friction-badge">Instalación en 7-10 días hábiles</span>
+                            <a href="el-sistema.html#tecnologia" class="btn-primary" style="margin-top: 16px;">Cómo funciona</a>
                         </div>
-                        <p class="testimonial-text">
-                            "Vivo sola y a veces me daba miedo caerme. Con la pulsera estoy tranquila y Tita me hace compañía. Hasta me cuenta chistes."
-                        </p>
-                        <div class="testimonial-author">
-                            <strong>María C., 78 años</strong>
-                            <span>Beneficiaria, Flores</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            <i class="fa fa-quote-left" aria-hidden="true"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "Trabajar como cuidadora en CUIDAR.ar cambió mi vida. Tengo un sueldo digno, capacitación constante y veo el impacto positivo todos los días."
-                        </p>
-                        <div class="testimonial-author">
-                            <strong>Sandra L.</strong>
-                            <span>Cuidadora, Balvanera</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-    
-    <section class="stats">
-        <div class="container">
-            <h2>CUIDAR.ar en números</h2>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <div class="stat-number">8.500+</div>
-                        <div class="stat-label">Personas mayores atendidas</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <div class="stat-number">1.200+</div>
-                        <div class="stat-label">Cuidadoras capacitadas</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <div class="stat-number">15</div>
-                        <div class="stat-label">Nodos en toda la Ciudad</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Monitoreo tecnológico</div>
-                    </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section class="final-cta">
-        <div class="container">
-            <h2>¿Necesitás más información?</h2>
-            <p class="final-cta-subtitle">Estamos disponibles para ayudarte por múltiples canales</p>
-            <div class="contact-options">
-                <a href="tel:147" class="contact-option">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <strong>Llamá al 147</strong>
-                    <span>Gratis, 24/7</span>
-                </a>
-                <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="contact-option">
-                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                    <strong>WhatsApp</strong>
-                    <span>11 1234-5678</span>
-                </a>
-                <a href="nodos.html" class="contact-option">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <strong>Nodos presenciales</strong>
-                    <span>15 ubicaciones</span>
-                </a>
+        </section>
+        
+        <section class="about-program">
+            <div class="container">
+                <h2>¿Cómo es el sistema CUIDAR.ar?</h2>
+                <p class="section-intro">
+                    Un programa público que coordina cuidado profesional, tecnología accesible y redes 
+                    comunitarias para que personas mayores vivan con autonomía y seguridad en su casa.
+                </p>
+                <div class="row">
+                    <article class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                            </div>
+                            <h3>Evaluación profesional</h3>
+                            <p>
+                                Un equipo va a tu casa para entender qué necesitás: ayuda para bañarte, 
+                                cocinar, recordar medicación, o simplemente compañía.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            </div>
+                            <h3>Cuidado personalizado</h3>
+                            <p>
+                                No es un servicio genérico. Armamos un plan específico para vos, 
+                                con las horas y el tipo de apoyo que realmente necesitás.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fa fa-shield" aria-hidden="true"></i>
+                            </div>
+                            <h3>Seguimiento continuo</h3>
+                            <p>
+                                Revisamos tu situación cada 3-6 meses. Si tus necesidades cambian, 
+                                ajustamos el plan. No te abandonamos.
+                            </p>
+                        </div>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <section class="cta-inscripcion">
+            <div class="container">
+                <h2>¿Cómo inscribirme?</h2>
+                <p>Simple, rápido y sin salir de tu casa</p>
+                
+                <div class="steps-simple">
+                    <div class="step-simple">
+                        <div class="step-number-simple">1</div>
+                        <p>Te inscribís</p>
+                        <div class="step-time">Completás el formulario<br>(10 minutos)</div>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step-simple">
+                        <div class="step-number-simple">2</div>
+                        <p>Te contactan</p>
+                        <div class="step-time">El Nodo te llama<br>en 48-72hs</div>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step-simple">
+                        <div class="step-number-simple">3</div>
+                        <p>Evaluación</p>
+                        <div class="step-time">Visita domiciliaria<br>en 7-14 días</div>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step-simple">
+                        <div class="step-number-simple">4</div>
+                        <p>Plan de cuidado</p>
+                        <div class="step-time">Coordinación de recursos<br>en 7-10 días</div>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step-simple">
+                        <div class="step-number-simple">5</div>
+                        <p>Inicio</p>
+                        <div class="step-time">Según disponibilidad<br>en tu zona</div>
+                    </div>
+                </div>
+                
+                <!-- NUEVO: Bloque de expectativas realistas -->
+                <div class="reality-check">
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Lo que debés saber antes de inscribirte</h4>
+                    <ul>
+                        <li><strong>Los tiempos varían:</strong> Personas con mayor vulnerabilidad (sin red de apoyo, movilidad muy reducida) tienen prioridad en la asignación.</li>
+                        <li><strong>Puede haber lista de espera:</strong> Si la demanda supera la capacidad en tu comuna, te avisamos tiempos estimados.</li>
+                        <li><strong>No es instantáneo:</strong> El proceso completo puede llevar 3-6 semanas desde la inscripción hasta el inicio del cuidado.</li>
+                        <li><strong>Evaluamos necesidad real:</strong> No es un servicio a demanda; evaluamos profesionalmente qué nivel de cuidado necesitás.</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; margin-top: 32px;">
+                    <a href="inscripcion.html" class="btn-cta">
+                        <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme ahora
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials">
+            <div class="container">
+                <h2>Historias reales</h2>
+                <div class="row">
+                    <article class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Desde que está Rosa viniendo, mi mamá está mucho más animada. Le cocina, la acompaña al médico y charlamos los tres. Es como tener familia cerca."
+                            </p>
+                            <div class="testimonial-author">
+                                <strong>Javier M.</strong>
+                                <span>Hijo de beneficiaria, Caballito</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- NUEVO: Testimonial con fricción -->
+                    <article class="col-md-4">
+                        <div class="testimonial-card realistic">
+                            <div class="testimonial-quote">
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Me inscribí en mayo y tardaron 3 semanas en conseguir cuidadora para Flores. Mientras tanto, el Nodo me conectó con un centro de día. No fue instantáneo, pero es más de lo que tenía antes."
+                            </p>
+                            <div class="testimonial-author">
+                                <strong>María C., 78 años</strong>
+                                <span>Beneficiaria, Flores</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Trabajar como cuidadora en CUIDAR.ar cambió mi vida. Tengo un sueldo digno, capacitación constante y veo el impacto positivo todos los días."
+                            </p>
+                            <div class="testimonial-author">
+                                <strong>Sandra L.</strong>
+                                <span>Cuidadora, Balvanera</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <section class="stats">
+            <div class="container">
+                <h2>CUIDAR.ar en números</h2>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-number">8.500+</div>
+                            <div class="stat-label">Personas mayores atendidas</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-number">1.200+</div>
+                            <div class="stat-label">Cuidadoras capacitadas</div>
+                        </div>
+                    </div>
+                    <!-- NUEVO: Stat de fricción -->
+                    <div class="col-md-3">
+                        <div class="stat-card friction">
+                            <div class="stat-number">847</div>
+                            <div class="stat-label">En lista de espera</div>
+                            <div class="stat-sublabel">Tiempo promedio: 21 días</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Nodos en toda la Ciudad</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="final-cta">
+            <div class="container">
+                <h2>¿Necesitás más información?</h2>
+                <p class="final-cta-subtitle">Estamos disponibles para ayudarte por múltiples canales</p>
+                <div class="contact-options">
+                    <a href="tel:147" class="contact-option">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <strong>Llamá al 147</strong>
+                        <span>Gratis, 24/7</span>
+                    </a>
+                    <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="contact-option">
+                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                        <strong>WhatsApp</strong>
+                        <span>11 1234-5678</span>
+                    </a>
+                    <a href="nodos.html" class="contact-option">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <strong>Nodos presenciales</strong>
+                        <span>15 ubicaciones</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
     
     <a href="https://wa.me/5491112345678" 
        class="whatsapp-float" 
