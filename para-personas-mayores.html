@@ -253,30 +253,25 @@
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
+    <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
-        <div class="container">
-            <div class="pull-left">
-                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
-                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
-                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
-            </div>
-            <div class="pull-right">
-                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
-                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
-                </button>
-            </div>
-            <div class="clearfix"></div>
+    <div class="accessibility-bar">
+        <div class="container clearfix">
+            <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
+            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
+            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
+            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
+            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+                <i class="fa fa-adjust" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
-                <i class="fa fa-home icon" aria-hidden="true"></i>
-                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            <a href="index.html" class="logo">
+                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                <span>CUIDAR.ar</span>
             </a>
         </div>
     </header>
@@ -284,11 +279,10 @@
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
             <a href="index.html">Inicio</a>
-            <a href="para-personas-mayores.html" aria-current="page" class="active">Para Personas Mayores</a>
-            <a href="para-cuidadores.html">Para Cuidadores/as</a>
-            <a href="el-sistema.html">El Sistema</a>
-            <a href="transparencia.html">Transparencia</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="el-sistema.html">Cómo funciona</a>
+            <a href="para-personas-mayores.html" class="active" aria-current="page">Para personas mayores</a>
+            <a href="para-cuidadores.html">Para cuidadores/as</a>
+            <a href="nodos.html">Nodos</a>
         </div>
     </nav>
     
