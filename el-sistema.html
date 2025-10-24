@@ -3,343 +3,842 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conocé cómo funciona el sistema CUIDAR.ar y las tres realidades del cuidado en Buenos Aires">
-    <title>El Sistema | CUIDAR.ar</title>
+    <meta name="description" content="Conocé cómo funciona CUIDAR.ar: cuidadoras, tecnología, nodos y red comunitaria trabajando juntos.">
+    <title>Cómo Funciona el Sistema | CUIDAR.ar</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0072BB;
+            --color-secondary: #66BB6A;
+            --color-accent: #FF9800;
+            --color-warm: #FFF8E1;
+            --color-purple: #9C27B0;
+        }
+        
+        .hero-sistema {
+            background: linear-gradient(135deg, rgba(0,114,187,0.95), rgba(0,90,146,0.95)),
+                        url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&h=500&fit=crop') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-sistema h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero-sistema .lead {
+            font-size: 26px;
+            line-height: 1.5;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .component-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+            transition: all 0.3s;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .component-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+        }
+        
+        .component-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        
+        .component-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: white;
+            font-size: 40px;
+            box-shadow: 0 4px 16px rgba(102,187,106,0.3);
+        }
+        
+        .flow-diagram {
+            background-color: white;
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .flow-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 60px;
+            top: 100%;
+            width: 4px;
+            height: 40px;
+            background: linear-gradient(180deg, var(--color-secondary), var(--color-accent));
+        }
+        
+        .flow-number {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(102,187,106,0.3);
+        }
+        
+        .flow-content {
+            flex: 1;
+        }
+        
+        .stats-banner {
+            background: linear-gradient(135deg, var(--color-accent), #F57C00);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(255,152,0,0.3);
+            margin-bottom: 32px;
+        }
+        
+        .stat-item {
+            margin-bottom: 24px;
+        }
+        
+        .stat-number-big {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+        
+        .ecosystem-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .ecosystem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        
+        .ecosystem-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary), #005A92);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 36px;
+            transform: rotate(-5deg);
+            transition: all 0.3s;
+        }
+        
+        .ecosystem-card:hover .ecosystem-icon {
+            transform: rotate(0deg);
+        }
+        
+        .tech-showcase {
+            background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+            border-radius: 12px;
+            padding: 48px;
+            margin-bottom: 32px;
+        }
+        
+        .tech-item {
+            display: flex;
+            align-items: start;
+            gap: 24px;
+            background-color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-purple), #7B1FA2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 40px;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37,211,102,0.6);
+            color: white;
+        }
+        
+        @media (max-width: 767px) {
+            .hero-sistema h1 {
+                font-size: 32px;
+            }
+            .hero-sistema .lead {
+                font-size: 20px;
+            }
+            .flow-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            .flow-step::after {
+                left: 50%;
+                margin-left: -2px;
+            }
+            .flow-number {
+                width: 80px;
+                height: 80px;
+                font-size: 36px;
+            }
+            .stat-number-big {
+                font-size: 48px;
+            }
+            .tech-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container">
             <div class="pull-left">
-                <button onclick="adjustTextSize('normal')">A</button>
-                <button onclick="adjustTextSize('large')">A+</button>
-                <button onclick="adjustTextSize('xlarge')">A++</button>
+                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
+                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
+                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
             </div>
             <div class="pull-right">
-                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
+                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
+                </button>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
     
-    <header class="header-gcba">
+    <header class="header-gcba" role="banner">
         <div class="container">
-            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
+                <i class="fa fa-home icon" aria-hidden="true"></i>
+                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            </a>
         </div>
     </header>
     
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
             <a href="index.html">Inicio</a>
             <a href="para-personas-mayores.html">Para Personas Mayores</a>
             <a href="para-cuidadores.html">Para Cuidadores/as</a>
-            <a href="el-sistema.html" class="active">El Sistema</a>
+            <a href="el-sistema.html" aria-current="page" class="active">El Sistema</a>
             <a href="transparencia.html">Transparencia</a>
             <a href="contacto.html">Contacto</a>
         </div>
     </nav>
     
-    <section class="hero" id="main-content" style="padding: 40px 0;">
+    <section class="hero-sistema" id="main-content" role="main">
         <div class="container">
-            <h1 style="font-size: 36px;">El Sistema CUIDAR.ar</h1>
-            <p class="lead" style="font-size: 18px;">
-                Tres realidades conviven en Buenos Aires
+            <h1>El Sistema de Cuidado más completo de Argentina</h1>
+            <p class="lead">
+                Cuidadoras + Tecnología + Red comunitaria = Cuidado integral
             </p>
         </div>
     </section>
     
-    <!-- TRES REALIDADES -->
-    <section style="padding: 60px 0; background-color: white;">
+    <!-- Visión general -->
+    <section style="padding: 60px 0;" aria-labelledby="vision-titulo">
         <div class="container">
-            <div class="section-title">
-                <h2>La realidad del cuidado en Buenos Aires</h2>
-                <p>200,000 personas mayores viven solas en la Ciudad. Así acceden al cuidado:</p>
-            </div>
+            <h2 id="vision-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 24px; font-size: 36px;">
+                Un ecosistema completo de cuidado
+            </h2>
+            <p style="text-align: center; font-size: 20px; color: #666; margin-bottom: 48px; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                CUIDAR.ar no es solo una persona que te visita. Es todo un <strong>ecosistema</strong> de servicios, 
+                tecnología y comunidad trabajando juntos para que vivas mejor en tu casa.
+            </p>
             
-            <div class="row" style="margin-top: 40px;">
-                <div class="col-md-3">
-                    <div class="card" style="background-color: #E8F5E9; border: 2px solid #4CAF50; text-align: center;">
-                        <i class="fa fa-users" style="font-size: 48px; color: #4CAF50; margin-bottom: 16px;"></i>
-                        <h3 style="color: #4CAF50;">Sistema Público</h3>
-                        <p style="font-size: 42px; font-weight: 700; color: #4CAF50; margin: 16px 0;">34%</p>
-                        <p>68,000 personas atendidas</p>
-                        <a href="#publico" class="btn btn-primary" style="margin-top: 16px;">
-                            Ver más <i class="fa fa-arrow-down"></i>
-                        </a>
+            <div class="stats-banner">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <div class="stat-number-big" aria-label="4 pilares">4</div>
+                            <div style="font-size: 20px; margin-top: 12px;">Pilares del sistema</div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="card" style="background-color: #FCE4EC; border: 2px solid #E91E63; text-align: center;">
-                        <i class="fa fa-star" style="font-size: 48px; color: #E91E63; margin-bottom: 16px;"></i>
-                        <h3 style="color: #E91E63;">Sistema Privado</h3>
-                        <p style="font-size: 42px; font-weight: 700; color: #E91E63; margin: 16px 0;">1%</p>
-                        <p>~2,000 personas</p>
-                        <a href="#privado" class="btn btn-primary" style="margin-top: 16px;">
-                            Ver más <i class="fa fa-arrow-down"></i>
-                        </a>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <div class="stat-number-big" aria-label="24 horas">24/7</div>
+                            <div style="font-size: 20px; margin-top: 12px;">Cuidado continuo</div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="card" style="background-color: #FFEBEE; border: 2px solid #D9534F; text-align: center;">
-                        <i class="fa fa-exclamation-triangle" style="font-size: 48px; color: #D9534F; margin-bottom: 16px;"></i>
-                        <h3 style="color: #D9534F;">Sin Acceso</h3>
-                        <p style="font-size: 42px; font-weight: 700; color: #D9534F; margin: 16px 0;">65%</p>
-                        <p>130,000 personas sin ningún sistema formal</p>
-                        <a href="#sin-acceso" class="btn btn-primary" style="margin-top: 16px;">
-                            Ver más <i class="fa fa-arrow-down"></i>
-                        </a>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <div class="stat-number-big" aria-label="15 nodos">15</div>
+                            <div style="font-size: 20px; margin-top: 12px;">Nodos territoriales</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <div class="stat-number-big" aria-label="100%">100%</div>
+                            <div style="font-size: 20px; margin-top: 12px;">Cobertura en CABA</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- SISTEMA PÚBLICO -->
-    <section id="publico" style="padding: 60px 0; background-color: #E8F5E9;">
+    <!-- Los 4 componentes -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="componentes-titulo">
         <div class="container">
-            <h2 style="color: #4CAF50; margin-bottom: 32px;">
-                <i class="fa fa-users"></i> Sistema Público (34%)
+            <h2 id="componentes-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 48px; font-size: 36px;">
+                Los 4 pilares del sistema
             </h2>
             
-            <div class="alert alert-info" style="background-color: white;">
-                <strong><i class="fa fa-info-circle"></i> Nuestra solución principal.</strong> 
-                Este es el sistema que diseñamos para la mayoría. Combina cuidado humano, 
-                cooperativas vecinales y tecnología accesible.
-            </div>
-            
-            <div class="row" style="margin-top: 32px;">
-                <div class="col-md-6">
-                    <div class="card" style="background-color: white;">
-                        <h3>Qué incluye:</h3>
-                        <ul class="list-check">
-                            <li>120 horas/mes de cuidado humano</li>
-                            <li>Centro de día 3 veces por semana</li>
-                            <li>Asistente de voz "Tita"</li>
-                            <li>Pulsera de teleasistencia</li>
-                            <li>Sensores ambientales</li>
-                            <li>Banco de tiempo barrial</li>
-                        </ul>
-                        <p style="margin-top: 24px;">
-                            <a href="para-personas-mayores.html" class="btn btn-primary">
-                                Conocer más <i class="fa fa-arrow-right"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="card" style="background-color: white;">
-                        <h3>Copago según ingresos:</h3>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 12px 0; border-bottom: 1px solid #E0E0E0;">
-                                <strong>Jubilación mínima:</strong> $0 - $80,000/mes
-                            </li>
-                            <li style="padding: 12px 0; border-bottom: 1px solid #E0E0E0;">
-                                <strong>Jubilación media:</strong> $150,000 - $300,000/mes
-                            </li>
-                            <li style="padding: 12px 0;">
-                                <strong>Jubilación alta:</strong> $400,000 - $540,000/mes
-                            </li>
-                        </ul>
-                        <p style="margin-top: 24px; background-color: #FFF3CD; padding: 16px; border-radius: 8px;">
-                            <strong>Costo total del servicio:</strong> $540,000/mes<br>
-                            <small>El Estado subsidia la diferencia</small>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SISTEMA PRIVADO -->
-    <section id="privado" style="padding: 60px 0; background-color: #FCE4EC;">
-        <div class="container">
-            <h2 style="color: #E91E63; margin-bottom: 32px;">
-                <i class="fa fa-star"></i> Sistema Privado Premium (1%)
-            </h2>
-            
-            <div class="alert alert-warning" style="background-color: white;">
-                <strong><i class="fa fa-warning"></i> Esta no es nuestra solución.</strong> 
-                En paralelo al sistema público, existe un mercado privado de cuidado tecnológico 
-                de alta gama, completamente inaccesible para la mayoría.
-            </div>
-            
-            <div class="comparison-container" style="margin-top: 40px;">
-                <div class="comparison-card public" style="background-color: white;">
-                    <span class="comparison-badge public">ACCESIBLE</span>
-                    <h3 style="margin-top: 12px;">Sistema Público</h3>
-                    <p style="font-size: 24px; color: #4CAF50; font-weight: 700; margin: 16px 0;">$540,000/mes</p>
-                    <ul style="font-size: 14px;">
-                        <li>Cuidadora humana 120hs/mes</li>
-                        <li>Centro de día + red vecinal</li>
-                        <li>Tech accesible (Tita + sensores)</li>
-                        <li>Para el 34% de la población</li>
-                    </ul>
-                </div>
-                
-                <div class="comparison-card private" style="background-color: white;">
-                    <span class="comparison-badge private">EXCLUSIVO</span>
-                    <h3 style="margin-top: 12px;">Sistema Privado</h3>
-                    <p style="font-size: 24px; color: #E91E63; font-weight: 700; margin: 16px 0;">$3,000,000/mes</p>
-                    <p style="font-size: 14px; color: #666;">+ $250M inicial</p>
-                    <ul style="font-size: 14px;">
-                        <li>Robot Figure 3 (24/7)</li>
-                        <li>Casa inteligente completa</li>
-                        <li>Enfermera 2x/semana</li>
-                        <li>Solo para el 1% más rico</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card" style="margin-top: 40px; background-color: white;">
-                <h3 style="color: #E91E63;">La brecha de desigualdad</h3>
-                <p style="font-size: 18px; margin: 16px 0;"><strong>1 robot Figure 3 cuesta lo mismo que:</strong></p>
-                <div class="row" style="text-align: center; margin-top: 24px;">
-                    <div class="col-md-3">
-                        <div style="font-size: 36px; color: #E91E63; font-weight: 700;">480</div>
-                        <p>meses de cuidado humano</p>
-                    </div>
-                    <div class="col-md-3">
-                        <div style="font-size: 36px; color: #E91E63; font-weight: 700;">40</div>
-                        <p>años de servicio público</p>
-                    </div>
-                    <div class="col-md-3">
-                        <div style="font-size: 36px; color: #E91E63; font-weight: 700;">100</div>
-                        <p>personas atendidas por 2 años</p>
-                    </div>
-                    <div class="col-md-3">
-                        <div style="font-size: 36px; color: #E91E63; font-weight: 700;">20</div>
-                        <p>empleos dignos creados</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SIN ACCESO -->
-    <section id="sin-acceso" style="padding: 60px 0; background-color: #FFEBEE;">
-        <div class="container">
-            <h2 style="color: #D9534F; margin-bottom: 32px;">
-                <i class="fa fa-exclamation-triangle"></i> Sin Acceso al Sistema (65%)
-            </h2>
-            
-            <div class="alert alert-danger" style="background-color: white;">
-                <strong><i class="fa fa-exclamation-triangle"></i> El verdadero problema.</strong> 
-                La mayoría de adultos mayores que viven solos NO accede ni al sistema público 
-                ni al privado. Este es el desafío más urgente.
-            </div>
-            
-            <div class="row" style="margin-top: 32px;">
-                <div class="col-md-6">
-                    <div class="card" style="background-color: white;">
-                        <h3>¿Por qué no acceden?</h3>
-                        <ul>
-                            <li>Lista de espera (6-18 meses)</li>
-                            <li>No conocen el sistema</li>
-                            <li>Sin Nodo en su zona</li>
-                            <li>Rechazan ayuda (estigma)</li>
-                            <li>Grietas burocráticas</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="card" style="background-color: white;">
-                        <h3>¿Cómo sobreviven?</h3>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 8px 0;"><strong>42%</strong> - Familiares no remuneradas</li>
-                            <li style="padding: 8px 0;"><strong>31%</strong> - Cuidadoras informales</li>
-                            <li style="padding: 8px 0;"><strong>18%</strong> - Solos, riesgo crítico</li>
-                            <li style="padding: 8px 0;"><strong>9%</strong> - Instituciones precarias</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card" style="margin-top: 40px; background-color: white;">
-                <h3 style="color: #4CAF50;"><i class="fa fa-line-chart"></i> Meta 2035: 50% de cobertura</h3>
-                <p style="font-size: 18px; margin: 16px 0;">
-                    Para llegar a 100,000 personas atendidas necesitamos:
-                </p>
-                <ul class="list-check">
-                    <li>Ampliar presupuesto 40% (de $42,000M a $59,000M anuales)</li>
-                    <li>Abrir 8 Nodos nuevos (prioridad comunas 4, 8 y 9)</li>
-                    <li>Formar 2,000 cuidadoras más</li>
-                    <li>Fortalecer Bancos de Tiempo</li>
-                </ul>
-                <p style="margin-top: 24px;">
-                    <a href="transparencia.html#plan-2035" class="btn btn-primary">
-                        Ver Plan 2025-2035 <i class="fa fa-arrow-right"></i>
-                    </a>
-                </p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- NUESTRA POSICIÓN -->
-    <section style="padding: 60px 0; background-color: white;">
-        <div class="container">
-            <h2 style="color: #0072BB; text-align: center; margin-bottom: 32px;">Nuestra posición</h2>
-            
-            <div class="card" style="max-width: 800px; margin: 0 auto; background-color: #E8F4FD;">
-                <p style="font-size: 18px; line-height: 1.8; text-align: center;">
-                    <strong>El cuidado es una relación humana.</strong><br>
-                    La tecnología debe complementar, no reemplazar.
-                </p>
-                <p style="font-size: 16px; line-height: 1.8; margin-top: 24px;">
-                    Nuestra misión no es competir con el sistema privado premium (que seguirá existiendo). 
-                    Nuestra misión es reducir el <strong>65% sin acceso</strong>, no replicar soluciones 
-                    para el 1% más rico.
-                </p>
-                <p style="font-size: 16px; line-height: 1.8; margin-top: 16px;">
-                    Por eso priorizamos: <strong>cuidado humano + tecnología accesible</strong> para la mayoría, 
-                    no tecnología de punta para unos pocos.
-                </p>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <h4>EL SISTEMA</h4>
-                    <a href="#publico">Sistema Público (34%)</a>
-                    <a href="#privado">Sistema Privado (1%)</a>
-                    <a href="#sin-acceso">Sin Acceso (65%)</a>
-                    <a href="transparencia.html">Transparencia</a>
+                <article class="col-md-6">
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fa fa-female" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: var(--color-secondary); font-size: 26px; margin-bottom: 20px; text-align: center;">
+                            1. Cuidadoras Profesionales
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin-bottom: 20px;">
+                            <strong>4.200 cuidadoras</strong> certificadas trabajando en cooperativas reguladas por el GCBA.
+                        </p>
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Capacitación continua en geriatría, primeros auxilios y comunicación</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Supervisión permanente por equipos interdisciplinarios</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>3-5 visitas semanales por usuario según nivel de necesidad</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Trabajo registrado con salario digno y derechos laborales</span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="col-md-6">
+                    <div class="component-card">
+                        <div class="component-icon" style="background: linear-gradient(135deg, var(--color-accent), #F57C00);">
+                            <i class="fa fa-tablet" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: var(--color-accent); font-size: 26px; margin-bottom: 20px; text-align: center;">
+                            2. Tecnología Asistiva
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin-bottom: 20px;">
+                            <strong>Tita</strong> (asistente virtual) + sensores IoT + pulsera de emergencia.
+                        </p>
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Recordatorios de medicación y turnos médicos con voz natural</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Detección automática de caídas y ausencia de movimiento</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Videollamadas simplificadas con un solo botón</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Dashboard para familias (monitoreo sin invadir privacidad)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="col-md-6">
+                    <div class="component-card">
+                        <div class="component-icon" style="background: linear-gradient(135deg, var(--color-primary), #005A92);">
+                            <i class="fa fa-building" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: var(--color-primary); font-size: 26px; margin-bottom: 20px; text-align: center;">
+                            3. Nodos Territoriales
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin-bottom: 20px;">
+                            <strong>15 centros</strong> distribuidos estratégicamente en toda la Ciudad.
+                        </p>
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Coordinación de cuidadoras y usuarios de la zona</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Evaluaciones domiciliarias y seguimiento personalizado</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Equipo interdisciplinario: médicos, psicólogos, trabajadores sociales</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Centro de operaciones 24/7 para emergencias</span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="col-md-6">
+                    <div class="component-card">
+                        <div class="component-icon" style="background: linear-gradient(135deg, var(--color-purple), #7B1FA2);">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: var(--color-purple); font-size: 26px; margin-bottom: 20px; text-align: center;">
+                            4. Red Comunitaria
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin-bottom: 20px;">
+                            Más de <strong>150 organizaciones</strong> trabajando en red.
+                        </p>
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>45 Centros de Día con actividades recreativas y sociales</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Banco de Tiempo para intercambio de servicios entre vecinos</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Talleres culturales, ejercicio físico adaptado, alfabetización digital</span>
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span>Articulación con hospitales, farmacias y servicios públicos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cómo funciona paso a paso -->
+    <section style="padding: 60px 0;" aria-labelledby="flujo-titulo">
+        <div class="container">
+            <h2 id="flujo-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 48px; font-size: 36px;">
+                El recorrido de un usuario
+            </h2>
+            
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="flow-number">1</div>
+                    <div class="flow-content">
+                        <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 12px;">
+                            Inscripción y contacto
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            La persona se inscribe online, por teléfono o presencialmente en un Nodo. 
+                            <strong>En 24-48hs</strong> recibe un llamado del Nodo de su zona para agendar la visita inicial.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <h4>PARA VOS</h4>
-                    <a href="para-personas-mayores.html">Personas Mayores</a>
-                    <a href="para-cuidadores.html">Cuidadores/as</a>
-                    <a href="inscripcion.html">Inscribirme</a>
-                    <a href="trabajar.html">Trabajar</a>
+                
+                <div class="flow-step">
+                    <div class="flow-number">2</div>
+                    <div class="flow-content">
+                        <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 12px;">
+                            Evaluación domiciliaria
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            Un equipo interdisciplinario (médico geriatra, trabajador social, enfermero) 
+                            visita el domicilio. Evalúan <strong>nivel de autonomía</strong>, condiciones de vivienda, 
+                            red de apoyo familiar. Duración: 90 minutos.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <h4>CONTACTO</h4>
-                    <p style="font-size: 14px; color: #CCCCCC;">
-                        <i class="fa fa-phone"></i> 147 (opción 5)<br>
-                        <i class="fa fa-phone"></i> 0800-CUIDADO<br>
-                        <i class="fa fa-envelope"></i> info@cuidar.ar
+                
+                <div class="flow-step">
+                    <div class="flow-number">3</div>
+                    <div class="flow-content">
+                        <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 12px;">
+                            Plan personalizado
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            Según la evaluación, se define: <strong>frecuencia de visitas</strong> (3-5 por semana), 
+                            <strong>horarios</strong>, servicios necesarios (centro de día, asistencia psicológica, etc.), 
+                            y <strong>copago</strong> según ingresos.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">4</div>
+                    <div class="flow-content">
+                        <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 12px;">
+                            Asignación de cuidadora
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            El Nodo asigna una <strong>cuidadora de la zona</strong> con perfil compatible. 
+                            Se hace una <strong>reunión de presentación</strong> en el domicilio (usuario, cuidadora, coordinador). 
+                            Si no hay feeling, se puede cambiar.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">5</div>
+                    <div class="flow-content">
+                        <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 12px;">
+                            Instalación de tecnología
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            Un técnico instala: <strong>sensores de movimiento</strong> (3-5 en living, cocina, baño), 
+                            <strong>pulsera de emergencia</strong> con GPS, <strong>tablet con Tita</strong> preconfigurada. 
+                            La cuidadora enseña cómo usar todo. Duración: 2 horas.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">6</div>
+                    <div class="flow-content">
+                        <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 12px;">
+                            Cuidado continuo
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            La cuidadora visita según lo planificado. <strong>Tita</strong> acompaña entre visitas. 
+                            El Nodo hace <strong>seguimiento mensual</strong>. Los sensores monitorean 24/7. 
+                            El sistema se adapta si cambian las necesidades.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <div style="background-color: var(--color-warm); padding: 32px; border-radius: 12px; max-width: 700px; margin: 0 auto; border-left: 4px solid var(--color-accent);">
+                    <i class="fa fa-clock-o" style="font-size: 48px; color: var(--color-accent); margin-bottom: 16px;" aria-hidden="true"></i>
+                    <p style="font-size: 20px; color: #333; margin: 0; line-height: 1.6;">
+                        <strong>Tiempo promedio:</strong> 15-45 días desde inscripción hasta inicio del servicio 
+                        (depende de la demanda en tu zona)
                     </p>
                 </div>
-                <div class="col-md-3">
-                    <h4>REDES</h4>
-                    <a href="#"><i class="fa fa-facebook"></i> Facebook</a>
-                    <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
-                    <a href="#"><i class="fa fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tecnología en detalle -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="tech-titulo">
+        <div class="container">
+            <h2 id="tech-titulo" style="color: var(--color-accent); text-align: center; margin-bottom: 48px; font-size: 36px;">
+                La tecnología que te cuida
+            </h2>
+            
+            <div class="tech-showcase">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fa fa-microphone" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-purple); font-size: 22px; margin-bottom: 12px;">
+                            Tita - Asistente Virtual
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            IA conversacional entrenada específicamente para adultos mayores. <strong>Voz natural argentina</strong>, 
+                            responde a comandos simples, aprende tus rutinas. No necesitás tipear nada. 
+                            Funciona con <strong>reconocimiento de voz en español rioplatense</strong>.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-purple); font-size: 22px; margin-bottom: 12px;">
+                            Sensores IoT
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            Detectan movimiento, caídas, ausencia prolongada de actividad. <strong>No tienen cámaras</strong> 
+                            (respetamos tu privacidad). Funcionan con WiFi o red celular. Si detectan algo inusual, 
+                            alertan automáticamente al Nodo y a la cuidadora.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fa fa-hand-stop-o" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-purple); font-size: 22px; margin-bottom: 12px;">
+                            Pulsera de emergencia
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            Waterproof (podés bañarte con ella). <strong>GPS integrado</strong>. Botón grande y fácil de presionar. 
+                            Al activarla, llama automáticamente al Nodo + cuidadora + contacto de emergencia. 
+                            Batería de 7 días con alerta de carga baja.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fa fa-line-chart" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--color-purple); font-size: 22px; margin-bottom: 12px;">
+                            Dashboard para familias
+                        </h3>
+                        <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            Los familiares autorizados pueden ver: <strong>última conexión con Tita</strong>, 
+                            medicación tomada, visitas de la cuidadora, alertas generadas. Todo respetando la 
+                            autonomía y privacidad del usuario. Opcional: el usuario puede desactivarlo.
+                        </p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+    
+    <!-- Red de servicios -->
+    <section style="padding: 60px 0;" aria-labelledby="red-titulo">
+        <div class="container">
+            <h2 id="red-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 48px; font-size: 36px;">
+                Red de servicios complementarios
+            </h2>
+            
+            <div class="ecosystem-grid">
+                <article class="ecosystem-card">
+                    <div class="ecosystem-icon">
+                        <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                    </div>
+                    <h3 style="color: var(--color-primary); font-size: 20px; margin-bottom: 12px;">
+                        Centros de Día
+                    </h3>
+                    <p style="font-size: 16px; color: #666; line-height: 1.6;">
+                        45 centros en toda CABA con talleres, almuerzo, actividades. 
+                        Incluido sin costo adicional.
+                    </p>
+                </article>
+                
+                <article class="ecosystem-card">
+                    <div class="ecosystem-icon">
+                        <i class="fa fa-exchange" aria-hidden="true"></i>
+                    </div>
+                    <h3 style="color: var(--color-primary); font-size: 20px; margin-bottom: 12px;">
+                        Banco de Tiempo
+                    </h3>
+                    <p style="font-size: 16px; color: #666; line-height: 1.6;">
+                        Intercambiá servicios con vecinos (te ayudan con las compras, 
+                        vos enseñás tejido).
+                    </p>
+                </article>
+                
+                <article class="ecosystem-card">
+                    <div class="ecosystem-icon">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    </div>
+                    <h3 style="color: var(--color-primary); font-size: 20px; margin-bottom: 12px;">
+                        Comida a domicilio
+                    </h3>
+                    <p style="font-size: 16px; color: #666; line-height: 1.6;">
+                        Viandas saludables 5 veces por semana para quienes no pueden cocinar. 
+                        Costo diferenciado.
+                    </p>
+                </article>
+                
+                <article class="ecosystem-card">
+                    <div class="ecosystem-icon">
+                        <i class="fa fa-medkit" aria-hidden="true"></i>
+                    </div>
+                    <h3 style="color: var(--color-primary); font-size: 20px; margin-bottom: 12px;">
+                        Telemedicina
+                    </h3>
+                    <p style="font-size: 16px; color: #666; line-height: 1.6;">
+                        Consultas médicas por videollamada con Tita. 
+                        Médicos clínicos y geriatras.
+                    </p>
+                </article>
+                
+                <article class="ecosystem-card">
+                    <div class="ecosystem-icon">
+                        <i class="fa fa-user-md" aria-hidden="true"></i>
+                    </div>
+                    <h3 style="color: var(--color-primary); font-size: 20px; margin-bottom: 12px;">
+                        Apoyo psicológico
+                    </h3>
+                    <p style="font-size: 16px; color: #666; line-height: 1.6;">
+                        Sesiones con psicólogos especializados en adultos mayores. 
+                        Individual o grupal.
+                    </p>
+                </article>
+                
+                <article class="ecosystem-card">
+                    <div class="ecosystem-icon">
+                        <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                    </div>
+                    <h3 style="color: var(--color-primary); font-size: 20px; margin-bottom: 12px;">
+                        Ayudas técnicas
+                    </h3>
+                    <p style="font-size: 16px; color: #666; line-height: 1.6;">
+                        Préstamo de sillas de ruedas, andadores, bastones, 
+                        según necesidad.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section style="padding: 80px 0; background: linear-gradient(135deg, var(--color-secondary), #43A047);">
+        <div class="container">
+            <div style="text-align: center; color: white;">
+                <h2 style="font-size: 36px; margin-bottom: 24px; color: white;">
+                    ¿Te gustaría ser parte de este sistema?
+                </h2>
+                <p style="font-size: 22px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Inscribite ahora o llamá al 147 para más información
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="inscripcion.html" class="btn btn-lg" style="background-color: white; color: var(--color-secondary); border-color: white; font-size: 20px; padding: 18px 40px;" aria-label="Inscribirme en CUIDAR.ar">
+                        <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme
+                    </a>
+                    <a href="tel:147" class="btn btn-lg" style="background-color: transparent; color: white; border: 3px solid white; font-size: 20px; padding: 18px 40px;" aria-label="Llamar al 147">
+                        <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5491112345678" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-3" aria-label="Enlaces de inscripción">
+                    <h4>INSCRIBIRSE</h4>
+                    <a href="inscripcion.html">Dejá tu teléfono</a>
+                    <a href="elegibilidad.html">¿Es para mí?</a>
+                    <a href="estado-tramite.html">Ver mi solicitud</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces informativos">
+                    <h4>INFORMACIÓN</h4>
+                    <a href="el-sistema.html" aria-current="page">Cómo funciona</a>
+                    <a href="para-personas-mayores.html">Para personas mayores</a>
+                    <a href="para-cuidadores.html">Para cuidadores/as</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces de contacto">
+                    <h4>CONTACTO</h4>
+                    <a href="tel:147" aria-label="Llamar al 147">147 (gratis)</a>
+                    <a href="nodos.html">Lugares en tu barrio</a>
+                    <a href="contacto.html">Todas las formas de contacto</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces institucionales">
+                    <h4>GOBIERNO ABIERTO</h4>
+                    <a href="transparencia.html">Datos abiertos</a>
+                    <a href="transparencia.html#presupuesto">Presupuesto</a>
+                    <a href="transparencia.html#informes">Informes</a>
+                </nav>
+            </div>
             <div class="footer-legal">
-                <p>&copy; 2032 GCBA - WCAG 2.1 AA</p>
+                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
             </div>
         </div>
     </footer>
@@ -349,16 +848,41 @@
             document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
             document.body.classList.add('text-size-' + size);
             localStorage.setItem('textSize', size);
+            announceToScreenReader('Tamaño de texto cambiado a ' + 
+                (size === 'normal' ? 'normal' : size === 'large' ? 'grande' : 'extra grande'));
         }
+        
         function toggleHighContrast() {
             const body = document.body;
-            body.style.filter = body.style.filter === 'contrast(1.5)' ? 'none' : 'contrast(1.5)';
-            localStorage.setItem('highContrast', body.style.filter === 'contrast(1.5)' ? 'true' : 'false');
+            const isHighContrast = body.style.filter === 'contrast(1.5)';
+            body.style.filter = isHighContrast ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', isHighContrast ? 'false' : 'true');
+            announceToScreenReader(isHighContrast ? 
+                'Alto contraste desactivado' : 
+                'Alto contraste activado');
         }
+        
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.textContent = message;
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-10000px';
+            announcement.style.width = '1px';
+            announcement.style.height = '1px';
+            announcement.style.overflow = 'hidden';
+            document.body.appendChild(announcement);
+            setTimeout(() => document.body.removeChild(announcement), 1000);
+        }
+        
         window.addEventListener('load', function() {
             const textSize = localStorage.getItem('textSize');
             if (textSize) document.body.classList.add('text-size-' + textSize);
-            if (localStorage.getItem('highContrast') === 'true') document.body.style.filter = 'contrast(1.5)';
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.body.style.filter = 'contrast(1.5)';
+            }
         });
     </script>
 </body>
