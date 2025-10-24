@@ -3,437 +3,911 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contacto y canales de atención del sistema CUIDAR.ar">
+    <meta name="description" content="Contactá a CUIDAR.ar por teléfono, WhatsApp, email o presencialmente en nuestros 15 Nodos en toda la Ciudad.">
     <title>Contacto | CUIDAR.ar</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0072BB;
+            --color-secondary: #66BB6A;
+            --color-accent: #FF9800;
+            --color-warm: #FFF8E1;
+            --color-purple: #9C27B0;
+        }
+        
+        .hero-contacto {
+            background: linear-gradient(135deg, rgba(0,114,187,0.95), rgba(0,90,146,0.95)),
+                        url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600&h=400&fit=crop') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-contacto h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero-contacto .lead {
+            font-size: 24px;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-method {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-method::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        
+        .contact-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--color-primary), #005A92);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: white;
+            font-size: 40px;
+            box-shadow: 0 4px 16px rgba(0,114,187,0.3);
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(0,114,187,0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group small {
+            display: block;
+            margin-top: 4px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .required {
+            color: #D32F2F;
+        }
+        
+        .nodo-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            border-left: 4px solid var(--color-secondary);
+        }
+        
+        .nodo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        
+        .nodo-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .nodo-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .schedule-box {
+            background-color: var(--color-warm);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            border-left: 4px solid var(--color-accent);
+        }
+        
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            margin-bottom: 32px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 40px;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37,211,102,0.6);
+            color: white;
+        }
+        
+        @media (max-width: 767px) {
+            .hero-contacto h1 {
+                font-size: 32px;
+            }
+            .hero-contacto .lead {
+                font-size: 18px;
+            }
+            .contact-method {
+                padding: 24px;
+            }
+            .nodo-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .schedule-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .map-container {
+                height: 300px;
+            }
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container">
             <div class="pull-left">
-                <button onclick="adjustTextSize('normal')">A</button>
-                <button onclick="adjustTextSize('large')">A+</button>
-                <button onclick="adjustTextSize('xlarge')">A++</button>
+                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
+                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
+                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
             </div>
             <div class="pull-right">
-                <span><i class="fa fa-universal-access"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()"><i class="fa fa-adjust"></i> Alto contraste</button>
+                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
+                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
+                </button>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
     
-    <header class="header-gcba">
+    <header class="header-gcba" role="banner">
         <div class="container">
-            <a href="index.html" class="logo"><i class="fa fa-home icon"></i>CUIDAR.ar | Buenos Aires Ciudad</a>
+            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
+                <i class="fa fa-home icon" aria-hidden="true"></i>
+                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            </a>
         </div>
     </header>
     
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
             <a href="index.html">Inicio</a>
             <a href="para-personas-mayores.html">Para Personas Mayores</a>
             <a href="para-cuidadores.html">Para Cuidadores/as</a>
             <a href="el-sistema.html">El Sistema</a>
             <a href="transparencia.html">Transparencia</a>
-            <a href="contacto.html" class="active">Contacto</a>
+            <a href="contacto.html" aria-current="page" class="active">Contacto</a>
         </div>
     </nav>
     
-    <section class="hero" id="main-content" style="padding: 40px 0;">
+    <section class="hero-contacto" id="main-content" role="main">
         <div class="container">
-            <h1 style="font-size: 36px;">Contacto</h1>
-            <p class="lead" style="font-size: 18px;">
-                Estamos para ayudarte. Elegí el canal que prefieras.
+            <h1>Estamos para ayudarte</h1>
+            <p class="lead">
+                Elegí el canal que más te convenga. Respondemos todas tus consultas.
             </p>
         </div>
     </section>
     
-    <!-- CANALES PRINCIPALES -->
-    <section style="padding: 60px 0;">
+    <!-- Canales de contacto -->
+    <section style="padding: 60px 0;" aria-labelledby="canales-titulo">
         <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px; text-align: center;">Canales de atención</h2>
+            <h2 id="canales-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 48px; font-size: 36px;">
+                Formas de contactarnos
+            </h2>
             
             <div class="row">
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center; background-color: #E8F5E9; border-top: 4px solid #4CAF50;">
-                        <i class="fa fa-phone" style="font-size: 48px; color: #4CAF50; margin-bottom: 16px;"></i>
-                        <h3 style="color: #4CAF50;">Teléfono</h3>
-                        <p style="font-size: 24px; font-weight: 700; color: #4CAF50; margin: 16px 0;">147</p>
-                        <p style="font-size: 14px; color: #666;">
-                            <strong>Opciones:</strong><br>
-                            Opción 5 → Personas mayores<br>
-                            Opción 6 → Cuidadores/as<br>
-                            Opción 7 → Transparencia
+                <article class="col-md-4">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: var(--color-primary); font-size: 24px; margin-bottom: 16px;">
+                            Línea 147
+                        </h3>
+                        <p style="font-size: 18px; color: #666; margin-bottom: 24px; line-height: 1.6;">
+                            Gratis desde cualquier teléfono. Atención 24/7 en español e inglés.
                         </p>
-                        <p style="font-size: 14px; margin-top: 16px;">
-                            <strong>Horario:</strong> Lun-Vie 8-20hs<br>
-                            Sáb 9-13hs
-                        </p>
+                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 14px 32px; font-size: 18px;" aria-label="Llamar al 147">
+                            <i class="fa fa-phone" aria-hidden="true"></i> Llamar ahora
+                        </a>
                     </div>
-                </div>
+                </article>
                 
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center; background-color: #E8F4FD; border-top: 4px solid #25D366;">
-                        <i class="fa fa-whatsapp" style="font-size: 48px; color: #25D366; margin-bottom: 16px;"></i>
-                        <h3 style="color: #25D366;">WhatsApp</h3>
-                        <p style="font-size: 20px; font-weight: 700; color: #25D366; margin: 16px 0;">
-                            +54 9 11 XXXX-XXXX
+                <article class="col-md-4">
+                    <div class="contact-method">
+                        <div class="contact-icon" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: #25D366; font-size: 24px; margin-bottom: 16px;">
+                            WhatsApp
+                        </h3>
+                        <p style="font-size: 18px; color: #666; margin-bottom: 24px; line-height: 1.6;">
+                            Escribinos cuando quieras. Te respondemos en minutos.
                         </p>
-                        <p style="font-size: 14px; color: #666;">
-                            Respondemos en menos de 24hs
-                        </p>
-                        <p style="margin-top: 16px;">
-                            <a href="#" class="btn btn-primary" style="background-color: #25D366; border-color: #25D366;">
-                                <i class="fa fa-whatsapp"></i> Iniciar chat
-                            </a>
-                        </p>
+                        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #25D366; color: white; padding: 14px 32px; font-size: 18px;" aria-label="Abrir chat de WhatsApp">
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i> Chatear
+                        </a>
                     </div>
-                </div>
+                </article>
                 
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center; background-color: #FFF3CD; border-top: 4px solid #F0AD4E;">
-                        <i class="fa fa-envelope" style="font-size: 48px; color: #F0AD4E; margin-bottom: 16px;"></i>
-                        <h3 style="color: #F0AD4E;">Email</h3>
-                        <p style="font-size: 14px; margin: 16px 0;">
-                            <strong>info@cuidar.ar</strong><br>
-                            Consultas generales
+                <article class="col-md-4">
+                    <div class="contact-method">
+                        <div class="contact-icon" style="background: linear-gradient(135deg, var(--color-secondary), #43A047);">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 16px;">
+                            Email
+                        </h3>
+                        <p style="font-size: 18px; color: #666; margin-bottom: 24px; line-height: 1.6;">
+                            Respondemos en 24-48hs hábiles con toda la información.
                         </p>
-                        <p style="font-size: 14px;">
-                            <strong>trabajo@cuidar.ar</strong><br>
-                            Para cuidadores/as
-                        </p>
-                        <p style="font-size: 14px;">
-                            <strong>transparencia@cuidar.ar</strong><br>
-                            Datos y presupuesto
-                        </p>
-                        <p style="font-size: 12px; color: #666; margin-top: 16px;">
-                            Respondemos en 48hs hábiles
-                        </p>
+                        <a href="mailto:info@cuidar.ar" class="btn" style="background-color: var(--color-secondary); color: white; padding: 14px 32px; font-size: 18px;" aria-label="Enviar email a info@cuidar.ar">
+                            <i class="fa fa-envelope" aria-hidden="true"></i> Escribir
+                        </a>
                     </div>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="card" style="text-align: center; background-color: #FCE4EC; border-top: 4px solid #E91E63;">
-                        <i class="fa fa-map-marker" style="font-size: 48px; color: #E91E63; margin-bottom: 16px;"></i>
-                        <h3 style="color: #E91E63;">Presencial</h3>
-                        <p style="font-size: 16px; font-weight: 700; margin: 16px 0;">
-                            15 Nodos en CABA
-                        </p>
-                        <p style="font-size: 14px; color: #666;">
-                            Atención con turno previo
-                        </p>
-                        <p style="margin-top: 16px;">
-                            <a href="#nodos" class="btn btn-primary" style="background-color: #E91E63; border-color: #E91E63;">
-                                <i class="fa fa-map-marker"></i> Ver Nodos
-                            </a>
-                        </p>
-                    </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
     
-    <!-- LÍNEA 0800 -->
-    <section style="padding: 40px 0; background-color: #E8F5E9;">
+    <!-- Horarios -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="horarios-titulo">
         <div class="container">
-            <div style="text-align: center;">
-                <i class="fa fa-phone" style="font-size: 64px; color: #4CAF50; margin-bottom: 16px;"></i>
-                <h2 style="color: #4CAF50; margin-bottom: 16px;">Línea gratuita desde todo el país</h2>
-                <p style="font-size: 48px; font-weight: 700; color: #4CAF50; margin: 0;">
-                    0800-CUIDADO
-                </p>
-                <p style="font-size: 18px; color: #666; margin-top: 16px;">
-                    (0800-284-3236) | Atención 24 horas para emergencias
-                </p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- NODOS -->
-    <section id="nodos" style="padding: 60px 0;">
-        <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px;">15 Nodos Territoriales</h2>
-            
-            <div class="alert alert-info">
-                <strong><i class="fa fa-info-circle"></i> ¿Qué es un Nodo?</strong><br>
-                Es el centro de operaciones de CUIDAR.ar en tu barrio. Coordinan cuidadoras, 
-                centros de día, bancos de tiempo y toda la red de cuidado local.
-            </div>
-            
-            <div class="row" style="margin-top: 32px;">
-                <div class="col-md-4">
-                    <div class="card">
-                        <h3 style="color: #0072BB;">Nodo Centro</h3>
-                        <p><strong>Comunas:</strong> 1, 2, 3</p>
-                        <p><strong>Dirección:</strong> Av. de Mayo 525, Monserrat</p>
-                        <p><strong>Teléfono:</strong> 11-XXXX-1001</p>
-                        <p><strong>Horario:</strong> Lun-Vie 9-18hs</p>
-                        <p style="margin-top: 12px;">
-                            <a href="#" style="color: #0072BB;"><i class="fa fa-calendar"></i> Sacar turno</a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card">
-                        <h3 style="color: #0072BB;">Nodo Norte</h3>
-                        <p><strong>Comunas:</strong> 12, 13, 14</p>
-                        <p><strong>Dirección:</strong> Av. Cabildo 3067, Belgrano</p>
-                        <p><strong>Teléfono:</strong> 11-XXXX-1002</p>
-                        <p><strong>Horario:</strong> Lun-Vie 9-18hs</p>
-                        <p style="margin-top: 12px;">
-                            <a href="#" style="color: #0072BB;"><i class="fa fa-calendar"></i> Sacar turno</a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card">
-                        <h3 style="color: #0072BB;">Nodo Sur</h3>
-                        <p><strong>Comunas:</strong> 4, 8, 9</p>
-                        <p><strong>Dirección:</strong> Av. Caseros 2750, Parque Patricios</p>
-                        <p><strong>Teléfono:</strong> 11-XXXX-1003</p>
-                        <p><strong>Horario:</strong> Lun-Vie 9-18hs</p>
-                        <p style="margin-top: 12px;">
-                            <a href="#" style="color: #0072BB;"><i class="fa fa-calendar"></i> Sacar turno</a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card">
-                        <h3 style="color: #0072BB;">Nodo Oeste</h3>
-                        <p><strong>Comunas:</strong> 10, 11, 15</p>
-                        <p><strong>Dirección:</strong> Av. Rivadavia 6840, Flores</p>
-                        <p><strong>Teléfono:</strong> 11-XXXX-1004</p>
-                        <p><strong>Horario:</strong> Lun-Vie 9-18hs</p>
-                        <p style="margin-top: 12px;">
-                            <a href="#" style="color: #0072BB;"><i class="fa fa-calendar"></i> Sacar turno</a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card">
-                        <h3 style="color: #0072BB;">Nodo Caballito</h3>
-                        <p><strong>Comuna:</strong> 6</p>
-                        <p><strong>Dirección:</strong> Av. Pedro Goyena 935</p>
-                        <p><strong>Teléfono:</strong> 11-XXXX-1005</p>
-                        <p><strong>Horario:</strong> Lun-Vie 9-18hs</p>
-                        <p style="margin-top: 12px;">
-                            <a href="#" style="color: #0072BB;"><i class="fa fa-calendar"></i> Sacar turno</a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card">
-                        <h3 style="color: #0072BB;">Nodo Palermo</h3>
-                        <p><strong>Comuna:</strong> 14</p>
-                        <p><strong>Dirección:</strong> Av. Santa Fe 4360</p>
-                        <p><strong>Teléfono:</strong> 11-XXXX-1006</p>
-                        <p><strong>Horario:</strong> Lun-Vie 9-18hs</p>
-                        <p style="margin-top: 12px;">
-                            <a href="#" style="color: #0072BB;"><i class="fa fa-calendar"></i> Sacar turno</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 32px;">
-                <a href="#" class="btn btn-primary">
-                    <i class="fa fa-map"></i> Ver mapa interactivo de los 15 Nodos
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- EVITAR ESTAFAS -->
-    <section id="evitar-estafas" style="padding: 60px 0; background-color: #FFF3CD;">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <i class="fa fa-exclamation-triangle" style="font-size: 64px; color: #856404; margin-bottom: 16px;"></i>
-                <h2 style="color: #856404; margin-bottom: 16px;">Evitá estafas</h2>
-                <p style="font-size: 18px; color: #856404;">
-                    La inscripción a CUIDAR.ar es <strong>100% GRATUITA</strong>
-                </p>
-            </div>
+            <h2 id="horarios-titulo" style="color: var(--color-accent); text-align: center; margin-bottom: 48px; font-size: 36px;">
+                Horarios de atención
+            </h2>
             
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card" style="background-color: white;">
-                        <h3 style="color: #D9534F;"><i class="fa fa-times-circle"></i> NUNCA te vamos a pedir:</h3>
-                        <ul style="font-size: 16px; line-height: 2;">
-                            <li>Dinero para inscribirte</li>
-                            <li>Pagos por "adelantar tu turno"</li>
-                            <li>Depósitos bancarios</li>
-                            <li>Claves de tu homebanking</li>
-                            <li>Datos de tarjetas de crédito</li>
-                            <li>Contraseñas de ningún tipo</li>
-                        </ul>
+                    <div class="schedule-box">
+                        <h3 style="color: var(--color-accent); margin-bottom: 24px; font-size: 24px; text-align: center;">
+                            <i class="fa fa-phone" aria-hidden="true"></i> Línea 147
+                        </h3>
+                        <div class="schedule-item">
+                            <strong style="color: #333;">Lunes a Domingo</strong>
+                            <span style="color: #666;">24 horas</span>
+                        </div>
+                        <div class="schedule-item">
+                            <strong style="color: #333;">Feriados</strong>
+                            <span style="color: #666;">24 horas</span>
+                        </div>
+                        <p style="margin-top: 16px; color: #666; font-size: 14px; text-align: center;">
+                            <i class="fa fa-check-circle" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Atención ininterrumpida
+                        </p>
                     </div>
                 </div>
                 
                 <div class="col-md-6">
-                    <div class="card" style="background-color: white;">
-                        <h3 style="color: #4CAF50;"><i class="fa fa-check-circle"></i> SÍ te vamos a pedir:</h3>
-                        <ul style="font-size: 16px; line-height: 2;">
-                            <li>DNI y domicilio en CABA</li>
-                            <li>Recibo de jubilación (para copago)</li>
-                            <li>Teléfono de contacto</li>
-                            <li>Comprobante de domicilio</li>
-                        </ul>
-                        <p style="margin-top: 24px; padding: 16px; background-color: #E8F5E9; border-radius: 4px;">
-                            <strong>Todos los trámites son gratuitos.</strong> Si alguien te pide dinero, 
-                            no es CUIDAR.ar.
+                    <div class="schedule-box">
+                        <h3 style="color: var(--color-accent); margin-bottom: 24px; font-size: 24px; text-align: center;">
+                            <i class="fa fa-building" aria-hidden="true"></i> Nodos (presencial)
+                        </h3>
+                        <div class="schedule-item">
+                            <strong style="color: #333;">Lunes a Viernes</strong>
+                            <span style="color: #666;">8:00 a 18:00hs</span>
+                        </div>
+                        <div class="schedule-item">
+                            <strong style="color: #333;">Sábados</strong>
+                            <span style="color: #666;">9:00 a 13:00hs</span>
+                        </div>
+                        <div class="schedule-item">
+                            <strong style="color: #333;">Domingos y feriados</strong>
+                            <span style="color: #666;">Cerrado</span>
+                        </div>
+                        <p style="margin-top: 16px; color: #666; font-size: 14px; text-align: center;">
+                            <i class="fa fa-info-circle" style="color: var(--color-primary);" aria-hidden="true"></i> 
+                            No hace falta turno
                         </p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    
+    <!-- Formulario de contacto -->
+    <section style="padding: 60px 0;" aria-labelledby="formulario-titulo">
+        <div class="container">
+            <h2 id="formulario-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 24px; font-size: 36px;">
+                Dejanos tu consulta
+            </h2>
+            <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Completá el formulario y te contactamos en 24-48hs hábiles
+            </p>
             
-            <div class="card" style="margin-top: 32px; background-color: white; border-left: 4px solid #D9534F;">
-                <h3 style="color: #D9534F;">¿Cómo identificar una estafa?</h3>
-                <ul style="font-size: 16px; line-height: 2;">
-                    <li><strong>Te llaman de números desconocidos</strong> pidiendo datos personales urgentes</li>
-                    <li><strong>Te envían mensajes por WhatsApp</strong> con links sospechosos o pidiendo dinero</li>
-                    <li><strong>Te prometen resultados inmediatos</strong> si pagás "solo esta vez"</li>
-                    <li><strong>Usan logos parecidos</strong> pero con errores o URLs extrañas</li>
-                    <li><strong>Te apuran para decidir</strong> con frases como "última oportunidad"</li>
-                </ul>
-                
-                <div style="margin-top: 24px; padding: 20px; background-color: #FFEBEE; border-radius: 4px;">
-                    <h4 style="color: #D9534F; margin-top: 0;">
-                        <i class="fa fa-phone"></i> ¿Te contactaron de forma sospechosa?
-                    </h4>
-                    <p style="margin-bottom: 16px;">Denuncialo inmediatamente:</p>
-                    <p style="font-size: 18px;">
-                        <strong>147 (opción 9)</strong> o <strong>denuncia@cuidar.ar</strong>
-                    </p>
+            <div class="row">
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <form class="contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="nombre">
+                                Nombre completo <span class="required" aria-label="campo requerido">*</span>
+                            </label>
+                            <input type="text" id="nombre" name="nombre" required aria-required="true" placeholder="Ej: María González">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">
+                                        Email <span class="required" aria-label="campo requerido">*</span>
+                                    </label>
+                                    <input type="email" id="email" name="email" required aria-required="true" placeholder="ejemplo@email.com">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="telefono">
+                                        Teléfono <span class="required" aria-label="campo requerido">*</span>
+                                    </label>
+                                    <input type="tel" id="telefono" name="telefono" required aria-required="true" placeholder="11 1234-5678">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="motivo">
+                                Motivo de consulta <span class="required" aria-label="campo requerido">*</span>
+                            </label>
+                            <select id="motivo" name="motivo" required aria-required="true">
+                                <option value="">Seleccioná una opción</option>
+                                <option value="inscripcion">Quiero inscribirme</option>
+                                <option value="elegibilidad">Consulta sobre elegibilidad</option>
+                                <option value="estado">Estado de mi solicitud</option>
+                                <option value="cuidadora">Quiero trabajar como cuidadora</option>
+                                <option value="reclamo">Tengo un reclamo</option>
+                                <option value="sugerencia">Tengo una sugerencia</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">
+                                Mensaje <span class="required" aria-label="campo requerido">*</span>
+                            </label>
+                            <textarea id="mensaje" name="mensaje" required aria-required="true" placeholder="Contanos tu consulta o situación..."></textarea>
+                            <small>Máximo 500 caracteres</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: start; gap: 12px; cursor: pointer;">
+                                <input type="checkbox" id="terminos" name="terminos" required aria-required="true" style="width: auto; margin-top: 4px;">
+                                <span style="font-weight: normal;">
+                                    Acepto la <a href="#" style="color: var(--color-primary); text-decoration: underline;">Política de Privacidad</a> 
+                                    y autorizo el tratamiento de mis datos personales <span class="required" aria-label="campo requerido">*</span>
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 32px;">
+                            <button type="submit" class="btn btn-lg" style="background-color: var(--color-primary); color: white; padding: 16px 48px; font-size: 18px;">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar consulta
+                            </button>
+                        </div>
+                        
+                        <div id="formMessage" role="alert" style="display: none; margin-top: 24px; padding: 16px; border-radius: 8px; text-align: center;"></div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- PREGUNTAS FRECUENTES -->
-    <section style="padding: 60px 0;">
+    <!-- Mapa de Nodos -->
+    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="nodos-titulo">
         <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px;">Preguntas frecuentes</h2>
+            <h2 id="nodos-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 24px; font-size: 36px;">
+                Nuestros 15 Nodos en la Ciudad
+            </h2>
+            <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Vení sin turno. Te atendemos de lunes a viernes de 8 a 18hs, sábados de 9 a 13hs.
+            </p>
             
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Cuánto tarda el proceso de inscripción?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    Entre <strong>15 y 45 días</strong> según la demanda en tu comuna. Una vez que completás 
-                    la inscripción inicial, el Nodo territorial se contacta contigo para coordinar la 
-                    visita de evaluación y asignación de cuidadora.
-                </p>
-            </details>
+            <div class="map-container">
+                <!-- Placeholder para mapa - en producción usar Google Maps API -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.53771124863!2d-58.51578052909378!3d-34.61566669253083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20CABA!5e0!3m2!1ses!2sar!4v1234567890123!5m2!1ses!2sar" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Mapa de ubicación de los Nodos CUIDAR.ar en Buenos Aires">
+                </iframe>
+            </div>
             
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Puedo inscribirme si vivo en Provincia de Buenos Aires?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    No, CUIDAR.ar es exclusivo para residentes de la <strong>Ciudad Autónoma de Buenos Aires</strong>. 
-                    Si vivís en Provincia, contactá al Ministerio de Desarrollo Social de la Provincia de Buenos Aires 
-                    para consultar por programas similares.
-                </p>
-            </details>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Qué hago si perdí mi turno en el Nodo?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    Llamá al <strong>147 (opción 5)</strong> o al teléfono directo de tu Nodo para reagendar. 
-                    No perdés tu lugar en el proceso de inscripción.
-                </p>
-            </details>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Puedo cambiar de cuidadora si no me siento cómodo/a?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    Sí, podés solicitar cambio de cuidadora comunicándote con tu referente del Nodo. 
-                    Tenés derecho a solicitar hasta <strong>2 cambios</strong> para encontrar a alguien 
-                    con quien te sientas cómodo/a.
-                </p>
-            </details>
-            
-            <details style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <summary style="font-weight: 700; font-size: 18px; cursor: pointer;">
-                    ¿Cómo consulto el estado de mi trámite?
-                </summary>
-                <p style="margin-top: 16px; padding-left: 16px;">
-                    Podés consultar el estado ingresando con tu DNI en 
-                    <a href="estado-tramite.html" style="color: #0072BB; font-weight: 700;">este link</a>, 
-                    llamando al 147 (opción 5) o escribiendo a info@cuidar.ar
-                </p>
-            </details>
-            
-            <div style="text-align: center; margin-top: 32px;">
-                <a href="preguntas-frecuentes.html" class="btn btn-primary">
-                    <i class="fa fa-question-circle"></i> Ver todas las preguntas frecuentes
-                </a>
+            <div class="row">
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">1</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Retiro
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comunas 1 y 2</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Córdoba 1235
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551001" style="color: var(--color-primary);">4555-1001</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">2</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo San Telmo
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 1</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Defensa 678
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551002" style="color: var(--color-primary);">4555-1002</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">3</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Recoleta
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 2</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Las Heras 2234
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551003" style="color: var(--color-primary);">4555-1003</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">4</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Balvanera
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 3</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Corrientes 2456
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551004" style="color: var(--color-primary);">4555-1004</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">5</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo La Boca
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 4</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Almirante Brown 756
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551005" style="color: var(--color-primary);">4555-1005</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">6</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Almagro
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 5</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Rivadavia 3890
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551006" style="color: var(--color-primary);">4555-1006</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">7</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Caballito
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 6</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Acoyte 234
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551007" style="color: var(--color-primary);">4555-1007</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">8</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Flores
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 7</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Rivadavia 6789
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551008" style="color: var(--color-primary);">4555-1008</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">9</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Villa Lugano
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 8</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Escalada 4567
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551009" style="color: var(--color-primary);">4555-1009</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">10</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Liniers
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 9</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Rivadavia 11234
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551010" style="color: var(--color-primary);">4555-1010</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">11</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Villa Devoto
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 11</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. San Martín 4890
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551011" style="color: var(--color-primary);">4555-1011</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">12</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Coghlan
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 12</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Cabildo 3456
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551012" style="color: var(--color-primary);">4555-1012</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">13</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Belgrano
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 13</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Cabildo 2123
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551013" style="color: var(--color-primary);">4555-1013</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">14</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Palermo
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 14</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Santa Fe 4567
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551014" style="color: var(--color-primary);">4555-1014</a>
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="col-md-6">
+                    <article class="nodo-card">
+                        <div class="nodo-header">
+                            <div class="nodo-number">15</div>
+                            <div>
+                                <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 4px 0;">
+                                    Nodo Chacarita
+                                </h3>
+                                <p style="color: #666; margin: 0; font-size: 14px;">Comuna 15</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0; color: #666;">
+                            <i class="fa fa-map-marker" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            Av. Warnes 2890
+                        </p>
+                        <p style="margin: 0; color: #666;">
+                            <i class="fa fa-phone" style="color: var(--color-secondary);" aria-hidden="true"></i> 
+                            <a href="tel:+541145551015" style="color: var(--color-primary);">4555-1015</a>
+                        </p>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
     
-    <!-- REDES SOCIALES -->
-    <section style="padding: 60px 0; background-color: #F5F5F5; text-align: center;">
-        <div class="container">
-            <h2 style="color: #0072BB; margin-bottom: 32px;">Seguinos en redes</h2>
-            <div style="font-size: 48px; margin-bottom: 24px;">
-                <a href="#" style="color: #3b5998; margin: 0 16px;"><i class="fa fa-facebook-square"></i></a>
-                <a href="#" style="color: #1DA1F2; margin: 0 16px;"><i class="fa fa-twitter-square"></i></a>
-                <a href="#" style="color: #E4405F; margin: 0 16px;"><i class="fa fa-instagram"></i></a>
-                <a href="#" style="color: #0077B5; margin: 0 16px;"><i class="fa fa-linkedin-square"></i></a>
-                <a href="#" style="color: #FF0000; margin: 0 16px;"><i class="fa fa-youtube-square"></i></a>
-            </div>
-            <p style="color: #666;">@cuidar.buenosaires</p>
-        </div>
-    </section>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5491112345678" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
     
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <nav class="col-md-3" aria-label="Enlaces de inscripción">
+                    <h4>INSCRIBIRSE</h4>
+                    <a href="inscripcion.html">Dejá tu teléfono</a>
+                    <a href="elegibilidad.html">¿Es para mí?</a>
+                    <a href="estado-tramite.html">Ver mi solicitud</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces informativos">
+                    <h4>INFORMACIÓN</h4>
+                    <a href="el-sistema.html">Cómo funciona</a>
+                    <a href="para-personas-mayores.html">Para personas mayores</a>
+                    <a href="para-cuidadores.html">Para cuidadores/as</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces de contacto">
                     <h4>CONTACTO</h4>
-                    <a href="#"><i class="fa fa-phone"></i> 147</a>
-                    <a href="#"><i class="fa fa-phone"></i> 0800-CUIDADO</a>
-                    <a href="#"><i class="fa fa-whatsapp"></i> WhatsApp</a>
-                    <a href="#nodos"><i class="fa fa-map-marker"></i> 15 Nodos</a>
-                </div>
-                <div class="col-md-3">
-                    <h4>EMAIL</h4>
-                    <a href="mailto:info@cuidar.ar">info@cuidar.ar</a>
-                    <a href="mailto:trabajo@cuidar.ar">trabajo@cuidar.ar</a>
-                    <a href="mailto:transparencia@cuidar.ar">transparencia@cuidar.ar</a>
-                    <a href="mailto:denuncia@cuidar.ar">denuncia@cuidar.ar</a>
-                </div>
-                <div class="col-md-3">
-                    <h4>AYUDA</h4>
-                    <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
-                    <a href="#evitar-estafas">Evitar estafas</a>
-                    <a href="estado-tramite.html">Estado de trámite</a>
-                </div>
-                <div class="col-md-3">
-                    <h4>NAVEGACIÓN</h4>
-                    <a href="index.html">Inicio</a>
-                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
-                    <a href="para-cuidadores.html">Para Cuidadores/as</a>
-                    <a href="el-sistema.html">El Sistema</a>
-                </div>
+                    <a href="tel:147" aria-label="Llamar al 147">147 (gratis)</a>
+                    <a href="nodos.html">Lugares en tu barrio</a>
+                    <a href="contacto.html" aria-current="page">Todas las formas de contacto</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces institucionales">
+                    <h4>GOBIERNO ABIERTO</h4>
+                    <a href="transparencia.html">Datos abiertos</a>
+                    <a href="transparencia.html#presupuesto">Presupuesto</a>
+                    <a href="transparencia.html#informes">Informes</a>
+                </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 GCBA - WCAG 2.1 AA</p>
+                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
             </div>
         </div>
     </footer>
@@ -443,16 +917,60 @@
             document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
             document.body.classList.add('text-size-' + size);
             localStorage.setItem('textSize', size);
+            announceToScreenReader('Tamaño de texto cambiado a ' + 
+                (size === 'normal' ? 'normal' : size === 'large' ? 'grande' : 'extra grande'));
         }
+        
         function toggleHighContrast() {
             const body = document.body;
-            body.style.filter = body.style.filter === 'contrast(1.5)' ? 'none' : 'contrast(1.5)';
-            localStorage.setItem('highContrast', body.style.filter === 'contrast(1.5)' ? 'true' : 'false');
+            const isHighContrast = body.style.filter === 'contrast(1.5)';
+            body.style.filter = isHighContrast ? 'none' : 'contrast(1.5)';
+            localStorage.setItem('highContrast', isHighContrast ? 'false' : 'true');
+            announceToScreenReader(isHighContrast ? 
+                'Alto contraste desactivado' : 
+                'Alto contraste activado');
         }
+        
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.textContent = message;
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-10000px';
+            announcement.style.width = '1px';
+            announcement.style.height = '1px';
+            announcement.style.overflow = 'hidden';
+            document.body.appendChild(announcement);
+            setTimeout(() => document.body.removeChild(announcement), 1000);
+        }
+        
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            formMessage.style.display = 'block';
+            formMessage.style.backgroundColor = '#E8F5E9';
+            formMessage.style.color = '#2E7D32';
+            formMessage.style.border = '1px solid #4CAF50';
+            formMessage.innerHTML = '<i class="fa fa-check-circle" style="font-size: 24px; margin-bottom: 8px;"></i><br><strong>¡Mensaje enviado!</strong><br>Te contactaremos en 24-48hs hábiles.';
+            
+            // Scroll to message
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            return false;
+        }
+        
         window.addEventListener('load', function() {
             const textSize = localStorage.getItem('textSize');
             if (textSize) document.body.classList.add('text-size-' + textSize);
-            if (localStorage.getItem('highContrast') === 'true') document.body.style.filter = 'contrast(1.5)';
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.body.style.filter = 'contrast(1.5)';
+            }
         });
     </script>
 </body>
