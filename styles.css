@@ -374,18 +374,20 @@ footer a:hover {
 .author-disclaimer {
     background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
     border-top: 3px solid #FF9800;
-    padding: 24px 0;
+    padding: 24px 20px;
     margin-top: 40px;
+    text-align: center;
 }
 
 .author-disclaimer p {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
     color: #5D4037;
     font-size: 14px;
     line-height: 1.8;
     text-align: center;
+    display: block;
 }
 
 .author-disclaimer strong {
@@ -642,9 +644,13 @@ footer a:hover {
         right: 20px;
     }
     
+    .author-disclaimer {
+        padding: 20px 15px;
+    }
+    
     .author-disclaimer p {
         font-size: 13px;
-        text-align: left;
+        text-align: center;
     }
     
     /* Fricción responsive */
