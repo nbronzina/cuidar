@@ -373,23 +373,18 @@
 </head>
 
 <body>
-    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
+    <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
     <!-- Header de accesibilidad -->
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
-        <div class="container">
-            <div class="pull-left">
-                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
-                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
-                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
-            </div>
-            <div class="pull-right">
-                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
-                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
-                </button>
-            </div>
-            <div class="clearfix"></div>
+    <div class="accessibility-bar">
+        <div class="container clearfix">
+            <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
+            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
+            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
+            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
+            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+                <i class="fa fa-adjust" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
     
