@@ -281,30 +281,25 @@
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
+    <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
-        <div class="container">
-            <div class="pull-left">
-                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
-                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
-                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
-            </div>
-            <div class="pull-right">
-                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
-                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
-                </button>
-            </div>
-            <div class="clearfix"></div>
+    <div class="accessibility-bar">
+        <div class="container clearfix">
+            <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
+            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
+            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
+            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
+            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+                <i class="fa fa-adjust" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
-                <i class="fa fa-home icon" aria-hidden="true"></i>
-                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            <a href="index.html" class="logo">
+                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                <span>CUIDAR.ar</span>
             </a>
         </div>
     </header>
@@ -314,7 +309,7 @@
             <a href="index.html">Inicio</a>
             <a href="para-personas-mayores.html">Para Personas Mayores</a>
             <a href="para-cuidadores.html">Para Cuidadores/as</a>
-            <a href="el-sistema.html" aria-current="page" class="active">El Sistema</a>
+            <a href="el-sistema.html" class="active" aria-current="page">El Sistema</a>
             <a href="transparencia.html">Transparencia</a>
             <a href="contacto.html">Contacto</a>
         </div>
@@ -440,6 +435,10 @@
                                 <span>Dashboard para familias (monitoreo sin invadir privacidad)</span>
                             </li>
                         </ul>
+                        <p style="font-size: 15px; color: #999; font-style: italic; margin-top: 16px; padding: 12px; background-color: #FFF3E0; border-left: 3px solid var(--color-accent); border-radius: 4px;">
+                            <i class="fa fa-info-circle" style="color: var(--color-accent);"></i> 
+                            <strong>Limitación conocida:</strong> La detección de caídas tiene 8% de falsas alarmas. Tita requiere WiFi estable (algunos barrios tienen problemas de conectividad). El 23% de usuarios necesita ayuda para configuración inicial.
+                        </p>
                     </div>
                 </article>
                 
@@ -510,8 +509,37 @@
         </div>
     </section>
     
+    <!-- BLOQUE REALITY CHECK CON FRICCIÓN -->
+    <section style="padding: 60px 0; background-color: white;">
+        <div class="container">
+            <div class="reality-check">
+                <h4>
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    Los desafíos del sistema (el 10% que aún no funciona perfecto)
+                </h4>
+                <ul>
+                    <li>
+                        <strong>Listas de espera desiguales:</strong> Los Nodos en zonas céntricas (Palermo, Caballito, Belgrano) tienen 6-8 meses de demora. Los de zona sur tienen cupo inmediato pero menos servicios especializados disponibles.
+                    </li>
+                    <li>
+                        <strong>Tecnología con curva de aprendizaje:</strong> Tita funciona muy bien, pero el 23% de usuarios mayores necesita ayuda presencial para configurarla. Los primeros días pueden ser frustrantes hasta que se acostumbran.
+                    </li>
+                    <li>
+                        <strong>Coordinación imperfecta:</strong> Cuando una cuidadora se enferma, el reemplazo tarda 24-48hs en llegar. Estamos trabajando en un sistema de backup más rápido.
+                    </li>
+                    <li>
+                        <strong>Financiamiento inestable:</strong> Cada cambio de gobierno genera incertidumbre presupuestaria. En 2028 los pagos se demoraron hasta 45 días, lo que generó crisis en varios Nodos.
+                    </li>
+                    <li>
+                        <strong>Tensiones vecinales:</strong> 27 edificios presentaron quejas por "movimiento de ambulancias y cuidadores". Se creó protocolo de "buen vecino" pero persisten algunos conflictos.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
     <!-- Cómo funciona paso a paso -->
-    <section style="padding: 60px 0;" aria-labelledby="flujo-titulo">
+    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="flujo-titulo">
         <div class="container">
             <h2 id="flujo-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 48px; font-size: 36px;">
                 El recorrido de un usuario
@@ -527,6 +555,7 @@
                         <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
                             La persona se inscribe online, por teléfono o presencialmente en un Nodo. 
                             <strong>En 24-48hs</strong> recibe un llamado del Nodo de su zona para agendar la visita inicial.
+                            <span class="friction-badge">En zonas con alta demanda puede demorar hasta 5-7 días</span>
                         </p>
                     </div>
                 </div>
@@ -569,6 +598,7 @@
                             El Nodo asigna una <strong>cuidadora de la zona</strong> con perfil compatible. 
                             Se hace una <strong>reunión de presentación</strong> en el domicilio (usuario, cuidadora, coordinador). 
                             Si no hay feeling, se puede cambiar.
+                            <span class="friction-badge">Proceso de asignación: 7-14 días. En zona sur puede demorar hasta 3 semanas por escasez de cuidadoras</span>
                         </p>
                     </div>
                 </div>
