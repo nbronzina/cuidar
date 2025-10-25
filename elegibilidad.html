@@ -348,26 +348,22 @@
     
     <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container">
-            <div class="pull-left">
-                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
-                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
-                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
-            </div>
-            <div class="pull-right">
-                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
-                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
-                </button>
-            </div>
-            <div class="clearfix"></div>
+            <i class="fa fa-universal-access" aria-hidden="true"></i>
+            <span>Accesibilidad:</span>
+            <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
+            <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
+            <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
+            <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
+                <i class="fa fa-adjust" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
-                <i class="fa fa-home icon" aria-hidden="true"></i>
-                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+                <i class="fa fa-heartbeat icon" aria-hidden="true"></i>
+                <span>CUIDAR.ar</span>
             </a>
         </div>
     </header>
@@ -394,15 +390,18 @@
     
     <section style="padding: 60px 0;">
         <div class="container">
-            <div class="info-banner">
-                <h3>
+            <div class="alert alert-warning" style="border-left-color: var(--color-accent);">
+                <h3 style="margin: 0 0 12px 0; color: var(--color-accent);">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     Este test es orientativo
                 </h3>
-                <p style="color: #333; margin: 0; line-height: 1.6;">
-                    Aunque cumplas todos los requisitos, la confirmación final se hace en la 
+                <p style="color: #333; margin: 0 0 12px 0; line-height: 1.6;">
+                    Aunque cumplas todos los requisitos del test, la confirmación final se hace en la 
                     <strong>evaluación domiciliaria</strong>. Este test solo te ayuda a saber si vale 
                     la pena inscribirte.
+                </p>
+                <p style="color: #E65100; margin: 0; line-height: 1.6; font-size: 14px;">
+                    <strong><i class="fa fa-exclamation-triangle"></i> Importante:</strong> Cumplir los requisitos no garantiza admisión inmediata. Puede haber lista de espera según tu zona (2-4 semanas en promedio).
                 </p>
             </div>
             
@@ -869,11 +868,17 @@
                         </h3>
                         <ol style="padding-left: 24px; margin: 0; line-height: 2; font-size: 16px;">
                             <li><strong>Inscribite</strong> online, por teléfono o presencialmente</li>
-                            <li>Te <strong>llamamos en 24-48hs</strong> del Nodo de tu zona</li>
-                            <li>Coordinamos una <strong>visita a tu domicilio</strong></li>
-                            <li>Evaluamos tus necesidades y armamos tu plan</li>
+                            <li>Te <strong>llamamos en 24-48hs hábiles</strong> del Nodo de tu zona <span style="color: #999; font-size: 14px;">(a veces puede tardar hasta 5 días)</span></li>
+                            <li>Coordinamos una <strong>visita domiciliaria</strong> <span style="color: #999; font-size: 14px;">(puede reprogramarse por emergencias)</span></li>
+                            <li>Evaluamos tus necesidades y armamos tu plan <span style="color: #999; font-size: 14px;">(5-15 días hábiles)</span></li>
+                            <li>Asignamos cuidadora <span style="color: #999; font-size: 14px;">(7-21 días según disponibilidad)</span></li>
                             <li>¡<strong>Empezás con el servicio</strong>!</li>
                         </ol>
+                        <div style="background-color: #FFF3E0; padding: 16px; border-radius: 6px; margin-top: 16px; border-left: 4px solid var(--color-accent);">
+                            <p style="margin: 0; color: #E65100; font-size: 14px; line-height: 1.6;">
+                                <strong><i class="fa fa-clock-o"></i> Tiempo total estimado:</strong> Entre 3 y 8 semanas desde la inscripción hasta el inicio del servicio, dependiendo de tu zona y complejidad del caso.
+                            </p>
+                        </div>
                     </div>
                     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
                         <a href="inscripcion.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 16px 40px; font-size: 18px;">
