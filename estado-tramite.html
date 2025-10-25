@@ -9,13 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
-        :root {
-            --color-primary: #0072BB;
-            --color-secondary: #66BB6A;
-            --color-accent: #FF9800;
-            --color-warm: #FFF8E1;
-            --color-purple: #9C27B0;
-        }
+        /* Estilos específicos solo para estado-tramite.html */
         
         .hero-estado {
             background: linear-gradient(135deg, rgba(0,114,187,0.95), rgba(0,90,146,0.95)),
@@ -108,10 +102,6 @@
         .btn-search:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,114,187,0.3);
-        }
-        
-        .btn-search:active {
-            transform: translateY(0);
         }
         
         .result-container {
@@ -385,30 +375,35 @@
 <body>
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <!-- Nuevo header de accesibilidad simplificado -->
-    <div class="top-bar">
+    <!-- Header de accesibilidad -->
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container">
-            <div class="accessibility-controls">
+            <div class="pull-left">
                 <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
                 <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
                 <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
-                <span class="separator">|</span>
-                <span>Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">Alto contraste</button>
             </div>
+            <div class="pull-right">
+                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
+                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
+                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
+                </button>
+            </div>
+            <div class="clearfix"></div>
         </div>
     </div>
     
-    <!-- Nuevo logo con corazón -->
+    <!-- Header con logo -->
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
-                <span class="heart-icon">❤️</span>
+                <span class="icon">❤️</span>
                 <span>CUIDAR.ar | Buenos Aires Ciudad</span>
             </a>
         </div>
     </header>
     
+    <!-- Navegación -->
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
             <a href="index.html">Inicio</a>
@@ -420,6 +415,7 @@
         </div>
     </nav>
     
+    <!-- Hero -->
     <section class="hero-estado" id="main-content" role="main">
         <div class="container">
             <h1>Estado de mi solicitud</h1>
@@ -429,10 +425,12 @@
         </div>
     </section>
     
+    <!-- Contenido principal -->
     <section style="padding: 60px 0;">
         <div class="container">
-            <div class="info-banner">
-                <h3>
+            <!-- Info banner usando clase alert-info -->
+            <div class="alert alert-info">
+                <h3 style="margin: 0 0 12px 0;">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     ¿Cómo consultar?
                 </h3>
@@ -609,10 +607,10 @@
                 <div class="contact-box">
                     <h4><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Tenés alguna duda?</h4>
                     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
-                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 12px 24px;">
+                        <a href="tel:147" class="btn btn-primary">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                         </a>
-                        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #25D366; color: white; padding: 12px 24px;">
+                        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #25D366; color: white;">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
                         </a>
                     </div>
@@ -778,12 +776,13 @@
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
     </a>
     
+    <!-- Footer -->
     <footer role="contentinfo">
         <div class="container">
             <div class="row">
                 <nav class="col-md-3" aria-label="Enlaces de inscripción">
                     <h4>INSCRIBIRSE</h4>
-                    <ul>
+                    <ul style="list-style: none; padding: 0;">
                         <li><a href="para-personas-mayores.html">Soy persona mayor</a></li>
                         <li><a href="para-cuidadores.html">Quiero ser cuidador/a</a></li>
                         <li><a href="estado-tramite.html" aria-current="page">Ver mi solicitud</a></li>
@@ -792,7 +791,7 @@
                 
                 <nav class="col-md-3" aria-label="Enlaces institucionales">
                     <h4>EL SISTEMA</h4>
-                    <ul>
+                    <ul style="list-style: none; padding: 0;">
                         <li><a href="el-sistema.html">Cómo funciona</a></li>
                         <li><a href="nodos.html">Nodos en tu barrio</a></li>
                         <li><a href="transparencia.html">Transparencia</a></li>
@@ -801,7 +800,7 @@
                 
                 <nav class="col-md-3" aria-label="Enlaces de contacto">
                     <h4>CONTACTO</h4>
-                    <ul>
+                    <ul style="list-style: none; padding: 0;">
                         <li><a href="tel:147"><i class="fa fa-phone" aria-hidden="true"></i> 147 (línea gratuita)</a></li>
                         <li><a href="https://wa.me/5491112345678"><i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
                         <li><a href="mailto:info@cuidar.ar"><i class="fa fa-envelope" aria-hidden="true"></i> info@cuidar.ar</a></li>
@@ -810,7 +809,7 @@
                 
                 <div class="col-md-3">
                     <h4>SEGUINOS</h4>
-                    <div class="social-links" style="display: flex; gap: 16px; font-size: 24px; margin-top: 16px;">
+                    <div style="display: flex; gap: 16px; font-size: 24px; margin-top: 16px;">
                         <a href="#" aria-label="Facebook de CUIDAR.ar"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                         <a href="#" aria-label="Twitter de CUIDAR.ar"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                         <a href="#" aria-label="Instagram de CUIDAR.ar"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -818,7 +817,7 @@
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="footer-legal">
                 <p>&copy; 2030 CUIDAR.ar - Gobierno de la Ciudad de Buenos Aires</p>
                 <p style="font-size: 14px; margin-top: 8px; opacity: 0.8;">
                     Este es un proyecto de diseño especulativo creado por Nicolás Bronzina - No es un sitio oficial del GCBA
