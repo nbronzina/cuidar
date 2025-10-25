@@ -384,30 +384,25 @@
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
+    <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
-        <div class="container">
-            <div class="pull-left">
-                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
-                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
-                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
-            </div>
-            <div class="pull-right">
-                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
-                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
-                </button>
-            </div>
-            <div class="clearfix"></div>
+    <div class="accessibility-bar">
+        <div class="container clearfix">
+            <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
+            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
+            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
+            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
+            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+                <i class="fa fa-adjust" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
-                <i class="fa fa-home icon" aria-hidden="true"></i>
-                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            <a href="index.html" class="logo">
+                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                <span>CUIDAR.ar</span>
             </a>
         </div>
     </header>
@@ -425,7 +420,7 @@
     
     <section class="hero-nodos" id="main-content" role="main">
         <div class="container">
-            <h1>15 Nodos en toda la Ciudad</h1>
+            <h1>16 Nodos en toda la Ciudad</h1>
             <p class="lead">
                 Encontrá el centro más cercano a tu casa
             </p>
@@ -446,9 +441,32 @@
                 </p>
             </div>
             
+            <!-- BLOQUE REALITY CHECK -->
+            <div class="reality-check" style="margin-bottom: 32px;">
+                <h4>
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    Sobre la disponibilidad de Nodos
+                </h4>
+                <ul>
+                    <li>
+                        <strong>Demanda desigual:</strong> Los Nodos en Palermo, Caballito y Belgrano tienen listas de espera de 6-8 meses. Los de zona sur tienen cupo inmediato.
+                    </li>
+                    <li>
+                        <strong>Horarios limitados:</strong> Los sábados hay horario reducido (9-13hs) y no todos los servicios están disponibles.
+                    </li>
+                    <li>
+                        <strong>Tensión en algunos barrios:</strong> 27 edificios linderos presentaron quejas por movimiento de ambulancias. Hay protocolos de "buen vecino" pero persisten algunas tensiones.
+                    </li>
+                </ul>
+            </div>
+            
             <div class="stats-box">
                 <h2><i class="fa fa-map-marker" aria-hidden="true"></i> 15</h2>
                 <p>Nodos operativos en todas las comunas de CABA</p>
+                <p style="font-size: 14px; margin-top: 12px; opacity: 0.9;">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                    Tiempos de espera: 2-4 semanas en zona norte, disponibilidad inmediata en zona sur
+                </p>
             </div>
             
             <!-- Filter Bar -->
@@ -921,6 +939,16 @@
                                 <span>Lun-Vie: 8-18hs | Sáb: 9-13hs</span>
                             </div>
                         </div>
+                        
+                        <div class="info-item" style="background-color: #FFF3E0; border-left: 3px solid #FF9800; padding: 12px; border-radius: 4px; margin-top: 12px;">
+                            <div class="info-icon">
+                                <i class="fa fa-clock-o" aria-hidden="true" style="color: #FF9800;"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong style="color: #E65100;">Lista de espera</strong>
+                                <span style="color: #666; font-size: 14px;">6-8 meses. Alta demanda en la zona</span>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="nodo-actions">
@@ -1051,6 +1079,16 @@
                                 <span>Lun-Vie: 8-18hs | Sáb: 9-13hs</span>
                             </div>
                         </div>
+                        
+                        <div class="info-item" style="background-color: #E8F5E9; border-left: 3px solid #66BB6A; padding: 12px; border-radius: 4px; margin-top: 12px;">
+                            <div class="info-icon">
+                                <i class="fa fa-check-circle" aria-hidden="true" style="color: #43A047;"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong style="color: #2E7D32;">Disponibilidad inmediata</strong>
+                                <span style="color: #666; font-size: 14px;">Sin lista de espera. Menos servicios especializados disponibles</span>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="nodo-actions">
@@ -1131,10 +1169,75 @@
                     </div>
                 </article>
                 
-                <!-- Nodo 11 -->
-                <article class="nodo-card" data-comuna="11">
+                <!-- Nodo 11 - COMUNA 10 AGREGADA -->
+                <article class="nodo-card" data-comuna="10">
                     <div class="nodo-header">
                         <div class="nodo-number">11</div>
+                        <div class="nodo-title">
+                            <h3>Nodo Floresta</h3>
+                            <span class="comunas">Comuna 10</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nodo-info">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong>Dirección</strong>
+                                <span>Av. Gaona 3456, Floresta<br>Ciudad de Buenos Aires</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong>Teléfono</strong>
+                                <a href="tel:+541145551011">4555-1011</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong>Email</strong>
+                                <a href="mailto:nodo.floresta@cuidar.ar">nodo.floresta@cuidar.ar</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong>Horarios</strong>
+                                <span>Lun-Vie: 8-18hs | Sáb: 9-13hs</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="nodo-actions">
+                        <a href="https://maps.google.com/?q=Av.+Gaona+3456+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="btn-action btn-primary">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i> Cómo llegar
+                        </a>
+                        <a href="tel:+541145551011" class="btn-action btn-secondary">
+                            <i class="fa fa-phone" aria-hidden="true"></i> Llamar
+                        </a>
+                        <a href="mailto:nodo.floresta@cuidar.ar" class="btn-action btn-outline">
+                            <i class="fa fa-envelope" aria-hidden="true"></i> Email
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Nodo 12 -->
+                <article class="nodo-card" data-comuna="11">
+                    <div class="nodo-header">
+                        <div class="nodo-number">12</div>
                         <div class="nodo-title">
                             <h3>Nodo Villa Devoto</h3>
                             <span class="comunas">Comuna 11</span>
@@ -1158,7 +1261,7 @@
                             </div>
                             <div class="info-content">
                                 <strong>Teléfono</strong>
-                                <a href="tel:+541145551011">4555-1011</a>
+                                <a href="tel:+541145551012">4555-1012</a>
                             </div>
                         </div>
                         
@@ -1196,10 +1299,10 @@
                     </div>
                 </article>
                 
-                <!-- Nodo 12 -->
+                <!-- Nodo 13 -->
                 <article class="nodo-card" data-comuna="12">
                     <div class="nodo-header">
-                        <div class="nodo-number">12</div>
+                        <div class="nodo-number">13</div>
                         <div class="nodo-title">
                             <h3>Nodo Coghlan</h3>
                             <span class="comunas">Comuna 12</span>
@@ -1223,7 +1326,7 @@
                             </div>
                             <div class="info-content">
                                 <strong>Teléfono</strong>
-                                <a href="tel:+541145551012">4555-1012</a>
+                                <a href="tel:+541145551013">4555-1013</a>
                             </div>
                         </div>
                         
@@ -1261,10 +1364,10 @@
                     </div>
                 </article>
                 
-                <!-- Nodo 13 -->
+                <!-- Nodo 14 -->
                 <article class="nodo-card" data-comuna="13">
                     <div class="nodo-header">
-                        <div class="nodo-number">13</div>
+                        <div class="nodo-number">14</div>
                         <div class="nodo-title">
                             <h3>Nodo Belgrano</h3>
                             <span class="comunas">Comuna 13</span>
@@ -1288,7 +1391,7 @@
                             </div>
                             <div class="info-content">
                                 <strong>Teléfono</strong>
-                                <a href="tel:+541145551013">4555-1013</a>
+                                <a href="tel:+541145551014">4555-1014</a>
                             </div>
                         </div>
                         
@@ -1326,10 +1429,10 @@
                     </div>
                 </article>
                 
-                <!-- Nodo 14 -->
+                <!-- Nodo 15 -->
                 <article class="nodo-card" data-comuna="14">
                     <div class="nodo-header">
-                        <div class="nodo-number">14</div>
+                        <div class="nodo-number">15</div>
                         <div class="nodo-title">
                             <h3>Nodo Palermo</h3>
                             <span class="comunas">Comuna 14</span>
@@ -1353,7 +1456,7 @@
                             </div>
                             <div class="info-content">
                                 <strong>Teléfono</strong>
-                                <a href="tel:+541145551014">4555-1014</a>
+                                <a href="tel:+541145551015">4555-1015</a>
                             </div>
                         </div>
                         
@@ -1376,6 +1479,16 @@
                                 <span>Lun-Vie: 8-18hs | Sáb: 9-13hs</span>
                             </div>
                         </div>
+                        
+                        <div class="info-item" style="background-color: #FFF3E0; border-left: 3px solid #FF9800; padding: 12px; border-radius: 4px; margin-top: 12px;">
+                            <div class="info-icon">
+                                <i class="fa fa-clock-o" aria-hidden="true" style="color: #FF9800;"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong style="color: #E65100;">Lista de espera</strong>
+                                <span style="color: #666; font-size: 14px;">8 meses aproximadamente. El Nodo más demandado</span>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="nodo-actions">
@@ -1391,10 +1504,10 @@
                     </div>
                 </article>
                 
-                <!-- Nodo 15 -->
+                <!-- Nodo 16 -->
                 <article class="nodo-card" data-comuna="15">
                     <div class="nodo-header">
-                        <div class="nodo-number">15</div>
+                        <div class="nodo-number">16</div>
                         <div class="nodo-title">
                             <h3>Nodo Chacarita</h3>
                             <span class="comunas">Comuna 15</span>
@@ -1418,7 +1531,7 @@
                             </div>
                             <div class="info-content">
                                 <strong>Teléfono</strong>
-                                <a href="tel:+541145551015">4555-1015</a>
+                                <a href="tel:+541145551016">4555-1016</a>
                             </div>
                         </div>
                         
@@ -1566,65 +1679,73 @@
             
             const visibleCards = document.querySelectorAll('.nodo-card[style="display: block;"], .nodo-card:not([style*="display"])').length;
             if (selectedComuna === 'all') {
-                announceToScreenReader('Mostrando todos los 15 Nodos');
+                announceToScreenReader('Mostrando todos los 16 Nodos');
             } else {
                 announceToScreenReader(`Mostrando ${visibleCards} Nodo${visibleCards !== 1 ? 's' : ''} de la Comuna ${selectedComuna}`);
             }
         }
         
-        // Inicializar mapa
-        const map = L.map('map').setView([-34.6037, -58.3816], 12);
-        
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-        
-        const nodoIcon = L.icon({
-            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iNDUiIHZpZXdCb3g9IjAgMCAzMCA0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUgMEMxMC41MDc1IDAgNi44NTc1IDMuNjUgNi44NTc1IDguMTQyNUM2Ljg1NzUgMTQuMDYyNSAxNSAyNy40Mjc1IDE1IDI3LjQyNzVDMTUgMjcuNDI3NSAyMy4xNDI1IDE0LjA2MjUgMjMuMTQyNSA4LjE0MjVDMjMuMTQyNSAzLjY1IDE5LjQ5MjUgMCAxNSAwWiIgZmlsbD0iIzY2QkI2QSIvPjxjaXJjbGUgY3g9IjE1IiBjeT0iOC41IiByPSI0IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==',
-            iconSize: [30, 45],
-            iconAnchor: [15, 45],
-            popupAnchor: [0, -45]
-        });
-        
-        const nodos = [
-            { numero: 1, nombre: "Nodo Retiro", direccion: "Av. Córdoba 1235, Retiro", telefono: "4555-1001", email: "nodo.retiro@cuidar.ar", comunas: "Comunas 1 y 2", lat: -34.5947, lng: -58.3816 },
-            { numero: 2, nombre: "Nodo San Telmo", direccion: "Defensa 678, San Telmo", telefono: "4555-1002", email: "nodo.santelmo@cuidar.ar", comunas: "Comuna 1", lat: -34.6217, lng: -58.3724 },
-            { numero: 3, nombre: "Nodo Recoleta", direccion: "Av. Las Heras 2234, Recoleta", telefono: "4555-1003", email: "nodo.recoleta@cuidar.ar", comunas: "Comuna 2", lat: -34.5873, lng: -58.3974 },
-            { numero: 4, nombre: "Nodo Balvanera", direccion: "Av. Corrientes 2456, Balvanera", telefono: "4555-1004", email: "nodo.balvanera@cuidar.ar", comunas: "Comuna 3", lat: -34.6042, lng: -58.4005 },
-            { numero: 5, nombre: "Nodo La Boca", direccion: "Almirante Brown 756, La Boca", telefono: "4555-1005", email: "nodo.laboca@cuidar.ar", comunas: "Comuna 4", lat: -34.6345, lng: -58.3634 },
-            { numero: 6, nombre: "Nodo Almagro", direccion: "Av. Rivadavia 3890, Almagro", telefono: "4555-1006", email: "nodo.almagro@cuidar.ar", comunas: "Comuna 5", lat: -34.6085, lng: -58.4195 },
-            { numero: 7, nombre: "Nodo Caballito", direccion: "Av. Acoyte 234, Caballito", telefono: "4555-1007", email: "nodo.caballito@cuidar.ar", comunas: "Comuna 6", lat: -34.6178, lng: -58.4365 },
-            { numero: 8, nombre: "Nodo Flores", direccion: "Av. Rivadavia 6789, Flores", telefono: "4555-1008", email: "nodo.flores@cuidar.ar", comunas: "Comuna 7", lat: -34.6285, lng: -58.4628 },
-            { numero: 9, nombre: "Nodo Villa Lugano", direccion: "Av. Escalada 4567, Villa Lugano", telefono: "4555-1009", email: "nodo.villalugano@cuidar.ar", comunas: "Comuna 8", lat: -34.6742, lng: -58.4734 },
-            { numero: 10, nombre: "Nodo Liniers", direccion: "Av. Rivadavia 11234, Liniers", telefono: "4555-1010", email: "nodo.liniers@cuidar.ar", comunas: "Comuna 9", lat: -34.6428, lng: -58.5215 },
-            { numero: 11, nombre: "Nodo Villa Devoto", direccion: "Av. San Martín 4890, Villa Devoto", telefono: "4555-1011", email: "nodo.villadevoto@cuidar.ar", comunas: "Comuna 11", lat: -34.6012, lng: -58.5142 },
-            { numero: 12, nombre: "Nodo Coghlan", direccion: "Av. Cabildo 3456, Coghlan", telefono: "4555-1012", email: "nodo.coghlan@cuidar.ar", comunas: "Comuna 12", lat: -34.5678, lng: -58.4785 },
-            { numero: 13, nombre: "Nodo Belgrano", direccion: "Av. Cabildo 2123, Belgrano", telefono: "4555-1013", email: "nodo.belgrano@cuidar.ar", comunas: "Comuna 13", lat: -34.5645, lng: -58.4552 },
-            { numero: 14, nombre: "Nodo Palermo", direccion: "Av. Santa Fe 4567, Palermo", telefono: "4555-1014", email: "nodo.palermo@cuidar.ar", comunas: "Comuna 14", lat: -34.5875, lng: -58.4215 },
-            { numero: 15, nombre: "Nodo Chacarita", direccion: "Av. Warnes 2890, Chacarita", telefono: "4555-1015", email: "nodo.chacarita@cuidar.ar", comunas: "Comuna 15", lat: -34.5892, lng: -58.4512 }
-        ];
-        
-        nodos.forEach(nodo => {
-            const marker = L.marker([nodo.lat, nodo.lng], { icon: nodoIcon }).addTo(map);
-            
-            const popupContent = `
-                <h3>${nodo.numero}. ${nodo.nombre}</h3>
-                <p><strong>${nodo.comunas}</strong></p>
-                <p>📍 ${nodo.direccion}</p>
-                <p>📞 ${nodo.telefono}</p>
-                <p>✉️ ${nodo.email}</p>
-                <a href="https://maps.google.com/?q=${encodeURIComponent(nodo.direccion + ', Buenos Aires')}" target="_blank">Cómo llegar</a>
-            `;
-            
-            marker.bindPopup(popupContent);
-        });
-        
+        // Inicializar mapa cuando todo esté cargado
         window.addEventListener('load', function() {
+            // Inicializar configuración de accesibilidad
             const textSize = localStorage.getItem('textSize');
             if (textSize) document.body.classList.add('text-size-' + textSize);
             if (localStorage.getItem('highContrast') === 'true') {
                 document.body.style.filter = 'contrast(1.5)';
             }
+            
+            // Verificar que Leaflet esté cargado antes de inicializar
+            if (typeof L === 'undefined') {
+                console.error('Leaflet no está cargado');
+                return;
+            }
+            
+            // Inicializar mapa de Leaflet
+            const map = L.map('map').setView([-34.6037, -58.3816], 12);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            const nodoIcon = L.icon({
+                iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iNDUiIHZpZXdCb3g9IjAgMCAzMCA0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUgMEMxMC41MDc1IDAgNi44NTc1IDMuNjUgNi44NTc1IDguMTQyNUM2Ljg1NzUgMTQuMDYyNSAxNSAyNy40Mjc1IDE1IDI3LjQyNzVDMTUgMjcuNDI3NSAyMy4xNDI1IDE0LjA2MjUgMjMuMTQyNSA4LjE0MjVDMjMuMTQyNSAzLjY1IDE5LjQ5MjUgMCAxNSAwWiIgZmlsbD0iIzY2QkI2QSIvPjxjaXJjbGUgY3g9IjE1IiBjeT0iOC41IiByPSI0IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==',
+                iconSize: [30, 45],
+                iconAnchor: [15, 45],
+                popupAnchor: [0, -45]
+            });
+            
+            const nodos = [
+                { numero: 1, nombre: "Nodo Retiro", direccion: "Av. Córdoba 1235, Retiro", telefono: "4555-1001", email: "nodo.retiro@cuidar.ar", comunas: "Comunas 1 y 2", lat: -34.5947, lng: -58.3816 },
+                { numero: 2, nombre: "Nodo San Telmo", direccion: "Defensa 678, San Telmo", telefono: "4555-1002", email: "nodo.santelmo@cuidar.ar", comunas: "Comuna 1", lat: -34.6217, lng: -58.3724 },
+                { numero: 3, nombre: "Nodo Recoleta", direccion: "Av. Las Heras 2234, Recoleta", telefono: "4555-1003", email: "nodo.recoleta@cuidar.ar", comunas: "Comuna 2", lat: -34.5873, lng: -58.3974 },
+                { numero: 4, nombre: "Nodo Balvanera", direccion: "Av. Corrientes 2456, Balvanera", telefono: "4555-1004", email: "nodo.balvanera@cuidar.ar", comunas: "Comuna 3", lat: -34.6042, lng: -58.4005 },
+                { numero: 5, nombre: "Nodo La Boca", direccion: "Almirante Brown 756, La Boca", telefono: "4555-1005", email: "nodo.laboca@cuidar.ar", comunas: "Comuna 4", lat: -34.6345, lng: -58.3634 },
+                { numero: 6, nombre: "Nodo Almagro", direccion: "Av. Rivadavia 3890, Almagro", telefono: "4555-1006", email: "nodo.almagro@cuidar.ar", comunas: "Comuna 5", lat: -34.6085, lng: -58.4195 },
+                { numero: 7, nombre: "Nodo Caballito", direccion: "Av. Acoyte 234, Caballito", telefono: "4555-1007", email: "nodo.caballito@cuidar.ar", comunas: "Comuna 6", lat: -34.6178, lng: -58.4365 },
+                { numero: 8, nombre: "Nodo Flores", direccion: "Av. Rivadavia 6789, Flores", telefono: "4555-1008", email: "nodo.flores@cuidar.ar", comunas: "Comuna 7", lat: -34.6285, lng: -58.4628 },
+                { numero: 9, nombre: "Nodo Villa Lugano", direccion: "Av. Escalada 4567, Villa Lugano", telefono: "4555-1009", email: "nodo.villalugano@cuidar.ar", comunas: "Comuna 8", lat: -34.6742, lng: -58.4734 },
+                { numero: 10, nombre: "Nodo Liniers", direccion: "Av. Rivadavia 11234, Liniers", telefono: "4555-1010", email: "nodo.liniers@cuidar.ar", comunas: "Comuna 9", lat: -34.6428, lng: -58.5215 },
+                { numero: 11, nombre: "Nodo Villa Devoto", direccion: "Av. San Martín 4890, Villa Devoto", telefono: "4555-1011", email: "nodo.villadevoto@cuidar.ar", comunas: "Comuna 11", lat: -34.6012, lng: -58.5142 },
+                { numero: 12, nombre: "Nodo Coghlan", direccion: "Av. Cabildo 3456, Coghlan", telefono: "4555-1012", email: "nodo.coghlan@cuidar.ar", comunas: "Comuna 12", lat: -34.5678, lng: -58.4785 },
+                { numero: 13, nombre: "Nodo Belgrano", direccion: "Av. Cabildo 2123, Belgrano", telefono: "4555-1013", email: "nodo.belgrano@cuidar.ar", comunas: "Comuna 13", lat: -34.5645, lng: -58.4552 },
+                { numero: 14, nombre: "Nodo Palermo", direccion: "Av. Santa Fe 4567, Palermo", telefono: "4555-1014", email: "nodo.palermo@cuidar.ar", comunas: "Comuna 14", lat: -34.5875, lng: -58.4215 },
+                { numero: 15, nombre: "Nodo Chacarita", direccion: "Av. Warnes 2890, Chacarita", telefono: "4555-1015", email: "nodo.chacarita@cuidar.ar", comunas: "Comuna 15", lat: -34.5892, lng: -58.4512 }
+            ];
+            
+            nodos.forEach(nodo => {
+                const marker = L.marker([nodo.lat, nodo.lng], { icon: nodoIcon }).addTo(map);
+                
+                const popupContent = `
+                    <h3>${nodo.numero}. ${nodo.nombre}</h3>
+                    <p><strong>${nodo.comunas}</strong></p>
+                    <p>📍 ${nodo.direccion}</p>
+                    <p>📞 ${nodo.telefono}</p>
+                    <p>✉️ ${nodo.email}</p>
+                    <a href="https://maps.google.com/?q=${encodeURIComponent(nodo.direccion + ', Buenos Aires')}" target="_blank">Cómo llegar</a>
+                `;
+                
+                marker.bindPopup(popupContent);
+            });
         });
     </script>
 </body>
