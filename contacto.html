@@ -300,28 +300,23 @@
 <body>
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
-        <div class="container">
-            <div class="pull-left">
-                <button onclick="adjustTextSize('normal')" aria-label="Tamaño de texto normal">A</button>
-                <button onclick="adjustTextSize('large')" aria-label="Aumentar tamaño de texto">A+</button>
-                <button onclick="adjustTextSize('xlarge')" aria-label="Aumentar más el tamaño de texto">A++</button>
-            </div>
-            <div class="pull-right">
-                <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad</span>
-                <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
-                    <i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste
-                </button>
-            </div>
-            <div class="clearfix"></div>
+    <div class="accessibility-bar">
+        <div class="container clearfix">
+            <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
+            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
+            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
+            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
+            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+                <i class="fa fa-adjust" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="CUIDAR.ar - Ir a la página principal">
-                <i class="fa fa-home icon" aria-hidden="true"></i>
-                <span>CUIDAR.ar | Buenos Aires Ciudad</span>
+            <a href="index.html" class="logo">
+                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                <span>CUIDAR.ar</span>
             </a>
         </div>
     </header>
@@ -374,8 +369,48 @@
                     <div class="contact-icon">
                         <i class="fa fa-phone" aria-hidden="true"></i>
                     </div>
+            
+            <!-- BLOQUE REALITY CHECK - FRICCIÓN REALISTA -->
+            <div class="reality-check" style="margin-bottom: 40px; background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left: 4px solid #FF9800; padding: 24px; border-radius: 8px;">
+                <h3 style="color: #e65100; margin-bottom: 16px; font-size: 20px; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    Tiempos de respuesta y limitaciones
+                </h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                        <strong>Línea 147:</strong> En horarios pico (8-11am y 16-18hs) el tiempo de espera puede ser de 15-20 minutos. 
+                        Los lunes y después de feriados registramos mayor demanda.
+                    </li>
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                        <strong>WhatsApp:</strong> El horario publicado es Lun-Vie 8-20hs, pero en la práctica hay demoras de hasta 
+                        4-6 horas en períodos de alta demanda. Los fines de semana no hay respuestas.
+                    </li>
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                        <strong>Email:</strong> Aunque prometemos 48hs, el 35% de los emails reciben respuesta después de 72hs. 
+                        Para urgencias, no uses este canal.
+                    </li>
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                        <strong>Nodos presenciales:</strong> Sin turno previo, podés esperar 1-2 horas en días de alta concurrencia 
+                        (especialmente lunes y viernes). Algunos Nodos cierran 30min antes del horario oficial si no hay más gente.
+                    </li>
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                        <strong>Formulario web:</strong> Este formulario genera un ticket pero no garantiza respuesta inmediata. 
+                        El 22% de las consultas por este medio no reciben seguimiento debido a errores en el email proporcionado.
+                    </li>
+                    <li style="margin-bottom: 0; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                        <strong>Redes sociales:</strong> Son solo informativas. Los mensajes directos no reciben respuesta. 
+                        Muchos usuarios reportan frustración por esperar respuestas que nunca llegan.
+                    </li>
+                </ul>
+            </div>
                     <h3>Teléfono</h3>
-                    <p>Línea gratuita disponible las 24 horas, todos los días del año</p>
+                    <p>Línea gratuita disponible las 24 horas. <strong>Tiempo de espera promedio: 8-15 min</strong></p>
                     <span class="contact-info">147</span>
                     <a href="tel:147" class="btn btn-primary">
                         <i class="fa fa-phone" aria-hidden="true"></i> Llamar ahora
@@ -387,7 +422,7 @@
                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                     </div>
                     <h3>WhatsApp</h3>
-                    <p>Envianos un mensaje y te respondemos de lunes a viernes de 8 a 20hs</p>
+                    <p>Lun-Vie 8-20hs. <strong>Demora de respuesta: 30min-6hs según demanda</strong></p>
                     <span class="contact-info">11 1234-5678</span>
                     <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn btn-success">
                         <i class="fa fa-whatsapp" aria-hidden="true"></i> Chatear
@@ -399,7 +434,7 @@
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                     </div>
                     <h3>Email</h3>
-                    <p>Escribinos y te respondemos en menos de 48 horas hábiles</p>
+                    <p><strong>Tiempo promedio de respuesta: 48-72hs hábiles</strong> (urgencias usar 147)</p>
                     <span class="contact-info">info@cuidar.ar</span>
                     <a href="mailto:info@cuidar.ar" class="btn btn-warning">
                         <i class="fa fa-envelope" aria-hidden="true"></i> Enviar email
@@ -411,8 +446,8 @@
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </div>
                     <h3>Nodos Presenciales</h3>
-                    <p>Visitá uno de nuestros 15 centros en toda la Ciudad de Buenos Aires</p>
-                    <span class="contact-info">15 ubicaciones</span>
+                    <p>16 centros en CABA. <strong>Espera promedio sin turno: 1-2 horas</strong></p>
+                    <span class="contact-info">16 ubicaciones</span>
                     <a href="nodos.html" class="btn btn-primary">
                         <i class="fa fa-map-marker" aria-hidden="true"></i> Ver nodos
                     </a>
@@ -455,7 +490,7 @@
                 
                 <div class="faq-item">
                     <h4><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Cuánto tarda la respuesta por email?</h4>
-                    <p>Respondemos todos los emails en un plazo máximo de 48 horas hábiles. Para consultas urgentes, te recomendamos llamar al 147.</p>
+                    <p>El plazo oficial es 48 horas hábiles, pero en la práctica el tiempo promedio es de 48-72hs. El 35% de consultas reciben respuesta después de las 72hs. Para consultas urgentes, te recomendamos llamar al 147.</p>
                 </div>
                 
                 <div class="faq-item">
@@ -465,7 +500,7 @@
                 
                 <div class="faq-item">
                     <h4><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Necesito turno para ir a un Nodo?</h4>
-                    <p>No, no necesitás turno. Podés acercarte en el horario de atención (Lun-Vie 8-18hs, Sáb 9-13hs) y te atendemos por orden de llegada.</p>
+                    <p>No necesitás turno, pero tené en cuenta que la espera puede ser de 1-2 horas en días de alta demanda (especialmente lunes y viernes). Los sábados hay personal reducido. Algunos Nodos cierran antes si no hay gente esperando.</p>
                 </div>
                 
                 <div class="faq-item">
