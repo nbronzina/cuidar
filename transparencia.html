@@ -153,6 +153,10 @@
             transition: width 1s ease-out;
         }
         
+        .progress-bar-fill.small {
+            font-size: 0;
+        }
+        
         .progress-bar-fill.delayed {
             background: linear-gradient(90deg, var(--color-friction-emphasis), var(--color-accent));
         }
@@ -561,7 +565,7 @@
                             <span>$5.700 millones (7%)</span>
                         </div>
                         <div class="progress-bar-container" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill" style="width: 7%;">7%</div>
+                            <div class="progress-bar-fill small" style="width: 7%;"></div>
                         </div>
                     </div>
                 </div>
@@ -576,7 +580,7 @@
                             <span>$2.900 millones (3.5%)</span>
                         </div>
                         <div class="progress-bar-container" role="progressbar" aria-valuenow="3.5" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill" style="width: 3.5%;">3.5%</div>
+                            <div class="progress-bar-fill small" style="width: 3.5%;"></div>
                         </div>
                     </div>
                 </div>
