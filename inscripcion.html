@@ -9,14 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
-        :root {
-            --color-primary: #0072BB;
-            --color-secondary: #66BB6A;
-            --color-accent: #FF9800;
-            --color-warm: #FFF8E1;
-            --color-purple: #9C27B0;
-        }
-        
         .hero-inscripcion {
             background: linear-gradient(135deg, rgba(102,187,106,0.95), rgba(67,160,71,0.95)),
                         url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&h=400&fit=crop') center/cover;
@@ -56,7 +48,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             font-weight: 600;
-            color: #999;
+            color: #767676;
         }
         
         .step.active {
@@ -310,32 +302,6 @@
             }
         }
         
-        .whatsapp-float {
-            position: fixed;
-            width: 70px;
-            height: 70px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 40px;
-            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 24px rgba(37,211,102,0.6);
-            color: white;
-        }
-        
         @media (max-width: 767px) {
             .hero-inscripcion h1 {
                 font-size: 28px;
@@ -355,13 +321,6 @@
             }
             .step {
                 justify-content: center;
-            }
-            .whatsapp-float {
-                width: 60px;
-                height: 60px;
-                font-size: 32px;
-                bottom: 20px;
-                right: 20px;
             }
         }
     </style>
@@ -392,15 +351,27 @@
     
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <a href="index.html">Inicio</a>
-            <a href="para-personas-mayores.html">Para Personas Mayores</a>
-            <a href="para-cuidadores.html">Para Cuidadores/as</a>
-            <a href="el-sistema.html">El Sistema</a>
-            <a href="transparencia.html">Transparencia</a>
-            <a href="contacto.html">Contacto</a>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+                <i class="fa fa-bars" aria-hidden="true"></i> Menú
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                <a href="para-cuidadores.html">Para Cuidadores/as</a>
+                <a href="el-sistema.html">El Sistema</a>
+                <a href="transparencia.html">Transparencia</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
         </div>
     </nav>
-    
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Ubicación">
+            <a href="index.html">Inicio</a>
+            <span class="separator" aria-hidden="true">›</span>
+            <span class="current">Inscripción</span>
+        </nav>
+    </div>
+
     <section class="hero-inscripcion" id="main-content" role="main">
         <div class="container">
             <h1>Inscribite en 5 minutos</h1>
@@ -553,11 +524,11 @@
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label>
+                    <fieldset class="form-group" style="border: none; padding: 0; margin-bottom: 24px;">
+                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 16px;">
                             Género <span class="required" aria-label="campo requerido">*</span>
-                        </label>
-                        <div class="radio-group" role="radiogroup" aria-label="Seleccionar género">
+                        </legend>
+                        <div class="radio-group">
                             <label class="radio-option">
                                 <input type="radio" name="genero" value="femenino" required>
                                 <span>Femenino</span>
@@ -571,7 +542,7 @@
                                 <span>Otro / Prefiero no decir</span>
                             </label>
                         </div>
-                    </div>
+                    </fieldset>
                 </div>
                 
                 <!-- Sección 2: Domicilio -->
@@ -736,11 +707,11 @@
                         <small>No hace falta dar muchos detalles, esto lo charlamos en la visita domiciliaria</small>
                     </div>
                     
-                    <div class="form-group">
-                        <label>
+                    <fieldset class="form-group" style="border: none; padding: 0; margin-bottom: 24px;">
+                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 16px;">
                             ¿Vivís solo/a? <span class="required" aria-label="campo requerido">*</span>
-                        </label>
-                        <div class="radio-group" role="radiogroup" aria-label="¿Vivís solo/a?">
+                        </legend>
+                        <div class="radio-group">
                             <label class="radio-option">
                                 <input type="radio" name="viveSolo" value="si" required>
                                 <span>Sí, vivo solo/a</span>
@@ -750,13 +721,13 @@
                                 <span>No, vivo con otras personas</span>
                             </label>
                         </div>
-                    </div>
+                    </fieldset>
                     
-                    <div class="form-group">
-                        <label>
+                    <fieldset class="form-group" style="border: none; padding: 0; margin-bottom: 24px;">
+                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 16px;">
                             ¿Tenés alguna obra social o prepaga? <span class="required" aria-label="campo requerido">*</span>
-                        </label>
-                        <div class="radio-group" role="radiogroup" aria-label="¿Tenés obra social?">
+                        </legend>
+                        <div class="radio-group">
                             <label class="radio-option">
                                 <input type="radio" name="obraSocial" value="pami" required>
                                 <span>PAMI</span>
@@ -774,7 +745,7 @@
                                 <span>No tengo</span>
                             </label>
                         </div>
-                    </div>
+                    </fieldset>
                 </div>
                 
                 <!-- Sección 5: Términos -->
@@ -783,7 +754,7 @@
                         <label class="checkbox-group">
                             <input type="checkbox" id="privacidad" name="privacidad" required aria-required="true">
                             <span>
-                                He leído y acepto la <a href="#" style="color: var(--color-primary); text-decoration: underline;" target="_blank">Política de Privacidad</a> 
+                                He leído y acepto la <a href="politica-privacidad.html" style="color: var(--color-primary); text-decoration: underline;" target="_blank">Política de Privacidad</a> 
                                 y autorizo el tratamiento de mis datos personales de acuerdo con la Ley 25.326 de Protección de Datos Personales. 
                                 <span class="required" aria-label="campo requerido">*</span>
                             </span>
@@ -870,7 +841,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
+                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
                     <!-- NUEVO DISCLAIMER DE AUTORÍA -->
@@ -897,12 +868,12 @@
         
         function toggleHighContrast() {
             const body = document.body;
-            const isHighContrast = body.style.filter === 'contrast(1.5)';
-            body.style.filter = isHighContrast ? 'none' : 'contrast(1.5)';
-            localStorage.setItem('highContrast', isHighContrast ? 'false' : 'true');
-            announceToScreenReader(isHighContrast ? 
-                'Alto contraste desactivado' : 
-                'Alto contraste activado');
+            body.classList.toggle('high-contrast');
+            const isHighContrast = body.classList.contains('high-contrast');
+            localStorage.setItem('highContrast', isHighContrast ? 'true' : 'false');
+            announceToScreenReader(isHighContrast ?
+                'Alto contraste activado' :
+                'Alto contraste desactivado');
         }
         
         function announceToScreenReader(message) {
@@ -922,34 +893,84 @@
         
         function handleInscription(event) {
             event.preventDefault();
-            
+
             // Get email value
             const email = document.getElementById('email').value;
-            
-            // Hide form
-            document.getElementById('inscriptionForm').style.display = 'none';
-            document.querySelector('.info-box').style.display = 'none';
-            document.querySelector('.alternative-methods').style.display = 'none';
-            
-            // Show success message
-            const successMessage = document.getElementById('successMessage');
-            successMessage.classList.add('show');
-            document.getElementById('confirmedEmail').textContent = email;
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Announce to screen reader
-            announceToScreenReader('Inscripción completada exitosamente. Te contactaremos en 24 a 48 horas.');
-            
+
+            // Show loading state
+            const submitBtn = document.querySelector('#inscriptionForm button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Procesando inscripción...';
+
+            // Simulate server processing
+            setTimeout(function() {
+                // Hide form
+                document.getElementById('inscriptionForm').style.display = 'none';
+                document.querySelector('.info-box').style.display = 'none';
+                document.querySelector('.reality-check').style.display = 'none';
+                document.querySelector('.alternative-methods').style.display = 'none';
+
+                // Show success message
+                var successMessage = document.getElementById('successMessage');
+                successMessage.classList.add('show');
+                document.getElementById('confirmedEmail').textContent = email;
+
+                // Clear saved form data
+                localStorage.removeItem('cuidar-form-data');
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Announce to screen reader
+                announceToScreenReader('Inscripción completada exitosamente. Te contactaremos en 24 a 48 horas.');
+            }, 1800);
+
             return false;
         }
-        
+
+        // Form persistence with localStorage
+        function saveFormData() {
+            var form = document.getElementById('inscriptionForm');
+            if (!form) return;
+            var data = {};
+            var inputs = form.querySelectorAll('input, select, textarea');
+            inputs.forEach(function(input) {
+                if (input.type === 'radio') {
+                    if (input.checked) data[input.name] = input.value;
+                } else if (input.type === 'checkbox') {
+                    data[input.id] = input.checked;
+                } else {
+                    data[input.id || input.name] = input.value;
+                }
+            });
+            localStorage.setItem('cuidar-form-data', JSON.stringify(data));
+        }
+
+        function restoreFormData() {
+            var saved = localStorage.getItem('cuidar-form-data');
+            if (!saved) return;
+            var data = JSON.parse(saved);
+            Object.keys(data).forEach(function(key) {
+                var el = document.getElementById(key) || document.querySelector('[name="' + key + '"][value="' + data[key] + '"]');
+                if (!el) return;
+                if (el.type === 'radio') el.checked = true;
+                else if (el.type === 'checkbox') el.checked = data[key];
+                else el.value = data[key];
+            });
+        }
+
         window.addEventListener('load', function() {
             const textSize = localStorage.getItem('textSize');
             if (textSize) document.body.classList.add('text-size-' + textSize);
             if (localStorage.getItem('highContrast') === 'true') {
-                document.body.style.filter = 'contrast(1.5)';
+                document.body.classList.add('high-contrast');
+            }
+            restoreFormData();
+            var form = document.getElementById('inscriptionForm');
+            if (form) {
+                form.addEventListener('input', saveFormData);
+                form.addEventListener('change', saveFormData);
             }
         });
     </script>

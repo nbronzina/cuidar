@@ -323,15 +323,28 @@
     
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <a href="index.html">Inicio</a>
-            <a href="para-personas-mayores.html">Para Personas Mayores</a>
-            <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
-            <a href="el-sistema.html">El Sistema</a>
-            <a href="transparencia.html">Transparencia</a>
-            <a href="contacto.html" aria-current="page" class="active">Contacto</a>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+                <i class="fa fa-bars" aria-hidden="true"></i> Menú
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
+                <a href="el-sistema.html">El Sistema</a>
+                <a href="transparencia.html">Transparencia</a>
+                <a href="contacto.html" aria-current="page" class="active">Contacto</a>
+            </div>
         </div>
     </nav>
-    
+
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Ubicación">
+            <a href="index.html">Inicio</a>
+            <span class="separator" aria-hidden="true">›</span>
+            <span class="current">Contacto</span>
+        </nav>
+    </div>
+
     <section class="hero-contacto" id="main-content" role="main">
         <div class="container">
             <h1>Estamos para ayudarte</h1>
@@ -513,6 +526,11 @@
     
     <section class="form-section">
         <div class="container">
+            <div id="contactSuccess" class="inline-message success" role="alert">
+                <i class="fa fa-check-circle" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;" aria-hidden="true"></i>
+                <h3 style="color: var(--color-secondary); margin-bottom: 8px;">¡Gracias por tu consulta!</h3>
+                <p style="color: #333;">Te responderemos a la brevedad por email o teléfono.</p>
+            </div>
             <div class="form-container">
                 <h2>Formulario de contacto</h2>
                 <form id="contactForm" aria-label="Formulario de contacto">
@@ -594,7 +612,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
+                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
         <!-- DISCLAIMER DE AUTORÍA -->
@@ -619,14 +637,34 @@
         
         function toggleHighContrast() {
             const body = document.body;
-            const isHighContrast = body.style.filter === 'contrast(1.5)';
-            body.style.filter = isHighContrast ? 'none' : 'contrast(1.5)';
-            localStorage.setItem('highContrast', isHighContrast ? 'false' : 'true');
+            body.classList.toggle('high-contrast');
+            const isHighContrast = body.classList.contains('high-contrast');
+            localStorage.setItem('highContrast', isHighContrast ? 'true' : 'false');
+            announceToScreenReader(isHighContrast ?
+                'Alto contraste activado' :
+                'Alto contraste desactivado');
+        }
+
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.textContent = message;
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-10000px';
+            announcement.style.width = '1px';
+            announcement.style.height = '1px';
+            announcement.style.overflow = 'hidden';
+            document.body.appendChild(announcement);
+            setTimeout(() => document.body.removeChild(announcement), 1000);
         }
         
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('¡Gracias por tu consulta! Te responderemos a la brevedad por email o teléfono.');
+            document.getElementById('contactSuccess').classList.add('show');
+            document.querySelector('.form-container').style.display = 'none';
+            announceToScreenReader('Consulta enviada exitosamente');
             this.reset();
         });
         
@@ -634,7 +672,7 @@
             const textSize = localStorage.getItem('textSize');
             if (textSize) document.body.classList.add('text-size-' + textSize);
             if (localStorage.getItem('highContrast') === 'true') {
-                document.body.style.filter = 'contrast(1.5)';
+                document.body.classList.add('high-contrast');
             }
         });
     </script>
