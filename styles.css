@@ -29,6 +29,27 @@
     --color-friction-warning-dark: #856404;
     --color-friction-warning-border: #FFC107;
     --color-friction-emphasis: #F57C00;
+
+    /* Escala tipográfica */
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.75rem;
+    --text-4xl: 2.25rem;
+
+    /* Escala de spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
 }
 
 /* ============================================
@@ -243,6 +264,81 @@ a:hover {
     background-color: #F5F5F5;
 }
 
+/* Hamburger menu toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    padding: 12px 16px;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.nav-toggle i {
+    margin-right: 8px;
+}
+
+.nav-links {
+    display: contents;
+}
+
+@media (max-width: 767px) {
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .main-nav .container {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* ============================================
+   BREADCRUMBS
+   ============================================ */
+
+.breadcrumb {
+    padding: 12px 0;
+    font-size: 14px;
+    color: #767676;
+}
+
+.breadcrumb a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb .separator {
+    margin: 0 8px;
+    color: #999;
+}
+
+.breadcrumb .current {
+    color: #333;
+    font-weight: 500;
+}
+
 /* ============================================
    BOTONES
    ============================================ */
@@ -362,7 +458,7 @@ footer a:hover {
 }
 
 .footer-legal p {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.75);
     font-size: 14px;
     margin: 0;
 }
@@ -508,7 +604,7 @@ footer a:hover {
 
 .stat-sublabel {
     font-size: 14px;
-    color: #999;
+    color: #767676;
     margin-top: 8px;
 }
 
@@ -600,6 +696,18 @@ footer a:hover {
 .mt-2 { margin-top: 1rem; }
 .mt-3 { margin-top: 1.5rem; }
 .mt-4 { margin-top: 2rem; }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
 
 /* ============================================
    RESPONSIVE DESIGN
@@ -725,6 +833,85 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   ALTO CONTRASTE - Paleta dedicada
+   ============================================ */
+
+body.high-contrast {
+    --color-primary: #0000CC;
+    --color-secondary: #006600;
+    --color-accent: #CC6600;
+    --color-warm: #FFFFCC;
+    --color-purple: #660099;
+    --color-dark: #000000;
+    --color-gray: #333333;
+    --color-light-gray: #FFFFFF;
+    --color-friction-warning: #FFFFCC;
+    --color-friction-warning-dark: #333300;
+    --color-friction-warning-border: #CC9900;
+    --color-friction-emphasis: #CC3300;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+body.high-contrast a {
+    color: #0000CC;
+    text-decoration: underline;
+}
+
+body.high-contrast .header-gcba {
+    background: #000066;
+}
+
+body.high-contrast .accessibility-bar {
+    background-color: #000000;
+}
+
+body.high-contrast footer {
+    background-color: #000000;
+}
+
+body.high-contrast footer a {
+    color: #FFFFFF;
+}
+
+body.high-contrast .footer-legal p {
+    color: #CCCCCC;
+}
+
+body.high-contrast .main-nav {
+    border-bottom: 3px solid #000000;
+}
+
+body.high-contrast .main-nav a {
+    color: #000000;
+}
+
+body.high-contrast .main-nav a:hover,
+body.high-contrast .main-nav a.active {
+    color: #0000CC;
+    background-color: #FFFFCC;
+}
+
+body.high-contrast .btn-primary {
+    background-color: #0000CC;
+    border-color: #0000CC;
+}
+
+body.high-contrast .btn-secondary {
+    border-color: #0000CC;
+    color: #0000CC;
+}
+
+body.high-contrast .card {
+    border: 2px solid #000000;
+}
+
+body.high-contrast *:focus {
+    outline: 3px solid #CC0000;
     outline-offset: 2px;
 }
 
@@ -903,6 +1090,43 @@ th {
 
 tr:hover {
     background-color: #FAFAFA;
+}
+
+/* Form validation feedback */
+.form-error {
+    color: #D32F2F;
+    font-size: 14px;
+    margin-top: 4px;
+    display: none;
+}
+
+.form-error.visible {
+    display: block;
+}
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group select:invalid:not(:placeholder-shown) {
+    border-color: #D32F2F;
+}
+
+/* Inline success message (replacement for alert()) */
+.inline-message {
+    display: none;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.inline-message.show {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.inline-message.success {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    border: 2px solid var(--color-secondary);
+    color: #1B5E20;
 }
 
 /* ============================================

@@ -382,15 +382,28 @@
     
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+                <i class="fa fa-bars" aria-hidden="true"></i> Menú
+            </button>
+            <div class="nav-links" id="nav-links">
             <a href="index.html">Inicio</a>
             <a href="para-personas-mayores.html">Para Personas Mayores</a>
             <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
             <a href="el-sistema.html">El Sistema</a>
             <a href="transparencia.html" class="active" aria-current="page">Transparencia</a>
             <a href="contacto.html">Contacto</a>
+            </div>
         </div>
     </nav>
-    
+
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Ubicación">
+            <a href="index.html">Inicio</a>
+            <span class="separator" aria-hidden="true">›</span>
+            <span class="current">Transparencia</span>
+        </nav>
+    </div>
+
     <section class="hero-transparencia" id="main-content" role="main">
         <div class="container">
             <h1>Transparencia y Datos Abiertos</h1>
@@ -904,7 +917,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Accesibilidad: WCAG 2.1 AA</p>
+                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
         <div class="author-disclaimer">
@@ -930,12 +943,12 @@
         
         function toggleHighContrast() {
             const body = document.body;
-            const isHighContrast = body.style.filter === 'contrast(1.5)';
-            body.style.filter = isHighContrast ? 'none' : 'contrast(1.5)';
-            localStorage.setItem('highContrast', isHighContrast ? 'false' : 'true');
-            announceToScreenReader(isHighContrast ? 
-                'Alto contraste desactivado' : 
-                'Alto contraste activado');
+            body.classList.toggle('high-contrast');
+            const isHighContrast = body.classList.contains('high-contrast');
+            localStorage.setItem('highContrast', isHighContrast ? 'true' : 'false');
+            announceToScreenReader(isHighContrast ?
+                'Alto contraste activado' :
+                'Alto contraste desactivado');
         }
         
         function announceToScreenReader(message) {
@@ -958,7 +971,7 @@
             const textSize = localStorage.getItem('textSize');
             if (textSize) document.body.classList.add('text-size-' + textSize);
             if (localStorage.getItem('highContrast') === 'true') {
-                document.body.style.filter = 'contrast(1.5)';
+                document.body.classList.add('high-contrast');
             }
             
             // Animar barras de progreso
