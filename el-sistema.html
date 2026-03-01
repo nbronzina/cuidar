@@ -372,11 +372,11 @@
                             </li>
                             <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                <span>3-5 visitas semanales por usuario según nivel de necesidad</span>
+                                <span>20–100 horas/mes por usuario según nivel de dependencia asignado</span>
                             </li>
                             <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                <span>Trabajo registrado con salario digno y derechos laborales</span>
+                                <span>Trabajo registrado con salario digno, derechos laborales y viático de transporte</span>
                             </li>
                         </ul>
                     </div>
@@ -493,7 +493,124 @@
         </div>
     </section>
 
-    <section style="padding: 60px 0; background-color: white;" aria-labelledby="costos-titulo">
+    <!-- Niveles de servicio -->
+    <section style="padding: 60px 0; background-color: white;" aria-labelledby="niveles-titulo">
+        <div class="container">
+            <h2 id="niveles-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 16px; font-size: 36px;">
+                Niveles de cuidado según tus necesidades
+            </h2>
+            <p style="text-align: center; font-size: 20px; color: #666; margin-bottom: 16px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Una evaluación funcional estandarizada determina qué tipo de acompañamiento necesitás. Tu nivel de ingreso no afecta qué recibís — solo cuánto copagás.
+            </p>
+            <p style="text-align: center; font-size: 15px; color: #999; margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                La evaluación utiliza instrumentos validados por el Ministerio de Salud de la Nación (Índice de Barthel y Mini Examen Cognitivo) aplicados por el equipo del Nodo.
+            </p>
+
+            <div class="row">
+                <!-- Nivel 0 -->
+                <article class="col-md-6" style="margin-bottom: 32px;">
+                    <div style="background-color: #F5F5F5; border-radius: 12px; padding: 32px; height: 100%; border-top: 4px solid #BDBDBD;">
+                        <h3 style="color: #616161; font-size: 22px; margin-bottom: 16px;">
+                            <i class="fa fa-shield" aria-hidden="true"></i> Nivel 0 — Universal
+                        </h3>
+                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">Todas las personas mayores de 65 años inscriptas en CABA</p>
+                        <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #666;">
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #BDBDBD; margin-right: 8px;" aria-hidden="true"></i> Evaluación funcional inicial</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #BDBDBD; margin-right: 8px;" aria-hidden="true"></i> Teleasistencia: botón de emergencia + línea 147</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #BDBDBD; margin-right: 8px;" aria-hidden="true"></i> Acceso al directorio de servicios y derivación al Nodo</li>
+                        </ul>
+                        <p style="font-size: 15px; color: var(--color-secondary); font-weight: 700; margin-top: 16px; margin-bottom: 0;">Sin copago</p>
+                    </div>
+                </article>
+
+                <!-- Nivel 1 -->
+                <article class="col-md-6" style="margin-bottom: 32px;">
+                    <div style="background-color: #E8F5E9; border-radius: 12px; padding: 32px; height: 100%; border-top: 4px solid var(--color-secondary);">
+                        <h3 style="color: var(--color-secondary); font-size: 22px; margin-bottom: 16px;">
+                            <i class="fa fa-leaf" aria-hidden="true"></i> Nivel 1 — Dependencia leve
+                        </h3>
+                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">20–40 horas/mes de cuidadora · Reevaluación anual</p>
+                        <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #666;">
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary); margin-right: 8px;" aria-hidden="true"></i> Cuidadora domiciliaria</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary); margin-right: 8px;" aria-hidden="true"></i> Tita en Modo Normal</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary); margin-right: 8px;" aria-hidden="true"></i> Pulsera de emergencia + sensores</li>
+                        </ul>
+                        <p style="font-size: 15px; color: var(--color-secondary); font-weight: 700; margin-top: 16px; margin-bottom: 0;">Copago: 0% jubilación mínima · hasta 10% otros ingresos</p>
+                    </div>
+                </article>
+
+                <!-- Nivel 2 -->
+                <article class="col-md-6" style="margin-bottom: 32px;">
+                    <div style="background-color: #E3F2FD; border-radius: 12px; padding: 32px; height: 100%; border-top: 4px solid var(--color-primary);">
+                        <h3 style="color: var(--color-primary); font-size: 22px; margin-bottom: 16px;">
+                            <i class="fa fa-hands-helping" aria-hidden="true"></i> Nivel 2 — Dependencia moderada
+                        </h3>
+                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">40–70 horas/mes de cuidadora · Reevaluación cada 6 meses</p>
+                        <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #666;">
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Cuidadora domiciliaria</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Tita + sensor de cama incluido</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Horas adicionales disponibles a tarifa regulada</li>
+                        </ul>
+                        <p style="font-size: 15px; color: var(--color-primary); font-weight: 700; margin-top: 16px; margin-bottom: 0;">Copago: 0% jubilación mínima · hasta 10% medios · hasta 15% altos</p>
+                    </div>
+                </article>
+
+                <!-- Nivel 3 -->
+                <article class="col-md-6" style="margin-bottom: 32px;">
+                    <div style="background-color: #FFF3E0; border-radius: 12px; padding: 32px; height: 100%; border-top: 4px solid var(--color-accent);">
+                        <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 16px;">
+                            <i class="fa fa-heart" aria-hidden="true"></i> Nivel 3 — Dependencia severa
+                        </h3>
+                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">70–100 horas/mes de cuidadora · Reevaluación cada 3 meses</p>
+                        <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #666;">
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent); margin-right: 8px;" aria-hidden="true"></i> Cuidadora domiciliaria + coordinación con equipo de salud</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent); margin-right: 8px;" aria-hidden="true"></i> Tita (Modo Alzheimer si corresponde) + sensor de cama + módulo de baño</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent); margin-right: 8px;" aria-hidden="true"></i> Acceso prioritario a tecnología asistiva adicional</li>
+                        </ul>
+                        <p style="font-size: 15px; color: var(--color-accent); font-weight: 700; margin-top: 16px; margin-bottom: 0;">Copago: 0% jubilación mínima · hasta 10% para el resto (tope reducido)</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Servicios adicionales -->
+            <div style="max-width: 800px; margin: 24px auto 0; background-color: #F5F5F5; border-radius: 12px; padding: 32px; border-left: 4px solid #9E9E9E;">
+                <h3 style="color: #616161; font-size: 20px; margin-bottom: 16px;">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i> Servicios adicionales a través del sistema
+                </h3>
+                <p style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 16px;">
+                    Si necesitás algo que no está incluido en tu nivel, podés contratarlo a tarifa regulada con los mismos profesionales del sistema. El sistema coordina, no cobra comisión.
+                </p>
+                <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #666;">
+                    <li style="padding: 4px 0;"><i class="fa fa-clock-o" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Horas extra de cuidadora por encima de las asignadas al nivel</li>
+                    <li style="padding: 4px 0;"><i class="fa fa-cog" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Tecnología asistiva no incluida en tu nivel (ej. módulo de baño en Nivel 1)</li>
+                    <li style="padding: 4px 0;"><i class="fa fa-ambulance" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Acompañamiento a turnos médicos fuera del Nodo</li>
+                </ul>
+                <p style="font-size: 14px; color: #999; margin-top: 12px; margin-bottom: 0;">
+                    Sujeto a disponibilidad de profesionales en tu zona. Toda la tecnología del sistema está disponible para cualquier nivel si hay indicación clínica del equipo del Nodo.
+                </p>
+            </div>
+
+            <!-- Anti doble velocidad -->
+            <div style="max-width: 800px; margin: 24px auto 0; background-color: #E8F5E9; border-radius: 12px; padding: 24px; text-align: center;">
+                <p style="font-size: 17px; color: #2E7D32; margin: 0; line-height: 1.6;">
+                    <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                    <strong>La evaluación funcional determina qué recibís. Tu ingreso determina cuánto copagás.</strong> Nadie paga más del 15% de su ingreso mensual. Si tus necesidades cambian, tu nivel se actualiza.
+                </p>
+            </div>
+
+            <!-- Fricción: demoras en evaluación -->
+            <div style="max-width: 800px; margin: 24px auto 0;" class="friction-alert">
+                <p style="margin: 0; color: #C62828; font-size: 15px; line-height: 1.6;">
+                    <strong><i class="fa fa-exclamation-triangle"></i> Tiempos reales:</strong>
+                    La evaluación funcional inicial demora entre 15 y 30 días hábiles desde la inscripción.
+                    En algunos Nodos, la disponibilidad de horas para Nivel 3 puede tener lista de espera de hasta 45 días.
+                    La reevaluación puede demorarse si hay alta demanda en tu Nodo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="costos-titulo">
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto;">
                 <div class="card" style="text-align: center; padding: 48px;">
@@ -507,9 +624,9 @@
                     
                     <p style="font-size: 22px; line-height: 1.8; color: #333; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
                         <strong>Gratis</strong> para personas con AUH o jubilación mínima.<br>
-                        <strong>Copago del 10%</strong> para otros casos.
+                        <strong>Copago proporcional</strong> para otros casos, según nivel de cuidado e ingresos.
                     </p>
-                    
+
                     <div style="background-color: #E3F2FD; padding: 32px; border-radius: 12px; border-left: 4px solid var(--color-primary); margin-bottom: 32px; text-align: left;">
                         <h3 style="color: var(--color-primary); margin-bottom: 20px; font-size: 22px;">
                             <i class="fa fa-calculator" aria-hidden="true"></i> Cómo se calcula el copago
@@ -517,15 +634,19 @@
                         <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 2; color: #666;">
                             <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                <span><strong>Gratis (0%):</strong> Si tenés AUH, jubilación mínima, o pensión no contributiva</span>
+                                <span><strong>Gratis (0%):</strong> Si tenés AUH, jubilación mínima, o pensión no contributiva — en cualquier nivel</span>
                             </li>
                             <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                <span><strong>10% de tus ingresos:</strong> Si cobrás jubilación mayor a la mínima o tenés otros ingresos</span>
+                                <span><strong>Hasta 10%:</strong> Para ingresos mayores en Nivel 1 y 2. Hasta 15% en Nivel 2 para ingresos altos</span>
                             </li>
                             <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                <span><strong>Tope máximo:</strong> $350.000/mes (nadie paga más que eso, aunque tenga altos ingresos)</span>
+                                <span><strong>Nivel 3:</strong> Hasta 10% para todos (tope reducido por alta necesidad de cuidado)</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 12px;">
+                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <span><strong>Tope absoluto:</strong> Nadie paga más del 15% de su ingreso mensual en cuidados del sistema</span>
                             </li>
                         </ul>
                     </div>
@@ -538,17 +659,17 @@
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-secondary);">
                                 <p style="margin: 0; color: #333; line-height: 1.6;">
-                                    <strong>Caso 1:</strong> Marta cobra jubilación mínima ($680.000) → <span style="color: var(--color-secondary); font-weight: 700;">Paga $0</span>
+                                    <strong>Caso 1:</strong> Marta cobra jubilación mínima ($680.000), Nivel 2 → <span style="color: var(--color-secondary); font-weight: 700;">Paga $0</span>
                                 </p>
                             </div>
                             <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-secondary);">
                                 <p style="margin: 0; color: #333; line-height: 1.6;">
-                                    <strong>Caso 2:</strong> Roberto cobra $1.200.000/mes de jubilación → <span style="color: var(--color-secondary); font-weight: 700;">Paga $120.000/mes</span> (10%)
+                                    <strong>Caso 2:</strong> Roberto cobra $1.200.000/mes, Nivel 1 → <span style="color: var(--color-secondary); font-weight: 700;">Paga $120.000/mes</span> (10%)
                                 </p>
                             </div>
                             <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-secondary);">
                                 <p style="margin: 0; color: #333; line-height: 1.6;">
-                                    <strong>Caso 3:</strong> Nélida cobra $4.000.000/mes → <span style="color: var(--color-secondary); font-weight: 700;">Paga $350.000/mes</span> (tope máximo)
+                                    <strong>Caso 3:</strong> Nélida cobra $4.000.000/mes, Nivel 3 → <span style="color: var(--color-secondary); font-weight: 700;">Paga $400.000/mes</span> (10%, tope reducido por alta necesidad)
                                 </p>
                             </div>
                         </div>
@@ -565,10 +686,10 @@
                                 <i class="fa fa-check" aria-hidden="true"></i> Incluido sin costo adicional:
                             </h4>
                             <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #666;">
-                                <li>Visitas de la persona cuidadora (3-5 veces por semana)</li>
-                                <li>Tita (compañera IA), sensor de cama, módulo urinario y sensores en el hogar</li>
+                                <li>Visitas de la persona cuidadora (20–100 horas/mes según nivel asignado)</li>
+                                <li>Tita, sensores y tecnología asistiva según nivel (ver detalle arriba)</li>
                                 <li>Pulsera de emergencia</li>
-                                <li>Evaluaciones médicas periódicas</li>
+                                <li>Evaluaciones funcionales periódicas (anual, semestral o trimestral según nivel)</li>
                                 <li>Actividades en Centros de Día</li>
                             </ul>
                         </div>
@@ -638,12 +759,13 @@
                     <div class="flow-number">2</div>
                     <div class="flow-content">
                         <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 12px;">
-                            Evaluación domiciliaria
+                            Evaluación funcional domiciliaria
                         </h3>
                         <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
-                            Un equipo interdisciplinario (médico geriatra, trabajador social, enfermero) 
-                            visita el domicilio. Evalúan <strong>nivel de autonomía</strong>, condiciones de vivienda, 
-                            red de apoyo familiar. Duración: 90 minutos.
+                            Un equipo interdisciplinario (médico geriatra, trabajador social, enfermero)
+                            visita el domicilio. Aplican la evaluación funcional estandarizada (Barthel + MEC) para determinar
+                            el <strong>nivel de cuidado</strong>. También evalúan condiciones de vivienda y red de apoyo familiar. Duración: 90 minutos.
+                            <span class="friction-badge">La evaluación puede demorar 15-30 días hábiles desde la inscripción</span>
                         </p>
                     </div>
                 </div>
@@ -652,12 +774,12 @@
                     <div class="flow-number">3</div>
                     <div class="flow-content">
                         <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 12px;">
-                            Plan personalizado
+                            Asignación de nivel y plan de cuidado
                         </h3>
                         <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
-                            Según la evaluación, se define: <strong>frecuencia de visitas</strong> (3-5 por semana), 
-                            <strong>horarios</strong>, servicios necesarios (centro de día, asistencia psicológica, etc.), 
-                            y <strong>copago</strong> según ingresos.
+                            Según la evaluación funcional, se asigna un <strong>nivel de cuidado</strong> (1, 2 o 3) que determina
+                            las horas de cuidadora (20–100/mes), la tecnología incluida y la frecuencia de reevaluación.
+                            El <strong>copago</strong> se calcula según ingresos, no según el nivel asignado.
                         </p>
                     </div>
                 </div>
@@ -669,10 +791,11 @@
                             Asignación de persona cuidadora
                         </h3>
                         <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
-                            El Nodo asigna una <strong>persona cuidadora de la zona</strong> con perfil compatible. 
-                            Se hace una <strong>reunión de presentación</strong> en el domicilio (usuario, persona cuidadora, coordinador). 
+                            El Nodo asigna una <strong>persona cuidadora asignada a esa zona</strong> con perfil compatible.
+                            Las cuidadoras se asignan al Nodo con mejor accesibilidad desde su lugar de residencia.
+                            Se hace una <strong>reunión de presentación</strong> en el domicilio (usuario, persona cuidadora, coordinador).
                             Si no hay feeling, se puede cambiar.
-                            <span class="friction-badge">Proceso de asignación: 7-14 días. En zona sur puede demorar hasta 3 semanas por escasez de personas cuidadoras</span>
+                            <span class="friction-badge">Proceso de asignación: 7-14 días. En algunos Nodos del sur la disponibilidad es menor, lo que puede extender la asignación hasta 3 semanas</span>
                         </p>
                     </div>
                 </div>
@@ -869,11 +992,11 @@
                                 </li>
                                 <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                     <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                    <span><strong>Personas cuidadoras humanas:</strong> 3-5 visitas semanales presenciales</span>
+                                    <span><strong>Personas cuidadoras humanas:</strong> 20–100 horas/mes según nivel de dependencia</span>
                                 </li>
                                 <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                     <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                    <span><strong>Costo:</strong> Gratis para AUH/jubilación mínima, 10% copago para otros</span>
+                                    <span><strong>Costo:</strong> Gratis para AUH/jubilación mínima. Copago proporcional (hasta 15% del ingreso) para el resto</span>
                                 </li>
                             </ul>
                             <div style="margin-top: 20px; padding: 16px; background-color: #E8F5E9; border-radius: 8px;">
