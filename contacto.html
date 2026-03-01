@@ -10,7 +10,7 @@
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-contacto {
-            background: linear-gradient(135deg, rgba(0,114,187,0.95), rgba(0,90,146,0.95)),
+            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
                         url('https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=1600&h=400&fit=crop') center/cover;
             color: white;
             padding: 60px 0;
@@ -47,7 +47,7 @@
             text-align: center;
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             transition: all 0.3s;
-            border-top: 4px solid #0072BB;
+            border-top: 4px solid #1A5276;
         }
         
         .contact-card:hover {
@@ -56,21 +56,21 @@
         }
         
         .contact-card.primary {
-            border-top-color: #0072BB;
+            border-top-color: #1A5276;
         }
         
         .contact-card.success {
-            border-top-color: #66BB6A;
+            border-top-color: #2E7D32;
         }
         
         .contact-card.warning {
-            border-top-color: #FF9800;
+            border-top-color: #E65100;
         }
         
         .contact-icon {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #0072BB, #005A92);
+            background: linear-gradient(135deg, #1A5276, #0D3B5E);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -78,17 +78,17 @@
             margin: 0 auto 24px;
             font-size: 48px;
             color: white;
-            box-shadow: 0 4px 12px rgba(0,114,187,0.3);
+            box-shadow: 0 4px 12px rgba(26,82,118,0.3);
         }
         
         .contact-card.success .contact-icon {
-            background: linear-gradient(135deg, #66BB6A, #43A047);
-            box-shadow: 0 4px 12px rgba(102,187,106,0.3);
+            background: linear-gradient(135deg, #2E7D32, #1B5E20);
+            box-shadow: 0 4px 12px rgba(46,125,50,0.3);
         }
         
         .contact-card.warning .contact-icon {
-            background: linear-gradient(135deg, #FF9800, #F57C00);
-            box-shadow: 0 4px 12px rgba(255,152,0,0.3);
+            background: linear-gradient(135deg, #E65100, #BF360C);
+            box-shadow: 0 4px 12px rgba(230,81,0,0.3);
         }
         
         .contact-card h3 {
@@ -98,7 +98,7 @@
         }
         
         .contact-card p {
-            color: #666;
+            color: #444;
             margin-bottom: 24px;
             line-height: 1.6;
         }
@@ -106,7 +106,7 @@
         .contact-card .contact-info {
             font-size: 20px;
             font-weight: 700;
-            color: #0072BB;
+            color: #1A5276;
             margin-bottom: 20px;
             display: block;
         }
@@ -137,7 +137,7 @@
         }
         
         .form-container h2 {
-            color: #0072BB;
+            color: #1A5276;
             margin-bottom: 32px;
             text-align: center;
         }
@@ -169,8 +169,8 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #0072BB;
-            box-shadow: 0 0 0 3px rgba(0,114,187,0.1);
+            border-color: #1A5276;
+            box-shadow: 0 0 0 3px rgba(26,82,118,0.1);
         }
         
         .form-group textarea {
@@ -180,7 +180,7 @@
         
         .btn-submit {
             width: 100%;
-            background: linear-gradient(135deg, #0072BB, #005A92);
+            background: linear-gradient(135deg, #1A5276, #0D3B5E);
             color: white;
             padding: 16px;
             border: none;
@@ -197,19 +197,19 @@
         
         .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,114,187,0.3);
+            box-shadow: 0 6px 20px rgba(26,82,118,0.3);
         }
         
         .info-banner {
             background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
-            border-left: 4px solid #0072BB;
+            border-left: 4px solid #1A5276;
             padding: 24px;
             border-radius: 8px;
             margin-bottom: 40px;
         }
         
         .info-banner h3 {
-            color: #0072BB;
+            color: #1A5276;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -259,7 +259,7 @@
         }
         
         .faq-section h2 {
-            color: #0072BB;
+            color: #1A5276;
             margin-bottom: 32px;
             text-align: center;
         }
@@ -279,7 +279,7 @@
         }
         
         .faq-item p {
-            color: #666;
+            color: #444;
             margin: 0;
             line-height: 1.6;
         }
@@ -309,14 +309,20 @@
             <button onclick="toggleHighContrast()" aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
+            <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
+                <i class="fa fa-phone" aria-hidden="true"></i> 147
+            </a>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo">
-                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                <span>Cuidados en Red</span>
+                <span class="escudo-placeholder" aria-hidden="true"><i class="fa fa-institution"></i></span>
+                <div class="logo-text">
+                    <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
+                    <span class="program-name">Cuidados en Red</span>
+                </div>
             </a>
         </div>
     </header>
@@ -387,7 +393,7 @@
                         <span><strong>Trámite:</strong> podés consultar estado de solicitud, tu nivel de cuidado, próxima reevaluación, sacar turnos o inscribirte</span>
                     </li>
                     <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                        <i class="fa fa-shield" style="color: var(--color-purple, #7B1FA2); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <i class="fa fa-shield" style="color: var(--color-purple, #6A1B9A); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
                         <span><strong>Situación de riesgo:</strong> se activa el protocolo de actuación de forma prioritaria</span>
                     </li>
                 </ul>
@@ -409,40 +415,40 @@
             </div>
             
 <!-- BLOQUE REALITY CHECK - FRICCIÓN REALISTA -->
-            <div class="reality-check" style="margin-bottom: 40px; background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left: 4px solid #FF9800; padding: 24px; border-radius: 8px;">
+            <div class="reality-check" style="margin-bottom: 40px; background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left: 4px solid #E65100; padding: 24px; border-radius: 8px;">
                 <h3 style="color: #e65100; margin-bottom: 16px; font-size: 20px; display: flex; align-items: center; gap: 8px;">
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     Tiempos de respuesta y limitaciones
                 </h3>
                 <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #E65100;">⚠</span>
                         <strong>Línea 147:</strong> En horarios pico (8-11am y 16-18hs) la espera para hablar con una persona puede ser de hasta 2 minutos.
                         Si tu consulta requiere evaluación clínica, la derivación al profesional del Nodo puede demorar 24-48 horas hábiles.
                         El sistema puede no entender bien si hay mucho ruido de fondo.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #E65100;">⚠</span>
                         <strong>WhatsApp:</strong> El horario publicado es Lun-Vie 8-20hs, pero en la práctica hay demoras de hasta 
                         4-6 horas en períodos de alta demanda. Los fines de semana no hay respuestas.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #E65100;">⚠</span>
                         <strong>Email:</strong> Aunque prometemos 48hs, el 35% de los emails reciben respuesta después de 72hs. 
                         Para urgencias, no uses este canal.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #E65100;">⚠</span>
                         <strong>Nodos presenciales:</strong> Sin turno previo, podés esperar 1-2 horas en días de alta concurrencia 
                         (especialmente lunes y viernes). Algunos Nodos cierran 30min antes del horario oficial si no hay más gente.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #E65100;">⚠</span>
                         <strong>Formulario web:</strong> Este formulario genera un ticket pero no garantiza respuesta inmediata. 
                         El 22% de las consultas por este medio no reciben seguimiento debido a errores en el email proporcionado.
                     </li>
-                    <li style="margin-bottom: 0; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #FF9800;">⚠</span>
+                    <li style="margin-bottom: 0; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
+                        <span style="position: absolute; left: 0; color: #E65100;">⚠</span>
                         <strong>Redes sociales:</strong> Son solo informativas. Los mensajes directos no reciben respuesta. 
                         Muchos usuarios reportan frustración por esperar respuestas que nunca llegan.
                     </li>
@@ -649,7 +655,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><i class="fa fa-institution" aria-hidden="true"></i></span> &copy; 2032 Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
         <!-- DISCLAIMER DE AUTORÍA -->

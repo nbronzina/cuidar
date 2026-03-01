@@ -15,29 +15,20 @@
 }
 
 :root {
-    --color-primary: #0072BB;
-    --color-secondary: #66BB6A;
-    --color-accent: #FF9800;
+    --color-primary: #1A5276;
+    --color-secondary: #2E7D32;
+    --color-accent: #E65100;
     --color-warm: #FFF8E1;
-    --color-purple: #9C27B0;
+    --color-purple: #7B1FA2;
     --color-dark: #2C3E50;
-    --color-gray: #666666;
+    --color-gray: #444444;
     --color-light-gray: #F5F5F5;
-    
-    /* NUEVOS: Colores para fricción */
+
+    /* Colores para fricción */
     --color-friction-warning: #FFF3CD;
     --color-friction-warning-dark: #856404;
     --color-friction-warning-border: #FFC107;
-    --color-friction-emphasis: #F57C00;
-
-    /* Escala tipográfica */
-    --text-sm: 0.875rem;
-    --text-base: 1rem;
-    --text-lg: 1.125rem;
-    --text-xl: 1.25rem;
-    --text-2xl: 1.5rem;
-    --text-3xl: 1.75rem;
-    --text-4xl: 2.25rem;
+    --color-friction-emphasis: #E65100;
 
     /* Escala de spacing */
     --space-1: 0.25rem;
@@ -58,14 +49,27 @@
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
+    font-size: 19px;
     line-height: 1.6;
     color: #333;
     background-color: #FFFFFF;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+h3, h4 {
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 1rem;
+}
+
+h5, h6 {
+    font-weight: 700;
+    line-height: 1.4;
     margin-bottom: 1rem;
 }
 
@@ -87,7 +91,7 @@ a {
 }
 
 a:hover {
-    color: #005A92;
+    color: #0D3B5E;
 }
 
 /* ============================================
@@ -113,7 +117,22 @@ a:hover {
     background-color: #2C3E50;
     color: white;
     padding: 8px 0;
-    font-size: 14px;
+    font-size: 16px;
+}
+
+.accessibility-bar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.accessibility-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
 }
 
 .accessibility-bar button {
@@ -123,7 +142,7 @@ a:hover {
     cursor: pointer;
     padding: 4px 12px;
     margin: 0 4px;
-    border-radius: 4px;
+    border-radius: 12px;
     transition: all 0.3s;
 }
 
@@ -144,17 +163,38 @@ a:hover {
     margin-right: 4px;
 }
 
+.accessibility-phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.accessibility-phone:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.accessibility-phone i {
+    margin-right: 2px;
+}
+
 /* Tamaños de texto */
 .text-size-normal {
-    font-size: 16px;
+    font-size: 19px;
 }
 
 .text-size-large {
-    font-size: 18px;
+    font-size: 21px;
 }
 
 .text-size-xlarge {
-    font-size: 20px;
+    font-size: 23px;
 }
 
 /* ============================================
@@ -203,8 +243,8 @@ a:hover {
    ============================================ */
 
 .header-gcba {
-    background: linear-gradient(135deg, var(--color-primary), #005A92);
-    padding: 20px 0;
+    background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
+    padding: 16px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -213,8 +253,6 @@ a:hover {
     align-items: center;
     gap: 12px;
     color: white;
-    font-size: 24px;
-    font-weight: 700;
     text-decoration: none;
     transition: all 0.3s;
 }
@@ -224,8 +262,31 @@ a:hover {
     opacity: 0.9;
 }
 
-.logo .icon {
-    font-size: 32px;
+/* TODO: Reemplazar con SVG del escudo de la Ciudad (Ley 4.408/2012) */
+.logo .escudo-placeholder {
+    font-size: 36px;
+    opacity: 0.95;
+    flex-shrink: 0;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.logo-text .institutional {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.85;
+    letter-spacing: 0.3px;
+}
+
+.logo-text .program-name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
 }
 
 /* ============================================
@@ -316,7 +377,7 @@ a:hover {
 
 .breadcrumb {
     padding: 12px 0;
-    font-size: 14px;
+    font-size: 16px;
     color: #767676;
 }
 
@@ -350,7 +411,7 @@ a:hover {
     font-weight: 600;
     text-align: center;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: all 0.3s;
     cursor: pointer;
     border: 2px solid transparent;
@@ -362,9 +423,9 @@ a:hover {
 }
 
 .btn-primary:hover {
-    background-color: #005A92;
+    background-color: #0D3B5E;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 114, 187, 0.3);
+    box-shadow: 0 4px 12px rgba(26, 82, 118, 0.3);
     color: white;
 }
 
@@ -385,7 +446,7 @@ a:hover {
 }
 
 .btn-success:hover {
-    background-color: #43A047;
+    background-color: #1B5E20;
     color: white;
 }
 
@@ -395,7 +456,7 @@ a:hover {
 }
 
 .btn-warning:hover {
-    background-color: #F57C00;
+    background-color: #BF360C;
     color: white;
 }
 
@@ -447,7 +508,7 @@ footer a {
 
 footer a:hover {
     color: white;
-    padding-left: 8px;
+    text-decoration: underline;
 }
 
 .footer-legal {
@@ -459,8 +520,14 @@ footer a:hover {
 
 .footer-legal p {
     color: rgba(255, 255, 255, 0.75);
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
+}
+
+.footer-escudo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* ============================================
@@ -469,7 +536,7 @@ footer a:hover {
 
 .author-disclaimer {
     background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
-    border-top: 3px solid #FF9800;
+    border-top: 3px solid #E65100;
     padding: 24px 20px;
     margin-top: 40px;
     text-align: center;
@@ -480,7 +547,7 @@ footer a:hover {
     margin: 0 auto;
     padding: 0;
     color: #5D4037;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.8;
     text-align: center;
     display: block;
@@ -493,7 +560,7 @@ footer a:hover {
 
 .author-disclaimer i {
     margin-right: 8px;
-    color: #FF9800;
+    color: #E65100;
 }
 
 /* ============================================
@@ -512,7 +579,7 @@ footer a:hover {
     text-align: center;
     font-size: 40px;
     box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
-    z-index: 1000;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -527,7 +594,7 @@ footer a:hover {
 }
 
 /* ============================================
-   COMPONENTES DE FRICCIÓN (10%)
+   COMPONENTES DE FRICCIÓN
    ============================================ */
 
 /* Badge de fricción - Para mostrar limitaciones sutiles */
@@ -536,15 +603,15 @@ footer a:hover {
     background-color: var(--color-friction-warning);
     color: var(--color-friction-warning-dark);
     padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 13px;
+    border-radius: 12px;
+    font-size: 16px;
     font-weight: 500;
     margin-top: 8px;
 }
 
 /* Tiempos de espera en pasos */
 .step-time {
-    font-size: 13px;
+    font-size: 16px;
     opacity: 0.85;
     font-weight: 400;
     margin-top: 8px;
@@ -558,7 +625,7 @@ footer a:hover {
     padding: 24px 32px;
     margin: 32px auto;
     max-width: 900px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: left;
 }
 
@@ -576,7 +643,7 @@ footer a:hover {
 .reality-check ul {
     margin: 16px 0 0 0;
     padding-left: 24px;
-    color: #666;
+    color: #444;
     line-height: 1.8;
 }
 
@@ -603,7 +670,7 @@ footer a:hover {
 }
 
 .stat-sublabel {
-    font-size: 14px;
+    font-size: 16px;
     color: #767676;
     margin-top: 8px;
 }
@@ -612,7 +679,7 @@ footer a:hover {
 .system-status {
     background-color: #FFF9E6;
     border: 1px solid var(--color-friction-warning-border);
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 16px 24px;
     margin-bottom: 24px;
     display: flex;
@@ -633,8 +700,8 @@ footer a:hover {
 
 .system-status-content p {
     margin: 0;
-    color: #666;
-    font-size: 14px;
+    color: #444;
+    font-size: 16px;
 }
 
 /* Lista de espera inline */
@@ -644,7 +711,7 @@ footer a:hover {
     color: var(--color-friction-emphasis);
     padding: 4px 10px;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     margin-left: 8px;
 }
@@ -653,9 +720,9 @@ footer a:hover {
 .priority-disclaimer {
     background-color: #FFF9E6;
     padding: 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    color: #666;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #444;
     margin-top: 16px;
 }
 
@@ -727,63 +794,77 @@ footer a:hover {
     h1 { font-size: 1.75rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.25rem; }
-    
+
     .main-nav .container {
         flex-direction: column;
         gap: 0;
     }
-    
+
     .main-nav a {
         padding: 12px 16px;
         border-bottom: 1px solid #E0E0E0;
     }
-    
-    .logo {
+
+    .logo-text .institutional {
+        display: none;
+    }
+
+    .logo-text .program-name {
         font-size: 18px;
     }
-    
-    .logo .icon {
-        font-size: 24px;
+
+    .logo .escudo-placeholder {
+        font-size: 28px;
     }
-    
+
     footer {
         padding: 40px 0 0;
     }
-    
+
     .whatsapp-float {
-        width: 60px;
-        height: 60px;
-        font-size: 32px;
-        bottom: 20px;
+        width: 56px;
+        height: 56px;
+        font-size: 30px;
+        bottom: 80px;
         right: 20px;
     }
-    
+
     .author-disclaimer {
         padding: 20px 15px;
     }
-    
+
     .author-disclaimer p {
-        font-size: 13px;
+        font-size: 16px;
         text-align: center;
     }
-    
+
     /* Fricción responsive */
     .reality-check {
         padding: 20px 24px;
         margin: 24px 16px;
     }
-    
+
     .reality-check h4 {
         font-size: 16px;
     }
-    
+
     .reality-check ul {
         padding-left: 20px;
     }
-    
+
     .friction-badge {
-        font-size: 12px;
+        font-size: 16px;
         padding: 3px 10px;
+    }
+
+    .accessibility-bar .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .accessibility-phone {
+        margin-top: 4px;
     }
 }
 
@@ -791,7 +872,7 @@ footer a:hover {
     .container {
         padding: 0 15px;
     }
-    
+
     .btn {
         display: block;
         width: 100%;
@@ -928,12 +1009,12 @@ body.high-contrast *:focus {
     .reality-check {
         display: none;
     }
-    
+
     body {
         font-size: 12pt;
         color: black;
     }
-    
+
     a {
         text-decoration: underline;
     }
@@ -946,7 +1027,7 @@ body.high-contrast *:focus {
 /* Alerts y Banners */
 .alert {
     padding: 16px 24px;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 20px;
     border-left: 4px solid;
 }
@@ -997,7 +1078,7 @@ body.high-contrast *:focus {
 }
 
 .card-body {
-    color: #666;
+    color: #444;
     line-height: 1.8;
 }
 
@@ -1005,7 +1086,7 @@ body.high-contrast *:focus {
 .badge {
     display: inline-block;
     padding: 4px 12px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     border-radius: 12px;
     text-transform: uppercase;
@@ -1043,7 +1124,7 @@ body.high-contrast *:focus {
     width: 100%;
     padding: 12px 16px;
     border: 2px solid #E0E0E0;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     transition: all 0.3s;
@@ -1052,7 +1133,7 @@ body.high-contrast *:focus {
 .form-control:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(0, 114, 187, 0.1);
+    box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
 }
 
 textarea.form-control {
@@ -1095,7 +1176,7 @@ tr:hover {
 /* Form validation feedback */
 .form-error {
     color: #D32F2F;
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 4px;
     display: none;
 }

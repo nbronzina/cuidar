@@ -10,7 +10,7 @@
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-personas {
-            background: linear-gradient(135deg, rgba(255,152,0,0.95), rgba(245,124,0,0.95)),
+            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
                         url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1600&h=500&fit=crop') center/cover;
             color: white;
             padding: 80px 0;
@@ -50,7 +50,7 @@
         .service-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -140,7 +140,7 @@
             padding-left: 48px;
             font-size: 18px;
             line-height: 1.8;
-            color: #666;
+            color: #444;
         }
         
         .timeline {
@@ -182,12 +182,12 @@
         }
         
         .cta-box {
-            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
             color: white;
             padding: 48px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 8px 24px rgba(102,187,106,0.3);
+            box-shadow: 0 8px 24px rgba(46,125,50,0.3);
         }
         
         @media (max-width: 767px) {
@@ -224,14 +224,20 @@
             <button onclick="toggleHighContrast()" aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
+            <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
+                <i class="fa fa-phone" aria-hidden="true"></i> 147
+            </a>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo">
-                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                <span>Cuidados en Red</span>
+                <span class="escudo-placeholder" aria-hidden="true"><i class="fa fa-institution"></i></span>
+                <div class="logo-text">
+                    <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
+                    <span class="program-name">Cuidados en Red</span>
+                </div>
             </a>
         </div>
     </header>
@@ -296,7 +302,7 @@
             <h2 id="servicios-titulo" style="color: var(--color-accent); text-align: center; margin-bottom: 24px; font-size: 36px;">
                 ¿Qué recibís con Cuidados en Red?
             </h2>
-            <p style="text-align: center; font-size: 20px; color: #666; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p style="text-align: center; font-size: 20px; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
                 No es solo una persona cuidadora. Es todo un sistema pensado para vos.
             </p>
             
@@ -309,7 +315,7 @@
                         <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 16px; text-align: center;">
                             Una persona que te cuida
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #444;">
                             <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
                                 <span>Te acompaña entre 20 y 100 horas por mes, según lo que necesites</span>
@@ -332,13 +338,13 @@
                 
                 <article class="col-md-4">
                     <div class="service-card">
-                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-accent), #F57C00);">
+                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-accent), #BF360C);">
                             <i class="fa fa-microphone" aria-hidden="true"></i>
                         </div>
                         <h3 style="color: var(--color-accent); font-size: 24px; margin-bottom: 16px; text-align: center;">
                             Tita, tu compañera
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #444;">
                             <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
                                 <span>Hablá con ella como con una amiga — funciona con tu voz, no hay que tocar nada</span>
@@ -361,13 +367,13 @@
                 
                 <article class="col-md-4">
                     <div class="service-card">
-                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-primary), #005A92);">
+                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-primary), #0D3B5E);">
                             <i class="fa fa-shield" aria-hidden="true"></i>
                         </div>
                         <h3 style="color: var(--color-primary); font-size: 24px; margin-bottom: 16px; text-align: center;">
                             Tecnología que te cuida
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #666;">
+                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #444;">
                             <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
                                 <span>Pulsera de emergencia + sensores de movimiento</span>
@@ -395,7 +401,7 @@
                     <summary style="padding: 24px 32px; cursor: pointer; font-size: 22px; font-weight: 700; color: var(--color-accent); list-style: none; display: flex; align-items: center; gap: 12px;">
                         <i class="fa fa-heart" aria-hidden="true" style="flex-shrink: 0;"></i>
                         ¿Tu familiar tiene deterioro cognitivo?
-                        <i class="fa fa-chevron-down" aria-hidden="true" style="margin-left: auto; font-size: 14px; transition: transform 0.3s;"></i>
+                        <i class="fa fa-chevron-down" aria-hidden="true" style="margin-left: auto; font-size: 16px; transition: transform 0.3s;"></i>
                     </summary>
                     <div style="padding: 0 32px 32px; font-size: 18px; line-height: 1.8; color: #555;">
                         <p style="margin-bottom: 16px;">
@@ -465,7 +471,7 @@
                             <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
                                 Seguís en tu casa
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 No tenés que ir a un geriátrico ni mudarte. Te cuidamos donde vos querés estar.
                             </p>
                         </div>
@@ -481,7 +487,7 @@
                             <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
                                 Menos soledad
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Tenés con quien charlar, compartir un mate, contar tus historias.
                             </p>
                         </div>
@@ -497,7 +503,7 @@
                             <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
                                 Mejor salud
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Te ayudamos a tomar tus medicamentos a horario y controlar tu salud. El sensor de cama y el módulo del baño monitorean tu bienestar todos los días sin que tengas que hacer nada.
                             </p>
                         </div>
@@ -513,7 +519,7 @@
                             <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
                                 Detección temprana
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Tita y tu persona cuidadora están atentas a cambios sutiles en tu memoria y tu habla. Si notan algo, avisan al Nodo para que te vea un profesional — mucho antes de que sea tarde.
                             </p>
                         </div>
@@ -529,7 +535,7 @@
                             <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
                                 Más tranquilidad
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Sabés que si pasa algo, hay alguien que te va a ayudar de inmediato.
                             </p>
                         </div>
@@ -545,7 +551,7 @@
                             <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
                                 Más independencia
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Te ayudamos con las tareas difíciles para que puedas hacer lo que te gusta.
                             </p>
                         </div>
@@ -561,7 +567,7 @@
                             <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
                                 Dignidad y respeto
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 La persona cuidadora respeta tus tiempos, tus gustos, tu forma de ser.
                             </p>
                         </div>
@@ -577,7 +583,7 @@
             <h2 id="dia-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 24px; font-size: 36px;">
                 Un día con Cuidados en Red
             </h2>
-            <p style="text-align: center; font-size: 20px; color: #666; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p style="text-align: center; font-size: 20px; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
                 Así es un día típico de María, usuaria de Cuidados en Red
             </p>
             
@@ -588,7 +594,7 @@
                             <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 8:00 AM
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Tita te saluda: "Buen día, María. Hoy es martes, hace 18 grados". Te recuerda tus medicamentos. Mientras tanto, el sensor de cama ya mandó al Nodo que dormiste bien anoche.
                             </p>
                         </div>
@@ -597,7 +603,7 @@
                             <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 10:00 AM
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Llega Carlos, tu cuidador. Tomás un mate juntos mientras charlan. Carlos ya vio en su app que dormiste bien y que los valores del baño están normales.
                             </p>
                         </div>
@@ -606,7 +612,7 @@
                             <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 AM
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Van juntos al supermercado del barrio. Carlos te ayuda a cargar las bolsas.
                             </p>
                         </div>
@@ -615,7 +621,7 @@
                             <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Preparan el almuerzo juntos. Carlos te ayuda a cortar las verduras.
                             </p>
                         </div>
@@ -624,7 +630,7 @@
                             <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 3:00 PM
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Videollamada con tu nieto por Tita. Le contás cómo te fue en la semana.
                             </p>
                         </div>
@@ -633,7 +639,7 @@
                             <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 7:00 PM
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Tita te recuerda tu medicación de la noche. "¿Querés que te ponga Sábados Circulares?" Le decís que sí y te pone tu programa favorito. También te recuerda tomar agua — el módulo del baño notó que estás un poco deshidratada.
                             </p>
                         </div>
@@ -642,7 +648,7 @@
                             <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 PM
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #666; margin: 0;">
+                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                                 Te acostás tranquila sabiendo que si pasa algo, el sensor de cama y la pulsera de emergencia están ahí. Y si la pulsera no te resulta cómoda, el sensor de cama y Tita cubren la noche.
                             </p>
                         </div>
@@ -897,7 +903,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><i class="fa fa-institution" aria-hidden="true"></i></span> &copy; 2032 Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
         <!-- DISCLAIMER DE AUTORÍA -->

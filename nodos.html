@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         .hero-nodos {
-            background: linear-gradient(135deg, rgba(102,187,106,0.95), rgba(67,160,71,0.95)),
+            background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(27,94,32,0.95)),
                         url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1600&h=400&fit=crop') center/cover;
             color: white;
             padding: 60px 0;
@@ -64,7 +64,7 @@
         .filter-bar select:focus {
             outline: none;
             border-color: var(--color-secondary);
-            box-shadow: 0 0 0 3px rgba(102,187,106,0.1);
+            box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
         }
         
         #map {
@@ -77,30 +77,30 @@
         
         .leaflet-popup-content h3 {
             margin: 0 0 8px 0;
-            color: #66BB6A;
+            color: #2E7D32;
             font-size: 16px;
         }
         
         .leaflet-popup-content p {
             margin: 4px 0;
-            font-size: 13px;
-            color: #666;
+            font-size: 16px;
+            color: #444;
         }
         
         .leaflet-popup-content a {
             display: inline-block;
             margin-top: 8px;
             padding: 6px 12px;
-            background-color: #66BB6A;
+            background-color: #2E7D32;
             color: white;
             text-decoration: none;
             border-radius: 4px;
-            font-size: 12px;
+            font-size: 16px;
             font-weight: 600;
         }
         
         .leaflet-popup-content a:hover {
-            background-color: #43A047;
+            background-color: #1B5E20;
         }
         
         .nodo-card {
@@ -131,7 +131,7 @@
         .nodo-number {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -140,7 +140,7 @@
             font-weight: 700;
             font-size: 32px;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(102,187,106,0.3);
+            box-shadow: 0 4px 12px rgba(46,125,50,0.3);
         }
         
         .nodo-title {
@@ -155,7 +155,7 @@
         
         .nodo-title .comunas {
             color: #999;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -194,13 +194,13 @@
         .info-content strong {
             display: block;
             color: #333;
-            font-size: 14px;
+            font-size: 16px;
             margin-bottom: 4px;
         }
         
         .info-content span,
         .info-content a {
-            color: #666;
+            color: #444;
             font-size: 16px;
             line-height: 1.6;
         }
@@ -230,7 +230,7 @@
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
-            font-size: 15px;
+            font-size: 16px;
         }
         
         .btn-primary {
@@ -239,7 +239,7 @@
         }
         
         .btn-primary:hover {
-            background-color: #005A92;
+            background-color: #0D3B5E;
             transform: translateY(-2px);
             color: white;
         }
@@ -250,7 +250,7 @@
         }
         
         .btn-secondary:hover {
-            background-color: #43A047;
+            background-color: #1B5E20;
             transform: translateY(-2px);
             color: white;
         }
@@ -284,13 +284,13 @@
         }
         
         .stats-box {
-            background: linear-gradient(135deg, var(--color-accent), #F57C00);
+            background: linear-gradient(135deg, var(--color-accent), #BF360C);
             color: white;
             padding: 32px;
             border-radius: 12px;
             text-align: center;
             margin-bottom: 32px;
-            box-shadow: 0 4px 16px rgba(255,152,0,0.3);
+            box-shadow: 0 4px 16px rgba(230,81,0,0.3);
         }
         
         .stats-box h2 {
@@ -354,14 +354,20 @@
             <button onclick="toggleHighContrast()" aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
+            <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
+                <i class="fa fa-phone" aria-hidden="true"></i> 147
+            </a>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo">
-                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                <span>Cuidados en Red</span>
+                <span class="escudo-placeholder" aria-hidden="true"><i class="fa fa-institution"></i></span>
+                <div class="logo-text">
+                    <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
+                    <span class="program-name">Cuidados en Red</span>
+                </div>
             </a>
         </div>
     </header>
@@ -435,7 +441,7 @@
             <div class="stats-box">
                 <h2><i class="fa fa-map-marker" aria-hidden="true"></i> 16</h2>
                 <p>Nodos operativos en todas las comunas de CABA</p>
-                <p style="font-size: 14px; margin-top: 12px; opacity: 0.9;">
+                <p style="font-size: 16px; margin-top: 12px; opacity: 0.9;">
                     <i class="fa fa-clock-o" aria-hidden="true"></i> 
                     Tiempos de espera: 2-4 semanas en zona norte, disponibilidad inmediata en zona sur
                 </p>
@@ -912,13 +918,13 @@
                             </div>
                         </div>
                         
-                        <div class="info-item" style="background-color: #FFF3E0; border-left: 3px solid #FF9800; padding: 12px; border-radius: 4px; margin-top: 12px;">
+                        <div class="info-item" style="background-color: #FFF3E0; border-left: 3px solid #E65100; padding: 12px; border-radius: 4px; margin-top: 12px;">
                             <div class="info-icon">
-                                <i class="fa fa-clock-o" aria-hidden="true" style="color: #FF9800;"></i>
+                                <i class="fa fa-clock-o" aria-hidden="true" style="color: #E65100;"></i>
                             </div>
                             <div class="info-content">
                                 <strong style="color: #E65100;">Lista de espera</strong>
-                                <span style="color: #666; font-size: 14px;">6-8 meses. Alta demanda en la zona</span>
+                                <span style="color: #444; font-size: 16px;">6-8 meses. Alta demanda en la zona</span>
                             </div>
                         </div>
                     </div>
@@ -1052,13 +1058,13 @@
                             </div>
                         </div>
                         
-                        <div class="info-item" style="background-color: #E8F5E9; border-left: 3px solid #66BB6A; padding: 12px; border-radius: 4px; margin-top: 12px;">
+                        <div class="info-item" style="background-color: #E8F5E9; border-left: 3px solid #2E7D32; padding: 12px; border-radius: 4px; margin-top: 12px;">
                             <div class="info-icon">
-                                <i class="fa fa-check-circle" aria-hidden="true" style="color: #43A047;"></i>
+                                <i class="fa fa-check-circle" aria-hidden="true" style="color: #1B5E20;"></i>
                             </div>
                             <div class="info-content">
                                 <strong style="color: #2E7D32;">Disponibilidad inmediata</strong>
-                                <span style="color: #666; font-size: 14px;">Sin lista de espera. Menos servicios especializados disponibles</span>
+                                <span style="color: #444; font-size: 16px;">Sin lista de espera. Menos servicios especializados disponibles</span>
                             </div>
                         </div>
                     </div>
@@ -1452,13 +1458,13 @@
                             </div>
                         </div>
                         
-                        <div class="info-item" style="background-color: #FFF3E0; border-left: 3px solid #FF9800; padding: 12px; border-radius: 4px; margin-top: 12px;">
+                        <div class="info-item" style="background-color: #FFF3E0; border-left: 3px solid #E65100; padding: 12px; border-radius: 4px; margin-top: 12px;">
                             <div class="info-icon">
-                                <i class="fa fa-clock-o" aria-hidden="true" style="color: #FF9800;"></i>
+                                <i class="fa fa-clock-o" aria-hidden="true" style="color: #E65100;"></i>
                             </div>
                             <div class="info-content">
                                 <strong style="color: #E65100;">Lista de espera</strong>
-                                <span style="color: #666; font-size: 14px;">8 meses aproximadamente. El Nodo más demandado</span>
+                                <span style="color: #444; font-size: 16px;">8 meses aproximadamente. El Nodo más demandado</span>
                             </div>
                         </div>
                     </div>
@@ -1581,7 +1587,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><i class="fa fa-institution" aria-hidden="true"></i></span> &copy; 2032 Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
                     <!-- NUEVO DISCLAIMER DE AUTORÍA -->

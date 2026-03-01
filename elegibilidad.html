@@ -10,7 +10,7 @@
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-elegibilidad {
-            background: linear-gradient(135deg, rgba(255,152,0,0.95), rgba(245,124,0,0.95)),
+            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
                         url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1600&h=400&fit=crop') center/cover;
             color: white;
             padding: 60px 0;
@@ -60,7 +60,7 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--color-accent), #F57C00);
+            background: linear-gradient(135deg, var(--color-accent), #BF360C);
             color: white;
             border-radius: 50%;
             font-weight: 700;
@@ -69,7 +69,7 @@
         }
         
         .question-card.answered .question-number {
-            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
         }
         
         .question-text {
@@ -152,12 +152,12 @@
         }
         
         .result-eligible .result-icon {
-            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
             color: white;
         }
         
         .result-not-eligible .result-icon {
-            background: linear-gradient(135deg, var(--color-accent), #F57C00);
+            background: linear-gradient(135deg, var(--color-accent), #BF360C);
             color: white;
         }
         
@@ -250,13 +250,13 @@
         
         .progress-text {
             text-align: center;
-            color: #666;
-            font-size: 14px;
+            color: #444;
+            font-size: 16px;
             margin-bottom: 32px;
         }
         
         .btn-check {
-            background: linear-gradient(135deg, var(--color-accent), #F57C00);
+            background: linear-gradient(135deg, var(--color-accent), #BF360C);
             color: white;
             padding: 18px 48px;
             font-size: 20px;
@@ -265,12 +265,12 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 16px rgba(255,152,0,0.3);
+            box-shadow: 0 4px 16px rgba(230,81,0,0.3);
         }
         
         .btn-check:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,152,0,0.4);
+            box-shadow: 0 6px 20px rgba(230,81,0,0.4);
         }
         
         .btn-check:disabled {
@@ -315,14 +315,20 @@
             <button onclick="toggleHighContrast()" aria-label="Activar o desactivar alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
+            <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
+                <i class="fa fa-phone" aria-hidden="true"></i> 147
+            </a>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo" aria-label="Cuidados en Red - Ir a la página principal">
-                <i class="fa fa-heartbeat icon" aria-hidden="true"></i>
-                <span>Cuidados en Red</span>
+                <span class="escudo-placeholder" aria-hidden="true"><i class="fa fa-institution"></i></span>
+                <div class="logo-text">
+                    <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
+                    <span class="program-name">Cuidados en Red</span>
+                </div>
             </a>
         </div>
     </header>
@@ -372,7 +378,7 @@
                     <strong>evaluación domiciliaria</strong>. Este test solo te ayuda a saber si vale 
                     la pena inscribirte.
                 </p>
-                <p style="color: #E65100; margin: 0; line-height: 1.6; font-size: 14px;">
+                <p style="color: #E65100; margin: 0; line-height: 1.6; font-size: 16px;">
                     <strong><i class="fa fa-exclamation-triangle"></i> Importante:</strong> Cumplir los requisitos no garantiza admisión inmediata. Puede haber lista de espera según tu zona (2-4 semanas en promedio).
                 </p>
             </div>
@@ -574,7 +580,7 @@
                             <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
                                 Edad mínima: 60 años
                             </strong>
-                            <p style="color: #666; margin: 0; line-height: 1.6;">
+                            <p style="color: #444; margin: 0; line-height: 1.6;">
                                 El programa está destinado a personas mayores de 60 años. 
                                 En casos excepcionales (discapacidad, enfermedades crónicas) se evalúan situaciones desde los 55 años.
                             </p>
@@ -589,7 +595,7 @@
                             <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
                                 Residencia en CABA
                             </strong>
-                            <p style="color: #666; margin: 0; line-height: 1.6;">
+                            <p style="color: #444; margin: 0; line-height: 1.6;">
                                 Tenés que vivir en la Ciudad de Buenos Aires. No importa si sos propietario, inquilino o vivís con familiares, 
                                 lo importante es que tu domicilio esté en CABA.
                             </p>
@@ -604,7 +610,7 @@
                             <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
                                 Vivienda propia o compartida
                             </strong>
-                            <p style="color: #666; margin: 0; line-height: 1.6;">
+                            <p style="color: #444; margin: 0; line-height: 1.6;">
                                 El servicio es domiciliario. Si estás en un geriátrico o residencia, 
                                 Cuidados en Red no aplica (pero podés consultar por otros programas del GCBA).
                             </p>
@@ -619,7 +625,7 @@
                             <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
                                 Autonomía parcial o total
                             </strong>
-                            <p style="color: #666; margin: 0; line-height: 1.6;">
+                            <p style="color: #444; margin: 0; line-height: 1.6;">
                                 Cuidados en Red es para personas que pueden vivir en su casa con apoyo. 
                                 Si necesitás cuidado permanente 24/7, te orientamos hacia otros servicios más adecuados.
                             </p>
@@ -634,7 +640,7 @@
                             <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
                                 Evaluación socioeconómica
                             </strong>
-                            <p style="color: #666; margin: 0; line-height: 1.6;">
+                            <p style="color: #444; margin: 0; line-height: 1.6;">
                                 El servicio es gratuito o tiene un copago según tus ingresos. 
                                 Esto se evalúa en la visita domiciliaria. Nadie queda excluido por falta de recursos.
                             </p>
@@ -683,7 +689,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><i class="fa fa-institution" aria-hidden="true"></i></span> &copy; 2032 Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
         <!-- DISCLAIMER DE AUTORÍA -->
@@ -840,14 +846,14 @@
                         </h3>
                         <ol style="padding-left: 24px; margin: 0; line-height: 2; font-size: 16px;">
                             <li><strong>Inscribite</strong> online, por teléfono o presencialmente</li>
-                            <li>Te <strong>llamamos en 24-48hs hábiles</strong> del Nodo de tu zona <span style="color: #999; font-size: 14px;">(a veces puede tardar hasta 5 días)</span></li>
-                            <li>Coordinamos una <strong>visita domiciliaria</strong> <span style="color: #999; font-size: 14px;">(puede reprogramarse por emergencias)</span></li>
-                            <li>Evaluamos tus necesidades y armamos tu plan <span style="color: #999; font-size: 14px;">(5-15 días hábiles)</span></li>
-                            <li>Asignamos persona cuidadora <span style="color: #999; font-size: 14px;">(7-21 días según disponibilidad)</span></li>
+                            <li>Te <strong>llamamos en 24-48hs hábiles</strong> del Nodo de tu zona <span style="color: #999; font-size: 16px;">(a veces puede tardar hasta 5 días)</span></li>
+                            <li>Coordinamos una <strong>visita domiciliaria</strong> <span style="color: #999; font-size: 16px;">(puede reprogramarse por emergencias)</span></li>
+                            <li>Evaluamos tus necesidades y armamos tu plan <span style="color: #999; font-size: 16px;">(5-15 días hábiles)</span></li>
+                            <li>Asignamos persona cuidadora <span style="color: #999; font-size: 16px;">(7-21 días según disponibilidad)</span></li>
                             <li>¡<strong>Empezás con el servicio</strong>!</li>
                         </ol>
                         <div style="background-color: #FFF3E0; padding: 16px; border-radius: 6px; margin-top: 16px; border-left: 4px solid var(--color-accent);">
-                            <p style="margin: 0; color: #E65100; font-size: 14px; line-height: 1.6;">
+                            <p style="margin: 0; color: #E65100; font-size: 16px; line-height: 1.6;">
                                 <strong><i class="fa fa-clock-o"></i> Tiempo total estimado:</strong> Entre 3 y 8 semanas desde la inscripción hasta el inicio del servicio, dependiendo de tu zona y complejidad del caso.
                             </p>
                         </div>
@@ -875,7 +881,7 @@
                         Según tus respuestas, hay algunos requisitos que no se cumplen:
                     </p>
                     <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 24px; text-align: left;">
-                        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #666;">
+                        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444;">
                             ${reasons.map(r => `<li>${r}</li>`).join('')}
                         </ul>
                     </div>
@@ -883,10 +889,10 @@
                         <h3 style="color: var(--color-accent); margin-bottom: 16px; font-size: 20px;">
                             <i class="fa fa-lightbulb-o" aria-hidden="true"></i> ¿Qué podés hacer?
                         </h3>
-                        <p style="color: #666; margin: 0 0 16px 0; line-height: 1.6; text-align: left;">
-                            Aunque no califiques para Cuidados en Red, el Gobierno de la Ciudad tiene otros programas:
+                        <p style="color: #444; margin: 0 0 16px 0; line-height: 1.6; text-align: left;">
+                            Aunque no califiques para Cuidados en Red, la Ciudad tiene otros programas:
                         </p>
-                        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #666; text-align: left;">
+                        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444; text-align: left;">
                             <li><strong>Residencias para mayores</strong> (si estás en geriátrico)</li>
                             <li><strong>Asistencia domiciliaria intensiva</strong> (si necesitás cuidado 24/7)</li>
                             <li><strong>Centros de día</strong> (si vivís fuera de CABA pero cerca)</li>

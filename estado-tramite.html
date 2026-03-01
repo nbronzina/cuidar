@@ -12,7 +12,7 @@
         /* Estilos específicos solo para estado-tramite.html */
         
         .hero-estado {
-            background: linear-gradient(135deg, rgba(0,114,187,0.95), rgba(0,90,146,0.95)),
+            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
                         url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&h=400&fit=crop') center/cover;
             color: white;
             padding: 60px 0;
@@ -73,18 +73,18 @@
         .form-group input:focus {
             outline: none;
             border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(0,114,187,0.1);
+            box-shadow: 0 0 0 3px rgba(26,82,118,0.1);
         }
         
         .form-group small {
             display: block;
             margin-top: 6px;
-            color: #666;
-            font-size: 14px;
+            color: #444;
+            font-size: 16px;
         }
         
         .btn-search {
-            background: linear-gradient(135deg, var(--color-primary), #005A92);
+            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
             color: white;
             padding: 18px 48px;
             font-size: 20px;
@@ -101,7 +101,7 @@
         
         .btn-search:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,114,187,0.3);
+            box-shadow: 0 6px 20px rgba(26,82,118,0.3);
         }
         
         .result-container {
@@ -125,7 +125,7 @@
         .status-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--color-primary), #005A92);
+            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -143,7 +143,7 @@
         
         .status-info p {
             margin: 0;
-            color: #666;
+            color: #444;
             font-size: 16px;
         }
         
@@ -187,17 +187,17 @@
         }
         
         .step-marker.current {
-            background: linear-gradient(135deg, var(--color-accent), #F57C00);
+            background: linear-gradient(135deg, var(--color-accent), #BF360C);
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255,152,0,0.7); }
-            50% { box-shadow: 0 0 0 15px rgba(255,152,0,0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(230,81,0,0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(230,81,0,0); }
         }
         
         .step-marker.pending {
-            background: linear-gradient(135deg, #BDBDBD, #757575);
+            background: linear-gradient(135deg, #90A4AE, #757575);
         }
         
         .step-content {
@@ -220,7 +220,7 @@
         
         .step-content p {
             margin: 0 0 12px 0;
-            color: #666;
+            color: #444;
             line-height: 1.6;
         }
         
@@ -229,7 +229,7 @@
             align-items: center;
             gap: 8px;
             color: #888;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
         }
         
@@ -262,7 +262,7 @@
         }
         
         .contact-box {
-            background: linear-gradient(135deg, rgba(102,187,106,0.1), rgba(67,160,71,0.1));
+            background: linear-gradient(135deg, rgba(46,125,50,0.1), rgba(27,94,32,0.1));
             border: 2px solid var(--color-secondary);
             border-radius: 12px;
             padding: 24px;
@@ -327,7 +327,7 @@
         .friction-alert p {
             margin: 0;
             color: #E65100;
-            font-size: 14px;
+            font-size: 16px;
             line-height: 1.6;
         }
         
@@ -385,6 +385,9 @@
             <button onclick="toggleHighContrast()" aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
+            <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
+                <i class="fa fa-phone" aria-hidden="true"></i> 147
+            </a>
         </div>
     </div>
     
@@ -392,8 +395,11 @@
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo">
-                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                <span>Cuidados en Red</span>
+                <span class="escudo-placeholder" aria-hidden="true"><i class="fa fa-institution"></i></span>
+                <div class="logo-text">
+                    <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
+                    <span class="program-name">Cuidados en Red</span>
+                </div>
             </a>
         </div>
     </header>
@@ -640,7 +646,7 @@
                         <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
                             Inscripción recibida
                         </h3>
-                        <p style="color: #666; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
                             Tu solicitud fue registrada. <strong>En 24-48hs hábiles</strong> te vamos a contactar 
                             del Nodo de tu zona para coordinar la evaluación domiciliaria.
                         </p>
@@ -658,7 +664,7 @@
                         <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
                             Contacto inicial
                         </h3>
-                        <p style="color: #666; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
                             Ya nos comunicamos con vos y coordinamos la visita. Esperá nuestro llamado 
                             para confirmar día y hora.
                         </p>
@@ -676,7 +682,7 @@
                         <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
                             Evaluación funcional domiciliaria
                         </h3>
-                        <p style="color: #666; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
                             El equipo interdisciplinario está evaluando tus necesidades en tu domicilio para determinar tu nivel de cuidado.
                             Esto tarda <strong>entre 5 y 15 días</strong> dependiendo de la complejidad del caso.
                         </p>
@@ -694,7 +700,7 @@
                         <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
                             Asignación de nivel y persona cuidadora
                         </h3>
-                        <p style="color: #666; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
                             Con la evaluación completada, te asignamos un nivel de cuidado con las horas correspondientes y buscamos la persona cuidadora ideal para vos. Te llamamos para
                             coordinar la reunión de presentación.
                         </p>
@@ -712,7 +718,7 @@
                         <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
                             Instalación de tecnología
                         </h3>
-                        <p style="color: #666; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
                             Estamos instalando los sensores, la pulsera de emergencia y Tita en tu domicilio. 
                             El técnico te explica cómo usar todo.
                         </p>
@@ -730,7 +736,7 @@
                         <h3 style="color: #2E7D32; font-size: 20px; margin: 0 0 8px 0;">
                             Servicio activo
                         </h3>
-                        <p style="color: #666; margin: 0; line-height: 1.6;">
+                        <p style="color: #444; margin: 0; line-height: 1.6;">
                             <strong>¡Ya estás recibiendo el servicio!</strong> Tu persona cuidadora te visita según 
                             lo acordado y el sistema de monitoreo está funcionando.
                         </p>
@@ -738,14 +744,14 @@
                 </div>
                 
                 <div class="state-item" style="border-left-color: var(--color-accent);">
-                    <div class="state-icon" style="background: linear-gradient(135deg, var(--color-accent), #F57C00);">
+                    <div class="state-icon" style="background: linear-gradient(135deg, var(--color-accent), #BF360C);">
                         <i class="fa fa-pause" aria-hidden="true"></i>
                     </div>
                     <div>
                         <h3 style="color: var(--color-accent); font-size: 20px; margin: 0 0 8px 0;">
                             En espera (lista de espera)
                         </h3>
-                        <p style="color: #666; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
                             Cumplís los requisitos pero temporalmente no hay cupo disponible en tu zona. 
                             Te avisamos cuando se libere un lugar. <strong>Tiempo promedio: 30-45 días.</strong>
                         </p>
@@ -763,7 +769,7 @@
                         <h3 style="color: #D32F2F; font-size: 20px; margin: 0 0 8px 0;">
                             No admitido
                         </h3>
-                        <p style="color: #666; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
                             Luego de la evaluación, determinamos que Cuidados en Red no es el programa adecuado 
                             para tu situación. Te orientamos hacia otros servicios más apropiados.
                         </p>
@@ -815,7 +821,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><i class="fa fa-institution" aria-hidden="true"></i></span> &copy; 2032 Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
         
