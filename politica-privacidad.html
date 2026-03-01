@@ -10,7 +10,7 @@
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-privacidad {
-            background: linear-gradient(135deg, rgba(0,114,187,0.95), rgba(0,90,146,0.95));
+            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95));
             color: white;
             padding: 60px 0;
             text-align: center;
@@ -33,7 +33,7 @@
         .breadcrumb {
             background-color: #F5F5F5;
             padding: 16px 0;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .breadcrumb a {
@@ -51,7 +51,7 @@
         }
 
         .breadcrumb .current {
-            color: #666;
+            color: #444;
             font-weight: 500;
         }
 
@@ -105,8 +105,8 @@
             padding: 20px 24px;
             border-radius: 8px;
             margin-top: 48px;
-            font-size: 14px;
-            color: #666;
+            font-size: 16px;
+            color: #444;
             text-align: center;
         }
 
@@ -186,14 +186,20 @@
             <button onclick="toggleHighContrast()" aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
+            <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
+                <i class="fa fa-phone" aria-hidden="true"></i> 147
+            </a>
         </div>
     </div>
 
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo">
-                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                <span>Cuidados en Red</span>
+                <span class="escudo-placeholder" aria-hidden="true"><i class="fa fa-institution"></i></span>
+                <div class="logo-text">
+                    <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
+                    <span class="program-name">Cuidados en Red</span>
+                </div>
             </a>
         </div>
     </header>
@@ -466,7 +472,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><i class="fa fa-institution" aria-hidden="true"></i></span> &copy; 2032 Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
 

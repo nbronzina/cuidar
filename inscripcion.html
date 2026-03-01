@@ -10,7 +10,7 @@
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-inscripcion {
-            background: linear-gradient(135deg, rgba(102,187,106,0.95), rgba(67,160,71,0.95)),
+            background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(27,94,32,0.95)),
                         url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&h=400&fit=crop') center/cover;
             color: white;
             padding: 60px 0;
@@ -52,9 +52,9 @@
         }
         
         .step.active {
-            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
             color: white;
-            box-shadow: 0 4px 12px rgba(102,187,106,0.3);
+            box-shadow: 0 4px 12px rgba(46,125,50,0.3);
         }
         
         .step-number {
@@ -105,7 +105,7 @@
         .section-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -143,14 +143,14 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--color-secondary);
-            box-shadow: 0 0 0 3px rgba(102,187,106,0.1);
+            box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
         }
         
         .form-group small {
             display: block;
             margin-top: 6px;
-            color: #666;
-            font-size: 14px;
+            color: #444;
+            font-size: 16px;
         }
         
         .form-group .help-text {
@@ -161,7 +161,7 @@
             padding: 12px;
             background-color: #E3F2FD;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 16px;
             color: #1565C0;
         }
         
@@ -282,7 +282,7 @@
         .success-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--color-secondary), #43A047);
+            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -337,14 +337,20 @@
             <button onclick="toggleHighContrast()" aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
+            <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
+                <i class="fa fa-phone" aria-hidden="true"></i> 147
+            </a>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo">
-                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                <span>CUIDAR.ar</span>
+                <span class="escudo-placeholder" aria-hidden="true"><i class="fa fa-institution"></i></span>
+                <div class="logo-text">
+                    <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
+                    <span class="program-name">Cuidados en Red</span>
+                </div>
             </a>
         </div>
     </header>
@@ -411,7 +417,7 @@
                     Gracias por inscribirte en CUIDAR.ar. 
                     <strong>Te vamos a contactar según los tiempos de tu zona (ver arriba)</strong> al teléfono que nos dejaste.
                 </p>
-                <p style="font-size: 16px; color: #666; margin-bottom: 32px;">
+                <p style="font-size: 16px; color: #444; margin-bottom: 32px;">
                     También te enviamos un email de confirmación a <strong id="confirmedEmail"></strong>
                 </p>
                 <div style="background-color: white; padding: 24px; border-radius: 8px; max-width: 500px; margin: 0 auto;">
@@ -427,7 +433,7 @@
                 </div>
                 
                 <div style="background-color: #fff3e0; padding: 16px; border-radius: 8px; margin-top: 24px; border-left: 3px solid var(--color-accent);">
-                    <p style="font-size: 14px; color: #666; margin: 0; line-height: 1.6;">
+                    <p style="font-size: 16px; color: #444; margin: 0; line-height: 1.6;">
                         <strong style="color: #e65100;">Recordá:</strong> La confirmación de inscripción no garantiza la asignación inmediata del servicio. 
                         Los tiempos dependen de la disponibilidad de cuidadoras en tu zona y tu situación particular.
                     </p>
@@ -461,27 +467,27 @@
                     Tiempos y limitaciones del proceso
                 </h4>
                 <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
                         <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
                         <strong>Tiempo de respuesta variable:</strong> En zonas norte (Palermo, Belgrano, Núñez) la espera puede extenderse a 3-4 semanas. En zona sur la respuesta es en 48-72hs.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
                         <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
                         <strong>Documentación adicional:</strong> En la visita domiciliaria van a pedirte: DNI original, último recibo de jubilación o ANSES, comprobante de domicilio (ABL o servicio), y certificado de discapacidad si tenés.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
                         <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
                         <strong>No todos califican:</strong> Si tenés prepaga de alta gama (Swiss Medical premium, Hospital Alemán) o ingresos superiores a $800.000/mes, probablemente no seas elegible para el subsidio.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
                         <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
                         <strong>Limitaciones de servicio:</strong> El programa NO cubre cuidados médicos especializados (enfermería, kinesiología), traslados en ambulancia, ni atención nocturna permanente.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
                         <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
                         <strong>Problemas técnicos frecuentes:</strong> El sistema puede tener demoras en procesamiento. 18% de las inscripciones online requieren completar datos por teléfono.
                     </li>
-                    <li style="margin-bottom: 0; padding-left: 24px; position: relative; color: #666; line-height: 1.6;">
+                    <li style="margin-bottom: 0; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
                         <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
                         <strong>Cambio de cuidadora:</strong> Si por alguna razón necesitás cambiar de cuidadora, el proceso puede demorar 2-3 semanas adicionales y quedás sin servicio durante ese período.
                     </li>
@@ -773,7 +779,7 @@
                 
                 <!-- Submit Button -->
                 <div style="text-align: center; margin-top: 40px;">
-                    <button type="submit" class="btn btn-lg" style="background: linear-gradient(135deg, var(--color-secondary), #43A047); color: white; padding: 18px 48px; font-size: 20px; box-shadow: 0 4px 16px rgba(102,187,106,0.3);">
+                    <button type="submit" class="btn btn-lg" style="background: linear-gradient(135deg, var(--color-secondary), #1B5E20); color: white; padding: 18px 48px; font-size: 20px; box-shadow: 0 4px 16px rgba(46,125,50,0.3);">
                         <i class="fa fa-check-circle" aria-hidden="true"></i> Completar inscripción
                     </button>
                 </div>
@@ -785,7 +791,7 @@
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                     ¿Preferís inscribirte de otra forma?
                 </h3>
-                <p style="color: #666; margin-bottom: 24px; font-size: 16px;">
+                <p style="color: #444; margin-bottom: 24px; font-size: 16px;">
                     Podés hacerlo por teléfono o presencialmente en cualquiera de nuestros Nodos
                 </p>
                 <div class="alt-buttons">
@@ -841,7 +847,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><i class="fa fa-institution" aria-hidden="true"></i></span> &copy; 2032 Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
                     <!-- NUEVO DISCLAIMER DE AUTORÍA -->

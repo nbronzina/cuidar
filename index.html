@@ -16,7 +16,7 @@
         
         /* HERO - Ahora consistente con hero-personas */
         .hero {
-            background: linear-gradient(135deg, rgba(0,114,187,0.95), rgba(0,90,146,0.95)),
+            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
                         url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1600&h=500&fit=crop') center/cover;
             color: white;
             padding: 80px 0; /* Ahora usa 80px como personas-mayores */
@@ -28,9 +28,9 @@
             margin-bottom: 24px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Consistente con personas-mayores */
-            line-height: 1.2;
+            line-height: 1.3;
         }
-        
+
         .hero .lead {
             font-size: 26px; /* Ahora 26px como personas-mayores */
             line-height: 1.5; /* Consistente */
@@ -70,7 +70,7 @@
         .quick-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #0072BB, #005A92);
+            background: linear-gradient(135deg, #1A5276, #0D3B5E);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -81,13 +81,13 @@
         }
         
         .quick-card h3 {
-            color: #0072BB;
+            color: #1A5276;
             font-size: 24px;
             margin-bottom: 16px;
         }
         
         .quick-card p {
-            color: #666;
+            color: #444;
             margin-bottom: 24px;
             line-height: 1.6;
         }
@@ -99,7 +99,7 @@
         
         .about-program h2 {
             text-align: center;
-            color: #0072BB;
+            color: #1A5276;
             font-size: 42px;
             margin-bottom: 24px;
         }
@@ -107,7 +107,7 @@
         .section-intro {
             text-align: center;
             font-size: 20px;
-            color: #666;
+            color: #444;
             max-width: 800px;
             margin: 0 auto 60px;
             line-height: 1.6;
@@ -132,7 +132,7 @@
         .feature-icon {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #66BB6A, #43A047);
+            background: linear-gradient(135deg, #2E7D32, #1B5E20);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -149,13 +149,13 @@
         }
         
         .feature-card p {
-            color: #666;
+            color: #444;
             line-height: 1.8;
         }
         
         /* CTA INSCRIPCIÓN */
         .cta-inscripcion {
-            background: linear-gradient(135deg, #66BB6A, #43A047);
+            background: linear-gradient(135deg, #2E7D32, #1B5E20);
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -197,7 +197,7 @@
             width: 60px;
             height: 60px;
             background-color: white;
-            color: #66BB6A;
+            color: #2E7D32;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -221,7 +221,7 @@
         
         .testimonios h2 {
             text-align: center;
-            color: #0072BB;
+            color: #1A5276;
             font-size: 42px;
             margin-bottom: 60px;
         }
@@ -238,7 +238,7 @@
         
         .testimonial-quote {
             font-size: 48px;
-            color: #0072BB;
+            color: #1A5276;
             margin-bottom: 24px;
             line-height: 1;
         }
@@ -246,7 +246,7 @@
         .testimonial-text {
             font-size: 18px;
             line-height: 1.8;
-            color: #666;
+            color: #444;
             flex-grow: 1;
             margin-bottom: 24px;
         }
@@ -264,7 +264,7 @@
         
         .testimonial-author span {
             color: #767676;
-            font-size: 14px;
+            font-size: 16px;
         }
         
         /* Testimonial realista con fricción */
@@ -280,7 +280,7 @@
         
         .stats h2 {
             text-align: center;
-            color: #0072BB;
+            color: #1A5276;
             font-size: 42px;
             margin-bottom: 60px;
         }
@@ -299,7 +299,7 @@
         
         .stat-label {
             font-size: 18px;
-            color: #666;
+            color: #444;
             line-height: 1.4;
         }
         
@@ -309,7 +309,7 @@
         }
         
         .stat-sublabel {
-            font-size: 14px;
+            font-size: 16px;
             color: #767676;
             margin-top: 8px;
         }
@@ -322,14 +322,14 @@
         }
         
         .final-cta h2 {
-            color: #0072BB;
+            color: #1A5276;
             font-size: 42px;
             margin-bottom: 16px;
         }
         
         .final-cta-subtitle {
             font-size: 20px;
-            color: #666;
+            color: #444;
             margin-bottom: 48px;
         }
         
@@ -373,7 +373,7 @@
         
         .contact-option span {
             font-size: 16px;
-            color: #666;
+            color: #444;
         }
         
         /* RESPONSIVE */
@@ -430,14 +430,20 @@
             <button onclick="toggleHighContrast()" aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
+            <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
+                <i class="fa fa-phone" aria-hidden="true"></i> 147
+            </a>
         </div>
     </div>
     
     <header class="header-gcba" role="banner">
         <div class="container">
             <a href="index.html" class="logo">
-                <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                <span>Cuidados en Red</span>
+                <span class="escudo-placeholder" aria-hidden="true"><i class="fa fa-institution"></i></span>
+                <div class="logo-text">
+                    <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
+                    <span class="program-name">Cuidados en Red</span>
+                </div>
             </a>
         </div>
     </header>
@@ -587,7 +593,7 @@
                 </div>
                 
                 <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="tel:147" class="btn btn-lg" style="background-color: white; color: #66BB6A; border-color: white; font-size: 20px; padding: 18px 40px;" aria-label="Llamar al 147">
+                    <a href="tel:147" class="btn btn-lg" style="background-color: white; color: #2E7D32; border-color: white; font-size: 20px; padding: 18px 40px;" aria-label="Llamar al 147">
                         <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                     </a>
                     <a href="inscripcion.html" class="btn btn-lg" style="background-color: transparent; color: white; border: 3px solid white; font-size: 20px; padding: 18px 40px;" aria-label="Inscribirme online">
@@ -747,7 +753,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p>&copy; 2032 Gobierno de la Ciudad de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><i class="fa fa-institution" aria-hidden="true"></i></span> &copy; 2032 Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
             </div>
         </div>
         
