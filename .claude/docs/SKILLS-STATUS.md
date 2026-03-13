@@ -48,20 +48,69 @@ Registro de skills comunitarios buscados, para no repetir búsquedas fallidas.
 
 ---
 
+## 5.6 Calidad web y performance
+
+| Repo | Skill | Estado | Notas |
+|---|---|---|---|
+| addyosmani/web-quality-skills | `web-quality-audit` | ✅ Encontrado | 170 líneas, auditoría Lighthouse-style multi-categoría, MIT |
+| addyosmani/web-quality-skills | `performance` | ✅ Encontrado | 361 líneas, budgets, critical rendering path, resource loading |
+| addyosmani/web-quality-skills | `core-web-vitals` | ✅ Encontrado | 441 líneas, LCP/INP/CLS profundo con referencias |
+| addyosmani/web-quality-skills | `seo` | ✅ Encontrado | 513 líneas, meta tags, structured data, crawlability, mobile SEO |
+| addyosmani/web-quality-skills | `best-practices` | ✅ Encontrado | 583 líneas, CSP, security headers, semantic HTML, deprecated APIs |
+| addyosmani/web-quality-skills | `accessibility` | ✅ Encontrado | 440 líneas, WCAG 2.2, pero overlap con accessibility-audit existente |
+
+## 5.7 SEO especializado
+
+| Repo | Skill | Estado | Notas |
+|---|---|---|---|
+| Autom8Minds/seo-skills | `seo-on-page-optimization` | ✅ Encontrado | Meta tags, headings, imágenes, links internos. Recomienda seo-mcp MCP |
+| Autom8Minds/seo-skills | `seo-technical-audit` | ✅ Encontrado | Crawlability, Core Web Vitals, mobile, HTTPS, sitemaps |
+| AgriciDaniel/claude-seo | (13 sub-skills) | ✅ Encontrado | Muy completo pero overkill; requiere DataForSEO MCP |
+
+## 5.8 Frontend design
+
+| Repo | Skill | Estado | Notas |
+|---|---|---|---|
+| anthropics/claude-code plugins | `frontend-design` | ✅ Encontrado | 42 líneas, diseño "anti-generic"; conflicta con identidad visual existente |
+| Koomook/claude-frontend-skills | `distinctive-frontend` | ✅ Encontrado | CSS custom properties, vanilla HTML/CSS; enfocado en crear, no auditar |
+
+## 5.9 Seguridad y testing
+
+| Repo | Skill | Estado | Notas |
+|---|---|---|---|
+| anthropics/claude-code plugins | `security-guidance` | ✅ Encontrado | Hook PreToolUse, no skill. Monitorea XSS, inyección, HTML peligroso |
+| lackeyjb/playwright-skill | `playwright` | ✅ Encontrado | Browser automation para testing responsive, broken links. Requiere Playwright+Chromium |
+| wshobson/commands | `security-scan` | ✅ Encontrado | OWASP-focused, más para apps con backend |
+
+---
+
 ## Skills instalados en este proyecto
 
 | Skill | Origen | Ubicación local | Notas |
 |---|---|---|---|
 | `accessibility-audit` | charlesjones-dev/claude-code-plugins-dev | `.claude/skills/accessibility-audit/` | Adaptado para WCAG AAA y contexto del proyecto |
+| `web-quality-audit` | addyosmani/web-quality-skills | `.claude/skills/web-quality-audit/` | Auditoría Lighthouse-style integral (perf + a11y + SEO + best practices) |
+| `performance` | addyosmani/web-quality-skills | `.claude/skills/performance/` | Budgets, critical rendering path, resource optimization |
+| `core-web-vitals` | addyosmani/web-quality-skills | `.claude/skills/core-web-vitals/` | LCP, INP, CLS profundo con referencia LCP.md |
+| `seo` | addyosmani/web-quality-skills | `.claude/skills/seo/` | Meta tags, structured data, crawlability, on-page SEO |
+| `best-practices` | addyosmani/web-quality-skills | `.claude/skills/best-practices/` | Security headers, CSP, semantic HTML, modern standards |
 
 ## Skills NO instalados (razón)
 
 | Skill | Razón |
 |---|---|
+| addyosmani `accessibility` | Overlap con `accessibility-audit` ya instalado (WCAG AAA) |
 | K-Dense-AI literature-review | No relevante para sitio web estático |
 | K-Dense-AI citation-management | No relevante para sitio web estático |
 | K-Dense-AI scientific-writer | No relevante para sitio web estático |
 | coreyja global-conventions | Demasiado genérico; proyecto ya tiene CLAUDE.md con convenciones propias |
 | 2389-research documentation-audit | Requiere Serena/Zen MCPs no disponibles |
 | Owl-Listener design-token | Proyecto no usa design tokens formales (CSS vanilla) |
-| Owl-Listener design-principles | Proyecto ya tiene gcba-2032-identity con principios propios |
+| Owl-Listener design-principles | Proyecto ya tiene gcba-2032-identity con principios propias |
+| anthropics frontend-design | Conflicta con identidad visual institucional existente |
+| Koomook distinctive-frontend | Enfocado en crear diseños nuevos, no auditar existentes |
+| Autom8Minds seo-skills | Cubierto por addyosmani/seo; requiere MCP opcional |
+| AgriciDaniel claude-seo | Overkill para prototipo ficticio; requiere DataForSEO MCP |
+| lackeyjb playwright-skill | Requiere Playwright+Chromium que puede no estar disponible |
+| anthropics security-guidance | Hook, no skill; cubierto por best-practices |
+| wshobson security-scan | OWASP-focused, más para apps con backend |
