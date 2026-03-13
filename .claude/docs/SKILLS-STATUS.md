@@ -67,12 +67,17 @@ Registro de skills comunitarios buscados, para no repetir búsquedas fallidas.
 | Autom8Minds/seo-skills | `seo-technical-audit` | ✅ Encontrado | Crawlability, Core Web Vitals, mobile, HTTPS, sitemaps |
 | AgriciDaniel/claude-seo | (13 sub-skills) | ✅ Encontrado | Muy completo pero overkill; requiere DataForSEO MCP |
 
-## 5.8 Frontend design
+## 5.8 Frontend design y UX
 
 | Repo | Skill | Estado | Notas |
 |---|---|---|---|
 | anthropics/claude-code plugins | `frontend-design` | ✅ Encontrado | 42 líneas, diseño "anti-generic"; conflicta con identidad visual existente |
 | Koomook/claude-frontend-skills | `distinctive-frontend` | ✅ Encontrado | CSS custom properties, vanilla HTML/CSS; enfocado en crear, no auditar |
+| vercel-labs/agent-skills | `web-design-guidelines` | ✅ Encontrado | 39 líneas, 100+ reglas UI compliance via fetch dinámico, sin deps |
+| mastepanoski/claude-skills | `nielsen-heuristics-audit` | ✅ Encontrado | 509 líneas, 10 heurísticas de Nielsen, severidad 0-4, reporte completo |
+| mastepanoski/claude-skills | `ui-design-review` | ✅ Encontrado | 1065 líneas, 10 dimensiones de diseño visual, scoring 0-100 |
+| mastepanoski/claude-skills | `wcag-accessibility-audit` | ✅ Encontrado | WCAG 2.1/2.2, framework POUR; overlap con accessibility-audit existente |
+| mastepanoski/claude-skills | `don-norman-principles-audit` | ✅ Encontrado | Discoverability, affordances, modelos conceptuales |
 
 ## 5.9 Seguridad y testing
 
@@ -81,6 +86,8 @@ Registro de skills comunitarios buscados, para no repetir búsquedas fallidas.
 | anthropics/claude-code plugins | `security-guidance` | ✅ Encontrado | Hook PreToolUse, no skill. Monitorea XSS, inyección, HTML peligroso |
 | lackeyjb/playwright-skill | `playwright` | ✅ Encontrado | Browser automation para testing responsive, broken links. Requiere Playwright+Chromium |
 | wshobson/commands | `security-scan` | ✅ Encontrado | OWASP-focused, más para apps con backend |
+| cloudflare/skills | `web-perf` | ✅ Encontrado | 420 líneas, 5 fases de auditoría. Requiere Chrome DevTools MCP |
+| anthropics/skills | `webapp-testing` | ✅ Encontrado | ~95 líneas, Playwright-based browser testing. Requiere Playwright |
 
 ---
 
@@ -94,6 +101,9 @@ Registro de skills comunitarios buscados, para no repetir búsquedas fallidas.
 | `core-web-vitals` | addyosmani/web-quality-skills | `.claude/skills/core-web-vitals/` | LCP, INP, CLS profundo con referencia LCP.md |
 | `seo` | addyosmani/web-quality-skills | `.claude/skills/seo/` | Meta tags, structured data, crawlability, on-page SEO |
 | `best-practices` | addyosmani/web-quality-skills | `.claude/skills/best-practices/` | Security headers, CSP, semantic HTML, modern standards |
+| `web-design-guidelines` | vercel-labs/agent-skills | `.claude/skills/web-design-guidelines/` | 100+ reglas UI compliance, fetch dinámico de guidelines |
+| `nielsen-heuristics-audit` | mastepanoski/claude-skills | `.claude/skills/nielsen-heuristics-audit/` | 10 heurísticas de usabilidad de Nielsen, 509 líneas |
+| `ui-design-review` | mastepanoski/claude-skills | `.claude/skills/ui-design-review/` | Evaluación visual integral, 1065 líneas, scoring 0-100 |
 
 ## Skills NO instalados (razón)
 
@@ -114,3 +124,7 @@ Registro de skills comunitarios buscados, para no repetir búsquedas fallidas.
 | lackeyjb playwright-skill | Requiere Playwright+Chromium que puede no estar disponible |
 | anthropics security-guidance | Hook, no skill; cubierto por best-practices |
 | wshobson security-scan | OWASP-focused, más para apps con backend |
+| mastepanoski wcag-accessibility-audit | Overlap con accessibility-audit ya instalado |
+| mastepanoski don-norman-principles-audit | Útil pero secundario; ya cubierto por nielsen + ui-design-review |
+| cloudflare web-perf | Requiere Chrome DevTools MCP no disponible |
+| anthropics webapp-testing | Requiere Playwright+Chromium no disponible |
