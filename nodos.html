@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Encontrá el Nodo Cuidados en Red más cercano a tu casa. 16 Nodos en toda la Ciudad de Buenos Aires.">
     <title>Nodos en tu Barrio | Cuidados en Red</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
@@ -1550,8 +1553,9 @@
             </div>
         </div>
     </section>
-    
-    <a href="https://wa.me/5491112345678" 
+    </main>
+
+    <a href="https://wa.me/5491112345678"
        class="whatsapp-float" 
        target="_blank" 
        rel="noopener noreferrer"
@@ -1605,40 +1609,8 @@
     </footer>
     
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="accessibility.js"></script>
     <script>
-        function adjustTextSize(size) {
-            document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
-            document.body.classList.add('text-size-' + size);
-            localStorage.setItem('textSize', size);
-            announceToScreenReader('Tamaño de texto cambiado a ' + 
-                (size === 'normal' ? 'normal' : size === 'large' ? 'grande' : 'extra grande'));
-        }
-        
-        function toggleHighContrast() {
-            const body = document.body;
-            body.classList.toggle('high-contrast');
-            const isHighContrast = body.classList.contains('high-contrast');
-            localStorage.setItem('highContrast', isHighContrast ? 'true' : 'false');
-            announceToScreenReader(isHighContrast ?
-                'Alto contraste activado' :
-                'Alto contraste desactivado');
-        }
-        
-        function announceToScreenReader(message) {
-            const announcement = document.createElement('div');
-            announcement.setAttribute('role', 'status');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.setAttribute('aria-atomic', 'true');
-            announcement.textContent = message;
-            announcement.style.position = 'absolute';
-            announcement.style.left = '-10000px';
-            announcement.style.width = '1px';
-            announcement.style.height = '1px';
-            announcement.style.overflow = 'hidden';
-            document.body.appendChild(announcement);
-            setTimeout(() => document.body.removeChild(announcement), 1000);
-        }
-        
         function filterByComuna() {
             const selectedComuna = document.getElementById('comunaFilter').value;
             const nodoCards = document.querySelectorAll('.nodo-card');
@@ -1666,13 +1638,6 @@
         
         // Inicializar mapa cuando todo esté cargado
         window.addEventListener('load', function() {
-            // Inicializar configuración de accesibilidad
-            const textSize = localStorage.getItem('textSize');
-            if (textSize) document.body.classList.add('text-size-' + textSize);
-            if (localStorage.getItem('highContrast') === 'true') {
-                document.body.classList.add('high-contrast');
-            }
-            
             // Verificar que Leaflet esté cargado antes de inicializar
             if (typeof L === 'undefined') {
                 console.error('Leaflet no está cargado');
