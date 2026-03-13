@@ -142,6 +142,20 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - 23% de mayores que inician proceso online no lo completan sin ayuda presencial
 - Obras infraestructura Villa Lugano y Villa Soldati: 4 meses de demora
 - Crisis pagos 2028: hasta 45 días de demora, 16 cuidadoras renunciaron, 8 meses de retraso en expansión
+- Inscripción online: 18% requiere seguimiento telefónico por problemas técnicos
+- Cambio de cuidadora: proceso tarda 2-3 semanas con brecha de servicio
+- Zona norte (Palermo, Belgrano, Núñez): 3-4 semanas de espera para contacto inicial
+- Zona sur: 48-72 horas de respuesta
+- Nodo Palermo: ~8 meses de espera (más demandado)
+
+### Horarios de los Nodos
+- Lunes a viernes: 8-18 hs
+- Sábados: 9-13 hs (personal reducido)
+
+### Servicios NO incluidos (inscripcion.html)
+- Atención médica especializada (enfermería, kinesiología)
+- Traslados en ambulancia
+- Cuidado nocturno permanente
 
 ### Copago por ejemplo
 - Marta (jubilación mínima, $680.000/mes, Nivel 2): $0
