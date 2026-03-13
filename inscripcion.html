@@ -2,19 +2,30 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Inscribite en Cuidados en Red en 5 minutos. Dejá tus datos y te contactamos en 24-48hs (zona sur) o 2-4 semanas (zona norte).">
-    <title>Inscripción | Cuidados en Red</title>
+    <meta name="description" content="Inscribite en Cuidados en Red en 5 minutos. Dejá tus datos online y te contactamos en 24-48 horas hábiles en zona sur o 2-4 semanas en zona norte.">
+    <meta property="og:title" content="Inscripción en Cuidados en Red — Formulario Online GCBA">
+    <meta property="og:description" content="Inscribite en Cuidados en Red en 5 minutos. Dejá tus datos online y te contactamos en 24-48 horas hábiles en zona sur o 2-4 semanas en zona norte.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/inscripcion.html">
+    <meta property="og:site_name" content="Cuidados en Red">
+    <meta property="og:locale" content="es_AR">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1A5276">
+    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/inscripcion.html">
+    <title>Inscripción en Cuidados en Red — Formulario Online GCBA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-inscripcion {
             background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(27,94,32,0.95)),
-                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&h=400&fit=crop') center/cover;
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&h=400&fit=crop&fm=webp&q=30') center/cover;
             color: white;
             padding: 60px 0;
             text-align: center;
@@ -138,12 +149,12 @@
             border-radius: 8px;
             font-size: 16px;
             font-family: 'Roboto', sans-serif;
-            transition: all 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+
+        .form-group input:focus-visible,
+        .form-group select:focus-visible,
+        .form-group textarea:focus-visible {
             outline: none;
             border-color: var(--color-secondary);
             box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
@@ -205,9 +216,9 @@
             background-color: #F5F5F5;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: background-color 0.3s;
         }
-        
+
         .checkbox-group:hover {
             background-color: #E8F5E9;
         }
@@ -326,7 +337,31 @@
                 justify-content: center;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inscripción",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/inscripcion.html"
+      }]
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
@@ -334,10 +369,10 @@
     <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
-            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
-            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
-            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+            <button aria-label="Texto normal">A</button>
+            <button aria-label="Texto grande">A+</button>
+            <button aria-label="Texto extra grande">A++</button>
+            <button aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
@@ -360,7 +395,7 @@
     
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
@@ -500,7 +535,7 @@
 
             
             <!-- Form -->
-            <form class="form-container" id="inscriptionForm" onsubmit="return handleInscription(event)">
+            <form class="form-container" id="inscriptionForm">
                 <!-- Sección 1: Datos personales -->
                 <div class="form-section">
                     <h3>
@@ -522,7 +557,7 @@
                             <label for="dni">
                                 DNI <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <input type="text" id="dni" name="dni" required aria-required="true" placeholder="12345678" pattern="[0-9]{7,8}" maxlength="8" autocomplete="off">
+                            <input type="text" id="dni" name="dni" required aria-required="true" placeholder="12345678" pattern="[0-9]{7,8}" maxlength="8" autocomplete="off" spellcheck="false">
                             <small>Sin puntos ni espacios</small>
                         </div>
                         
@@ -648,7 +683,7 @@
                             <label for="codigoPostal">
                                 Código Postal <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <input type="text" id="codigoPostal" name="codigoPostal" required aria-required="true" placeholder="C1234ABC" pattern="[Cc][0-9]{4}[A-Za-z]{3}" autocomplete="postal-code">
+                            <input type="text" id="codigoPostal" name="codigoPostal" required aria-required="true" placeholder="C1234ABC" pattern="[Cc][0-9]{4}[A-Za-z]{3}" autocomplete="postal-code" spellcheck="false">
                             <small>Formato: C1234ABC</small>
                         </div>
                     </div>
@@ -678,7 +713,7 @@
                         <label for="email">
                             Email <span class="required" aria-label="campo requerido">*</span>
                         </label>
-                        <input type="email" id="email" name="email" required aria-required="true" placeholder="ejemplo@email.com" autocomplete="email">
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="ejemplo@email.com" autocomplete="email" spellcheck="false">
                         <small>Te enviaremos la confirmación de inscripción</small>
                     </div>
                     
@@ -764,7 +799,7 @@
                         <label class="checkbox-group">
                             <input type="checkbox" id="privacidad" name="privacidad" required aria-required="true">
                             <span>
-                                He leído y acepto la <a href="politica-privacidad.html" style="color: var(--color-primary); text-decoration: underline;" target="_blank">Política de Privacidad</a>
+                                He leído y acepto la <a href="politica-privacidad.html" style="color: var(--color-primary); text-decoration: underline;" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>
                                 y autorizo el tratamiento de mis datos personales conforme a la Ley 25.326, incluyendo: datos de salud relevantes para la evaluación funcional, monitoreo domiciliario mediante dispositivos (sensor de cama, módulo de baño), análisis conversacional de voz (Tita) y reportes a familiares autorizados. Puedo revocar el monitoreo en cualquier momento sin perder acceso al programa.
                                 <span class="required" aria-label="campo requerido">*</span>
                             </span>
@@ -870,6 +905,12 @@
     
     <script src="accessibility.js"></script>
     <script>
+        /* Attach form submit handler — replaces inline onsubmit */
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('inscriptionForm');
+            if (form) form.addEventListener('submit', function(e) { handleInscription(e); });
+        });
+
         function handleInscription(event) {
             event.preventDefault();
 
@@ -895,8 +936,9 @@
                 successMessage.classList.add('show');
                 document.getElementById('confirmedEmail').textContent = email;
 
-                // Clear saved form data
+                // Clear saved form data and dirty flag
                 localStorage.removeItem('cuidar-form-data');
+                formDirty = false;
 
                 // Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -938,6 +980,15 @@
                 else el.value = data[key];
             });
         }
+
+        var formDirty = false;
+        document.getElementById('inscriptionForm').addEventListener('input', function() { formDirty = true; });
+        window.addEventListener('beforeunload', function(e) {
+            if (formDirty) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
 
         window.addEventListener('load', function() {
             restoreFormData();

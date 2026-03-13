@@ -2,14 +2,25 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Política de Privacidad de Cuidados en Red. Conocé qué datos recopilamos, quién accede a ellos, cómo los protegemos y cuáles son tus derechos conforme a la Ley 25.326.">
-    <title>Política de Privacidad | Cuidados en Red</title>
+    <meta name="description" content="Política de Privacidad de Cuidados en Red. Conocé qué datos personales recopilamos, cómo los protegemos y cuáles son tus derechos según la Ley 25.326.">
+    <meta property="og:title" content="Política de Privacidad — Protección de Datos | Cuidados en Red">
+    <meta property="og:description" content="Política de Privacidad de Cuidados en Red. Conocé qué datos personales recopilamos, cómo los protegemos y cuáles son tus derechos según la Ley 25.326.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/politica-privacidad.html">
+    <meta property="og:site_name" content="Cuidados en Red">
+    <meta property="og:locale" content="es_AR">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1A5276">
+    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/politica-privacidad.html">
+    <title>Política de Privacidad — Protección de Datos | Cuidados en Red</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-privacidad {
@@ -176,6 +187,23 @@
             }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Política de privacidad",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/politica-privacidad.html"
+      }]
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
@@ -183,10 +211,10 @@
     <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
-            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
-            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
-            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+            <button aria-label="Texto normal">A</button>
+            <button aria-label="Texto grande">A+</button>
+            <button aria-label="Texto extra grande">A++</button>
+            <button aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
@@ -209,7 +237,7 @@
 
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+            <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">

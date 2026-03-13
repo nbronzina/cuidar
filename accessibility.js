@@ -39,4 +39,32 @@ document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('highContrast') === 'true') {
         document.body.classList.add('high-contrast');
     }
+
+    /* Accessibility bar buttons — replaces inline onclick handlers */
+    var accBar = document.querySelector('.accessibility-bar');
+    if (accBar) {
+        var buttons = accBar.querySelectorAll('button');
+        buttons.forEach(function(btn) {
+            var label = btn.getAttribute('aria-label');
+            if (label === 'Texto normal') {
+                btn.addEventListener('click', function() { adjustTextSize('normal'); });
+            } else if (label === 'Texto grande') {
+                btn.addEventListener('click', function() { adjustTextSize('large'); });
+            } else if (label === 'Texto extra grande') {
+                btn.addEventListener('click', function() { adjustTextSize('xlarge'); });
+            } else if (label === 'Alternar alto contraste') {
+                btn.addEventListener('click', toggleHighContrast);
+            }
+        });
+    }
+
+    /* Navigation toggle — replaces inline onclick handler */
+    var navToggle = document.querySelector('.nav-toggle');
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('open');
+            this.setAttribute('aria-expanded',
+                this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+        });
+    }
 });

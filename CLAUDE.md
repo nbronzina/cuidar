@@ -62,6 +62,18 @@ Autor: **Nicolás Bronzina**. Todo el contenido, concepto, diseño y código es 
 
 ## Skills del proyecto
 
+### Skills propios
 - `.claude/skills/gcba-2032-identity/` — Identidad visual institucional
 - `.claude/skills/rioplatense-voice/` — Voz institucional rioplatense
 - `.claude/skills/diegetic-guardian/` — Guardián de coherencia del mundo ficticio
+- `.claude/skills/accessibility-audit/` — Auditoría WCAG 2.2 AAA
+
+### Skills comunitarios
+- `.claude/skills/web-quality-audit/` — Auditoría integral Lighthouse-style (addyosmani)
+- `.claude/skills/performance/` — Optimización de performance y budgets (addyosmani)
+- `.claude/skills/core-web-vitals/` — LCP, INP, CLS (addyosmani)
+- `.claude/skills/seo/` — SEO técnico y on-page (addyosmani)
+- `.claude/skills/best-practices/` — Seguridad, CSP, HTML semántico (addyosmani)
+- `.claude/skills/web-design-guidelines/` — 100+ reglas UI compliance (vercel-labs)
+- `.claude/skills/nielsen-heuristics-audit/` — 10 heurísticas de usabilidad (mastepanoski)
+- `.claude/skills/ui-design-review/` — Evaluación visual integral con scoring (mastepanoski)

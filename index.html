@@ -2,14 +2,25 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cuidados en Red - Sistema Integral de Cuidados para Personas Mayores en Buenos Aires. Cuidado domiciliario con tecnología y acompañamiento profesional.">
-    <title>Cuidados en Red | Sistema de Cuidados para Personas Mayores - GCBA</title>
+    <meta property="og:title" content="Cuidados en Red — Cuidado Domiciliario Personas Mayores">
+    <meta property="og:description" content="Cuidados en Red - Sistema Integral de Cuidados para Personas Mayores en Buenos Aires. Cuidado domiciliario con tecnología y acompañamiento profesional.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/">
+    <meta property="og:site_name" content="Cuidados en Red">
+    <meta property="og:locale" content="es_AR">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1A5276">
+    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/index.html">
+    <title>Cuidados en Red — Cuidado Domiciliario Personas Mayores</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
         /* =============================================
@@ -20,7 +31,7 @@
         /* HERO - Ahora consistente con hero-personas */
         .hero {
             background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
-                        url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1600&h=500&fit=crop') center/cover;
+                        url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1600&h=500&fit=crop&fm=webp&q=30') center/cover;
             color: white;
             padding: 80px 0; /* Ahora usa 80px como personas-mayores */
             text-align: center;
@@ -61,10 +72,10 @@
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             height: 100%;
         }
-        
+
         .quick-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.12);
@@ -124,7 +135,7 @@
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             text-align: center;
             height: 100%;
-            transition: all 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .feature-card:hover {
@@ -353,7 +364,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             min-width: 200px;
-            transition: all 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
             color: #333;
         }
@@ -420,6 +431,37 @@
             }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GovernmentOrganization",
+      "name": "Cuidados en Red",
+      "description": "Sistema Integral de Cuidados para Personas Mayores de la Ciudad de Buenos Aires",
+      "url": "https://cuidadosenred.buenosaires.gob.ar/",
+      "telephone": "147",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "parentOrganization": {
+        "@type": "GovernmentOrganization",
+        "name": "Gobierno de la Ciudad de Buenos Aires"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+      }]
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
@@ -427,10 +469,10 @@
     <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
-            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
-            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
-            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+            <button aria-label="Texto normal">A</button>
+            <button aria-label="Texto grande">A+</button>
+            <button aria-label="Texto extra grande">A++</button>
+            <button aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
@@ -453,7 +495,7 @@
     
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
@@ -493,7 +535,7 @@
                             <div class="quick-icon">
                                 <i class="fa fa-users" aria-hidden="true"></i>
                             </div>
-                            <h3>¿Para quién es?</h3>
+                            <h2>¿Para quién es?</h2>
                             <p>Personas mayores de 60 años que viven solas o necesitan acompañamiento en su hogar</p>
                             <a href="elegibilidad.html" class="btn-link">Ver si es para vos <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
@@ -504,7 +546,7 @@
                             <div class="quick-icon">
                                 <i class="fa fa-money" aria-hidden="true"></i>
                             </div>
-                            <h3>¿Cuánto cuesta?</h3>
+                            <h2>¿Cuánto cuesta?</h2>
                             <p>Gratis para personas con AUH o jubilación mínima. Copago proporcional para otros casos</p>
                             <a href="el-sistema.html#costos-titulo" class="btn-link">Ver costos <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
@@ -515,7 +557,7 @@
                             <div class="quick-icon">
                                 <i class="fa fa-check-circle" aria-hidden="true"></i>
                             </div>
-                            <h3>¿Cómo me inscribo?</h3>
+                            <h2>¿Cómo me inscribo?</h2>
                             <p>Llamá al 147 o completá el formulario online. Te contactamos en 24-48hs</p>
                             <a href="inscripcion.html" class="btn-link">Inscribirme <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                         </div>

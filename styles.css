@@ -14,6 +14,10 @@
     box-sizing: border-box;
 }
 
+html {
+    color-scheme: light;
+}
+
 :root {
     --color-primary: #1A5276;
     --color-secondary: #2E7D32;
@@ -53,18 +57,21 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #FFFFFF;
+    touch-action: manipulation;
 }
 
 h1, h2 {
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 1rem;
+    text-wrap: balance;
 }
 
 h3, h4 {
     font-weight: 700;
     line-height: 1.35;
     margin-bottom: 1rem;
+    text-wrap: balance;
 }
 
 h5, h6 {
@@ -87,7 +94,7 @@ p {
 a {
     color: var(--color-primary);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 a:hover {
@@ -143,14 +150,14 @@ a:hover {
     padding: 4px 12px;
     margin: 0 4px;
     border-radius: 12px;
-    transition: all 0.3s;
+    transition: background-color 0.3s;
 }
 
 .accessibility-bar button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.accessibility-bar button:focus {
+.accessibility-bar button:focus-visible {
     outline: 2px solid white;
     outline-offset: 2px;
 }
@@ -172,7 +179,7 @@ a:hover {
     font-weight: 600;
     padding: 4px 12px;
     border-radius: 12px;
-    transition: all 0.3s;
+    transition: background-color 0.3s;
 }
 
 .accessibility-phone:hover {
@@ -254,7 +261,7 @@ a:hover {
     gap: 12px;
     color: white;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: opacity 0.3s;
 }
 
 .logo:hover {
@@ -313,7 +320,7 @@ a:hover {
     padding: 16px 20px;
     display: inline-block;
     font-weight: 500;
-    transition: all 0.3s;
+    transition: color 0.3s, border-bottom-color 0.3s, background-color 0.3s;
     border-bottom: 3px solid transparent;
 }
 
@@ -411,7 +418,7 @@ a:hover {
     text-align: center;
     text-decoration: none;
     border-radius: 12px;
-    transition: all 0.3s;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
     border: 2px solid transparent;
 }
@@ -471,7 +478,7 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.3s;
+    transition: gap 0.3s;
 }
 
 .btn-link:hover {
@@ -491,18 +498,18 @@ footer {
 
 footer h4 {
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 footer a {
-    color: rgba(255, 255, 255, 0.95);
+    color: #FFFFFF;
     text-decoration: none;
     display: block;
     padding: 8px 0;
-    transition: all 0.3s;
+    transition: color 0.3s;
 }
 
 footer a:hover {
@@ -588,7 +595,7 @@ footer a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
     text-decoration: none;
 }
 
@@ -672,6 +679,10 @@ footer a:hover {
 /* Stats de fricción */
 .stat-card.friction .stat-number {
     color: var(--color-friction-emphasis);
+}
+
+.stat-number {
+    font-variant-numeric: tabular-nums;
 }
 
 .stat-sublabel {
@@ -909,16 +920,16 @@ footer a:hover {
    ESTADOS DE FOCUS
    ============================================ */
 
-*:focus {
+*:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
-button:focus,
-a:focus,
-input:focus,
-textarea:focus,
-select:focus {
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
@@ -997,7 +1008,7 @@ body.high-contrast .card {
     border: 2px solid #000000;
 }
 
-body.high-contrast *:focus {
+body.high-contrast *:focus-visible {
     outline: 3px solid #CC0000;
     outline-offset: 2px;
 }
@@ -1063,7 +1074,7 @@ body.high-contrast *:focus {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     padding: 24px;
     margin-bottom: 24px;
-    transition: all 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
@@ -1122,6 +1133,7 @@ body.high-contrast *:focus {
 .form-group label {
     display: block;
     font-weight: 600;
+    font-size: 18px;
     color: #333;
     margin-bottom: 8px;
 }
@@ -1133,10 +1145,10 @@ body.high-contrast *:focus {
     border-radius: 12px;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    transition: all 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.form-control:focus {
+.form-control:focus-visible {
     outline: none;
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
@@ -1223,6 +1235,155 @@ tr:hover {
         animation: none !important;
         transition: none !important;
     }
+}
+
+/* ============================================
+   Utility Classes — migrated from inline styles
+   ============================================ */
+
+/* List items with icon */
+.list-item-icon {
+    padding: 8px 0;
+    display: flex;
+    align-items: start;
+    gap: 12px;
+}
+
+.list-item-icon-sm {
+    padding: 6px 0;
+    display: flex;
+    align-items: start;
+    gap: 12px;
+}
+
+/* Text styles */
+.text-body-lg {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    margin: 0;
+}
+
+.text-body {
+    font-size: 18px;
+    color: #444;
+}
+
+.text-body-sm {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Icon colors for list items */
+.icon-primary {
+    color: var(--color-primary);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.icon-secondary {
+    color: var(--color-secondary);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.icon-accent {
+    color: var(--color-accent);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.icon-purple {
+    color: var(--color-purple);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+/* Section padding */
+.section-pad {
+    padding: 60px 0;
+}
+
+.section-pad-bg {
+    padding: 60px 0;
+    background-color: #F5F5F5;
+}
+
+/* Unstyled list */
+.list-unstyled-body {
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.list-unstyled-body-sm {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* FAQ toggle heading */
+.faq-toggle {
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Icon decorative sizes */
+.icon-heading-secondary {
+    color: var(--color-secondary);
+    font-size: 20px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.icon-heading-accent {
+    color: var(--color-accent);
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.icon-heading-purple {
+    color: var(--color-purple);
+    font-size: 22px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.icon-heading-secondary-lg {
+    color: var(--color-secondary);
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+/* Indent list with icon marker */
+.list-item-indent {
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+    color: #444;
+    line-height: 1.6;
+}
+
+.list-item-indent-marker {
+    position: absolute;
+    left: 0;
+}
+
+/* Card with left border */
+.card-left-border {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--color-purple);
 }
 
 /* ============================================

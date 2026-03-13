@@ -2,19 +2,30 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactá con Cuidados en Red por teléfono, WhatsApp, email o visitá nuestros nodos. Estamos para ayudarte.">
-    <title>Contacto | Cuidados en Red</title>
+    <meta name="description" content="Contactá con Cuidados en Red por teléfono 147 (gratuito, 24hs), WhatsApp, email o visitá nuestros 16 nodos presenciales en la Ciudad de Buenos Aires.">
+    <meta property="og:title" content="Contactanos — Teléfono, WhatsApp, Nodos | Cuidados en Red">
+    <meta property="og:description" content="Contactá con Cuidados en Red por teléfono 147 (gratuito, 24hs), WhatsApp, email o visitá nuestros 16 nodos presenciales en la Ciudad de Buenos Aires.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/contacto.html">
+    <meta property="og:site_name" content="Cuidados en Red">
+    <meta property="og:locale" content="es_AR">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1A5276">
+    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/contacto.html">
+    <title>Contactanos — Teléfono, WhatsApp, Nodos | Cuidados en Red</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-contacto {
             background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
-                        url('https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=1600&h=400&fit=crop') center/cover;
+                        url('https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=1600&h=400&fit=crop&fm=webp&q=30') center/cover;
             color: white;
             padding: 60px 0;
             text-align: center;
@@ -49,7 +60,7 @@
             padding: 40px;
             text-align: center;
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             border-top: 4px solid #1A5276;
         }
         
@@ -122,9 +133,9 @@
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: color 0.3s, background-color 0.3s;
         }
-        
+
         .form-section {
             background-color: #F5F5F5;
             padding: 60px 0;
@@ -165,12 +176,12 @@
             border-radius: 8px;
             font-size: 16px;
             font-family: 'Roboto', sans-serif;
-            transition: all 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+
+        .form-group input:focus-visible,
+        .form-group textarea:focus-visible,
+        .form-group select:focus-visible {
             outline: none;
             border-color: #1A5276;
             box-shadow: 0 0 0 3px rgba(26,82,118,0.1);
@@ -191,7 +202,7 @@
             font-size: 18px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -299,6 +310,48 @@
             }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contacto",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/contacto.html"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contacto — Cuidados en Red",
+      "description": "Contactá con Cuidados en Red por teléfono 147, WhatsApp, email o visitá nuestros 16 nodos presenciales en toda la Ciudad de Buenos Aires.",
+      "url": "https://cuidadosenred.buenosaires.gob.ar/contacto.html",
+      "mainEntity": {
+        "@type": "GovernmentOrganization",
+        "name": "Cuidados en Red",
+        "telephone": "147",
+        "email": "info@cuidadosenred.gob.ar",
+        "url": "https://cuidadosenred.buenosaires.gob.ar/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Buenos Aires",
+          "addressCountry": "AR"
+        },
+        "parentOrganization": {
+          "@type": "GovernmentOrganization",
+          "name": "Gobierno de la Ciudad de Buenos Aires"
+        }
+      }
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
@@ -306,10 +359,10 @@
     <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
-            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
-            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
-            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+            <button aria-label="Texto normal">A</button>
+            <button aria-label="Texto grande">A+</button>
+            <button aria-label="Texto extra grande">A++</button>
+            <button aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
@@ -332,7 +385,7 @@
     
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
@@ -544,27 +597,27 @@
                 <h2>Preguntas frecuentes</h2>
                 
                 <div class="faq-item">
-                    <h4><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Cuánto tarda la respuesta por email?</h4>
+                    <h3><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Cuánto tarda la respuesta por email?</h3>
                     <p>El plazo oficial es 48 horas hábiles, pero en la práctica el tiempo promedio es de 48-72hs. El 35% de consultas reciben respuesta después de las 72hs. Para consultas urgentes, te recomendamos llamar al 147.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h4><i class="fa fa-question-circle" aria-hidden="true"></i> ¿El 147 es gratuito?</h4>
+                    <h3><i class="fa fa-question-circle" aria-hidden="true"></i> ¿El 147 es gratuito?</h3>
                     <p>Sí, es completamente gratuito desde cualquier teléfono (fijo o celular) y está disponible las 24 horas, los 7 días de la semana, incluyendo feriados. Funciona desde teléfono de línea sin necesidad de internet.</p>
                 </div>
 
                 <div class="faq-item">
-                    <h4><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Puedo hablar con una persona cuando llamo al 147?</h4>
+                    <h3><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Puedo hablar con una persona cuando llamo al 147?</h3>
                     <p>Sí. Cuando llamás, el sistema te atiende y te pregunta qué necesitás. Si en cualquier momento preferís hablar con una persona, decí "operador" y te van a pasar. Si el sistema detecta que necesitás atención más personalizada, también te conecta con un operador humano automáticamente.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h4><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Necesito turno para ir a un Nodo?</h4>
+                    <h3><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Necesito turno para ir a un Nodo?</h3>
                     <p>No necesitás turno, pero tené en cuenta que la espera puede ser de 1-2 horas en días de alta demanda (especialmente lunes y viernes). Los sábados hay personal reducido. Algunos Nodos cierran antes si no hay gente esperando.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h4><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Atienden consultas por redes sociales?</h4>
+                    <h3><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Atienden consultas por redes sociales?</h3>
                     <p>Las redes sociales son principalmente informativas. Para consultas específicas o trámites, usá los canales oficiales: 147, WhatsApp, email o Nodos.</p>
                 </div>
             </div>
@@ -577,6 +630,9 @@
                 <i class="fa fa-check-circle" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;" aria-hidden="true"></i>
                 <h3 style="color: var(--color-secondary); margin-bottom: 8px;">¡Gracias por tu consulta!</h3>
                 <p style="color: #333;">Te responderemos a la brevedad por email o teléfono.</p>
+                <button type="button" id="resetContactBtn" style="margin-top: 16px; background: transparent; color: #1A5276; border: 2px solid #1A5276; padding: 10px 24px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: 600;">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Enviar otra consulta
+                </button>
             </div>
             <div class="form-container">
                 <h2>Formulario de contacto</h2>
@@ -588,7 +644,7 @@
                     
                     <div class="form-group">
                         <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required autocomplete="email">
+                        <input type="email" id="email" name="email" required autocomplete="email" spellcheck="false">
                     </div>
                     
                     <div class="form-group">
@@ -680,11 +736,36 @@
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            document.getElementById('contactSuccess').classList.add('show');
-            document.querySelector('.form-container').style.display = 'none';
-            announceToScreenReader('Consulta enviada exitosamente');
-            this.reset();
+            var submitBtn = document.querySelector('.btn-submit');
+            var originalText = submitBtn.innerHTML;
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Enviando...';
+            }
+            var form = this;
+            setTimeout(function() {
+                document.getElementById('contactSuccess').classList.add('show');
+                document.querySelector('.form-container').style.display = 'none';
+                announceToScreenReader('Consulta enviada exitosamente');
+                form.reset();
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            }, 1500);
         });
+
+        var resetBtn = document.getElementById('resetContactBtn');
+        if (resetBtn) resetBtn.addEventListener('click', resetContactForm);
+
+        function resetContactForm() {
+            var form = document.getElementById('contactForm');
+            if (form) { form.reset(); }
+            var formContainer = document.querySelector('.form-container');
+            if (formContainer) { formContainer.style.display = 'block'; }
+            var success = document.getElementById('contactSuccess');
+            if (success) { success.classList.remove('show'); }
+        }
     </script>
 </body>
 </html>
