@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Política de Privacidad de Cuidados en Red. Conocé qué datos recopilamos, quién accede a ellos, cómo los protegemos y cuáles son tus derechos conforme a la Ley 25.326.">
     <title>Política de Privacidad | Cuidados en Red</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
@@ -496,47 +499,6 @@
         </div>
     </footer>
 
-    <script>
-        function adjustTextSize(size) {
-            document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
-            document.body.classList.add('text-size-' + size);
-            localStorage.setItem('textSize', size);
-            announceToScreenReader('Tamaño de texto cambiado a ' +
-                (size === 'normal' ? 'normal' : size === 'large' ? 'grande' : 'extra grande'));
-        }
-
-        function toggleHighContrast() {
-            const body = document.body;
-            body.classList.toggle('high-contrast');
-            const isHighContrast = body.classList.contains('high-contrast');
-            localStorage.setItem('highContrast', isHighContrast ? 'true' : 'false');
-            announceToScreenReader(isHighContrast ?
-                'Alto contraste activado' :
-                'Alto contraste desactivado');
-        }
-
-        function announceToScreenReader(message) {
-            const announcement = document.createElement('div');
-            announcement.setAttribute('role', 'status');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.setAttribute('aria-atomic', 'true');
-            announcement.textContent = message;
-            announcement.style.position = 'absolute';
-            announcement.style.left = '-10000px';
-            announcement.style.width = '1px';
-            announcement.style.height = '1px';
-            announcement.style.overflow = 'hidden';
-            document.body.appendChild(announcement);
-            setTimeout(() => document.body.removeChild(announcement), 1000);
-        }
-
-        window.addEventListener('load', function() {
-            const textSize = localStorage.getItem('textSize');
-            if (textSize) document.body.classList.add('text-size-' + textSize);
-            if (localStorage.getItem('highContrast') === 'true') {
-                document.body.classList.add('high-contrast');
-            }
-        });
-    </script>
+    <script src="accessibility.js"></script>
 </body>
 </html>
