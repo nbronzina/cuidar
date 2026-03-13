@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Inscribite en CUIDAR.ar en 5 minutos. Dejá tus datos y te contactamos en 24-48hs (zona sur) o 2-4 semanas (zona norte).">
-    <title>Inscripción | CUIDAR.ar</title>
+    <meta name="description" content="Inscribite en Cuidados en Red en 5 minutos. Dejá tus datos y te contactamos en 24-48hs (zona sur) o 2-4 semanas (zona norte).">
+    <title>Inscripción | Cuidados en Red</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
@@ -224,7 +224,7 @@
             margin-bottom: 32px;
         }
         
-        .info-box h4 {
+        .info-box h3 {
             color: var(--color-primary);
             margin-bottom: 12px;
             font-size: 18px;
@@ -328,7 +328,7 @@
 <body>
     <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
     
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
@@ -363,7 +363,7 @@
             <div class="nav-links" id="nav-links">
                 <a href="index.html">Inicio</a>
                 <a href="para-personas-mayores.html">Para Personas Mayores</a>
-                <a href="para-cuidadores.html">Para Cuidadores/as</a>
+                <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
                 <a href="el-sistema.html">El Sistema</a>
                 <a href="transparencia.html">Transparencia</a>
                 <a href="contacto.html">Contacto</a>
@@ -378,7 +378,8 @@
         </nav>
     </div>
 
-    <section class="hero-inscripcion" id="main-content" role="main">
+    <main id="main-content">
+    <section class="hero-inscripcion">
         <div class="container">
             <h1>Inscribite en 5 minutos</h1>
             <p class="lead">
@@ -414,7 +415,7 @@
                     ¡Inscripción recibida!
                 </h2>
                 <p style="font-size: 20px; color: #333; margin-bottom: 24px; line-height: 1.6;">
-                    Gracias por inscribirte en CUIDAR.ar. 
+                    Gracias por inscribirte en Cuidados en Red. 
                     <strong>Te vamos a contactar según los tiempos de tu zona (ver arriba)</strong> al teléfono que nos dejaste.
                 </p>
                 <p style="font-size: 16px; color: #444; margin-bottom: 32px;">
@@ -447,10 +448,10 @@
             
             <!-- Info Box -->
             <div class="info-box">
-                <h4>
+                <h3>
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     Antes de empezar, tené en cuenta:
-                </h4>
+                </h3>
                 <ul>
                     <li>El servicio es <strong>gratuito o con copago</strong> según tus ingresos</li>
                     <li>Tiene que ser para una persona <strong>mayor de 60 años</strong></li>
@@ -462,10 +463,10 @@
             
             <!-- BLOQUE REALITY CHECK - FRICCIÓN REALISTA -->
             <div class="reality-check" style="margin-bottom: 32px; background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left: 4px solid var(--color-accent); padding: 24px; border-radius: 8px;">
-                <h4 style="color: #e65100; margin-bottom: 16px; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                <h3 style="color: #e65100; margin-bottom: 16px; font-size: 18px; display: flex; align-items: center; gap: 8px;">
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     Tiempos y limitaciones del proceso
-                </h4>
+                </h3>
                 <ul style="list-style: none; padding: 0; margin: 0;">
                     <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
                         <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
@@ -477,7 +478,7 @@
                     </li>
                     <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
                         <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
-                        <strong>No todos califican:</strong> Si tenés prepaga de alta gama (Swiss Medical premium, Hospital Alemán) o ingresos superiores a $800.000/mes, probablemente no seas elegible para el subsidio.
+                        <strong>No todos califican:</strong> Si tenés cobertura de salud privada de alta gama o ingresos superiores a $800.000/mes, probablemente no seas elegible para el subsidio.
                     </li>
                     <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
                         <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
@@ -510,7 +511,7 @@
                         <label for="nombreCompleto">
                             Nombre y apellido completo <span class="required" aria-label="campo requerido">*</span>
                         </label>
-                        <input type="text" id="nombreCompleto" name="nombreCompleto" required aria-required="true" placeholder="Ej: María Isabel González">
+                        <input type="text" id="nombreCompleto" name="nombreCompleto" required aria-required="true" placeholder="Ej: María Isabel González" autocomplete="name">
                     </div>
                     
                     <div class="form-row">
@@ -518,7 +519,7 @@
                             <label for="dni">
                                 DNI <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <input type="text" id="dni" name="dni" required aria-required="true" placeholder="12345678" pattern="[0-9]{7,8}" maxlength="8">
+                            <input type="text" id="dni" name="dni" required aria-required="true" placeholder="12345678" pattern="[0-9]{7,8}" maxlength="8" autocomplete="off">
                             <small>Sin puntos ni espacios</small>
                         </div>
                         
@@ -564,7 +565,7 @@
                         <label for="calle">
                             Calle <span class="required" aria-label="campo requerido">*</span>
                         </label>
-                        <input type="text" id="calle" name="calle" required aria-required="true" placeholder="Ej: Av. Corrientes">
+                        <input type="text" id="calle" name="calle" required aria-required="true" placeholder="Ej: Av. Corrientes" autocomplete="street-address">
                     </div>
                     
                     <div class="form-row">
@@ -644,7 +645,7 @@
                             <label for="codigoPostal">
                                 Código Postal <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <input type="text" id="codigoPostal" name="codigoPostal" required aria-required="true" placeholder="C1234ABC" pattern="[Cc][0-9]{4}[A-Za-z]{3}">
+                            <input type="text" id="codigoPostal" name="codigoPostal" required aria-required="true" placeholder="C1234ABC" pattern="[Cc][0-9]{4}[A-Za-z]{3}" autocomplete="postal-code">
                             <small>Formato: C1234ABC</small>
                         </div>
                     </div>
@@ -663,7 +664,7 @@
                         <label for="telefono">
                             Teléfono <span class="required" aria-label="campo requerido">*</span>
                         </label>
-                        <input type="tel" id="telefono" name="telefono" required aria-required="true" placeholder="11 1234-5678" pattern="[0-9]{2,4}[\s\-]?[0-9]{4}[\s\-]?[0-9]{4}">
+                        <input type="tel" id="telefono" name="telefono" required aria-required="true" placeholder="11 1234-5678" pattern="[0-9]{2,4}[\s\-]?[0-9]{4}[\s\-]?[0-9]{4}" autocomplete="tel">
                         <div class="help-text">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <span>A este número te vamos a llamar según la disponibilidad de tu zona. <strong>Si no contestás en 3 intentos, tu inscripción queda pausada.</strong></span>
@@ -674,7 +675,7 @@
                         <label for="email">
                             Email <span class="required" aria-label="campo requerido">*</span>
                         </label>
-                        <input type="email" id="email" name="email" required aria-required="true" placeholder="ejemplo@email.com">
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="ejemplo@email.com" autocomplete="email">
                         <small>Te enviaremos la confirmación de inscripción</small>
                     </div>
                     
@@ -707,7 +708,7 @@
                     
                     <div class="form-group">
                         <label for="situacion">
-                            ¿Por qué querés inscribirte en CUIDAR.ar? <span class="required" aria-label="campo requerido">*</span>
+                            ¿Por qué querés inscribirte en Cuidados en Red? <span class="required" aria-label="campo requerido">*</span>
                         </label>
                         <textarea id="situacion" name="situacion" required aria-required="true" rows="4" placeholder="Contanos brevemente tu situación. Por ejemplo: vivo solo/a, necesito compañía, tengo dificultades para cocinar, etc."></textarea>
                         <small>No hace falta dar muchos detalles, esto lo charlamos en la visita domiciliaria</small>
@@ -771,7 +772,7 @@
                         <label class="checkbox-group">
                             <input type="checkbox" id="comunicaciones" name="comunicaciones">
                             <span>
-                                Acepto recibir comunicaciones de CUIDAR.ar sobre el programa y servicios relacionados (opcional)
+                                Acepto recibir comunicaciones de Cuidados en Red sobre el programa y servicios relacionados (opcional)
                             </span>
                         </label>
                     </div>
@@ -831,7 +832,7 @@
                     <h4>INFORMACIÓN</h4>
                     <a href="el-sistema.html">Cómo funciona</a>
                     <a href="para-personas-mayores.html">Para personas mayores</a>
-                    <a href="para-cuidadores.html">Para cuidadores/as</a>
+                    <a href="para-cuidadores.html">Para personas cuidadoras</a>
                 </nav>
                 <nav class="col-md-3" aria-label="Enlaces de contacto">
                     <h4>CONTACTO</h4>
@@ -855,7 +856,7 @@
         <p>
             <i class="fa fa-info-circle" aria-hidden="true"></i>
             <strong>Proyecto de diseño especulativo</strong> · 
-            CUIDAR.ar es una obra de ficción que explora futuros posibles para el cuidado 
+            Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
             de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
             es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
             Todo el contenido, concepto, diseño y código es de su autoría.

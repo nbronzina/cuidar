@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -359,7 +359,7 @@
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
@@ -410,7 +410,8 @@
         </nav>
     </div>
 
-    <section class="hero-transparencia" id="main-content" role="main">
+    <main id="main-content">
+    <section class="hero-transparencia">
         <div class="container">
             <h1>Transparencia y Datos Abiertos</h1>
             <p class="lead">
@@ -442,7 +443,7 @@
                     <div class="stat-box friction">
                         <div class="stat-number warning">847</div>
                         <div class="stat-label">En lista de espera</div>
-                        <div class="friction-note">Tiempo promedio: 6-8 meses</div>
+                        <div class="friction-note">Tiempo promedio: 21 días</div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -456,7 +457,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="stat-box">
-                        <div class="stat-number">93.2%</div>
+                        <div class="stat-number">93,2%</div>
                         <div class="stat-label">Satisfacción general</div>
                     </div>
                 </div>
@@ -594,13 +595,13 @@
                 </h4>
                 <ul>
                     <li>
-                        <strong>Listas de espera desiguales:</strong> Los Nodos en Palermo, Caballito y Belgrano tienen 6-8 meses de demora. Los de zona sur tienen cupo inmediato pero menos servicios especializados.
+                        <strong>Listas de espera desiguales:</strong> Los Nodos en Palermo, Belgrano y Recoleta tienen 6-8 meses de demora. Los de zona sur tienen cupo inmediato pero menos servicios especializados.
                     </li>
                     <li>
                         <strong>Demoras en pagos:</strong> El 32% de los pagos a personas cuidadoras se demoran entre 15 y 30 días por cuestiones administrativas. Estamos trabajando en automatizar el sistema.
                     </li>
                     <li>
-                        <strong>Conflictos vecinales:</strong> 27 edificios linderos a Nodos presentaron quejas por "movimiento excesivo" (ambulancias, cuidadores). Se implementó un protocolo de "buen vecino" pero persiste cierta tensión.
+                        <strong>Conflictos vecinales:</strong> 27 edificios linderos a Nodos presentaron quejas por "movimiento excesivo" (ambulancias, personas cuidadoras). Se implementó un protocolo de "buen vecino" pero persiste cierta tensión.
                     </li>
                     <li>
                         <strong>Brecha digital:</strong> El 23% de personas mayores que inician el trámite online no lo completan sin ayuda presencial. Aumentamos los facilitadores en Nodos pero aún insuficiente.
@@ -1029,7 +1030,8 @@
        aria-label="Contactar por WhatsApp">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
     </a>
-    
+    </main>
+
     <footer role="contentinfo">
         <div class="container">
             <div class="row">

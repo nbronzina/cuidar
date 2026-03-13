@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -215,7 +215,7 @@
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
@@ -248,8 +248,8 @@
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
-            <a href="index.html" class="active" aria-current="page">Inicio</a>
-            <a href="para-personas-mayores.html">Para Personas Mayores</a>
+            <a href="index.html">Inicio</a>
+            <a href="para-personas-mayores.html" class="active" aria-current="page">Para Personas Mayores</a>
             <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
             <a href="el-sistema.html">El Sistema</a>
             <a href="transparencia.html">Transparencia</a>
@@ -266,7 +266,8 @@
         </nav>
     </div>
 
-    <section class="hero-personas" id="main-content" role="main">
+    <main id="main-content">
+    <section class="hero-personas">
         <div class="container">
             <h1>Te acompañamos para que vivas mejor</h1>
             <p class="lead">
@@ -426,7 +427,7 @@
                             </li>
                         </ul>
                         <p style="margin-top: 16px; color: #888; font-size: 16px;">
-                            Este modo se activa cuando el equipo profesional del Nodo lo indica, a partir de la evaluación inicial o de las señales que detecta la cuidadora en sus visitas.
+                            Este modo se activa cuando el equipo profesional del Nodo lo indica, a partir de la evaluación inicial o de las señales que detecta la persona cuidadora en sus visitas.
                         </p>
                     </div>
                 </details>
@@ -445,7 +446,7 @@
                     Cuando te inscribís, un equipo del Nodo más cercano te visita en tu casa para entender qué necesitás. Según eso, te asignan un acompañamiento que puede ir desde unas pocas horas por semana hasta un cuidado más intensivo con tecnología de apoyo.
                 </p>
                 <p style="font-size: 18px; line-height: 1.8; color: #555; margin-bottom: 16px;">
-                    Si tus necesidades cambian, tu plan se actualiza. Si necesitás algo que no está incluido, podés contratarlo a través del sistema a un precio regulado, con los mismos profesionales.
+                    Si tus necesidades cambian, tu plan se actualiza. Si necesitás algo que no está incluido, podés contratarlo a través del sistema a un valor regulado, con los mismos profesionales.
                 </p>
                 <p style="font-size: 16px; color: #999; margin-bottom: 0;">
                     La evaluación inicial puede demorar entre 15 y 30 días hábiles desde la inscripción. Te van a avisar del Nodo para coordinar.
@@ -604,7 +605,7 @@
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 10:00 AM
                             </strong>
                             <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
-                                Llega Carlos, tu cuidador. Tomás un mate juntos mientras charlan. Carlos ya vio en su app que dormiste bien y que los valores del baño están normales.
+                                Llega Carlos, tu persona cuidadora. Tomás un mate juntos mientras charlan. Carlos ya vio en su app que dormiste bien y que los valores del baño están normales.
                             </p>
                         </div>
                         
@@ -719,7 +720,7 @@
                             <summary>¿La persona cuidadora viene todos los días?</summary>
                             <p>
                                 Depende de lo que necesites. Cuando te inscribís, un equipo del Nodo te visita para entender tu situación.
-                                Según eso, te asignan entre <strong>20 y 100 horas por mes</strong> de cuidadora.
+                                Según eso, te asignan entre <strong>20 y 100 horas por mes</strong> de persona cuidadora.
                                 Si tus necesidades cambian, se actualiza. Si necesitás más horas de las asignadas,
                                 podés contratarlas a tarifa regulada a través del sistema, con las mismas profesionales.
                             </p>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -242,7 +242,7 @@
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
@@ -293,7 +293,8 @@
         </nav>
     </div>
 
-    <section class="hero-sistema" id="main-content" role="main">
+    <main id="main-content">
+    <section class="hero-sistema">
         <div class="container">
             <h1>El Sistema de Cuidado más completo de Argentina</h1>
             <p class="lead">
@@ -370,7 +371,7 @@
                             </li>
                             <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                <span>Protocolo de observación cognitiva durante las visitas: las cuidadoras usan herramientas validadas en población argentina para detectar señales tempranas en actividades de la vida diaria. Ante alerta, derivan al equipo interdisciplinario del Nodo</span>
+                                <span>Protocolo de observación cognitiva durante las visitas: las personas cuidadoras usan herramientas validadas en población argentina para detectar señales tempranas en actividades de la vida diaria. Ante alerta, derivan al equipo interdisciplinario del Nodo</span>
                             </li>
                             <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                 <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
@@ -397,7 +398,7 @@
                             2. Tecnología Asistiva
                         </h3>
                         <p style="font-size: 18px; line-height: 1.8; color: #444; margin-bottom: 20px;">
-                            <strong>Tita</strong> (compañera conversacional de voz) + sensor de cama + módulo urinario + sensores IoT + pulsera de emergencia. Tecnología validada internacionalmente, adaptada a costo público.
+                            <strong>Tita</strong> (compañera conversacional de voz) + sensor de cama + módulo de baño + sensores IoT + pulsera de emergencia. Tecnología validada internacionalmente, adaptada a costo público.
                         </p>
                         <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #444;">
                             <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
@@ -422,8 +423,8 @@
                             </li>
                         </ul>
                         <p style="font-size: 16px; color: #999; font-style: italic; margin-top: 16px; padding: 12px; background-color: #FFF3E0; border-left: 3px solid var(--color-accent); border-radius: 4px;">
-                            <i class="fa fa-info-circle" style="color: var(--color-accent);"></i>
-                            <strong>Limitaciones conocidas:</strong> La detección de caídas tiene 8% de falsas alarmas. Tita requiere WiFi estable (algunos barrios tienen problemas de conectividad). El 23% de usuarios necesita ayuda para configuración inicial. El módulo urinario requiere recambio de cartucho cada 3 meses. La detección cognitiva es un sistema de alerta, no un diagnóstico — siempre requiere confirmación profesional.
+                            <i class="fa fa-info-circle" style="color: var(--color-accent);" aria-hidden="true"></i>
+                            <strong>Limitaciones conocidas:</strong> La detección de caídas tiene 8% de falsas alarmas. Tita requiere WiFi estable (algunos barrios tienen problemas de conectividad). El 23% de usuarios necesita ayuda para configuración inicial. El módulo de baño requiere recambio de cartucho cada 3 meses. La detección cognitiva es un sistema de alerta, no un diagnóstico — siempre requiere confirmación profesional.
                         </p>
                     </div>
                 </article>
@@ -437,7 +438,7 @@
                             3. Nodos Territoriales
                         </h3>
                         <p style="font-size: 18px; line-height: 1.8; color: #444; margin-bottom: 20px;">
-                            <strong>16 centros</strong> distribuidos estratégicamente en toda la Ciudad.
+                            <strong>16 Nodos</strong> distribuidos estratégicamente en toda la Ciudad.
                         </p>
                         <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #444;">
                             <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
@@ -522,7 +523,7 @@
                         <p style="font-size: 16px; color: #888; margin-bottom: 16px;">Todas las personas mayores de 65 años inscriptas en CABA</p>
                         <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #444;">
                             <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #90A4AE; margin-right: 8px;" aria-hidden="true"></i> Evaluación funcional inicial</li>
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #90A4AE; margin-right: 8px;" aria-hidden="true"></i> Teleasistencia: botón de emergencia + línea 147</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #90A4AE; margin-right: 8px;" aria-hidden="true"></i> Teleasistencia: pulsera de emergencia + línea 147</li>
                             <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #90A4AE; margin-right: 8px;" aria-hidden="true"></i> Acceso al directorio de servicios y derivación al Nodo</li>
                         </ul>
                         <p style="font-size: 16px; color: var(--color-secondary); font-weight: 700; margin-top: 16px; margin-bottom: 0;">Sin copago</p>
@@ -535,9 +536,9 @@
                         <h3 style="color: var(--color-secondary); font-size: 22px; margin-bottom: 16px;">
                             <i class="fa fa-leaf" aria-hidden="true"></i> Nivel 1 — Dependencia leve
                         </h3>
-                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">20–40 horas/mes de cuidadora · Reevaluación anual</p>
+                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">20–40 horas/mes de persona cuidadora · Reevaluación anual</p>
                         <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #444;">
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary); margin-right: 8px;" aria-hidden="true"></i> Cuidadora domiciliaria</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary); margin-right: 8px;" aria-hidden="true"></i> Persona cuidadora domiciliaria</li>
                             <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary); margin-right: 8px;" aria-hidden="true"></i> Tita en Modo Normal</li>
                             <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary); margin-right: 8px;" aria-hidden="true"></i> Pulsera de emergencia + sensores</li>
                         </ul>
@@ -551,9 +552,9 @@
                         <h3 style="color: var(--color-primary); font-size: 22px; margin-bottom: 16px;">
                             <i class="fa fa-handshake-o" aria-hidden="true"></i> Nivel 2 — Dependencia moderada
                         </h3>
-                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">40–70 horas/mes de cuidadora · Reevaluación cada 6 meses</p>
+                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">40–70 horas/mes de persona cuidadora · Reevaluación cada 6 meses</p>
                         <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #444;">
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Cuidadora domiciliaria</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Persona cuidadora domiciliaria</li>
                             <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Tita + sensor de cama incluido</li>
                             <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Horas adicionales disponibles a tarifa regulada</li>
                         </ul>
@@ -567,9 +568,9 @@
                         <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 16px;">
                             <i class="fa fa-heart" aria-hidden="true"></i> Nivel 3 — Dependencia severa
                         </h3>
-                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">70–100 horas/mes de cuidadora · Reevaluación cada 3 meses</p>
+                        <p style="font-size: 16px; color: #888; margin-bottom: 16px;">70–100 horas/mes de persona cuidadora · Reevaluación cada 3 meses</p>
                         <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #444;">
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent); margin-right: 8px;" aria-hidden="true"></i> Cuidadora domiciliaria + coordinación con equipo de salud</li>
+                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent); margin-right: 8px;" aria-hidden="true"></i> Persona cuidadora domiciliaria + coordinación con equipo de salud</li>
                             <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent); margin-right: 8px;" aria-hidden="true"></i> Tita (Modo Alzheimer si corresponde) + sensor de cama + módulo de baño</li>
                             <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent); margin-right: 8px;" aria-hidden="true"></i> Acceso prioritario a tecnología asistiva adicional</li>
                         </ul>
@@ -587,7 +588,7 @@
                     Si necesitás algo que no está incluido en tu nivel, podés contratarlo a tarifa regulada con los mismos profesionales del sistema. El sistema coordina, no cobra comisión.
                 </p>
                 <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 1.8; color: #444;">
-                    <li style="padding: 4px 0;"><i class="fa fa-clock-o" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Horas extra de cuidadora por encima de las asignadas al nivel</li>
+                    <li style="padding: 4px 0;"><i class="fa fa-clock-o" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Horas extra de persona cuidadora por encima de las asignadas al nivel</li>
                     <li style="padding: 4px 0;"><i class="fa fa-cog" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Tecnología asistiva no incluida en tu nivel (ej. módulo de baño en Nivel 1)</li>
                     <li style="padding: 4px 0;"><i class="fa fa-ambulance" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Acompañamiento a turnos médicos fuera del Nodo</li>
                 </ul>
@@ -607,7 +608,7 @@
             <!-- Fricción: demoras en evaluación -->
             <div style="max-width: 800px; margin: 24px auto 0;" class="friction-alert">
                 <p style="margin: 0; color: #C62828; font-size: 16px; line-height: 1.6;">
-                    <strong><i class="fa fa-exclamation-triangle"></i> Tiempos reales:</strong>
+                    <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Tiempos reales:</strong>
                     La evaluación funcional inicial demora entre 15 y 30 días hábiles desde la inscripción.
                     En algunos Nodos, la disponibilidad de horas para Nivel 3 puede tener lista de espera de hasta 45 días.
                     La reevaluación puede demorarse si hay alta demanda en tu Nodo.
@@ -717,12 +718,12 @@
                     <!-- Fricción: demoras en facturación -->
                     <div class="friction-alert" style="background-color: #FFEBEE; border-left: 4px solid #D32F2F; padding: 20px; border-radius: 8px; margin-bottom: 32px; text-align: left;">
                         <p style="margin: 0 0 12px 0; color: #C62828; font-size: 16px; line-height: 1.6;">
-                            <strong><i class="fa fa-exclamation-triangle"></i> Realidad del sistema de cobro:</strong>
+                            <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Realidad del sistema de cobro:</strong>
                         </p>
                         <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444; font-size: 16px;">
                             <li>La factura del copago llega entre el 5 y el 15 de cada mes (a veces se demora hasta el día 20)</li>
                             <li>Si hay cambios en tus ingresos, avisá al Nodo. El sistema tarda 2 meses en actualizar el monto</li>
-                            <li>Podés pagar en efectivo, débito automático o transferencia. El débito a veces falla y hay que reclamar</li>
+                            <li>Podés pagar en efectivo, débito automático o transferencia. El débito a veces presenta inconvenientes y hay que reclamar</li>
                             <li>Si tenés problemas para pagar, hablá con el trabajador social de tu Nodo. Hay planes de facilidades</li>
                         </ul>
                     </div>
@@ -784,7 +785,7 @@
                         </h3>
                         <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                             Según la evaluación funcional, se asigna un <strong>nivel de cuidado</strong> (1, 2 o 3) que determina
-                            las horas de cuidadora (20–100/mes), la tecnología incluida y la frecuencia de reevaluación.
+                            las horas de persona cuidadora (20–100/mes), la tecnología incluida y la frecuencia de reevaluación.
                             El <strong>copago</strong> se calcula según ingresos, no según el nivel asignado.
                         </p>
                     </div>
@@ -798,7 +799,7 @@
                         </h3>
                         <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                             El Nodo asigna una <strong>persona cuidadora asignada a esa zona</strong> con perfil compatible.
-                            Las cuidadoras se asignan al Nodo con mejor accesibilidad desde su lugar de residencia.
+                            Las personas cuidadoras se asignan al Nodo con mejor accesibilidad desde su lugar de residencia.
                             Se hace una <strong>reunión de presentación</strong> en el domicilio (usuario, persona cuidadora, coordinador).
                             Si no hay feeling, se puede cambiar.
                             <span class="friction-badge">Proceso de asignación: 7-14 días. En algunos Nodos del sur la disponibilidad es menor, lo que puede extender la asignación hasta 3 semanas</span>
@@ -814,7 +815,7 @@
                         </h3>
                         <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                             Un técnico instala: <strong>sensores de movimiento</strong> (3-5 en living, cocina, baño),
-                            <strong>sensor de cama</strong> bajo el colchón, <strong>módulo urinario</strong> en el baño,
+                            <strong>sensor de cama</strong> bajo el colchón, <strong>módulo de baño</strong> en el baño,
                             <strong>pulsera de emergencia</strong> con GPS y <strong>Tita</strong> preconfigurada.
                             La persona cuidadora enseña cómo funciona todo. Duración: 2-3 horas.
                         </p>
@@ -875,7 +876,7 @@
                         <p style="font-size: 16px; line-height: 1.8; color: #444; margin: 0;">
                             <strong>Modo Alzheimer:</strong> Frases cortas, una pregunta a la vez, paciencia infinita. Orientación temporal y espacial recurrente
                             ("Hoy es martes, son las 10, estás en tu casa en Almagro"). Reminiscencia guiada con música y fotos de su época.
-                            Alertas en tiempo real al cuidador de guardia por confusión severa, agitación o no-respuesta.
+                            Alertas en tiempo real a la persona cuidadora de guardia por confusión severa, agitación o no-respuesta.
                         </p>
                     </div>
                 </div>
@@ -960,7 +961,7 @@
                         </h3>
                         <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
                             Los familiares autorizados pueden ver: <strong>datos de sueño</strong> (sensor de cama),
-                            <strong>indicadores de salud</strong> (módulo urinario), medicación tomada,
+                            <strong>indicadores de salud</strong> (módulo de baño), medicación tomada,
                             visitas de la persona cuidadora, última conexión con Tita y alertas generadas.
                             Todo respetando la autonomía y privacidad del usuario. Opcional: el usuario puede desactivarlo.
                         </p>
@@ -993,11 +994,11 @@
                                 </li>
                                 <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                     <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                    <span><strong>Sensor de cama + módulo urinario:</strong> Monitoreo de sueño, signos vitales e indicadores de salud renal</span>
+                                    <span><strong>Sensor de cama + módulo de baño:</strong> Monitoreo de sueño, signos vitales e indicadores de salud renal</span>
                                 </li>
                                 <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                     <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                    <span><strong>Sensores IoT + pulsera de emergencia:</strong> Detección de movimiento, caídas y botón de pánico 24/7</span>
+                                    <span><strong>Sensores IoT + pulsera de emergencia:</strong> Detección de movimiento, caídas y pulsera de emergencia 24/7</span>
                                 </li>
                                 <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                     <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
@@ -1041,7 +1042,7 @@
                                 </li>
                                 <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
                                     <i class="fa fa-star" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                    <span><strong>Camas PAMI en residencias:</strong> Cayeron de 22.000 a 17.000. El 78% de las cuidadoras trabaja en la informalidad</span>
+                                    <span><strong>Camas PAMI en residencias:</strong> Cayeron de 22.000 a 17.000. El 78% de las personas cuidadoras trabaja en la informalidad</span>
                                 </li>
                             </ul>
                             <div style="margin-top: 20px; padding: 16px; background-color: #F3E5F5; border-radius: 8px;">
@@ -1064,12 +1065,12 @@
                     <ul style="margin: 0 0 16px 0; padding-left: 24px; line-height: 1.8; color: #444; font-size: 16px;">
                         <li><strong>Costo prohibitivo:</strong> Un robot Figure 3 cuesta USD $250.000. Con ese dinero, Cuidados en Red puede contratar 25 personas cuidadoras durante 1 año completo</li>
                         <li><strong>Mantenimiento complejo:</strong> Requiere técnicos especializados que no existen en Argentina. Cada falla significa semanas sin servicio</li>
-                        <li><strong>Generación de empleo:</strong> Las 4.200 personas cuidadoras del sistema son trabajadores formales con salarios dignos. En un país donde el 78,4% de las cuidadoras trabaja en la informalidad, formalizar es una política en sí misma</li>
+                        <li><strong>Generación de empleo:</strong> Las 4.200 personas cuidadoras del sistema son trabajadores formales con salarios dignos. En un país donde el 78,4% de las personas cuidadoras trabaja en la informalidad, formalizar es una política en sí misma</li>
                         <li><strong>Aceptación cultural:</strong> El 78% de usuarios prefiere contacto humano. Los robots generan rechazo en población mayor de 70 años</li>
-                        <li><strong>Tecnología que sí escala:</strong> Un sensor de cama cuesta $30-50 a escala pública. Un módulo urinario, menos de $100. Tita funciona en cualquier dispositivo con WiFi. Lo que Japón subsidia con ¥1.000.000 por robot, nosotros lo resolvemos con tecnología mundana que realmente llega a 42.000 hogares</li>
+                        <li><strong>Tecnología que sí escala:</strong> Un sensor de cama cuesta $30-50 a escala pública. Un módulo de baño, menos de $100. Tita funciona en cualquier dispositivo con WiFi. Lo que Japón subsidia con ¥1.000.000 por robot, nosotros lo resolvemos con tecnología mundana que realmente llega a 42.000 hogares</li>
                     </ul>
                     <p style="color: #E65100; margin: 0; line-height: 1.6; font-size: 16px; font-style: italic; padding: 16px; background-color: #FFF3E0; border-radius: 6px;">
-                        <strong><i class="fa fa-lightbulb-o"></i> Filosofía de diseño:</strong> Cuidados en Red prioriza soluciones de "tecnología mundana" que funcionen a escala masiva, sean culturalmente aceptables y generen empleo local. El sensor de cama que usamos tiene la misma evidencia clínica que los de geriátricos premium de Europa. La diferencia es que lo pagamos $50 en vez de $750. El objetivo es cuidado digno para miles, no lujo para unos pocos.
+                        <strong><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Filosofía de diseño:</strong> Cuidados en Red prioriza soluciones de "tecnología mundana" que funcionen a escala masiva, sean culturalmente aceptables y generen empleo local. El sensor de cama que usamos tiene la misma evidencia clínica que los de geriátricos premium de Europa. La diferencia es que lo pagamos $50 en vez de $750. El objetivo es cuidado digno para miles, no lujo para unos pocos.
                     </p>
                 </div>
             </div>
@@ -1186,7 +1187,7 @@
                         <strong>Financiamiento inestable:</strong> Cada cambio de gobierno genera incertidumbre presupuestaria. En 2028 los pagos se demoraron hasta 45 días, lo que generó crisis en varios Nodos.
                     </li>
                     <li>
-                        <strong>Tensiones vecinales:</strong> 27 edificios presentaron quejas por "movimiento de ambulancias y cuidadores". Se creó protocolo de "buen vecino" pero persisten algunos conflictos.
+                        <strong>Tensiones vecinales:</strong> 27 edificios presentaron quejas por "movimiento de ambulancias y personas cuidadoras". Se creó protocolo de "buen vecino" pero persisten algunos conflictos.
                     </li>
                 </ul>
             </div>
