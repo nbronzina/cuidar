@@ -2,12 +2,19 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Verificá en 2 minutos si cumplís los requisitos para acceder a Cuidados en Red.">
+    <meta name="description" content="Verificá en 2 minutos si cumplís los requisitos para acceder a Cuidados en Red. Test online con resultado inmediato, sin necesidad de registrarte.">
+    <meta property="og:title" content="¿Es para mí? — Test de Elegibilidad | Cuidados en Red">
+    <meta property="og:description" content="Verificá en 2 minutos si cumplís los requisitos para acceder a Cuidados en Red. Test online con resultado inmediato, sin necesidad de registrarte.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/elegibilidad.html">
+    <meta property="og:site_name" content="Cuidados en Red">
+    <meta property="og:locale" content="es_AR">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
     <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/elegibilidad.html">
-    <title>¿Es para mí? - Test de Elegibilidad | Cuidados en Red</title>
+    <title>¿Es para mí? — Test de Elegibilidad | Cuidados en Red</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -53,9 +60,9 @@
             padding: 32px;
             margin-bottom: 24px;
             border-left: 4px solid var(--color-accent);
-            transition: all 0.3s;
+            transition: background-color 0.3s, border-color 0.3s;
         }
-        
+
         .question-card.answered {
             background-color: #E8F5E9;
             border-left-color: var(--color-secondary);
@@ -102,10 +109,10 @@
             border: 2px solid #E0E0E0;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: border-color 0.3s, background-color 0.3s;
             font-size: 16px;
         }
-        
+
         .answer-option:hover {
             border-color: var(--color-accent);
             background-color: #FFF8E1;
@@ -271,7 +278,7 @@
             border: none;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 16px rgba(230,81,0,0.3);
         }
         
@@ -307,7 +314,31 @@
                 font-size: 40px;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Test de elegibilidad",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/elegibilidad.html"
+      }]
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
@@ -315,10 +346,10 @@
     <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
-            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
-            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
-            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+            <button aria-label="Texto normal">A</button>
+            <button aria-label="Texto grande">A+</button>
+            <button aria-label="Texto extra grande">A++</button>
+            <button aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
@@ -341,7 +372,7 @@
     
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
@@ -376,10 +407,10 @@
     <section style="padding: 60px 0;">
         <div class="container">
             <div class="alert alert-warning" style="border-left-color: var(--color-accent);">
-                <h3 style="margin: 0 0 12px 0; color: var(--color-accent);">
+                <p style="margin: 0 0 12px 0; color: var(--color-accent); font-weight: bold; font-size: 1rem;">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     Este test es orientativo
-                </h3>
+                </p>
                 <p style="color: #333; margin: 0 0 12px 0; line-height: 1.6;">
                     Aunque cumplas todos los requisitos del test, la confirmación final se hace en la 
                     <strong>evaluación domiciliaria</strong>. Este test solo te ayuda a saber si vale 
@@ -407,19 +438,19 @@
                     </div>
                     <div class="answer-options">
                         <label class="answer-option">
-                            <input type="radio" name="edad" value="menos60" onchange="answerQuestion(1)">
+                            <input type="radio" name="edad" value="menos60">
                             <span>Menos de 60 años</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="edad" value="60-69" onchange="answerQuestion(1)">
+                            <input type="radio" name="edad" value="60-69">
                             <span>Entre 60 y 69 años</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="edad" value="70-79" onchange="answerQuestion(1)">
+                            <input type="radio" name="edad" value="70-79">
                             <span>Entre 70 y 79 años</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="edad" value="80mas" onchange="answerQuestion(1)">
+                            <input type="radio" name="edad" value="80mas">
                             <span>80 años o más</span>
                         </label>
                     </div>
@@ -433,15 +464,15 @@
                     </div>
                     <div class="answer-options">
                         <label class="answer-option">
-                            <input type="radio" name="residencia" value="caba" onchange="answerQuestion(2)">
+                            <input type="radio" name="residencia" value="caba">
                             <span>En la Ciudad de Buenos Aires (CABA)</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="residencia" value="gba" onchange="answerQuestion(2)">
+                            <input type="radio" name="residencia" value="gba">
                             <span>En el Gran Buenos Aires (GBA)</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="residencia" value="otra" onchange="answerQuestion(2)">
+                            <input type="radio" name="residencia" value="otra">
                             <span>En otra provincia</span>
                         </label>
                     </div>
@@ -455,23 +486,23 @@
                     </div>
                     <div class="answer-options">
                         <label class="answer-option">
-                            <input type="radio" name="vivienda" value="propia" onchange="answerQuestion(3)">
+                            <input type="radio" name="vivienda" value="propia">
                             <span>Casa o departamento propio</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="vivienda" value="alquiler" onchange="answerQuestion(3)">
+                            <input type="radio" name="vivienda" value="alquiler">
                             <span>Casa o departamento alquilado</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="vivienda" value="familiar" onchange="answerQuestion(3)">
+                            <input type="radio" name="vivienda" value="familiar">
                             <span>Vivo con un familiar (en su casa)</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="vivienda" value="geriatrico" onchange="answerQuestion(3)">
+                            <input type="radio" name="vivienda" value="geriatrico">
                             <span>Geriátrico o residencia</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="vivienda" value="otro" onchange="answerQuestion(3)">
+                            <input type="radio" name="vivienda" value="otro">
                             <span>Otra situación</span>
                         </label>
                     </div>
@@ -485,19 +516,19 @@
                     </div>
                     <div class="answer-options">
                         <label class="answer-option">
-                            <input type="radio" name="autonomia" value="total" onchange="answerQuestion(4)">
+                            <input type="radio" name="autonomia" value="total">
                             <span>Sí, puedo hacer todo solo/a</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="autonomia" value="parcial" onchange="answerQuestion(4)">
+                            <input type="radio" name="autonomia" value="parcial">
                             <span>Necesito ayuda con algunas cosas</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="autonomia" value="minima" onchange="answerQuestion(4)">
+                            <input type="radio" name="autonomia" value="minima">
                             <span>Necesito ayuda con casi todo</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="autonomia" value="dependiente" onchange="answerQuestion(4)">
+                            <input type="radio" name="autonomia" value="dependiente">
                             <span>No puedo hacer nada sin ayuda (dependencia total)</span>
                         </label>
                     </div>
@@ -511,23 +542,23 @@
                     </div>
                     <div class="answer-options">
                         <label class="answer-option">
-                            <input type="radio" name="cuidadoActual" value="no" onchange="answerQuestion(5)">
+                            <input type="radio" name="cuidadoActual" value="no">
                             <span>No, no tengo ningún tipo de ayuda</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="cuidadoActual" value="familiar" onchange="answerQuestion(5)">
+                            <input type="radio" name="cuidadoActual" value="familiar">
                             <span>Sí, un familiar me ayuda a veces</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="cuidadoActual" value="empleada" onchange="answerQuestion(5)">
+                            <input type="radio" name="cuidadoActual" value="empleada">
                             <span>Sí, tengo empleada doméstica</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="cuidadoActual" value="cuidador" onchange="answerQuestion(5)">
+                            <input type="radio" name="cuidadoActual" value="cuidador">
                             <span>Sí, tengo una persona cuidadora privada</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="cuidadoActual" value="institucional" onchange="answerQuestion(5)">
+                            <input type="radio" name="cuidadoActual" value="institucional">
                             <span>Sí, voy a un centro de día u otro servicio</span>
                         </label>
                     </div>
@@ -541,19 +572,19 @@
                     </div>
                     <div class="answer-options">
                         <label class="answer-option">
-                            <input type="radio" name="movilidad" value="si" onchange="answerQuestion(6)">
+                            <input type="radio" name="movilidad" value="si">
                             <span>Sí, salgo sin problemas</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="movilidad" value="dificultad" onchange="answerQuestion(6)">
+                            <input type="radio" name="movilidad" value="dificultad">
                             <span>Salgo pero con dificultad o miedo</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="movilidad" value="ayuda" onchange="answerQuestion(6)">
+                            <input type="radio" name="movilidad" value="ayuda">
                             <span>Solo si alguien me acompaña</span>
                         </label>
                         <label class="answer-option">
-                            <input type="radio" name="movilidad" value="no" onchange="answerQuestion(6)">
+                            <input type="radio" name="movilidad" value="no">
                             <span>No puedo salir de mi casa</span>
                         </label>
                     </div>
@@ -561,8 +592,11 @@
                 
                 <!-- Check Button -->
                 <div style="text-align: center; margin-top: 40px;">
-                    <button id="checkBtn" class="btn-check" onclick="checkEligibility()" disabled>
+                    <button id="checkBtn" class="btn-check" disabled>
                         <i class="fa fa-check-circle" aria-hidden="true"></i> Ver resultado
+                    </button>
+                    <button type="button" id="resetBtn" class="btn-reset" style="background: transparent; color: #1A5276; border: 2px solid #1A5276; padding: 14px 32px; border-radius: 8px; font-size: 18px; font-weight: 600; cursor: pointer; margin-left: 12px;">
+                        <i class="fa fa-refresh" aria-hidden="true"></i> Reiniciar test
                     </button>
                 </div>
                 
@@ -717,6 +751,23 @@
     <script>
         let answeredQuestions = new Set();
         const totalQuestions = 6;
+
+        /* Event delegation for quiz — replaces inline onchange/onclick handlers */
+        document.addEventListener('DOMContentLoaded', function() {
+            var questionMap = {edad:1, residencia:2, vivienda:3, autonomia:4, cuidadoActual:5, movilidad:6};
+            var quiz = document.getElementById('eligibilityQuiz');
+            if (quiz) {
+                quiz.addEventListener('change', function(e) {
+                    if (e.target.type === 'radio' && questionMap[e.target.name]) {
+                        answerQuestion(questionMap[e.target.name]);
+                    }
+                });
+            }
+            var checkBtn = document.getElementById('checkBtn');
+            if (checkBtn) checkBtn.addEventListener('click', checkEligibility);
+            var resetBtn = document.getElementById('resetBtn');
+            if (resetBtn) resetBtn.addEventListener('click', resetQuiz);
+        });
 
         function answerQuestion(questionNum) {
             // Mark question as answered
@@ -888,6 +939,39 @@
             
             // Scroll to result
             resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            // Clear all radio buttons
+            document.querySelectorAll('.question-card input[type="radio"]').forEach(function(r) { r.checked = false; });
+            // Reset progress
+            answeredQuestions.clear();
+            var progressFill = document.getElementById('progressFill');
+            if (progressFill) { progressFill.style.width = '0%'; }
+            var progressText = document.getElementById('progressText');
+            if (progressText) { progressText.innerHTML = '<strong>0 de 6</strong> preguntas respondidas'; }
+            var progressBar = document.querySelector('.progress-bar');
+            if (progressBar) { progressBar.setAttribute('aria-valuenow', '0'); }
+            // Hide results
+            var resultBox = document.getElementById('resultBox');
+            if (resultBox) { resultBox.className = 'result-box'; resultBox.innerHTML = ''; }
+            // Reset question card styling
+            document.querySelectorAll('.question-card').forEach(function(card) {
+                card.classList.remove('answered');
+            });
+            document.querySelectorAll('.answer-option').forEach(function(opt) {
+                opt.classList.remove('selected');
+            });
+            // Disable check button
+            var checkBtn = document.getElementById('checkBtn');
+            if (checkBtn) checkBtn.disabled = true;
+            // Scroll to top of quiz
+            var quizContainer = document.querySelector('.quiz-container');
+            if (quizContainer) quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Announce to screen reader
+            if (typeof announceToScreenReader === 'function') {
+                announceToScreenReader('Test reiniciado. Podés comenzar de nuevo.');
+            }
         }
 
     </script>

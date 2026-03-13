@@ -2,12 +2,19 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Inscribite en Cuidados en Red en 5 minutos. Dejá tus datos y te contactamos en 24-48hs (zona sur) o 2-4 semanas (zona norte).">
+    <meta name="description" content="Inscribite en Cuidados en Red en 5 minutos. Dejá tus datos y te contactamos en 24-48 horas hábiles en zona sur o 2-4 semanas en zona norte.">
+    <meta property="og:title" content="Inscripción en Cuidados en Red — Formulario Online GCBA">
+    <meta property="og:description" content="Inscribite en Cuidados en Red en 5 minutos. Dejá tus datos y te contactamos en 24-48 horas hábiles en zona sur o 2-4 semanas en zona norte.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/inscripcion.html">
+    <meta property="og:site_name" content="Cuidados en Red">
+    <meta property="og:locale" content="es_AR">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
     <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/inscripcion.html">
-    <title>Inscripción | Cuidados en Red</title>
+    <title>Inscripción en Cuidados en Red — Formulario Online GCBA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -142,12 +149,12 @@
             border-radius: 8px;
             font-size: 16px;
             font-family: 'Roboto', sans-serif;
-            transition: all 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+
+        .form-group input:focus-visible,
+        .form-group select:focus-visible,
+        .form-group textarea:focus-visible {
             outline: none;
             border-color: var(--color-secondary);
             box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
@@ -209,9 +216,9 @@
             background-color: #F5F5F5;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: background-color 0.3s;
         }
-        
+
         .checkbox-group:hover {
             background-color: #E8F5E9;
         }
@@ -330,7 +337,31 @@
                 justify-content: center;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inscripción",
+        "item": "https://cuidadosenred.buenosaires.gob.ar/inscripcion.html"
+      }]
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
@@ -338,10 +369,10 @@
     <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
-            <button onclick="adjustTextSize('large')" aria-label="Texto grande">A+</button>
-            <button onclick="adjustTextSize('xlarge')" aria-label="Texto extra grande">A++</button>
-            <button onclick="toggleHighContrast()" aria-label="Alto contraste">
+            <button aria-label="Texto normal">A</button>
+            <button aria-label="Texto grande">A+</button>
+            <button aria-label="Texto extra grande">A++</button>
+            <button aria-label="Alto contraste">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
@@ -364,7 +395,7 @@
     
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
@@ -504,7 +535,7 @@
 
             
             <!-- Form -->
-            <form class="form-container" id="inscriptionForm" onsubmit="return handleInscription(event)">
+            <form class="form-container" id="inscriptionForm">
                 <!-- Sección 1: Datos personales -->
                 <div class="form-section">
                     <h3>
@@ -874,6 +905,12 @@
     
     <script src="accessibility.js"></script>
     <script>
+        /* Attach form submit handler — replaces inline onsubmit */
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('inscriptionForm');
+            if (form) form.addEventListener('submit', function(e) { handleInscription(e); });
+        });
+
         function handleInscription(event) {
             event.preventDefault();
 
@@ -899,8 +936,9 @@
                 successMessage.classList.add('show');
                 document.getElementById('confirmedEmail').textContent = email;
 
-                // Clear saved form data
+                // Clear saved form data and dirty flag
                 localStorage.removeItem('cuidar-form-data');
+                formDirty = false;
 
                 // Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -942,6 +980,15 @@
                 else el.value = data[key];
             });
         }
+
+        var formDirty = false;
+        document.getElementById('inscriptionForm').addEventListener('input', function() { formDirty = true; });
+        window.addEventListener('beforeunload', function(e) {
+            if (formDirty) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
 
         window.addEventListener('load', function() {
             restoreFormData();
