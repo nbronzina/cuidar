@@ -48,7 +48,7 @@
    ============================================ */
 
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 19px;
     line-height: 1.6;
     color: #333;
@@ -277,7 +277,7 @@ a:hover {
 .logo-text .institutional {
     font-size: 14px;
     font-weight: 400;
-    opacity: 0.85;
+    opacity: 0.95;
     letter-spacing: 0.3px;
 }
 
@@ -377,7 +377,7 @@ a:hover {
 .breadcrumb {
     padding: 12px 0;
     font-size: 16px;
-    color: #767676;
+    color: #595959;
 }
 
 .breadcrumb a {
@@ -391,7 +391,7 @@ a:hover {
 
 .breadcrumb .separator {
     margin: 0 8px;
-    color: #999;
+    color: #767676;
 }
 
 .breadcrumb .current {
@@ -498,7 +498,7 @@ footer h4 {
 }
 
 footer a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
     display: block;
     padding: 8px 0;
@@ -518,7 +518,7 @@ footer a:hover {
 }
 
 .footer-legal p {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.92);
     font-size: 16px;
     margin: 0;
 }
@@ -551,7 +551,7 @@ footer a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
-    color: #5D4037;
+    color: #3E2723;
     font-size: 16px;
     line-height: 1.8;
     text-align: center;
@@ -676,7 +676,7 @@ footer a:hover {
 
 .stat-sublabel {
     font-size: 16px;
-    color: #767676;
+    color: #595959;
     margin-top: 8px;
 }
 
@@ -1214,6 +1214,15 @@ tr:hover {
     background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
     border: 2px solid var(--color-secondary);
     color: #1B5E20;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in,
+    .stat-number,
+    [class*="animation"] {
+        animation: none !important;
+        transition: none !important;
+    }
 }
 
 /* ============================================

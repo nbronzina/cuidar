@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -376,7 +376,7 @@
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
     <!-- Header de accesibilidad -->
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
@@ -430,7 +430,8 @@
     </div>
 
     <!-- Hero -->
-    <section class="hero-estado" id="main-content" role="main">
+    <main id="main-content">
+    <section class="hero-estado">
         <div class="container">
             <h1>Estado de mi solicitud</h1>
             <p class="lead">
@@ -444,10 +445,10 @@
         <div class="container">
             <!-- Info banner usando clase alert-info -->
             <div class="alert alert-info">
-                <h3 style="margin: 0 0 12px 0;">
+                <h2 style="margin: 0 0 12px 0;">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     ¿Cómo consultar?
-                </h3>
+                </h2>
                 <p style="color: #333; margin: 0; line-height: 1.6;">
                     Ingresá tu <strong>DNI</strong> o el <strong>número de trámite</strong> que recibiste por email
                     cuando te inscribiste. También podés llamar al
@@ -467,13 +468,14 @@
                         <label for="dni">
                             DNI (sin puntos ni espacios)
                         </label>
-                        <input 
-                            type="text" 
-                            id="dni" 
-                            name="dni" 
+                        <input
+                            type="text"
+                            id="dni"
+                            name="dni"
                             placeholder="Ej: 12345678"
                             pattern="[0-9]{7,8}"
                             maxlength="8"
+                            autocomplete="off"
                         >
                         <small>Solo números, sin puntos ni espacios</small>
                     </div>
@@ -486,11 +488,12 @@
                         <label for="tramite">
                             Número de trámite
                         </label>
-                        <input 
-                            type="text" 
-                            id="tramite" 
-                            name="tramite" 
+                        <input
+                            type="text"
+                            id="tramite"
+                            name="tramite"
                             placeholder="Ej: CER-2025-123456"
+                            autocomplete="off"
                         >
                         <small>Lo recibiste por email cuando te inscribiste</small>
                     </div>
@@ -546,7 +549,7 @@
                             <h3>2. Contacto inicial</h3>
                             <p>El Nodo Caballito se comunicó con vos y se coordinó la visita domiciliaria.</p>
                             <div class="friction-alert">
-                                <p><strong><i class="fa fa-clock-o"></i> Realidad:</strong> El primer contacto fue 5 días después de lo previsto porque el teléfono que dejaste tenía un dígito mal. Si cambiás tu número, avisanos por email.</p>
+                                <p><strong><i class="fa fa-clock-o" aria-hidden="true"></i> Realidad:</strong> El primer contacto fue 5 días después de lo previsto porque el teléfono que dejaste tenía un dígito mal. Si cambiás tu número, avisanos por email.</p>
                             </div>
                             <div class="date">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -563,7 +566,7 @@
                             <h3>3. Evaluación funcional domiciliaria</h3>
                             <p>Estamos evaluando tus necesidades para determinar tu nivel de cuidado y armar tu plan personalizado.</p>
                             <div class="friction-alert">
-                                <p><strong><i class="fa fa-exclamation-triangle"></i> Atención:</strong> La visita programada para el 25/10 se reprogramó para el 30/10 porque la trabajadora social tuvo una emergencia familiar. Disculpá las demoras.</p>
+                                <p><strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Atención:</strong> La visita programada para el 25/10 se reprogramó para el 30/10 porque la trabajadora social tuvo una emergencia familiar. Disculpá las demoras.</p>
                             </div>
                             <div class="date">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -580,7 +583,7 @@
                             <h3>4. Asignación de nivel y persona cuidadora</h3>
                             <p>Según tu evaluación, te asignan un nivel de cuidado con las horas correspondientes y una persona cuidadora. Coordinamos la reunión de presentación.</p>
                             <div class="friction-alert">
-                                <p><strong><i class="fa fa-info-circle"></i> Tiempo real:</strong> Este paso puede tardar entre 7 y 21 días. Depende de la disponibilidad de personas cuidadoras en Caballito y de que encuentres una con quien te sientas cómoda.</p>
+                                <p><strong><i class="fa fa-info-circle" aria-hidden="true"></i> Tiempo real:</strong> Este paso puede tardar entre 7 y 21 días. Depende de la disponibilidad de personas cuidadoras en Caballito y de que encuentres una con quien te sientas cómoda.</p>
                             </div>
                             <div class="date">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i>

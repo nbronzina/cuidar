@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -177,7 +177,7 @@
 <body>
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
 
-    <div class="accessibility-bar">
+    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button onclick="adjustTextSize('normal')" aria-label="Texto normal">A</button>
@@ -206,10 +206,10 @@
 
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
-                <i class="fa fa-bars" aria-hidden="true"></i>
+            <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links" onclick="document.getElementById('nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')">
+                <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <a href="index.html">Inicio</a>
                 <a href="para-personas-mayores.html">Para Personas Mayores</a>
                 <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
@@ -383,7 +383,7 @@
                         Solo compartimos datos en situaciones específicas y con la información mínima necesaria:
                     </p>
                     <ul>
-                        <li><strong>Emergencias:</strong> cuando se activa el botón de emergencia, una alerta del sensor o se detecta una situación de riesgo, se comparte con el SAME la información mínima necesaria (nombre, dirección, tipo de alerta, datos clínicos relevantes).</li>
+                        <li><strong>Emergencias:</strong> cuando se activa la pulsera de emergencia, una alerta del sensor o se detecta una situación de riesgo, se comparte con el SAME la información mínima necesaria (nombre, dirección, tipo de alerta, datos clínicos relevantes).</li>
                         <li><strong>Derivaciones médicas:</strong> cuando el equipo del Nodo coordina una derivación a un hospital o centro de salud, se comparte el resumen clínico necesario para la continuidad de la atención.</li>
                         <li><strong>Protocolo de violencia:</strong> cuando se activa el protocolo, se comunica a las autoridades competentes conforme a la normativa vigente.</li>
                         <li><strong>Requerimientos judiciales:</strong> cuando lo ordena una autoridad judicial mediante resolución fundada.</li>
@@ -442,6 +442,14 @@
             </div>
         </section>
     </main>
+
+    <a href="https://wa.me/5491112345678"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
 
     <footer role="contentinfo">
         <div class="container">
