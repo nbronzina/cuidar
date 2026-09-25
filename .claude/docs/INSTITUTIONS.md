@@ -14,8 +14,8 @@ Fuente de verdad para todas las instituciones mencionadas en el sitio. Antes de 
 | **Línea 137** | Violencia/abuso contra mayores | Protocolo de actuación, se activa desde el sistema. |
 | **buenosaires.gob.ar** | Dominio oficial del GCBA | Desde 1997. Solo para referencias a servicios de toda la Ciudad (no del programa). |
 | **cuidadosenred.gob.ar** | Dominio ficticio del programa | Único dominio para emails y API del programa. Canonical y metadatos usan la dirección real de GitHub Pages (ver WORLD.md). |
-| **PUAM** | Pensión Universal para el Adulto Mayor (real, Ley 27.260) | ANSES; 65+ sin jubilación. Da acceso gratuito al programa. |
-| **Pensiones no contributivas** | Reales, ANSES | Por vejez, invalidez o madre de 7 hijos. Dan acceso gratuito al programa. |
+| **PUAM** | Pensión Universal para el Adulto Mayor (real, Ley 27.260; verificado en 2026) | ANSES; 65 años o más sin jubilación; cobra el 80 % de la jubilación mínima. Da acceso gratuito al programa. |
+| **Pensiones no contributivas** | Reales, ANSES (verificado en 2026) | Por vejez, invalidez, madre de 7 o más hijos, o para personas con VIH o hepatitis B/C. Dan acceso gratuito al programa. |
 | **INECO** | Convenio ficticio para screening cognitivo | Instituto de Neurología Cognitiva. |
 | **Centros de Día públicos** | Expandidos a 45 en la ficción | Actividades recreativas y sociales. Incluidos sin costo adicional. |
 | **Nodos territoriales** | 16 centros ficticios del sistema | Llamarlos siempre "Nodos", nunca "centros" u "oficinas". |
@@ -45,9 +45,9 @@ Fuente de verdad para todas las instituciones mencionadas en el sitio. Antes de 
 | Ley 4.408/2012 | Real | Establece el escudo de la Ciudad como símbolo oficial. |
 | Constitución 1996 | Real | Establece el nombre constitucional "Ciudad Autónoma de Buenos Aires". |
 | Ley 25.326 | Real | Protección de Datos Personales. |
-| Ley 26.529 | Real | Derechos del Paciente, Historia Clínica. Art. 18: la historia clínica se conserva al menos 10 años (verificar texto vigente antes de citar otros plazos). |
+| Ley 26.529 | Real | Derechos del Paciente, Historia Clínica. Art. 18: la historia clínica se conserva un mínimo de 10 años desde la última actuación registrada (verificado en 2026). |
 | Ley 26.844 | Real | Régimen de trabajadores de casas particulares. **No** es el régimen de las personas cuidadoras del programa (ver Cooperativas GCBA). |
-| Res. CNTCP 1/2026 | A verificar | Piso salarial de referencia para el convenio GCBA–cooperativas. TIMELINE la marca como ficticia. |
+| Res. CNTCP 1/2026 | Real, pero **no usar** | Verificado en 2026 (Boletín Oficial, 19/02/2026): convoca a una sesión plenaria, no fija salarios. El sitio habla de "piso nacional para tareas de cuidado" sin número de resolución. |
 | Resolución 682/MDHYHGC/25 | Ficticia | Crea el programa piloto de desinstitucionalización (octubre 2025). |
 | Resolución 3315/2023 | Real | Referencia regulatoria sanitaria. |
 | Resolución GCBA 1847/2031 | Ficticia | Protocolo de Datos Sensibles de Cuidados en Red. |

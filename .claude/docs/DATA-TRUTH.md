@@ -31,7 +31,7 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 
 ### Costos de referencia (2025, base pre-inflación)
 - Persona cuidadora privada full-time: $455.000/mes (sin cargas patronales)
-- Sueldo base cuidadoras convenio 2026: $455.160/mes (Res. CNTCP 1/2026)
+- Sueldo base de referencia para tareas de cuidado en 2026: $455.160/mes (valor del proyecto, NO verificado). Verificado en 2026: la Res. CNTCP 1/2026 real solo convoca a una sesión plenaria de la Comisión Nacional de Trabajo en Casas Particulares; no fija salarios. No citarla como fuente de este monto.
 - Geriátrico estándar: $1.300.000–$2.500.000/mes
 - Geriátrico premium: $2.750.000–$5.500.000+/mes (alta complejidad >$5.000.000)
 - Robot Figure 3: USD 250.000 (equivalente a 25 cuidadoras por 1 año)
@@ -177,6 +177,7 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Nélida (ingreso alto, $4.000.000/mes, Nivel 3): $400.000/mes (10%, tope reducido)
 
 ### Los 16 Nodos
+Las calles son reales y están dentro del barrio de cada Nodo (Coghlan y Villa Devoto verificados en 2026); las alturas son del mundo ficticio.
 1. Nodo Retiro — Av. Córdoba 1235 — Comunas 1 y 2
 2. Nodo San Telmo — Defensa 678 — Comuna 1
 3. Nodo Recoleta — Av. Las Heras 2234 — Comuna 2
@@ -189,7 +190,7 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 10. Nodo Liniers — Av. Rivadavia 11234 — Comuna 9
 11. Nodo Floresta — Av. Gaona 3456 — Comuna 10
 12. Nodo Villa Devoto — Av. San Martín 4890 — Comuna 11
-13. Nodo Coghlan — Av. Cabildo 3456 — Comuna 12
+13. Nodo Coghlan — Av. del Tejar 3200 — Comuna 12 (la Av. Cabildo no pasa por Coghlan; corregido en 2026)
 14. Nodo Belgrano — Av. Cabildo 2123 — Comuna 13
 15. Nodo Palermo — Av. Santa Fe 4567 — Comuna 14
 16. Nodo Chacarita — Av. Warnes 2890 — Comuna 15
