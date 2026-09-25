@@ -33,21 +33,21 @@
             padding: 80px 0;
             text-align: center;
         }
-        
+
         .hero-sistema h1 {
             font-size: 3rem;
             margin-bottom: 24px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .hero-sistema .lead {
             font-size: 1.625rem;
             line-height: 1.5;
             max-width: 900px;
             margin: 0 auto;
         }
-        
+
         .component-card {
             background-color: white;
             border-radius: 12px;
@@ -69,12 +69,12 @@
             height: 4px;
             background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
         }
-        
+
         .component-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
-        
+
         .component-icon {
             width: 90px;
             height: 90px;
@@ -88,7 +88,7 @@
             font-size: 2.5rem;
             box-shadow: 0 4px 16px rgba(27,94,32,0.3);
         }
-        
+
         .flow-diagram {
             background-color: white;
             border-radius: 12px;
@@ -96,7 +96,7 @@
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             margin-bottom: 32px;
         }
-        
+
         .flow-step {
             display: flex;
             align-items: center;
@@ -104,7 +104,7 @@
             margin-bottom: 40px;
             position: relative;
         }
-        
+
         .flow-step:not(:last-child)::after {
             content: '';
             position: absolute;
@@ -114,7 +114,7 @@
             height: 40px;
             background: linear-gradient(180deg, var(--color-secondary), var(--color-accent));
         }
-        
+
         .flow-number {
             width: 120px;
             height: 120px;
@@ -129,11 +129,11 @@
             flex-shrink: 0;
             box-shadow: 0 8px 24px rgba(27,94,32,0.3);
         }
-        
+
         .flow-content {
             flex: 1;
         }
-        
+
         .stats-banner {
             background: linear-gradient(135deg, var(--color-accent), #BF360C);
             color: white;
@@ -143,25 +143,25 @@
             box-shadow: 0 8px 24px rgba(230,81,0,0.3);
             margin-bottom: 32px;
         }
-        
+
         .stat-item {
             margin-bottom: 24px;
         }
-        
+
         .stat-number-big {
             font-size: 4rem;
             font-weight: 700;
             line-height: 1;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .ecosystem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
             margin-top: 48px;
         }
-        
+
         .ecosystem-card {
             background-color: white;
             border-radius: 12px;
@@ -175,7 +175,7 @@
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
-        
+
         .ecosystem-icon {
             width: 80px;
             height: 80px;
@@ -194,14 +194,14 @@
         .ecosystem-card:hover .ecosystem-icon {
             transform: rotate(0deg);
         }
-        
+
         .tech-showcase {
             background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
             border-radius: 12px;
             padding: 48px;
             margin-bottom: 32px;
         }
-        
+
         .tech-item {
             display: flex;
             align-items: start;
@@ -212,7 +212,7 @@
             margin-bottom: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
-        
+
         .tech-icon {
             width: 60px;
             height: 60px;
@@ -225,7 +225,7 @@
             font-size: 1.75rem;
             flex-shrink: 0;
         }
-        
+
         @media (max-width: 767px) {
             .hero-sistema h1 {
                 font-size: 2rem;
@@ -276,8 +276,8 @@
 <body>
     <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
-    
-    <div class="accessibility-bar" role="region" aria-label="Herramientas de accesibilidad">
+
+    <section class="accessibility-bar" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
@@ -290,9 +290,9 @@
                 <i class="fa fa-phone" aria-hidden="true"></i> 147
             </a>
         </div>
-    </div>
-    
-    <header class="header-gcba" role="banner">
+    </section>
+
+    <header class="header-gcba">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
@@ -303,10 +303,10 @@
             </a>
         </div>
     </header>
-    
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+
+    <nav class="main-nav" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
@@ -338,7 +338,7 @@
             </p>
         </div>
     </section>
-    
+
     <!-- Visión general -->
     <section style="padding: 60px 0;" aria-labelledby="vision-titulo">
         <div class="container">
@@ -346,33 +346,33 @@
                 Un ecosistema completo de cuidado
             </h2>
             <p style="text-align: center; font-size: 1.25rem; color: #444; margin-bottom: 48px; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8;">
-                Cuidados en Red no es solo una persona que te visita. Es todo un <strong>ecosistema</strong> de servicios, 
+                Cuidados en Red no es solo una persona que te visita. Es todo un <strong>ecosistema</strong> de servicios,
                 tecnología y comunidad trabajando juntos para que vivas mejor en tu casa.
             </p>
-            
+
             <div class="stats-banner">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="stat-item">
-                            <div class="stat-number-big" aria-label="4 pilares">4</div>
+                            <div class="stat-number-big">4</div>
                             <div style="font-size: 1.25rem; margin-top: 12px;">Pilares del sistema</div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="stat-item">
-                            <div class="stat-number-big" aria-label="24 horas, 7 días">24/7</div>
+                            <div class="stat-number-big">24/7</div>
                             <div style="font-size: 1.25rem; margin-top: 12px;">Monitoreo y línea 147</div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="stat-item">
-                            <div class="stat-number-big" aria-label="16 nodos">16</div>
+                            <div class="stat-number-big">16</div>
                             <div style="font-size: 1.25rem; margin-top: 12px;">Nodos territoriales</div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="stat-item">
-                            <div class="stat-number-big" aria-label="8 de 15">8/15</div>
+                            <div class="stat-number-big">8 de 15</div>
                             <div style="font-size: 1.25rem; margin-top: 12px;">Comunas con cobertura completa</div>
                         </div>
                     </div>
@@ -380,14 +380,14 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Los 4 componentes -->
     <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="componentes-titulo">
         <div class="container">
             <h2 id="componentes-titulo" style="color: var(--color-secondary-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
                 Los 4 pilares del sistema
             </h2>
-            
+
             <div class="row">
                 <article class="col-md-6">
                     <div class="component-card">
@@ -424,7 +424,7 @@
                         </ul>
                     </div>
                 </article>
-                
+
                 <article class="col-md-6">
                     <div class="component-card">
                         <div class="component-icon" style="background: linear-gradient(135deg, var(--color-accent), #BF360C);">
@@ -464,7 +464,7 @@
                         </p>
                     </div>
                 </article>
-                
+
                 <article class="col-md-6">
                     <div class="component-card">
                         <div class="component-icon" style="background: linear-gradient(135deg, var(--color-primary), #0D3B5E);">
@@ -496,7 +496,7 @@
                         </ul>
                     </div>
                 </article>
-                
+
                 <article class="col-md-6">
                     <div class="component-card">
                         <div class="component-icon" style="background: linear-gradient(135deg, var(--color-purple), #6A1B9A);">
@@ -660,11 +660,11 @@
                     <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--color-primary), #0D3B5E); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px auto;">
                         <i class="fa fa-dollar" aria-hidden="true" style="font-size: 3.5rem; color: white;"></i>
                     </div>
-                    
+
                     <h2 id="costos-titulo" style="color: var(--color-primary); font-size: 2.25rem; margin-bottom: 24px;">
                         ¿Cuánto cuesta?
                     </h2>
-                    
+
                     <p style="font-size: 1.375rem; line-height: 1.8; color: #333; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
                         <strong>Gratis</strong> para quienes cobran jubilación mínima, PUAM o pensión no contributiva.<br>
                         <strong>Copago proporcional</strong> para otros casos, según nivel de cuidado e ingresos.
@@ -693,7 +693,7 @@
                             </li>
                         </ul>
                     </div>
-                    
+
                     <!-- Ejemplos prácticos -->
                     <div style="background-color: #F5F5F5; padding: 32px; border-radius: 12px; margin-bottom: 32px; text-align: left;">
                         <h3 style="color: var(--color-secondary-text); margin-bottom: 20px; font-size: 1.375rem;">
@@ -717,13 +717,13 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Fricción: lo que incluye y lo que NO -->
                     <div style="background-color: #FFF3E0; padding: 32px; border-radius: 12px; border-left: 4px solid var(--color-accent); margin-bottom: 32px; text-align: left;">
                         <h3 style="color: var(--color-accent-text); margin-bottom: 20px; font-size: 1.375rem;">
                             <i class="fa fa-info-circle" aria-hidden="true"></i> ¿Qué incluye y qué NO incluye el servicio?
                         </h3>
-                        
+
                         <div style="margin-bottom: 24px;">
                             <h4 style="color: var(--color-secondary-text); margin-bottom: 12px; font-size: 1.125rem;">
                                 <i class="fa fa-check" aria-hidden="true"></i> Incluido sin costo adicional:
@@ -736,7 +736,7 @@
                                 <li>Actividades en Centros de Día</li>
                             </ul>
                         </div>
-                        
+
                         <div>
                             <h4 style="color: #9A1515; margin-bottom: 12px; font-size: 1.125rem;">
                                 <i class="fa fa-times" aria-hidden="true"></i> NO incluido (pagás aparte):
@@ -750,7 +750,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- Fricción: demoras en facturación -->
                     <div class="friction-alert" style="background-color: #FFEBEE; border-left: 4px solid #D32F2F; padding: 20px; border-radius: 8px; margin-bottom: 32px; text-align: left;">
                         <p style="margin: 0 0 12px 0; color: #9A1515; font-size: 1rem; line-height: 1.6;">
@@ -763,7 +763,7 @@
                             <li>Si tenés problemas para pagar, hablá con el trabajador social de tu Nodo. Hay planes de facilidades</li>
                         </ul>
                     </div>
-                    
+
                     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
                         <a href="tel:147" class="btn btn-primary" style="padding: 16px 32px; font-size: 1.125rem;">
                             <i class="fa fa-phone" aria-hidden="true"></i> Consultar por teléfono
@@ -782,7 +782,7 @@
             <h2 id="flujo-titulo" style="color: var(--color-secondary-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
                 El recorrido de un usuario
             </h2>
-            
+
             <div class="flow-diagram">
                 <div class="flow-step">
                     <div class="flow-number">1</div>
@@ -791,13 +791,13 @@
                             Inscripción y contacto
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
-                            La persona se inscribe online, por teléfono o presencialmente en un Nodo. 
+                            La persona se inscribe online, por teléfono o presencialmente en un Nodo.
                             <strong>En 24-48hs</strong> recibe un llamado del Nodo de su zona para agendar la visita inicial.
                             <span class="friction-badge">En zonas con alta demanda puede demorar hasta 5-7 días</span>
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="flow-step">
                     <div class="flow-number">2</div>
                     <div class="flow-content">
@@ -812,7 +812,7 @@
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="flow-step">
                     <div class="flow-number">3</div>
                     <div class="flow-content">
@@ -826,7 +826,7 @@
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="flow-step">
                     <div class="flow-number">4</div>
                     <div class="flow-content">
@@ -842,7 +842,7 @@
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="flow-step">
                     <div class="flow-number">5</div>
                     <div class="flow-content">
@@ -857,7 +857,7 @@
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="flow-step">
                     <div class="flow-number">6</div>
                     <div class="flow-content">
@@ -865,19 +865,19 @@
                             Cuidado continuo
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
-                            La persona cuidadora visita según lo planificado. <strong>Tita</strong> acompaña entre visitas. 
-                            El Nodo hace <strong>seguimiento mensual</strong>. Los sensores monitorean 24/7. 
+                            La persona cuidadora visita según lo planificado. <strong>Tita</strong> acompaña entre visitas.
+                            El Nodo hace <strong>seguimiento mensual</strong>. Los sensores monitorean 24/7.
                             El sistema se adapta si cambian las necesidades.
                         </p>
                     </div>
                 </div>
             </div>
-            
+
             <div style="text-align: center; margin-top: 40px;">
                 <div style="background-color: var(--color-warm); padding: 32px; border-radius: 12px; max-width: 700px; margin: 0 auto; border-left: 4px solid var(--color-accent);">
                     <i class="fa fa-clock-o" style="font-size: 3rem; color: var(--color-accent-text); margin-bottom: 16px;" aria-hidden="true"></i>
                     <p style="font-size: 1.25rem; color: #333; margin: 0; line-height: 1.6;">
-                        <strong>Tiempo promedio:</strong> 3 a 5 semanas desde la inscripción hasta el inicio del servicio (6 a 8 en los Nodos con lista de espera) 
+                        <strong>Tiempo promedio:</strong> 3 a 5 semanas desde la inscripción hasta el inicio del servicio (6 a 8 en los Nodos con lista de espera)
                         (depende de la demanda en tu zona)
                     </p>
                 </div>
@@ -890,7 +890,7 @@
             <h2 id="tech-titulo" style="color: var(--color-accent-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
                 La tecnología que te cuida
             </h2>
-            
+
             <div class="tech-showcase">
                 <div class="tech-item">
                     <div class="tech-icon">
@@ -1006,16 +1006,16 @@
             </div>
         </div>
     </section>
-    
+
     <section style="padding: 60px 0; background-color: #FFF9E6;" aria-labelledby="desigualdad-titulo">
         <div class="container">
             <!-- Contraste: Tecnología premium vs pública -->
             <div style="margin-top: 48px; background-color: #FFF9E6; border: 2px solid var(--color-friction-warning-border); border-radius: 12px; padding: 40px;">
                 <h3 style="color: var(--color-friction-emphasis); text-align: center; margin-bottom: 32px; font-size: 1.75rem;">
-                    <i class="fa fa-balance-scale" aria-hidden="true"></i> 
+                    <i class="fa fa-balance-scale" aria-hidden="true"></i>
                     Dos realidades, dos sistemas
                 </h3>
-                
+
                 <div class="row">
                     <!-- Sistema público Cuidados en Red -->
                     <div class="col-md-6">
@@ -1052,7 +1052,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Sistema privado premium -->
                     <div class="col-md-6">
                         <div style="background-color: white; padding: 32px; border-radius: 12px; height: 100%; border-left: 4px solid var(--color-purple);">
@@ -1089,7 +1089,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Análisis crítico -->
                 <div style="margin-top: 32px; padding: 24px; background-color: white; border-radius: 12px; border-left: 4px solid var(--color-accent);">
                     <h4 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.25rem;">
@@ -1118,7 +1118,7 @@
             <h2 id="red-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
                 Red de servicios complementarios
             </h2>
-            
+
             <div class="ecosystem-grid">
                 <article class="ecosystem-card">
                     <div class="ecosystem-icon">
@@ -1128,11 +1128,11 @@
                         Centros de Día
                     </h3>
                     <p style="font-size: 1rem; color: #444; line-height: 1.6;">
-                        45 centros en toda CABA con talleres, almuerzo, actividades. 
+                        45 centros en toda CABA con talleres, almuerzo, actividades.
                         Incluido sin costo adicional.
                     </p>
                 </article>
-                
+
                 <article class="ecosystem-card">
                     <div class="ecosystem-icon">
                         <i class="fa fa-exchange" aria-hidden="true"></i>
@@ -1141,11 +1141,11 @@
                         Banco de Tiempo
                     </h3>
                     <p style="font-size: 1rem; color: #444; line-height: 1.6;">
-                        Intercambiá servicios con vecinos (te ayudan con las compras, 
+                        Intercambiá servicios con vecinos (te ayudan con las compras,
                         vos enseñás tejido).
                     </p>
                 </article>
-                
+
                 <article class="ecosystem-card">
                     <div class="ecosystem-icon">
                         <i class="fa fa-cutlery" aria-hidden="true"></i>
@@ -1154,11 +1154,11 @@
                         Comida a domicilio
                     </h3>
                     <p style="font-size: 1rem; color: #444; line-height: 1.6;">
-                        Viandas saludables 5 veces por semana para quienes no pueden cocinar. 
+                        Viandas saludables 5 veces por semana para quienes no pueden cocinar.
                         Costo diferenciado.
                     </p>
                 </article>
-                
+
                 <article class="ecosystem-card">
                     <div class="ecosystem-icon">
                         <i class="fa fa-medkit" aria-hidden="true"></i>
@@ -1167,11 +1167,11 @@
                         Telemedicina
                     </h3>
                     <p style="font-size: 1rem; color: #444; line-height: 1.6;">
-                        Consultas médicas por videollamada con Tita. 
+                        Consultas médicas por videollamada con Tita.
                         Médicos clínicos y geriatras.
                     </p>
                 </article>
-                
+
                 <article class="ecosystem-card">
                     <div class="ecosystem-icon">
                         <i class="fa fa-user-md" aria-hidden="true"></i>
@@ -1180,11 +1180,11 @@
                         Apoyo psicológico
                     </h3>
                     <p style="font-size: 1rem; color: #444; line-height: 1.6;">
-                        Sesiones con psicólogos especializados en personas mayores. 
+                        Sesiones con psicólogos especializados en personas mayores.
                         Individual o grupal.
                     </p>
                 </article>
-                
+
                 <article class="ecosystem-card">
                     <div class="ecosystem-icon">
                         <i class="fa fa-wheelchair" aria-hidden="true"></i>
@@ -1193,14 +1193,14 @@
                         Ayudas técnicas
                     </h3>
                     <p style="font-size: 1rem; color: #444; line-height: 1.6;">
-                        Préstamo de sillas de ruedas, andadores, bastones, 
+                        Préstamo de sillas de ruedas, andadores, bastones,
                         según necesidad.
                     </p>
                 </article>
             </div>
         </div>
     </section>
-    
+
     <!-- BLOQUE REALITY CHECK CON FRICCIÓN -->
     <section style="padding: 60px 0; background-color: white;">
         <div class="container">
@@ -1254,15 +1254,15 @@
 
     <!-- WhatsApp Float -->
     <a href="https://wa.me/5491112345678"
-       class="whatsapp-float" 
-       target="_blank" 
+       class="whatsapp-float"
+       target="_blank"
        rel="noopener noreferrer"
        aria-label="Contactar por WhatsApp">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
     </a>
-    
+
     <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
-    <footer role="contentinfo">
+    <footer>
         <div class="container">
             <div class="row">
                 <nav class="col-md-3" aria-label="Enlaces de inscripción">
@@ -1295,21 +1295,21 @@
                 <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
-        
+
         <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
-                <strong>Proyecto de diseño especulativo</strong> · 
-                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
-                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                <strong>Proyecto de diseño especulativo</strong> ·
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental,
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>.
                 Todo el contenido, concepto, diseño y código es de su autoría.
             </p>
         </div>
     </footer>
     <!-- fin:pie -->
-    
+
     <script src="js/accessibility.js"></script>
     <script src="js/mundo.js"></script>
 </body>

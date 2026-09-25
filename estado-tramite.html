@@ -28,28 +28,28 @@
     <link href="styles.css" rel="stylesheet">
     <style>
         /* Estilos específicos solo para estado-tramite.html */
-        
+
         .hero-estado {
             background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95));
             color: white;
             padding: 60px 0;
             text-align: center;
         }
-        
+
         .hero-estado h1 {
             font-size: 2.625rem;
             margin-bottom: 16px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .hero-estado .lead {
             font-size: 1.25rem;
             line-height: 1.5;
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .search-container {
             background-color: white;
             border-radius: 12px;
@@ -58,17 +58,17 @@
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .search-form {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-        
+
         .form-group {
             margin-bottom: 0;
         }
-        
+
         .form-group label {
             display: block;
             font-weight: 600;
@@ -76,7 +76,7 @@
             color: #333;
             font-size: 1rem;
         }
-        
+
         .form-group input {
             width: 100%;
             padding: 16px 20px;
@@ -92,14 +92,14 @@
             border-color: var(--color-primary);
             box-shadow: 0 0 0 3px rgba(26,82,118,0.1);
         }
-        
+
         .form-group small {
             display: block;
             margin-top: 6px;
             color: #444;
             font-size: 1rem;
         }
-        
+
         .btn-search {
             background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
             color: white;
@@ -120,7 +120,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(26,82,118,0.3);
         }
-        
+
         .result-container {
             display: none;
             margin-top: 48px;
@@ -129,7 +129,7 @@
             padding: 48px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
         }
-        
+
         .user-header {
             display: flex;
             align-items: center;
@@ -138,7 +138,7 @@
             padding-bottom: 24px;
             border-bottom: 2px solid #E0E0E0;
         }
-        
+
         .status-icon {
             width: 80px;
             height: 80px;
@@ -151,25 +151,25 @@
             font-size: 2.25rem;
             flex-shrink: 0;
         }
-        
+
         .status-info h2 {
             margin: 0 0 8px 0;
             color: var(--color-primary);
             font-size: 1.75rem;
         }
-        
+
         .status-info p {
             margin: 0;
             color: #444;
             font-size: 1rem;
         }
-        
+
         .timeline {
             position: relative;
             padding-left: 60px;
             margin: 32px 0;
         }
-        
+
         .timeline::before {
             content: '';
             position: absolute;
@@ -179,12 +179,12 @@
             width: 3px;
             background: linear-gradient(180deg, var(--color-secondary) 0%, #E0E0E0 100%);
         }
-        
+
         .timeline-step {
             position: relative;
             margin-bottom: 32px;
         }
-        
+
         .step-marker {
             position: absolute;
             left: -49px;
@@ -198,49 +198,49 @@
             font-size: 1.125rem;
             z-index: 1;
         }
-        
+
         .step-marker.completed {
             background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
         }
-        
+
         .step-marker.current {
             background: linear-gradient(135deg, var(--color-accent), #BF360C);
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(230,81,0,0.7); }
             50% { box-shadow: 0 0 0 15px rgba(230,81,0,0); }
         }
-        
+
         .step-marker.pending {
             background: linear-gradient(135deg, #90A4AE, #757575);
         }
-        
+
         .step-content {
             background-color: #F5F5F5;
             padding: 20px;
             border-radius: 8px;
             border-left: 4px solid #E0E0E0;
         }
-        
+
         .step-content.current {
             background-color: var(--color-warm);
             border-left-color: var(--color-accent);
         }
-        
+
         .step-content h3 {
             margin: 0 0 8px 0;
             color: var(--color-primary);
             font-size: 1.25rem;
         }
-        
+
         .step-content p {
             margin: 0 0 12px 0;
             color: #444;
             line-height: 1.6;
         }
-        
+
         .date {
             display: flex;
             align-items: center;
@@ -249,7 +249,7 @@
             font-size: 1rem;
             font-weight: 600;
         }
-        
+
         .next-steps {
             background-color: #E3F2FD;
             border-left: 4px solid var(--color-primary);
@@ -257,7 +257,7 @@
             border-radius: 8px;
             margin: 32px 0;
         }
-        
+
         .next-steps h3 {
             margin: 0 0 16px 0;
             color: var(--color-primary);
@@ -266,18 +266,18 @@
             align-items: center;
             gap: 12px;
         }
-        
+
         .next-steps ul {
             margin: 0;
             padding-left: 24px;
             line-height: 1.8;
         }
-        
+
         .next-steps li {
             color: #333;
             margin-bottom: 8px;
         }
-        
+
         .contact-box {
             background: linear-gradient(135deg, rgba(27,94,32,0.1), rgba(27,94,32,0.1));
             border: 2px solid var(--color-secondary);
@@ -286,7 +286,7 @@
             text-align: center;
             margin-top: 32px;
         }
-        
+
         .contact-box h3 {
             color: var(--color-secondary-text);
             font-size: 1.25rem;
@@ -296,14 +296,14 @@
             justify-content: center;
             gap: 12px;
         }
-        
+
         .states-guide {
             background-color: #F5F5F5;
             border-radius: 12px;
             padding: 48px;
             margin-top: 48px;
         }
-        
+
         .state-item {
             display: flex;
             gap: 24px;
@@ -319,7 +319,7 @@
             transform: translateX(4px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        
+
         .state-icon {
             width: 56px;
             height: 56px;
@@ -332,7 +332,7 @@
             font-size: 1.5rem;
             flex-shrink: 0;
         }
-        
+
         .friction-alert {
             background-color: #FFF3E0;
             border-left: 4px solid var(--color-accent);
@@ -340,47 +340,47 @@
             border-radius: 8px;
             margin: 12px 0;
         }
-        
+
         .friction-alert p {
             margin: 0;
             color: var(--color-accent-text);
             font-size: 1rem;
             line-height: 1.6;
         }
-        
+
         .friction-alert strong {
             color: #8F3200;
         }
-        
+
         @media (max-width: 767px) {
             .search-container {
                 padding: 32px 24px;
             }
-            
+
             .result-container {
                 padding: 32px 24px;
             }
-            
+
             .timeline {
                 padding-left: 50px;
             }
-            
+
             .step-marker {
                 left: -44px;
                 width: 36px;
                 height: 36px;
                 font-size: 1rem;
             }
-            
+
             .states-guide {
                 padding: 32px 20px;
             }
-            
+
             .state-item {
                 flex-direction: column;
                 gap: 16px;
             }
-            
+
             .user-header {
                 flex-direction: column;
                 text-align: center;
@@ -468,8 +468,8 @@
 <body>
     <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
-    
-    <div class="accessibility-bar" role="region" aria-label="Herramientas de accesibilidad">
+
+    <section class="accessibility-bar" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
@@ -482,9 +482,9 @@
                 <i class="fa fa-phone" aria-hidden="true"></i> 147
             </a>
         </div>
-    </div>
-    
-    <header class="header-gcba" role="banner">
+    </section>
+
+    <header class="header-gcba">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
@@ -495,10 +495,10 @@
             </a>
         </div>
     </header>
-    
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+
+    <nav class="main-nav" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
@@ -531,7 +531,7 @@
             </p>
         </div>
     </section>
-    
+
     <!-- Contenido principal -->
     <section style="padding: 60px 0;">
         <div class="container">
@@ -548,13 +548,13 @@
                     y consultar el estado de tu trámite por teléfono — te lo buscan con tu DNI o número de trámite y te lo dictan.
                 </p>
             </div>
-            
+
             <!-- Search Form -->
             <div class="search-container">
                 <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 1.75rem;">
                     Consultá tu solicitud
                 </h2>
-                
+
                 <form class="search-form" id="searchForm">
                     <div class="form-group">
                         <label for="dni">
@@ -574,11 +574,11 @@
                         >
                         <small>Solo números, sin puntos ni espacios</small>
                     </div>
-                    
+
                     <div style="text-align: center; color: #505050; font-weight: 600; margin: 8px 0;" aria-hidden="true">
                         o
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="tramite">
                             Número de trámite
@@ -593,7 +593,7 @@
                         >
                         <small>Lo recibiste por email cuando te inscribiste</small>
                     </div>
-                    
+
                     <p class="form-status" hidden></p>
                     <button type="submit" class="btn-search">
                         <i class="fa fa-search" aria-hidden="true"></i>
@@ -615,13 +615,13 @@
 
             <!-- Trámite iniciado en esta sesión desde el formulario de inscripción -->
             <div class="lookup-card" id="newRecord" style="display: none;">
-                <h2 id="newRecordTitle"></h2>
+                <h2 id="newRecordTitle">Tu solicitud</h2>
                 <p>DNI: <strong id="newRecordDni"></strong> | Trámite: <strong id="newRecordTramite"></strong></p>
                 <p class="lookup-state">Estado actual: <strong>Inscripción recibida</strong></p>
                 <p><strong>Próximo paso:</strong> te llama el Nodo de tu zona para coordinar la visita domiciliaria. El primer contacto suele llegar en 24 a 48 horas hábiles, pero puede tardar hasta 5 a 7 días.</p>
                 <p class="lookup-note">Si el teléfono que dejaste tiene un error, la llamada no te llega. Si pasaron más de 7 días, llamá al <a href="tel:147">147</a>.</p>
             </div>
-            
+
             <!-- Result Container (ejemplo hardcodeado) -->
             <div class="result-container" id="resultContainer">
                 <div class="user-header">
@@ -633,7 +633,7 @@
                         <p>DNI: <strong id="userDni">12.345.678</strong> | Trámite: <strong id="userTramite">CR-2032-0041377</strong></p>
                     </div>
                 </div>
-                
+
                 <div style="text-align: center; margin-bottom: 32px;">
                     <div style="display: inline-block; padding: 12px 24px; background-color: rgba(255,255,255,0.7); border-radius: 8px;">
                         <strong style="color: var(--color-accent-text); font-size: 1rem;">
@@ -641,7 +641,7 @@
                         </strong>
                     </div>
                 </div>
-                
+
                 <!-- Timeline -->
                 <div class="timeline">
                     <div class="timeline-step">
@@ -657,7 +657,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker completed">
                             <i class="fa fa-check" aria-hidden="true"></i>
@@ -674,7 +674,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker current">
                             <i class="fa fa-home" aria-hidden="true"></i>
@@ -691,7 +691,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker pending">
                             <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -708,7 +708,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker pending">
                             <i class="fa fa-rocket" aria-hidden="true"></i>
@@ -723,7 +723,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Next Steps -->
                 <div class="next-steps">
                     <h3>
@@ -737,7 +737,7 @@
                         <li>Si tenés alguna urgencia o cambio de situación, llamá al <strong>147</strong></li>
                     </ul>
                 </div>
-                
+
                 <!-- Contact Box -->
                 <div class="contact-box">
                     <h3><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Tenés alguna duda?</h3>
@@ -751,13 +751,13 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- States Guide -->
             <div class="states-guide">
                 <h2 style="color: var(--color-secondary-text); text-align: center; margin-bottom: 32px; font-size: 2rem;">
                     Estados posibles de tu solicitud
                 </h2>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -767,7 +767,7 @@
                             Inscripción recibida
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Tu solicitud fue registrada. <strong>En 24-48hs hábiles</strong> te vamos a contactar 
+                            Tu solicitud fue registrada. <strong>En 24-48hs hábiles</strong> te vamos a contactar
                             del Nodo de tu zona para coordinar la evaluación domiciliaria.
                         </p>
                         <div class="friction-alert">
@@ -775,7 +775,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-phone" aria-hidden="true"></i>
@@ -785,7 +785,7 @@
                             Contacto inicial
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Ya nos comunicamos con vos y coordinamos la visita. Esperá nuestro llamado 
+                            Ya nos comunicamos con vos y coordinamos la visita. Esperá nuestro llamado
                             para confirmar día y hora.
                         </p>
                         <div class="friction-alert">
@@ -793,7 +793,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-home" aria-hidden="true"></i>
@@ -811,7 +811,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-users" aria-hidden="true"></i>
@@ -829,7 +829,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-cogs" aria-hidden="true"></i>
@@ -839,7 +839,7 @@
                             Instalación de tecnología
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Estamos instalando los sensores, la pulsera de emergencia y Tita en tu domicilio. 
+                            Estamos instalando los sensores, la pulsera de emergencia y Tita en tu domicilio.
                             El técnico te explica cómo usar todo.
                         </p>
                         <div class="friction-alert">
@@ -847,7 +847,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
                     <div class="state-icon" style="background: linear-gradient(135deg, #4CAF50, #1B5E20);">
                         <i class="fa fa-check" aria-hidden="true"></i>
@@ -857,12 +857,12 @@
                             Servicio activo
                         </h3>
                         <p style="color: #444; margin: 0; line-height: 1.6;">
-                            <strong>¡Ya estás recibiendo el servicio!</strong> Tu persona cuidadora te visita según 
+                            <strong>¡Ya estás recibiendo el servicio!</strong> Tu persona cuidadora te visita según
                             lo acordado y el sistema de monitoreo está funcionando.
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="state-item" style="border-left-color: var(--color-accent);">
                     <div class="state-icon" style="background: linear-gradient(135deg, var(--color-accent), #BF360C);">
                         <i class="fa fa-pause" aria-hidden="true"></i>
@@ -872,7 +872,7 @@
                             En espera (lista de espera)
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Cumplís los requisitos pero temporalmente no hay cupo disponible en tu zona. 
+                            Cumplís los requisitos pero temporalmente no hay cupo disponible en tu zona.
                             Te avisamos cuando se libere un lugar. <strong>Tiempo promedio: 21 días.</strong>
                         </p>
                         <div class="friction-alert">
@@ -880,7 +880,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item" style="border-left-color: #D32F2F;">
                     <div class="state-icon" style="background: linear-gradient(135deg, #F44336, #C62828);">
                         <i class="fa fa-times" aria-hidden="true"></i>
@@ -890,7 +890,7 @@
                             No admitido
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Luego de la evaluación, determinamos que Cuidados en Red no es el programa adecuado 
+                            Luego de la evaluación, determinamos que Cuidados en Red no es el programa adecuado
                             para tu situación. Te orientamos hacia otros servicios más apropiados.
                         </p>
                         <div class="friction-alert">
@@ -905,16 +905,16 @@
 
     <!-- WhatsApp Float -->
     <a href="https://wa.me/5491112345678"
-       class="whatsapp-float" 
-       target="_blank" 
+       class="whatsapp-float"
+       target="_blank"
        rel="noopener noreferrer"
        aria-label="Contactar por WhatsApp">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
     </a>
-    
+
     <!-- Footer -->
     <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
-    <footer role="contentinfo">
+    <footer>
         <div class="container">
             <div class="row">
                 <nav class="col-md-3" aria-label="Enlaces de inscripción">
@@ -947,21 +947,21 @@
                 <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
-        
+
         <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
-                <strong>Proyecto de diseño especulativo</strong> · 
-                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
-                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                <strong>Proyecto de diseño especulativo</strong> ·
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental,
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>.
                 Todo el contenido, concepto, diseño y código es de su autoría.
             </p>
         </div>
     </footer>
     <!-- fin:pie -->
-    
+
     <script src="js/accessibility.js"></script>
     <script src="js/mundo.js"></script>
     <script src="js/forms.js"></script>

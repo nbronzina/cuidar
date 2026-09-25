@@ -52,7 +52,7 @@ function answerQuestion(questionNum) {
 function updateProgress() {
     const percentage = (answeredQuestions.size / totalQuestions) * 100;
     document.getElementById('progressFill').style.width = percentage + '%';
-    document.getElementById('progressText').innerHTML = 
+    document.getElementById('progressText').innerHTML =
         `<strong>${answeredQuestions.size} de ${totalQuestions}</strong> preguntas respondidas`;
 
     // Update aria-valuenow

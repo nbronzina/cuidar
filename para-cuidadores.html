@@ -33,21 +33,21 @@
             padding: 80px 0;
             text-align: center;
         }
-        
+
         .hero-cuidadores h1 {
             font-size: 3rem;
             margin-bottom: 24px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .hero-cuidadores .lead {
             font-size: 1.625rem;
             line-height: 1.5;
             max-width: 800px;
             margin: 0 auto 40px;
         }
-        
+
         .benefit-card {
             background-color: white;
             border-radius: 12px;
@@ -58,12 +58,12 @@
             border-left: 4px solid var(--color-purple);
             height: 100%;
         }
-        
+
         .benefit-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
-        
+
         .benefit-icon {
             width: 70px;
             height: 70px;
@@ -76,7 +76,7 @@
             color: white;
             font-size: 2rem;
         }
-        
+
         .requirement-box {
             background-color: white;
             border-radius: 12px;
@@ -88,11 +88,11 @@
             gap: 20px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .requirement-box:hover {
             box-shadow: 0 4px 16px rgba(0,0,0,0.1);
         }
-        
+
         .requirement-icon {
             width: 50px;
             height: 50px;
@@ -105,7 +105,7 @@
             font-size: 1.5rem;
             flex-shrink: 0;
         }
-        
+
         .process-step {
             background-color: white;
             border-radius: 12px;
@@ -115,7 +115,7 @@
             position: relative;
             border-top: 4px solid var(--color-purple);
         }
-        
+
         .process-number {
             position: absolute;
             top: -20px;
@@ -132,7 +132,7 @@
             font-weight: 700;
             box-shadow: 0 4px 12px rgba(123,31,162,0.3);
         }
-        
+
         .testimonial-cuidador {
             background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
             border-radius: 12px;
@@ -140,20 +140,20 @@
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             margin-bottom: 24px;
         }
-        
+
         /* Testimonial realista con fricción */
         .testimonial-cuidador.realistic {
             background: linear-gradient(135deg, #FFF9E6, #FFF3CD);
             border-left: 4px solid var(--color-friction-warning-border);
         }
-        
+
         .testimonial-header {
             display: flex;
             align-items: center;
             gap: 20px;
             margin-bottom: 20px;
         }
-        
+
         .testimonial-img {
             flex-shrink: 0;
             width: 80px;
@@ -177,7 +177,7 @@
         .testimonial-initials-friction {
             background: var(--color-accent-text);
         }
-        
+
         .salary-box {
             background: linear-gradient(135deg, var(--color-secondary), #14461A);
             color: white;
@@ -187,14 +187,14 @@
             box-shadow: 0 8px 24px rgba(27,94,32,0.3);
             margin-bottom: 32px;
         }
-        
+
         .salary-amount {
             font-size: 3.5rem;
             font-weight: 700;
             margin: 20px 0;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .cta-cuidadores {
             background: linear-gradient(135deg, var(--color-purple), #6A1B9A);
             color: white;
@@ -203,7 +203,7 @@
             text-align: center;
             box-shadow: 0 8px 24px rgba(123,31,162,0.3);
         }
-        
+
         @media (max-width: 767px) {
             .hero-cuidadores h1 {
                 font-size: 2rem;
@@ -321,8 +321,8 @@
 <body>
     <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
-    
-    <div class="accessibility-bar" role="region" aria-label="Herramientas de accesibilidad">
+
+    <section class="accessibility-bar" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
@@ -335,9 +335,9 @@
                 <i class="fa fa-phone" aria-hidden="true"></i> 147
             </a>
         </div>
-    </div>
-    
-    <header class="header-gcba" role="banner">
+    </section>
+
+    <header class="header-gcba">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
@@ -348,10 +348,10 @@
             </a>
         </div>
     </header>
-    
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+
+    <nav class="main-nav" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
@@ -388,7 +388,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- NUEVO: Banner de proceso competitivo -->
     <section style="padding: 0; background-color: #FFF9E6;">
         <div class="container">
@@ -397,15 +397,15 @@
                 <div class="system-status-content">
                     <p class="system-status-title">Proceso de selección exigente</p>
                     <p>
-                        Estamos buscando <strong>50 personas cuidadoras</strong> para esta convocatoria. El proceso toma <strong>4-6 meses</strong> 
-                        e incluye evaluación psicológica y capacitación intensiva. Solo el 40% de postulantes llega a la etapa final. 
+                        Estamos buscando <strong>50 personas cuidadoras</strong> para esta convocatoria. El proceso toma <strong>4-6 meses</strong>
+                        e incluye evaluación psicológica y capacitación intensiva. Solo el 40% de postulantes llega a la etapa final.
                         Priorizamos vocación de servicio y compromiso genuino con el cuidado.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Por qué trabajar acá -->
     <section style="padding: 60px 0;" aria-labelledby="beneficios-titulo">
         <div class="container">
@@ -415,7 +415,7 @@
             <p style="text-align: center; font-size: 1.25rem; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
                 No es solo un trabajo. Es una profesión con futuro.
             </p>
-            
+
             <div class="row">
                 <article class="col-md-4">
                     <div class="benefit-card">
@@ -431,7 +431,7 @@
                         </p>
                     </div>
                 </article>
-                
+
                 <article class="col-md-4">
                     <div class="benefit-card">
                         <div class="benefit-icon">
@@ -446,7 +446,7 @@
                         </p>
                     </div>
                 </article>
-                
+
                 <article class="col-md-4">
                     <div class="benefit-card">
                         <div class="benefit-icon">
@@ -456,12 +456,12 @@
                             Trabajo estable
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
-                            Contrato de 40 horas semanales. No trabajás por día ni por hora. 
+                            Contrato de 40 horas semanales. No trabajás por día ni por hora.
                             <strong>Estabilidad laboral real</strong>.
                         </p>
                     </div>
                 </article>
-                
+
                 <article class="col-md-4">
                     <div class="benefit-card">
                         <div class="benefit-icon">
@@ -471,12 +471,12 @@
                             Equipo de apoyo
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
-                            No estás sola. Tenés un <strong>equipo profesional</strong> que te acompaña: 
+                            No estás sola. Tenés un <strong>equipo profesional</strong> que te acompaña:
                             psicólogos, trabajadores sociales, coordinadores.
                         </p>
                     </div>
                 </article>
-                
+
                 <article class="col-md-4">
                     <div class="benefit-card">
                         <div class="benefit-icon">
@@ -486,12 +486,12 @@
                             Cerca de tu casa
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
-                            Te asignamos <strong>usuarios de tu zona</strong>. No perdés horas viajando. 
+                            Te asignamos <strong>usuarios de tu zona</strong>. No perdés horas viajando.
                             Más tiempo con tu familia.
                         </p>
                     </div>
                 </article>
-                
+
                 <article class="col-md-4">
                     <div class="benefit-card">
                         <div class="benefit-icon">
@@ -501,7 +501,7 @@
                             Trabajo con sentido
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
-                            Cambiás vidas todos los días. Hacés que personas mayores 
+                            Cambiás vidas todos los días. Hacés que personas mayores
                             vivan mejor. <strong>Trabajo que importa</strong>.
                         </p>
                     </div>
@@ -509,14 +509,14 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Salario y condiciones -->
     <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="salario-titulo">
         <div class="container">
             <h2 id="salario-titulo" style="color: var(--color-secondary-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
                 ¿Cuánto ganás?
             </h2>
-            
+
             <div class="row">
                 <div class="col-md-8" style="margin: 0 auto;">
                     <div class="salary-box">
@@ -529,12 +529,12 @@
                             Base 2026: $455.160 (Res. CNTCP 1/2026). Actualizado a 2032 por paritarias del sector.
                         </div>
                     </div>
-                    
+
                     <div style="background-color: white; padding: 32px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
                         <h3 style="color: var(--color-purple); margin-bottom: 24px; font-size: 1.5rem; text-align: center;">
                             Condiciones laborales
                         </h3>
-                        
+
                         <div style="display: grid; gap: 20px;">
                             <div style="display: flex; align-items: start; gap: 16px;">
                                 <i class="fa fa-clock-o" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
@@ -545,7 +545,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div style="display: flex; align-items: start; gap: 16px;">
                                 <i class="fa fa-calendar" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
                                 <div>
@@ -555,7 +555,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div style="display: flex; align-items: start; gap: 16px;">
                                 <i class="fa fa-medkit" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
                                 <div>
@@ -565,7 +565,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div style="display: flex; align-items: start; gap: 16px;">
                                 <i class="fa fa-umbrella" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
                                 <div>
@@ -575,7 +575,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div style="display: flex; align-items: start; gap: 16px;">
                                 <i class="fa fa-bus" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
                                 <div>
@@ -592,7 +592,7 @@
                                 <div>
                                     <strong style="font-size: 1.125rem; color: #333;">Periodo de prueba:</strong>
                                     <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
-                                        Los primeros 6 meses son de periodo de prueba. Durante este tiempo evaluamos tu desempeño 
+                                        Los primeros 6 meses son de periodo de prueba. Durante este tiempo evaluamos tu desempeño
                                         y adaptación al rol. Pasado este periodo, el contrato se convierte en indefinido.
                                     </p>
                                 </div>
@@ -603,7 +603,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Requisitos -->
     <section style="padding: 60px 0;" aria-labelledby="requisitos-titulo">
         <div class="container">
@@ -613,7 +613,7 @@
             <p style="text-align: center; font-size: 1.25rem; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
                 No necesitás experiencia previa. Te capacitamos nosotros.
             </p>
-            
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="requirement-box">
@@ -630,7 +630,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="requirement-box">
                         <div class="requirement-icon">
@@ -646,7 +646,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="requirement-box">
                         <div class="requirement-icon">
@@ -662,7 +662,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="requirement-box">
                         <div class="requirement-icon">
@@ -678,7 +678,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="requirement-box">
                         <div class="requirement-icon">
@@ -694,7 +694,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="requirement-box">
                         <div class="requirement-icon">
@@ -713,14 +713,14 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Proceso de selección -->
     <section style="padding: 60px 0; background-color: #F3E5F5;" aria-labelledby="proceso-titulo">
         <div class="container">
             <h2 id="proceso-titulo" style="color: var(--color-purple); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
                 Proceso de selección
             </h2>
-            
+
             <div class="row">
                 <div class="col-md-8" style="margin: 0 auto;">
                     <div class="process-step">
@@ -732,55 +732,55 @@
                             Completás el formulario con tus datos. Tarda 10 minutos.
                         </p>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="process-number">2</div>
                         <h3 style="color: var(--color-purple); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
                             Entrevista inicial (2-3 semanas)
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Te llamamos para una entrevista telefónica. Charlamos sobre tus motivaciones y expectativas. 
+                            Te llamamos para una entrevista telefónica. Charlamos sobre tus motivaciones y expectativas.
                             El volumen de postulaciones puede demorar la respuesta.
                         </p>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="process-number">3</div>
                         <h3 style="color: var(--color-purple); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
                             Evaluación psicológica
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Entrevista con un psicólogo/a para evaluar aptitudes para el cuidado. No es un examen, es una charla. 
-                            <strong>Aproximadamente el 30% de postulantes no avanza después de esta etapa</strong>, 
+                            Entrevista con un psicólogo/a para evaluar aptitudes para el cuidado. No es un examen, es una charla.
+                            <strong>Aproximadamente el 30% de postulantes no avanza después de esta etapa</strong>,
                             principalmente por incompatibilidad con las demandas emocionales del trabajo.
                         </p>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="process-number">4</div>
                         <h3 style="color: var(--color-purple); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
                             Curso de capacitación (3 meses)
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Capacitación intensiva <strong>paga</strong> (cobrás $340.000/mes mientras estudiás). 
+                            Capacitación intensiva <strong>paga</strong> (cobrás $340.000/mes mientras estudiás).
                             Aprendés cuidado de personas mayores, primeros auxilios, comunicación, uso de tecnología
                             y <strong>detección cognitiva básica</strong> (observación de actividades de la vida diaria,
                             señales tempranas de deterioro cognitivo, protocolo de derivación al Nodo).
                             El curso es <strong>de lunes a viernes, 6 horas diarias</strong>. Requiere asistencia del 90%.
                         </p>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="process-number">5</div>
                         <h3 style="color: var(--color-purple); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
                             Práctica supervisada (1 mes)
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Trabajás con usuarios reales pero acompañada por una persona cuidadora con experiencia. Ya cobrás sueldo completo. 
+                            Trabajás con usuarios reales pero acompañada por una persona cuidadora con experiencia. Ya cobrás sueldo completo.
                             Aquí evaluamos tu desempeño en situaciones reales.
                         </p>
                     </div>
-                    
+
                     <div class="process-step" style="border-top-color: var(--color-secondary);">
                         <div class="process-number" style="background: linear-gradient(135deg, var(--color-secondary), #14461A);">
                             <i class="fa fa-check" aria-hidden="true"></i>
@@ -789,13 +789,13 @@
                             ¡Empezás a trabajar!
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Te asignamos tus primeros usuarios. Sos oficialmente <strong>Persona Cuidadora Profesional Certificada</strong> 
+                            Te asignamos tus primeros usuarios. Sos oficialmente <strong>Persona Cuidadora Profesional Certificada</strong>
                             de Cuidados en Red. Los primeros 6 meses son periodo de prueba con evaluaciones mensuales.
                         </p>
                     </div>
                 </div>
             </div>
-            
+
             <div style="text-align: center; margin-top: 40px;">
                 <div style="background-color: white; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
                     <i class="fa fa-clock-o" style="font-size: 3rem; color: var(--color-accent-text); margin-bottom: 16px;" aria-hidden="true"></i>
@@ -806,14 +806,14 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Testimonios -->
     <section style="padding: 60px 0;" aria-labelledby="testimonios-titulo">
         <div class="container">
             <h2 id="testimonios-titulo" style="color: var(--color-purple); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
                 Personas cuidadoras como vos
             </h2>
-            
+
             <div class="row">
                 <article class="col-md-6">
                     <div class="testimonial-cuidador">
@@ -825,13 +825,13 @@
                             </div>
                         </div>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #333; font-style: italic;">
-                            "Antes trabajaba limpiando casas por día. Ahora tengo sueldo fijo, vacaciones, 
-                            obra social. Y lo mejor: cada día siento que ayudo a alguien de verdad. 
+                            "Antes trabajaba limpiando casas por día. Ahora tengo sueldo fijo, vacaciones,
+                            obra social. Y lo mejor: cada día siento que ayudo a alguien de verdad.
                             Mis usuarios son como mi familia."
                         </p>
                     </div>
                 </article>
-                
+
                 <!-- NUEVO: Testimonial con fricción -->
                 <article class="col-md-6">
                     <div class="testimonial-cuidador realistic">
@@ -843,13 +843,13 @@
                             </div>
                         </div>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #333; font-style: italic;">
-                            "No te voy a mentir, los primeros meses fueron duros emocionalmente. Ver el deterioro 
-                            de algunos usuarios me afectaba. Pero el equipo de psicólogos me ayudó mucho. 
+                            "No te voy a mentir, los primeros meses fueron duros emocionalmente. Ver el deterioro
+                            de algunos usuarios me afectaba. Pero el equipo de psicólogos me ayudó mucho.
                             Aprendí que puedo cuidar sin cargar todo el peso sola. Ahora me siento más preparada."
                         </p>
                     </div>
                 </article>
-                
+
                 <article class="col-md-6">
                     <div class="testimonial-cuidador">
                         <div class="testimonial-header">
@@ -860,8 +860,8 @@
                             </div>
                         </div>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #333; font-style: italic;">
-                            "No tenía experiencia cuidando. Me capacitaron de cero. Ahora soy profesional 
-                            certificado y gano bien. Puedo mantener a mis hijos tranquilo. 
+                            "No tenía experiencia cuidando. Me capacitaron de cero. Ahora soy profesional
+                            certificado y gano bien. Puedo mantener a mis hijos tranquilo.
                             Esto cambió mi vida."
                         </p>
                     </div>
@@ -869,14 +869,14 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Preguntas frecuentes -->
     <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="faq-titulo">
         <div class="container">
             <h2 id="faq-titulo" style="color: var(--color-purple); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
                 Preguntas frecuentes
             </h2>
-            
+
             <div class="row">
                 <div class="col-md-8" style="margin: 0 auto;">
                     <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
@@ -884,71 +884,71 @@
                             ¿Puedo trabajar si no tengo experiencia?
                         </summary>
                         <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Sí, no necesitás experiencia previa. Te capacitamos de cero durante 3 meses (pagos). 
+                            Sí, no necesitás experiencia previa. Te capacitamos de cero durante 3 meses (pagos).
                             Lo que importa es tu vocación y ganas de ayudar.
                         </p>
                     </details>
-                    
+
                     <!-- NUEVA FAQ: Desafíos emocionales -->
                     <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
                         <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
                             ¿Es emocionalmente difícil este trabajo?
                         </summary>
                         <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Sí, puede serlo. Trabajás con personas mayores, algunas con deterioro cognitivo o en situaciones 
-                            de soledad. A veces vas a crear vínculos fuertes y luego enfrentar pérdidas. Por eso tenés 
-                            <strong>apoyo psicológico permanente</strong>, reuniones de supervisión mensuales, y espacios de 
+                            Sí, puede serlo. Trabajás con personas mayores, algunas con deterioro cognitivo o en situaciones
+                            de soledad. A veces vas a crear vínculos fuertes y luego enfrentar pérdidas. Por eso tenés
+                            <strong>apoyo psicológico permanente</strong>, reuniones de supervisión mensuales, y espacios de
                             contención con otras personas cuidadoras. La salud mental del equipo es prioridad.
                         </p>
                     </details>
-                    
+
                     <!-- NUEVA FAQ: Tasa de abandono -->
                     <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
                         <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
                             ¿Mucha gente deja el trabajo?
                         </summary>
                         <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Aproximadamente el 15% del equipo rota por año, principalmente en los primeros 6 meses 
-                            cuando descubren que no es para ellos. Es normal. El trabajo de cuidado no es para todas. 
-                            Por eso el proceso de selección es riguroso: queremos que quienes ingresen realmente 
+                            Aproximadamente el 15% del equipo rota por año, principalmente en los primeros 6 meses
+                            cuando descubren que no es para ellos. Es normal. El trabajo de cuidado no es para todas.
+                            Por eso el proceso de selección es riguroso: queremos que quienes ingresen realmente
                             tengan vocación y se sientan cómodas con las demandas del rol.
                         </p>
                     </details>
-                    
+
                     <!-- NUEVA FAQ: Casos difíciles -->
                     <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
                         <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
                             ¿Qué pasa si tengo un usuario muy difícil?
                         </summary>
                         <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Podés pedir apoyo al equipo en cualquier momento. El equipo de coordinación interviene en situaciones 
-                            complejas. Si un caso es insostenible (agresividad, situaciones de riesgo), te reasignamos. 
-                            Tu bienestar importa tanto como el del usuario. <strong>No estás sola</strong>, siempre hay 
+                            Podés pedir apoyo al equipo en cualquier momento. El equipo de coordinación interviene en situaciones
+                            complejas. Si un caso es insostenible (agresividad, situaciones de riesgo), te reasignamos.
+                            Tu bienestar importa tanto como el del usuario. <strong>No estás sola</strong>, siempre hay
                             alguien del equipo disponible.
                         </p>
                     </details>
-                    
+
                     <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
                         <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
                             ¿Tengo que limpiar casas?
                         </summary>
                         <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            No. Tu trabajo es <strong>cuidar a la persona</strong>, no hacer tareas domésticas pesadas. 
+                            No. Tu trabajo es <strong>cuidar a la persona</strong>, no hacer tareas domésticas pesadas.
                             Podés ayudar a ordenar un poco o cocinar juntos, pero no es trabajo de limpieza.
                         </p>
                     </details>
-                    
+
                     <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
                         <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
                             ¿Cuántas personas tengo que cuidar?
                         </summary>
                         <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Cuidás entre 2 y 5 personas, según el nivel de cuidado de cada una. 
-                            Todas en tu zona para que no viajes mucho. La carga puede variar: algunos usuarios 
+                            Cuidás entre 2 y 5 personas, según el nivel de cuidado de cada una.
+                            Todas en tu zona para que no viajes mucho. La carga puede variar: algunos usuarios
                             necesitan más tiempo y atención que otros.
                         </p>
                     </details>
-                    
+
                     <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
                         <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
                             ¿Trabajo fines de semana?
@@ -957,23 +957,23 @@
                             En general no. Los fines de semana se rotan entre todas. Si te toca, cobrás plus por día no laborable.
                         </p>
                     </details>
-                    
+
                     <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
                         <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
                             ¿Qué pasa si tengo un problema con un usuario?
                         </summary>
                         <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Tenés todo un equipo de apoyo: personal de coordinación, psicólogos, trabajadores sociales. 
+                            Tenés todo un equipo de apoyo: personal de coordinación, psicólogos, trabajadores sociales.
                             Si hay algún conflicto o situación difícil, te acompañamos y buscamos soluciones juntos.
                         </p>
                     </details>
-                    
+
                     <details style="background-color: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
                         <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
                             ¿Hay posibilidades de crecer?
                         </summary>
                         <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            Sí. Podés ser persona cuidadora con experiencia (coordinás a otras personas cuidadoras), capacitadora, 
+                            Sí. Podés ser persona cuidadora con experiencia (coordinás a otras personas cuidadoras), capacitadora,
                             o especializarte en áreas como demencia, cuidados paliativos, etc. Siempre con más capacitación paga.
                         </p>
                     </details>
@@ -981,7 +981,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- CTA Postulación -->
     <section style="padding: 80px 0;" id="postularme">
         <div class="container">
@@ -1008,12 +1008,12 @@
                         <p style="margin-top: 12px; font-size: 1rem; opacity: 0.9;">
                             Email: trabajaencuidados@cuidadosenred.gob.ar
                         </p>
-                        
+
                         <!-- NUEVO: Disclaimer sobre vacantes -->
                         <div class="priority-disclaimer">
-                            <strong><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre esta convocatoria:</strong> 
-                            Estamos buscando 50 personas cuidadoras para esta convocatoria. El proceso completo toma entre 4 y 6 meses. 
-                            Solo el 40% de postulantes llega a la etapa final. Priorizamos vocación genuina y 
+                            <strong><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre esta convocatoria:</strong>
+                            Estamos buscando 50 personas cuidadoras para esta convocatoria. El proceso completo toma entre 4 y 6 meses.
+                            Solo el 40% de postulantes llega a la etapa final. Priorizamos vocación genuina y
                             compromiso con el cuidado de personas mayores.
                         </div>
                     </div>
@@ -1025,15 +1025,15 @@
 
     <!-- WhatsApp Float -->
     <a href="https://wa.me/5491112345678"
-       class="whatsapp-float" 
-       target="_blank" 
+       class="whatsapp-float"
+       target="_blank"
        rel="noopener noreferrer"
        aria-label="Contactar por WhatsApp">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
     </a>
-    
+
     <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
-    <footer role="contentinfo">
+    <footer>
         <div class="container">
             <div class="row">
                 <nav class="col-md-3" aria-label="Enlaces de inscripción">
@@ -1066,21 +1066,21 @@
                 <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
-        
+
         <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
-                <strong>Proyecto de diseño especulativo</strong> · 
-                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
-                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                <strong>Proyecto de diseño especulativo</strong> ·
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental,
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>.
                 Todo el contenido, concepto, diseño y código es de su autoría.
             </p>
         </div>
     </footer>
     <!-- fin:pie -->
-    
+
     <script src="js/accessibility.js"></script>
     <script src="js/mundo.js"></script>
 </body>

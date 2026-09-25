@@ -5,12 +5,14 @@
   "scripts": {
     "sincronizar": "node tools/sincronizar.js",
     "servidor": "node tools/servidor.js",
-    "test": "node tools/sincronizar.js --check && playwright test"
+    "lint": "html-validate *.html partials/*.html",
+    "test": "node tools/sincronizar.js --check && npm run lint && playwright test"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",
     "axe-core": "4.11.0",
     "font-awesome": "4.7.0",
+    "html-validate": "^9.7.1",
     "leaflet": "1.9.4"
   }
 }

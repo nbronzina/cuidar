@@ -9,6 +9,7 @@ exclude:
   - package.json
   - package-lock.json
   - playwright.config.js
+  - .htmlvalidate.json
   - partials/
   - tools/
   - tests/
