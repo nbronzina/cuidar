@@ -31,7 +31,7 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 
 ### Costos de referencia (2025, base pre-inflación)
 - Persona cuidadora privada full-time: $455.000/mes (sin cargas patronales)
-- Sueldo base cuidadoras convenio 2026: $455.160/mes (Res. CNTCP 1/2026)
+- Sueldo base de referencia para tareas de cuidado en 2026: $455.160/mes (valor del proyecto, NO verificado). Verificado en 2026: la Res. CNTCP 1/2026 real solo convoca a una sesión plenaria de la Comisión Nacional de Trabajo en Casas Particulares; no fija salarios. No citarla como fuente de este monto.
 - Geriátrico estándar: $1.300.000–$2.500.000/mes
 - Geriátrico premium: $2.750.000–$5.500.000+/mes (alta complejidad >$5.000.000)
 - Robot Figure 3: USD 250.000 (equivalente a 25 cuidadoras por 1 año)
@@ -48,12 +48,14 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 ## Datos ficticios (del sistema 2032)
 
 ### Cobertura y escala
-- 42.187 personas mayores atendidas
-- 2.543 personas cuidadoras certificadas
+- 13.874 personas mayores atendidas (revisado en 2026: la cifra anterior, 42.187, no cerraba con el presupuesto ni con la cantidad de personas cuidadoras)
+- 4.200 personas cuidadoras activas en el sistema, contratadas a través de cooperativas reguladas por el GCBA
+  - 2.543 con certificación completa
+  - 1.657 en período de prueba supervisado (6 meses)
+- 91% de las horas asignadas se cumplen; el 9% restante se pierde por ausencias y reemplazos que no llegan a tiempo
 - 847 en lista de espera (tiempo promedio: 21 días)
-- 16 Nodos en toda la Ciudad
-- 8 comunas con cobertura
-- 4.200 cuidadoras en cooperativas reguladas GCBA
+- 16 Nodos en las 15 comunas
+- 8 comunas con cobertura completa y 7 con cobertura parcial (ver "Cobertura por comuna")
 - 150+ organizaciones comunitarias trabajando en red
 - 45 Centros de Día en toda CABA
 
@@ -90,7 +92,7 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Capacitación paga: $340.000/mes por 3 meses
 - Vacaciones: 14 días por año
 - Jornada: 40 horas semanales
-- 4-8 usuarios por cuidadora
+- 2 a 5 personas por cuidadora según el nivel (Nivel 1: hasta 5; Nivel 3: 1 o 2)
 - Rotación anual de equipos: ~15%
 - Rotación anual de cuidadoras: 18%
 
@@ -111,17 +113,31 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - 65% resueltas sin intervención humana
 - 35% escaladas a operador
 
-### Tiempos del sistema
-- Contacto inicial tras inscripción: 24-48 hs (puede tardar hasta 5-7 días)
-- Evaluación funcional: 15-30 días hábiles desde inscripción
-- Asignación de cuidadora: 7-21 días según disponibilidad
-- Tiempo total inscripción → servicio: 15-45 días (3-8 semanas)
-- Instalación tecnología: 2-3 horas
+### Tiempos del sistema (fuente única: usar estos valores en todas las páginas)
+
+| Etapa | Plazo oficial | Real en zonas centro, sur y oeste | Real en Nodos con lista de espera |
+|---|---|---|---|
+| Primer contacto tras inscribirse | 24-48 horas hábiles | 48-72 horas hábiles | hasta 5-7 días hábiles |
+| Evaluación domiciliaria | 15 días hábiles | 15-20 días hábiles | hasta 30 días hábiles |
+| Asignación de persona cuidadora | 7 días | 7-14 días | 14-21 días, o lista de espera |
+| Total inscripción → inicio del servicio | 3-4 semanas | 3-5 semanas | 6-8 semanas |
+| Lista de espera | — | sin lista de espera | 2-3 meses (Nodo Palermo: hasta 4 meses) |
+
+- Nodos con lista de espera: Palermo, Belgrano, Recoleta y Caballito.
+- Promedio general de lista de espera: 21 días (847 personas).
+- Instalación de tecnología: 2-3 horas
 - Visita domiciliaria: 90 minutos
-- Reemplazo cuidadora enferma: 24-48 horas
-- Lista de espera zona norte (Belgrano, Palermo, Recoleta): 2-4 meses / 6-8 meses
-- Lista de espera zona sur: disponibilidad casi inmediata
-- Tiempo promedio lista de espera general: 30-45 días
+- Reemplazo de persona cuidadora enferma: 24-48 horas
+- Cambio de persona cuidadora a pedido: 2-3 semanas, con brecha de servicio
+
+### Cobertura por comuna
+"Cobertura completa": el Nodo tiene equipo interdisciplinario completo, tecnología instalable y personas cuidadoras suficientes para asignar sin lista de espera.
+
+- Cobertura completa (8): Comunas 1, 3, 4, 5, 7, 10, 12 y 15.
+- Cobertura parcial (7):
+  - Comuna 2 (Recoleta), 6 (Caballito), 13 (Belgrano) y 14 (Palermo): lista de espera por demanda mayor a la cantidad de personas cuidadoras.
+  - Comuna 8 (Villa Lugano): el Nodo funciona en una sede provisoria por la obra demorada; la tecnología se instala con demora.
+  - Comunas 9 (Liniers) y 11 (Villa Devoto): Nodos abiertos en 2032, con el equipo interdisciplinario todavía incompleto.
 
 ### Tecnología
 - Sensor de cama: $30-50 USD por unidad a escala pública
@@ -144,9 +160,7 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Crisis pagos 2028: hasta 45 días de demora, 16 cuidadoras renunciaron, 8 meses de retraso en expansión
 - Inscripción online: 18% requiere seguimiento telefónico por problemas técnicos
 - Cambio de cuidadora: proceso tarda 2-3 semanas con brecha de servicio
-- Zona norte (Palermo, Belgrano, Núñez): 3-4 semanas de espera para contacto inicial
-- Zona sur: 48-72 horas de respuesta
-- Nodo Palermo: ~8 meses de espera (más demandado)
+- Nodo Palermo: hasta 4 meses de lista de espera (el más demandado)
 
 ### Horarios de los Nodos
 - Lunes a viernes: 8-18 hs
@@ -158,11 +172,12 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Cuidado nocturno permanente
 
 ### Copago por ejemplo
-- Marta (jubilación mínima, $680.000/mes, Nivel 2): $0
-- Roberto (ingreso medio, $1.200.000/mes, Nivel 1): $120.000/mes (10%)
+- Norma (jubilación mínima, $680.000/mes, Nivel 2): $0
+- Osvaldo (ingreso medio, $1.200.000/mes, Nivel 1): $120.000/mes (10%)
 - Nélida (ingreso alto, $4.000.000/mes, Nivel 3): $400.000/mes (10%, tope reducido)
 
 ### Los 16 Nodos
+Las calles son reales y están dentro del barrio de cada Nodo (Coghlan y Villa Devoto verificados en 2026); las alturas son del mundo ficticio.
 1. Nodo Retiro — Av. Córdoba 1235 — Comunas 1 y 2
 2. Nodo San Telmo — Defensa 678 — Comuna 1
 3. Nodo Recoleta — Av. Las Heras 2234 — Comuna 2
@@ -175,7 +190,7 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 10. Nodo Liniers — Av. Rivadavia 11234 — Comuna 9
 11. Nodo Floresta — Av. Gaona 3456 — Comuna 10
 12. Nodo Villa Devoto — Av. San Martín 4890 — Comuna 11
-13. Nodo Coghlan — Av. Cabildo 3456 — Comuna 12
+13. Nodo Coghlan — Av. del Tejar 3200 — Comuna 12 (la Av. Cabildo no pasa por Coghlan; corregido en 2026)
 14. Nodo Belgrano — Av. Cabildo 2123 — Comuna 13
 15. Nodo Palermo — Av. Santa Fe 4567 — Comuna 14
 16. Nodo Chacarita — Av. Warnes 2890 — Comuna 15
@@ -185,3 +200,19 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Nivel 1: reevaluación anual
 - Nivel 2: reevaluación cada 6 meses
 - Nivel 3: reevaluación cada 3 meses
+
+### Formatos de identificadores
+- Número de trámite de inscripción: `CR-2032-NNNNNNN` (7 dígitos). Se emite al completar el formulario online y se envía por email.
+- Número de consulta (formulario de contacto): `C-2032-NNNNNNN` (7 dígitos).
+- Legajo de ejemplo en estado-tramite.html: María Isabel González, DNI 12.345.678, trámite CR-2032-0041377.
+- Plazo de respuesta a consultas por formulario: 48 a 72 horas hábiles (oficial 48 hs; ver contacto.html).
+
+### Teléfonos y WhatsApp (sin números inventados)
+- Los 16 Nodos se llaman por el 147 con interno: Nodo 1 = interno 1001 … Nodo 16 = interno 1016. No se publican líneas directas (cualquier número "realista" podría ser de una persona real).
+- WhatsApp: el número no se publica, para evitar cuentas falsas que se hacen pasar por el programa. Se pide el enlace llamando al 147 y llega por SMS al celular registrado. El programa nunca pide claves, códigos ni pagos por WhatsApp.
+- Horario de WhatsApp: lunes a viernes de 8 a 20 h; demora de respuesta de 30 minutos a 6 horas según demanda.
+
+### Consulta del estado de trámite (verificación de identidad)
+- Se piden dos datos: DNI + fecha de nacimiento, o DNI + número de trámite. Si no coinciden, el mensaje es el mismo en todos los casos (no se revela si el DNI existe).
+- 3 intentos sin coincidencia bloquean la consulta durante 15 minutos; mientras tanto se deriva al 147, que pide los mismos datos.
+- Legajo de ejemplo: DNI 12.345.678, nacida el 14/03/1956, trámite CR-2032-0041377.

@@ -2,396 +2,32 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Consultá el estado de tu solicitud en Cuidados en Red ingresando tu DNI o número de trámite. Seguimiento online en tiempo real de cada etapa del proceso.">
     <meta property="og:title" content="Consultá el Estado de tu Solicitud — Cuidados en Red">
     <meta property="og:description" content="Consultá el estado de tu solicitud en Cuidados en Red ingresando tu DNI o número de trámite. Seguimiento online en tiempo real de cada etapa del proceso.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/estado-tramite.html">
+    <meta property="og:url" content="https://nbronzina.github.io/cuidar/estado-tramite.html">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
-    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/estado-tramite.html">
+    <link rel="canonical" href="https://nbronzina.github.io/cuidar/estado-tramite.html">
     <title>Consultá el Estado de tu Solicitud — Cuidados en Red</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        /* Estilos específicos solo para estado-tramite.html */
-        
-        .hero-estado {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
-                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&h=400&fit=crop&fm=webp&q=30') center/cover;
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .hero-estado h1 {
-            font-size: 42px;
-            margin-bottom: 16px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hero-estado .lead {
-            font-size: 20px;
-            line-height: 1.5;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .search-container {
-            background-color: white;
-            border-radius: 12px;
-            padding: 48px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .search-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .form-group {
-            margin-bottom: 0;
-        }
-        
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-            font-size: 16px;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #E0E0E0;
-            border-radius: 8px;
-            font-size: 18px;
-            font-family: 'Roboto', sans-serif;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .form-group input:focus-visible {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(26,82,118,0.1);
-        }
-        
-        .form-group small {
-            display: block;
-            margin-top: 6px;
-            color: #444;
-            font-size: 16px;
-        }
-        
-        .btn-search {
-            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
-            color: white;
-            padding: 18px 48px;
-            font-size: 20px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .btn-search:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(26,82,118,0.3);
-        }
-        
-        .result-container {
-            display: none;
-            margin-top: 48px;
-            background-color: white;
-            border-radius: 12px;
-            padding: 48px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-        }
-        
-        .user-header {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-            border-bottom: 2px solid #E0E0E0;
-        }
-        
-        .status-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 36px;
-            flex-shrink: 0;
-        }
-        
-        .status-info h2 {
-            margin: 0 0 8px 0;
-            color: var(--color-primary);
-            font-size: 28px;
-        }
-        
-        .status-info p {
-            margin: 0;
-            color: #444;
-            font-size: 16px;
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 60px;
-            margin: 32px 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 10px;
-            bottom: 10px;
-            width: 3px;
-            background: linear-gradient(180deg, var(--color-secondary) 0%, #E0E0E0 100%);
-        }
-        
-        .timeline-step {
-            position: relative;
-            margin-bottom: 32px;
-        }
-        
-        .step-marker {
-            position: absolute;
-            left: -49px;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            z-index: 1;
-        }
-        
-        .step-marker.completed {
-            background: linear-gradient(135deg, var(--color-secondary), #2E7D32);
-        }
-        
-        .step-marker.current {
-            background: linear-gradient(135deg, var(--color-accent), #BF360C);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(230,81,0,0.7); }
-            50% { box-shadow: 0 0 0 15px rgba(230,81,0,0); }
-        }
-        
-        .step-marker.pending {
-            background: linear-gradient(135deg, #90A4AE, #757575);
-        }
-        
-        .step-content {
-            background-color: #F5F5F5;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #E0E0E0;
-        }
-        
-        .step-content.current {
-            background-color: var(--color-warm);
-            border-left-color: var(--color-accent);
-        }
-        
-        .step-content h3 {
-            margin: 0 0 8px 0;
-            color: var(--color-primary);
-            font-size: 20px;
-        }
-        
-        .step-content p {
-            margin: 0 0 12px 0;
-            color: #444;
-            line-height: 1.6;
-        }
-        
-        .date {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #888;
-            font-size: 16px;
-            font-weight: 600;
-        }
-        
-        .next-steps {
-            background-color: #E3F2FD;
-            border-left: 4px solid var(--color-primary);
-            padding: 24px;
-            border-radius: 8px;
-            margin: 32px 0;
-        }
-        
-        .next-steps h3 {
-            margin: 0 0 16px 0;
-            color: var(--color-primary);
-            font-size: 22px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .next-steps ul {
-            margin: 0;
-            padding-left: 24px;
-            line-height: 1.8;
-        }
-        
-        .next-steps li {
-            color: #333;
-            margin-bottom: 8px;
-        }
-        
-        .contact-box {
-            background: linear-gradient(135deg, rgba(46,125,50,0.1), rgba(27,94,32,0.1));
-            border: 2px solid var(--color-secondary);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            margin-top: 32px;
-        }
-        
-        .contact-box h4 {
-            color: var(--color-secondary);
-            font-size: 20px;
-            margin: 0 0 16px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-        
-        .states-guide {
-            background-color: #F5F5F5;
-            border-radius: 12px;
-            padding: 48px;
-            margin-top: 48px;
-        }
-        
-        .state-item {
-            display: flex;
-            gap: 24px;
-            padding: 24px;
-            background-color: white;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            border-left: 4px solid var(--color-secondary);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .state-item:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .state-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--color-secondary), #2E7D32);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-        
-        .friction-alert {
-            background-color: #FFF3E0;
-            border-left: 4px solid var(--color-accent);
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin: 12px 0;
-        }
-        
-        .friction-alert p {
-            margin: 0;
-            color: #E65100;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        
-        .friction-alert strong {
-            color: #BF360C;
-        }
-        
-        @media (max-width: 767px) {
-            .search-container {
-                padding: 32px 24px;
-            }
-            
-            .result-container {
-                padding: 32px 24px;
-            }
-            
-            .timeline {
-                padding-left: 50px;
-            }
-            
-            .step-marker {
-                left: -44px;
-                width: 36px;
-                height: 36px;
-                font-size: 16px;
-            }
-            
-            .states-guide {
-                padding: 32px 20px;
-            }
-            
-            .state-item {
-                flex-direction: column;
-                gap: 16px;
-            }
-            
-            .user-header {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+    <link href="css/estado-tramite.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -400,41 +36,40 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Inicio",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+        "item": "https://nbronzina.github.io/cuidar/"
       }, {
         "@type": "ListItem",
         "position": 2,
         "name": "Estado de solicitud",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/estado-tramite.html"
+        "item": "https://nbronzina.github.io/cuidar/estado-tramite.html"
       }]
     }
     </script>
 </head>
 
 <body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
-    
-    <!-- Header de accesibilidad -->
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+
+    <section class="accessibility-bar" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button aria-label="Texto normal">A</button>
-            <button aria-label="Texto grande">A+</button>
-            <button aria-label="Texto extra grande">A++</button>
-            <button aria-label="Alto contraste">
+            <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
+            <button type="button" data-a11y="large" aria-label="Texto grande" aria-pressed="false">A+</button>
+            <button type="button" data-a11y="xlarge" aria-label="Texto extra grande" aria-pressed="false">A++</button>
+            <button type="button" data-a11y="contrast" aria-label="Alto contraste" aria-pressed="false">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
                 <i class="fa fa-phone" aria-hidden="true"></i> 147
             </a>
         </div>
-    </div>
-    
-    <!-- Header con logo -->
-    <header class="header-gcba" role="banner">
+    </section>
+
+    <header class="header-gcba">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
+                <img src="img/escudo-caba.svg" alt="" class="escudo" width="40" height="48">
                 <div class="logo-text">
                     <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
                     <span class="program-name">Cuidados en Red</span>
@@ -442,23 +77,32 @@
             </a>
         </div>
     </header>
-    
-    <!-- Navegación -->
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+
+    <nav class="main-nav" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
-                <a href="index.html">Inicio</a>
-                <a href="para-personas-mayores.html">Para Personas Mayores</a>
-                <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
-                <a href="el-sistema.html">El Sistema</a>
-                <a href="transparencia.html">Transparencia</a>
-                <a href="contacto.html">Contacto</a>
+                <div class="nav-info">
+                    <a href="index.html">Inicio</a>
+                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                    <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                    <a href="transparencia.html">Transparencia</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="nav-tramites" role="group" aria-labelledby="nav-tramites-titulo">
+                    <p class="nav-tramites-titulo" id="nav-tramites-titulo">Trámites</p>
+                    <a href="elegibilidad.html"><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Es para mí?</a>
+                    <a href="inscripcion.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Inscribirme</a>
+                    <a href="estado-tramite.html" class="active" aria-current="page"><i class="fa fa-search" aria-hidden="true"></i> Estado de mi trámite</a>
+                    <a href="nodos.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Nodos en tu barrio</a>
+                </div>
             </div>
         </div>
     </nav>
+    <!-- fin:cabecera -->
 
     <div class="container">
         <nav class="breadcrumb" aria-label="Ubicación">
@@ -478,30 +122,31 @@
             </p>
         </div>
     </section>
-    
+
     <!-- Contenido principal -->
-    <section style="padding: 60px 0;">
+    <section class="u-padding-60px-0">
         <div class="container">
             <!-- Info banner usando clase alert-info -->
             <div class="alert alert-info">
-                <h2 style="margin: 0 0 12px 0;">
+                <h2 class="u-margin-0-0-12px-0">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     ¿Cómo consultar?
                 </h2>
-                <p style="color: #333; margin: 0; line-height: 1.6;">
-                    Ingresá tu <strong>DNI</strong> o el <strong>número de trámite</strong> que recibiste por email
-                    cuando te inscribiste. También podés llamar al
-                    <a href="tel:147" style="color: var(--color-primary); font-weight: 700;">147</a>
-                    y consultar el estado de tu trámite por teléfono — te lo buscan con tu DNI o número de trámite y te lo dictan.
+                <p class="u-color-333 u-margin-0 u-line-height-1_6">
+                    Para proteger tus datos te pedimos dos cosas: tu <strong>DNI</strong> y tu <strong>fecha de nacimiento</strong>
+                    (o el <strong>número de trámite</strong> que recibiste por email). Si consultás por otra persona, usá sus datos.
+                    También podés llamar al
+                    <a class="u-color-primary u-font-weight-700" href="tel:147">147</a>:
+                    te piden los mismos datos y te dictan el estado.
                 </p>
             </div>
-            
+
             <!-- Search Form -->
             <div class="search-container">
-                <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 28px;">
+                <h2 class="u-color-primary u-text-align-center u-margin-bottom-32px u-font-size-1_75rem">
                     Consultá tu solicitud
                 </h2>
-                
+
                 <form class="search-form" id="searchForm">
                     <div class="form-group">
                         <label for="dni">
@@ -511,39 +156,63 @@
                             type="text"
                             id="dni"
                             name="dni"
+                            required
+                            data-error-required="Escribí tu DNI."
                             placeholder="Ej: 12345678"
                             pattern="[0-9]{7,8}"
                             maxlength="8"
+                            inputmode="numeric"
                             autocomplete="off"
-                        >
-                        <small>Solo números, sin puntos ni espacios</small>
+                            spellcheck="false"
+                            data-error-pattern="Escribí el DNI solo con números, sin puntos: 7 u 8 dígitos." aria-describedby="dni-ayuda">
+                        <small id="dni-ayuda">Solo números, sin puntos ni espacios</small>
                     </div>
-                    
-                    <div style="text-align: center; color: #888; font-weight: 600; margin: 8px 0;">
-                        o
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="tramite">
-                            Número de trámite
-                        </label>
-                        <input
-                            type="text"
-                            id="tramite"
-                            name="tramite"
-                            placeholder="Ej: CER-2025-123456"
-                            autocomplete="off"
-                        >
-                        <small>Lo recibiste por email cuando te inscribiste</small>
-                    </div>
-                    
+
+                    <fieldset class="verificacion" id="verificacion">
+                        <legend>Y uno de estos datos para confirmar que sos vos</legend>
+                        <div class="form-group">
+                            <label for="fechaNacimiento">Fecha de nacimiento</label>
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" min="1900-01-01" max="1977-12-31" autocomplete="bday">
+                        </div>
+
+                        <p class="verificacion-o" aria-hidden="true">o</p>
+
+                        <div class="form-group">
+                            <label for="tramite">Número de trámite</label>
+                            <input type="text" id="tramite" name="tramite" placeholder="Ej: CR-2032-0048213" autocomplete="off" spellcheck="false" aria-describedby="tramite-ayuda">
+                            <small id="tramite-ayuda">Lo recibiste por email cuando te inscribiste</small>
+                        </div>
+                    </fieldset>
+
+                    <p class="form-status" hidden></p>
                     <button type="submit" class="btn-search">
                         <i class="fa fa-search" aria-hidden="true"></i>
                         Consultar estado
                     </button>
                 </form>
+                <p class="demo-hint">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    <strong>Proyecto de diseño especulativo:</strong> para ver un trámite de ejemplo, consultá el DNI 12345678 con la fecha de nacimiento 14/03/1956.
+                </p>
             </div>
-            
+
+            <!-- Sin resultados -->
+            <div class="lookup-card lookup-empty" id="notFound" hidden>
+                <h2 id="notFoundTitle">No encontramos un trámite con esos datos</h2>
+                <p>Revisá que el DNI esté escrito sin puntos y que la fecha de nacimiento o el número de trámite correspondan a esa persona. Por seguridad no te decimos cuál de los datos no coincide.</p>
+                <p class="lookup-intentos" id="intentosAviso" hidden></p>
+                <p>Si te inscribiste por teléfono o en un Nodo, puede que tu trámite todavía no aparezca en esta consulta. Llamá al <a href="tel:147">147</a> y pedí el estado de tu inscripción a Cuidados en Red.</p>
+            </div>
+
+            <!-- Trámite iniciado en esta sesión desde el formulario de inscripción -->
+            <div class="lookup-card" id="newRecord" hidden>
+                <h2 id="newRecordTitle">Tu solicitud</h2>
+                <p>DNI: <strong id="newRecordDni"></strong> | Trámite: <strong id="newRecordTramite"></strong></p>
+                <p class="lookup-state">Estado actual: <strong>Inscripción recibida</strong></p>
+                <p><strong>Próximo paso:</strong> te llama el Nodo de tu zona para coordinar la visita domiciliaria. El primer contacto suele llegar en 24 a 48 horas hábiles, pero puede tardar hasta 5 a 7 días.</p>
+                <p class="lookup-note">Si el teléfono que dejaste tiene un error, la llamada no te llega. Si pasaron más de 7 días, llamá al <a href="tel:147">147</a>.</p>
+            </div>
+
             <!-- Result Container (ejemplo hardcodeado) -->
             <div class="result-container" id="resultContainer">
                 <div class="user-header">
@@ -552,18 +221,18 @@
                     </div>
                     <div class="status-info">
                         <h2 id="userName">María Isabel González</h2>
-                        <p>DNI: <strong id="userDni">12.345.678</strong> | Trámite: <strong id="userTramite">CER-2032-123456</strong></p>
+                        <p>DNI: <strong id="userDni">12.345.678</strong> | Trámite: <strong id="userTramite">CR-2032-0041377</strong></p>
                     </div>
                 </div>
-                
-                <div style="text-align: center; margin-bottom: 32px;">
-                    <div style="display: inline-block; padding: 12px 24px; background-color: rgba(255,255,255,0.7); border-radius: 8px;">
-                        <strong style="color: var(--color-accent); font-size: 16px;">
-                            Estado actual: <span id="currentStatus" style="font-size: 20px;">En evaluación domiciliaria</span>
+
+                <div class="u-text-align-center u-margin-bottom-32px">
+                    <div class="u-display-inline-block u-padding-12px-24px u-background-color-rgba-255-255-255-0_7 u-border-radius-8px">
+                        <strong class="u-color-accent-text u-font-size-1rem">
+                            Estado actual: <span class="u-font-size-1_25rem" id="currentStatus">En evaluación domiciliaria</span>
                         </strong>
                     </div>
                 </div>
-                
+
                 <!-- Timeline -->
                 <div class="timeline">
                     <div class="timeline-step">
@@ -575,11 +244,11 @@
                             <p>Tu solicitud fue registrada exitosamente en nuestro sistema.</p>
                             <div class="date">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                                15/10/2025
+                                <span data-mundo-fecha="-16">15/10/2032</span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker completed">
                             <i class="fa fa-check" aria-hidden="true"></i>
@@ -592,11 +261,11 @@
                             </div>
                             <div class="date">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                                22/10/2025
+                                <span data-mundo-fecha="-9">22/10/2032</span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker current">
                             <i class="fa fa-home" aria-hidden="true"></i>
@@ -605,15 +274,15 @@
                             <h3>3. Evaluación funcional domiciliaria</h3>
                             <p>Estamos evaluando tus necesidades para determinar tu nivel de cuidado y armar tu plan personalizado.</p>
                             <div class="friction-alert">
-                                <p><strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Atención:</strong> La visita programada para el 25/10 se reprogramó para el 30/10 porque la trabajadora social tuvo una emergencia familiar. Disculpá las demoras.</p>
+                                <p><strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Atención:</strong> La visita programada para el <span data-mundo-dia="-2">25/10</span> se reprogramó para el <span data-mundo-dia="3">30/10</span> porque la trabajadora social tuvo una emergencia familiar. Disculpá las demoras.</p>
                             </div>
                             <div class="date">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                                En progreso - Estimado: 30/10/2025
+                                En progreso · Estimado: <span data-mundo-fecha="3">30/10/2032</span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker pending">
                             <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -622,7 +291,7 @@
                             <h3>4. Asignación de nivel y persona cuidadora</h3>
                             <p>Según tu evaluación, te asignan un nivel de cuidado con las horas correspondientes y una persona cuidadora. Coordinamos la reunión de presentación.</p>
                             <div class="friction-alert">
-                                <p><strong><i class="fa fa-info-circle" aria-hidden="true"></i> Tiempo real:</strong> Este paso puede tardar entre 7 y 21 días. Depende de la disponibilidad de personas cuidadoras en Caballito y de que encuentres una con quien te sientas cómoda.</p>
+                                <p><strong><i class="fa fa-info-circle" aria-hidden="true"></i> Tiempo real:</strong> Este paso suele tardar entre 7 y 14 días; en los Nodos con lista de espera, hasta 21. Depende de la disponibilidad de personas cuidadoras en Caballito y de que encuentres una con quien te sientas cómoda.</p>
                             </div>
                             <div class="date">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -630,7 +299,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker pending">
                             <i class="fa fa-rocket" aria-hidden="true"></i>
@@ -645,7 +314,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Next Steps -->
                 <div class="next-steps">
                     <h3>
@@ -653,61 +322,61 @@
                         ¿Qué tenés que hacer ahora?
                     </h3>
                     <ul id="nextStepsList">
-                        <li><strong>Esperá nuestro llamado</strong> para confirmar la fecha de la visita domiciliaria (reprogramada para el 30/10)</li>
+                        <li><strong>Esperá nuestro llamado</strong> para confirmar la fecha de la visita domiciliaria (reprogramada para el <span data-mundo-dia="3">30/10</span>)</li>
                         <li>Tené a mano tu <strong>DNI y documentación médica</strong> (si tenés)</li>
                         <li>Pensá qué tipo de ayuda necesitás para contarle al equipo</li>
                         <li>Si tenés alguna urgencia o cambio de situación, llamá al <strong>147</strong></li>
                     </ul>
                 </div>
-                
+
                 <!-- Contact Box -->
                 <div class="contact-box">
                     <h3><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Tenés alguna duda?</h3>
-                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
+                    <div class="u-display-flex u-gap-16px u-justify-content-center u-flex-wrap-wrap u-margin-top-16px">
                         <a href="tel:147" class="btn btn-primary">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                         </a>
-                        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #25D366; color: white;">
+                        <a href="contacto.html#whatsapp" class="btn u-background-color-075e54 u-color-white">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
                         </a>
                     </div>
                 </div>
             </div>
-            
+
             <!-- States Guide -->
             <div class="states-guide">
-                <h2 style="color: var(--color-secondary); text-align: center; margin-bottom: 32px; font-size: 32px;">
+                <h2 class="u-color-secondary-text u-text-align-center u-margin-bottom-32px u-font-size-2rem">
                     Estados posibles de tu solicitud
                 </h2>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Inscripción recibida
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Tu solicitud fue registrada. <strong>En 24-48hs hábiles</strong> te vamos a contactar 
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
+                            Tu solicitud fue registrada. <strong>En 24-48hs hábiles</strong> te vamos a contactar
                             del Nodo de tu zona para coordinar la evaluación domiciliaria.
                         </p>
                         <div class="friction-alert">
-                            <p><strong>Realidad:</strong> A veces tardamos hasta 5 días si hay mucha demanda o si el teléfono que dejaste no responde. Si no recibís el llamado en 1 semana, llamá vos al 147.</p>
+                            <p><strong>Realidad:</strong> A veces tardamos hasta 5-7 días hábiles si hay mucha demanda o si el teléfono que dejaste no responde. Si no recibís el llamado en 1 semana, llamá vos al 147.</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-phone" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Contacto inicial
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Ya nos comunicamos con vos y coordinamos la visita. Esperá nuestro llamado 
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
+                            Ya nos comunicamos con vos y coordinamos la visita. Esperá nuestro llamado
                             para confirmar día y hora.
                         </p>
                         <div class="friction-alert">
@@ -715,34 +384,34 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-home" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Evaluación funcional domiciliaria
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
                             El equipo interdisciplinario está evaluando tus necesidades en tu domicilio para determinar tu nivel de cuidado.
-                            Esto tarda <strong>entre 5 y 15 días</strong> dependiendo de la complejidad del caso.
+                            Esto se hace <strong>dentro de los 15 días hábiles</strong> desde la inscripción.
                         </p>
                         <div class="friction-alert">
-                            <p><strong>Realidad:</strong> En zona norte puede tardar 2-3 semanas porque hay lista de espera. En zona sur suele ser más rápido (5-7 días) pero con menos especialistas disponibles.</p>
+                            <p><strong>Realidad:</strong> En los Nodos con lista de espera puede tardar hasta 30 días hábiles. En zona sur suele ser más rápido, pero hay menos especialistas disponibles.</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-users" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Asignación de nivel y persona cuidadora
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
                             Con la evaluación completada, te asignamos un nivel de cuidado con las horas correspondientes y buscamos la persona cuidadora ideal para vos. Te llamamos para
                             coordinar la reunión de presentación.
                         </p>
@@ -751,17 +420,17 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
                     <div class="state-icon">
                         <i class="fa fa-cogs" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Instalación de tecnología
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Estamos instalando los sensores, la pulsera de emergencia y Tita en tu domicilio. 
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
+                            Estamos instalando los sensores, la pulsera de emergencia y Tita en tu domicilio.
                             El técnico te explica cómo usar todo.
                         </p>
                         <div class="friction-alert">
@@ -769,54 +438,54 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="state-item">
-                    <div class="state-icon" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
+                    <div class="state-icon u-background-linear-gradient-135deg-4caf50-1b5e20">
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: #2E7D32; font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Servicio activo
                         </h3>
-                        <p style="color: #444; margin: 0; line-height: 1.6;">
-                            <strong>¡Ya estás recibiendo el servicio!</strong> Tu persona cuidadora te visita según 
+                        <p class="u-color-444 u-margin-0 u-line-height-1_6">
+                            <strong>¡Ya estás recibiendo el servicio!</strong> Tu persona cuidadora te visita según
                             lo acordado y el sistema de monitoreo está funcionando.
                         </p>
                     </div>
                 </div>
-                
-                <div class="state-item" style="border-left-color: var(--color-accent);">
-                    <div class="state-icon" style="background: linear-gradient(135deg, var(--color-accent), #BF360C);">
+
+                <div class="state-item u-border-left-color-accent">
+                    <div class="state-icon u-background-linear-gradient-135deg-accent-text-6b2600">
                         <i class="fa fa-pause" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-accent); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 class="u-color-accent-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             En espera (lista de espera)
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Cumplís los requisitos pero temporalmente no hay cupo disponible en tu zona. 
-                            Te avisamos cuando se libere un lugar. <strong>Tiempo promedio: 30-45 días.</strong>
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
+                            Cumplís los requisitos pero temporalmente no hay cupo disponible en tu zona.
+                            Te avisamos cuando se libere un lugar. <strong>Tiempo promedio: 21 días.</strong>
                         </p>
                         <div class="friction-alert">
-                            <p><strong>Realidad:</strong> En barrios de zona norte (Belgrano, Palermo, Recoleta) la espera puede ser de 2-4 meses. En zona sur (Lugano, Soldati) suele haber disponibilidad inmediata.</p>
+                            <p><strong>Realidad:</strong> En los Nodos de Palermo, Belgrano, Recoleta y Caballito la espera puede ser de 2 a 3 meses (Palermo, hasta 4). En el resto de la Ciudad no hay lista de espera.</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="state-item" style="border-left-color: #D32F2F;">
-                    <div class="state-icon" style="background: linear-gradient(135deg, #F44336, #C62828);">
+
+                <div class="state-item u-border-left-color-d32f2f">
+                    <div class="state-icon u-background-linear-gradient-135deg-f44336-c62828">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: #D32F2F; font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 class="u-color-9a1515 u-font-size-1_25rem u-margin-0-0-8px-0">
                             No admitido
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
-                            Luego de la evaluación, determinamos que Cuidados en Red no es el programa adecuado 
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
+                            Luego de la evaluación, determinamos que Cuidados en Red no es el programa adecuado
                             para tu situación. Te orientamos hacia otros servicios más apropiados.
                         </p>
                         <div class="friction-alert">
-                            <p><strong>Realidad:</strong> Esto pasa cuando tu nivel de dependencia requiere atención médica intensiva que excede nuestro servicio, o cuando tu situación socioeconómica permite contratar servicios privados.</p>
+                            <p><strong>Realidad:</strong> Esto pasa cuando la persona necesita atención médica intensiva o cuidado permanente las 24 horas, que exceden este servicio. En esos casos te derivamos y el Nodo acompaña el pase al otro programa. Los ingresos nunca son motivo para no admitir a alguien.</p>
                         </div>
                     </div>
                 </div>
@@ -825,17 +494,10 @@
     </section>
     </main>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5491112345678"
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp">
-        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-    </a>
-    
+
     <!-- Footer -->
-    <footer role="contentinfo">
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
+    <footer>
         <div class="container">
             <div class="row">
                 <nav class="col-md-3" aria-label="Enlaces de inscripción">
@@ -861,70 +523,38 @@
                     <a href="transparencia.html">Datos abiertos</a>
                     <a href="transparencia.html#presupuesto">Presupuesto</a>
                     <a href="politica-privacidad.html">Política de privacidad</a>
+                    <a href="terminos.html">Términos y condiciones</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
                 </nav>
             </div>
             <div class="footer-legal">
-                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
+                <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
-        
+
         <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
-                <strong>Proyecto de diseño especulativo</strong> · 
-                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
-                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                <strong>Proyecto de diseño especulativo</strong> ·
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental,
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>.
                 Todo el contenido, concepto, diseño y código es de su autoría.
             </p>
         </div>
     </footer>
-    
-    <script src="accessibility.js"></script>
-    <script>
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-            searchStatus(event);
-            return false;
-        });
 
-        function searchStatus(event) {
-            event.preventDefault();
+    <!-- Acceso a WhatsApp: lleva a cómo pedir el enlace (el número no se publica) -->
+    <a href="contacto.html#whatsapp" class="whatsapp-float" aria-label="WhatsApp: cómo escribirnos">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <!-- fin:pie -->
 
-            const dni = document.getElementById('dni').value;
-            const tramite = document.getElementById('tramite').value;
-
-            if (!dni && !tramite) {
-                var searchInput = document.querySelector('.search-form input');
-                if (searchInput) {
-                    searchInput.focus();
-                    searchInput.style.borderColor = '#D32F2F';
-                    searchInput.setAttribute('aria-invalid', 'true');
-                    setTimeout(function() { searchInput.style.borderColor = ''; searchInput.removeAttribute('aria-invalid'); }, 3000);
-                }
-                return false;
-            }
-
-            // Show loading state
-            var searchBtn = document.querySelector('.btn-search');
-            var originalText = searchBtn.innerHTML;
-            if (searchBtn) {
-                searchBtn.disabled = true;
-                searchBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Buscando...';
-            }
-
-            // Simular búsqueda con delay
-            setTimeout(function() {
-                document.getElementById('resultContainer').style.display = 'block';
-                document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                if (searchBtn) {
-                    searchBtn.disabled = false;
-                    searchBtn.innerHTML = originalText;
-                }
-            }, 1500);
-
-            return false;
-        }
-    </script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/estado-tramite.js"></script>
 </body>
 </html>

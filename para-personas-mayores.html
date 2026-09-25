@@ -2,230 +2,32 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cuidados en Red te acompaña en tu casa con respeto y cariño. Conocé todos los servicios de cuidado domiciliario para personas mayores en Buenos Aires.">
     <meta property="og:title" content="Servicios para Personas Mayores — Cuidados en Red GCBA">
     <meta property="og:description" content="Cuidados en Red te acompaña en tu casa con respeto y cariño. Conocé todos los servicios de cuidado domiciliario para personas mayores en Buenos Aires.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/para-personas-mayores.html">
+    <meta property="og:url" content="https://nbronzina.github.io/cuidar/para-personas-mayores.html">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
-    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/para-personas-mayores.html">
+    <link rel="canonical" href="https://nbronzina.github.io/cuidar/para-personas-mayores.html">
     <title>Servicios para Personas Mayores — Cuidados en Red GCBA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        .hero-personas {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
-                        url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1600&h=500&fit=crop&fm=webp&q=30') center/cover;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .hero-personas h1 {
-            font-size: 48px;
-            margin-bottom: 24px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hero-personas .lead {
-            font-size: 26px;
-            line-height: 1.5;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 32px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--color-secondary);
-            height: 100%;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            color: white;
-            font-size: 36px;
-        }
-        
-        .benefit-item {
-            display: flex;
-            align-items: start;
-            gap: 20px;
-            padding: 24px;
-            background-color: white;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .benefit-item:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            transform: translateX(8px);
-        }
-        
-        .benefit-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--color-warm);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-accent);
-            font-size: 28px;
-            flex-shrink: 0;
-        }
-        
-        .faq-item {
-            background-color: white;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            overflow: hidden;
-        }
-        
-        .faq-item details {
-            padding: 24px;
-        }
-        
-        .faq-item summary {
-            font-weight: 700;
-            font-size: 20px;
-            cursor: pointer;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            list-style: none;
-        }
-        
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-        
-        .faq-item summary::before {
-            content: '+';
-            width: 32px;
-            height: 32px;
-            background-color: var(--color-secondary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-        
-        .faq-item details[open] summary::before {
-            content: '−';
-        }
-        
-        .faq-item details p {
-            margin-top: 20px;
-            padding-left: 48px;
-            font-size: 18px;
-            line-height: 1.8;
-            color: #444;
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-accent) 100%);
-            border-radius: 2px;
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding: 24px;
-            margin-bottom: 24px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -29px;
-            top: 32px;
-            width: 16px;
-            height: 16px;
-            background-color: var(--color-secondary);
-            border: 4px solid white;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        
-        .cta-box {
-            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
-            color: white;
-            padding: 48px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(46,125,50,0.3);
-        }
-        
-        @media (max-width: 767px) {
-            .hero-personas h1 {
-                font-size: 32px;
-            }
-            .hero-personas .lead {
-                font-size: 20px;
-            }
-            .service-card {
-                padding: 24px;
-            }
-            .timeline {
-                padding-left: 24px;
-            }
-            .timeline::before {
-                left: 7px;
-            }
-            .timeline-item::before {
-                left: -21px;
-            }
-        }
-    </style>
+    <link href="css/para-personas-mayores.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -234,12 +36,12 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Inicio",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+        "item": "https://nbronzina.github.io/cuidar/"
       }, {
         "@type": "ListItem",
         "position": 2,
         "name": "Para personas mayores",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/para-personas-mayores.html"
+        "item": "https://nbronzina.github.io/cuidar/para-personas-mayores.html"
       }]
     }
     </script>
@@ -250,10 +52,18 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "¿Tu familiar tiene deterioro cognitivo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sabemos que es una situación difícil para toda la familia. Por eso Tita tiene un modo especial pensado para personas con Alzheimer u otro deterioro cognitivo: Habla con frases cortas y claras, sin apurar. Si la persona no entiende, repite con paciencia. Ayuda con la orientación: le recuerda qué día es, dónde está, quién viene a visitarla. Propone recuerdos guiados con fotos y música de su época — momentos que reconfortan. La persona cuidadora recibe capacitación específica y acompañamiento del equipo del Nodo. Este modo se activa cuando el equipo profesional del Nodo lo indica, a partir de la evaluación inicial o de las señales que detecta la persona cuidadora en sus visitas."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "¿Cuánto tarda desde que me inscribo hasta que empieza el servicio?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "El proceso completo suele tomar entre 2 y 3 semanas. Primero validamos tu elegibilidad (2-3 días), luego hacemos la visita domiciliaria (1 semana), y finalmente asignamos persona cuidadora según disponibilidad en tu zona."
+            "text": "El proceso completo suele tomar entre 3 y 5 semanas. Primero te llamamos para validar tus datos (24 a 48 horas hábiles), después hacemos la visita domiciliaria (dentro de los 15 días hábiles) y finalmente asignamos persona cuidadora según disponibilidad en tu zona. En Palermo, Belgrano, Recoleta y Caballito la demanda es alta y puede demorar hasta 8 semanas. Te mantenemos informado/a en cada paso."
           }
         },
         {
@@ -261,7 +71,7 @@
           "name": "¿Qué pasa si no hay personas cuidadoras disponibles en mi barrio?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Si no hay disponibilidad inmediata, te ponemos en lista de espera prioritaria y mientras tanto te conectamos con otros recursos del Nodo de tu zona (centros de día, talleres, red de vecinos)."
+            "text": "Estamos expandiendo la red constantemente, pero algunos barrios tienen más demanda que otros. Si no hay disponibilidad inmediata, te ponemos en lista de espera prioritaria y mientras tanto te conectamos con otros recursos del Nodo de tu zona (centros de día, talleres, red de vecinos). Buscamos alternativas para que no quedes sin apoyo."
           }
         },
         {
@@ -277,7 +87,7 @@
           "name": "¿Es gratis o tengo que pagar algo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Es 100% gratis si tenés AUH o jubilación mínima. Si tu ingreso es mayor, hay un copago proporcional (entre el 10% y el 15% de tu ingreso). Nadie paga más del 15% de lo que cobra. Nadie queda afuera por no poder pagar."
+            "text": "Depende de tu situación. Es 100% gratis si cobrás jubilación mínima, PUAM o pensión no contributiva, sin importar cuánto cuidado necesites. Si tu ingreso es mayor, hay un copago proporcional de hasta el 10% o el 15% de tu ingreso, según tu nivel de cuidado. Nadie paga más del 15% de lo que cobra. Nadie queda afuera por no poder pagar."
           }
         },
         {
@@ -285,7 +95,7 @@
           "name": "¿La persona cuidadora viene todos los días?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Depende de lo que necesites. Según tu evaluación, te asignan entre 20 y 100 horas por mes de persona cuidadora. Si tus necesidades cambian, se actualiza."
+            "text": "Depende de lo que necesites. Cuando te inscribís, un equipo del Nodo te visita para entender tu situación. Según eso, te asignan entre 20 y 100 horas por mes de persona cuidadora. Si tus necesidades cambian, se actualiza. Si necesitás más horas de las asignadas, podés contratarlas a tarifa regulada a través del sistema, con las mismas profesionales."
           }
         },
         {
@@ -293,7 +103,7 @@
           "name": "¿La persona cuidadora entra con llave a mi casa?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Solo si vos querés. Muchas personas nos dan una copia de la llave para emergencias, pero es totalmente opcional."
+            "text": "Solo si vos querés. Muchas personas nos dan una copia de la llave para emergencias, pero es totalmente opcional. Lo que vos decidas está bien."
           }
         },
         {
@@ -301,7 +111,7 @@
           "name": "¿Puedo pedir que me cambien de persona cuidadora?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí, sin problema. Podés pedir cambio hasta 2 veces. Conseguir un reemplazo puede tomar 1-2 semanas según disponibilidad."
+            "text": "Sí, sin problema. Lo importante es que te sientas cómodo/a. Podés pedir cambio hasta 2 veces. Queremos que encuentres a alguien con quien te lleves bien. Tené en cuenta que conseguir un reemplazo puede tomar 2 a 3 semanas según disponibilidad."
           }
         },
         {
@@ -309,7 +119,7 @@
           "name": "¿Qué pasa si me caigo y no puedo apretar el botón?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Los sensores en tu casa detectan si te caés o si no te movés por mucho tiempo. Automáticamente avisan al Nodo y a la persona cuidadora."
+            "text": "Los sensores en tu casa detectan si te caés o si no te movés por mucho tiempo. Automáticamente avisan al Nodo y a la persona cuidadora. No te preocupes, estamos atentos."
           }
         },
         {
@@ -325,7 +135,7 @@
           "name": "¿Puedo usar Cuidados en Red si ya tengo una empleada doméstica?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí, son cosas diferentes. Tu empleada doméstica se encarga de la limpieza. La persona cuidadora de Cuidados en Red se enfoca en tu bienestar y compañía. Pueden trabajar juntas sin problema."
+            "text": "Sí, son cosas diferentes. Tu empleada doméstica se encarga de la limpieza y otras tareas. La persona cuidadora de Cuidados en Red se enfoca en tu bienestar y compañía. Pueden trabajar juntas sin problema."
           }
         },
         {
@@ -341,7 +151,7 @@
           "name": "¿Puedo elegir los días que viene la persona cuidadora?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "En parte sí. Tratamos de adaptarnos a tus preferencias, pero depende de la disponibilidad de las personas cuidadoras de tu zona. Lo coordinamos juntos."
+            "text": "En parte sí. Tratamos de adaptarnos a tus preferencias (ej: martes y jueves), pero depende de la disponibilidad de las personas cuidadoras de tu zona. Lo coordinamos juntos buscando horarios que funcionen para ambas partes."
           }
         },
         {
@@ -349,7 +159,7 @@
           "name": "¿Qué pasa si no me llevo bien con la tecnología?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Tita funciona con tu voz — no hay que tocar botones ni pantallas. El sensor de cama y el módulo del baño funcionan solos. La persona cuidadora te acompaña las primeras semanas hasta que te acostumbres."
+            "text": "Tita funciona con tu voz — no hay que tocar botones ni pantallas. Le hablás como le hablarías a una persona y ella te responde. El sensor de cama y el módulo del baño funcionan solos, sin que hagas nada. La persona cuidadora te acompaña las primeras semanas hasta que te acostumbres. Si algo te resulta difícil, podemos ajustar qué funciones activamos."
           }
         },
         {
@@ -357,7 +167,7 @@
           "name": "¿Qué pasa cuando llamo al 147?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Te van a atender, te van a preguntar qué necesitás, y te conectan con la persona indicada. Funciona desde cualquier teléfono, fijo o celular, sin internet. Si querés hablar con una persona, solo pedilo y te pasan."
+            "text": "Te van a atender, te van a preguntar qué necesitás, y te conectan con la persona indicada. Funciona desde cualquier teléfono, fijo o celular, sin internet. Si en algún momento querés hablar con una persona, solo pedilo y te pasan. No tenés que repetir nada si te derivan — ya saben lo que contaste."
           }
         }
       ]
@@ -365,27 +175,28 @@
     </script>
 </head>
 <body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
-    
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+
+    <section class="accessibility-bar" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button aria-label="Texto normal">A</button>
-            <button aria-label="Texto grande">A+</button>
-            <button aria-label="Texto extra grande">A++</button>
-            <button aria-label="Alto contraste">
+            <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
+            <button type="button" data-a11y="large" aria-label="Texto grande" aria-pressed="false">A+</button>
+            <button type="button" data-a11y="xlarge" aria-label="Texto extra grande" aria-pressed="false">A++</button>
+            <button type="button" data-a11y="contrast" aria-label="Alto contraste" aria-pressed="false">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
                 <i class="fa fa-phone" aria-hidden="true"></i> 147
             </a>
         </div>
-    </div>
-    
-    <header class="header-gcba" role="banner">
+    </section>
+
+    <header class="header-gcba">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
+                <img src="img/escudo-caba.svg" alt="" class="escudo" width="40" height="48">
                 <div class="logo-text">
                     <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
                     <span class="program-name">Cuidados en Red</span>
@@ -393,22 +204,32 @@
             </a>
         </div>
     </header>
-    
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+
+    <nav class="main-nav" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="para-personas-mayores.html" class="active" aria-current="page">Para Personas Mayores</a>
-            <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
-            <a href="el-sistema.html">El Sistema</a>
-            <a href="transparencia.html">Transparencia</a>
-            <a href="contacto.html">Contacto</a>
+                <div class="nav-info">
+                    <a href="index.html">Inicio</a>
+                    <a href="para-personas-mayores.html" class="active" aria-current="page">Para Personas Mayores</a>
+                    <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                    <a href="transparencia.html">Transparencia</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="nav-tramites" role="group" aria-labelledby="nav-tramites-titulo">
+                    <p class="nav-tramites-titulo" id="nav-tramites-titulo">Trámites</p>
+                    <a href="elegibilidad.html"><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Es para mí?</a>
+                    <a href="inscripcion.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Inscribirme</a>
+                    <a href="estado-tramite.html"><i class="fa fa-search" aria-hidden="true"></i> Estado de mi trámite</a>
+                    <a href="nodos.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Nodos en tu barrio</a>
+                </div>
             </div>
         </div>
     </nav>
+    <!-- fin:cabecera -->
 
     <div class="container">
         <nav class="breadcrumb" aria-label="Ubicación">
@@ -425,122 +246,122 @@
             <p class="lead">
                 En tu casa, a tu ritmo, con respeto y cariño
             </p>
-            <div style="margin-top: 40px;">
-                <a href="tel:147" class="btn btn-lg" style="background-color: white; color: var(--color-accent); border-color: white; font-size: 20px; padding: 18px 40px;" aria-label="Llamar al 147">
+            <div class="u-margin-top-40px">
+                <a href="tel:147" class="btn btn-lg u-background-color-white u-color-accent-text u-border-color-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Llamar al 147">
                     <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                 </a>
             </div>
         </div>
     </section>
-    
+
     <!-- NUEVO: Banner de disponibilidad con fricción -->
-    <section style="padding: 0; background-color: #FFF9E6;">
+    <section class="u-padding-0 u-background-color-fff9e6">
         <div class="container">
-            <div class="system-status" style="margin: 0; border-radius: 0; border-left: none; border-right: none;">
+            <div class="system-status u-margin-0 u-border-radius-0 u-border-left-none u-border-right-none">
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                 <div class="system-status-content">
-                    <p style="font-weight: bold; font-size: 1rem; margin: 0 0 8px 0;">Alta demanda en algunos barrios</p>
+                    <p class="system-status-title">Alta demanda en algunos barrios</p>
                     <p>
-                        El tiempo de espera promedio es de <strong>2 a 3 semanas</strong> desde la inscripción. 
+                        Desde la inscripción hasta el inicio del servicio pasan en promedio <strong>3 a 5 semanas</strong>.
                         Priorizamos casos de mayor vulnerabilidad. Mientras esperás, te conectamos con recursos de tu barrio.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Qué recibís -->
-    <section style="padding: 60px 0;" aria-labelledby="servicios-titulo">
+    <section class="u-padding-60px-0" aria-labelledby="servicios-titulo">
         <div class="container">
-            <h2 id="servicios-titulo" style="color: var(--color-accent); text-align: center; margin-bottom: 24px; font-size: 36px;">
+            <h2 class="u-color-accent-text u-text-align-center u-margin-bottom-24px u-font-size-2_25rem" id="servicios-titulo">
                 ¿Qué recibís con Cuidados en Red?
             </h2>
-            <p style="text-align: center; font-size: 20px; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p class="u-text-align-center u-font-size-1_25rem u-color-444 u-margin-bottom-48px u-max-width-800px u-margin-left-auto u-margin-right-auto">
                 No es solo una persona cuidadora. Es todo un sistema pensado para vos.
             </p>
-            
+
             <div class="row">
                 <article class="col-md-4">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fa fa-heart" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-secondary); font-size: 24px; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-secondary-text u-font-size-1_5rem u-margin-bottom-16px u-text-align-center">
                             Una persona que te cuida
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="lista-simple">
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--verde" aria-hidden="true"></i>
                                 <span>Te acompaña entre 20 y 100 horas por mes, según lo que necesites</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--verde" aria-hidden="true"></i>
                                 <span>Te ayuda con lo que necesites</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--verde" aria-hidden="true"></i>
                                 <span>Compañía y charla</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--verde" aria-hidden="true"></i>
                                 <span>Profesional capacitada</span>
                             </li>
                         </ul>
                     </div>
                 </article>
-                
+
                 <article class="col-md-4">
                     <div class="service-card">
-                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-accent), #BF360C);">
+                        <div class="service-icon u-background-linear-gradient-135deg-accent-text-6b2600">
                             <i class="fa fa-microphone" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-accent); font-size: 24px; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-accent-text u-font-size-1_5rem u-margin-bottom-16px u-text-align-center">
                             Tita, tu compañera
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="lista-simple">
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--acento" aria-hidden="true"></i>
                                 <span>Hablá con ella como con una amiga — funciona con tu voz, no hay que tocar nada</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--acento" aria-hidden="true"></i>
                                 <span>Te recuerda medicamentos, turnos y videollamadas con tu familia</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                <span>Juegos de memoria, música de tu época, noticias y trivia</span>
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--acento" aria-hidden="true"></i>
+                                <span>Juegos de memoria, música de tu época, noticias y juegos de preguntas</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
-                                <span>Si tenés Alzheimer, Tita se adapta: frases cortas, paciencia infinita, recuerdos guiados con fotos y música</span>
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--acento" aria-hidden="true"></i>
+                                <span>Si tenés Alzheimer, Tita se adapta: frases cortas, sin apurarte, recuerdos guiados con fotos y música</span>
                             </li>
                         </ul>
                     </div>
                 </article>
-                
+
                 <article class="col-md-4">
                     <div class="service-card">
-                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-primary), #0D3B5E);">
+                        <div class="service-icon u-background-linear-gradient-135deg-primary-0d3b5e">
                             <i class="fa fa-shield" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-primary); font-size: 24px; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-primary u-font-size-1_5rem u-margin-bottom-16px u-text-align-center">
                             Tecnología que te cuida
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="lista-simple">
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--primaria" aria-hidden="true"></i>
                                 <span>Pulsera de emergencia + sensores de movimiento</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--primaria" aria-hidden="true"></i>
                                 <span>Sensor de cama que controla tu sueño y corazón sin que te pongas nada</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--primaria" aria-hidden="true"></i>
                                 <span>Módulo en el baño que chequea tu salud cada vez que vas</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono">
+                                <i class="fa fa-check-circle marca marca--primaria" aria-hidden="true"></i>
                                 <span>Sin cámaras — todo 100% privado. Alertas automáticas al Nodo</span>
                             </li>
                         </ul>
@@ -549,36 +370,36 @@
             </div>
 
             <!-- Accordion: Modo Alzheimer -->
-            <div style="max-width: 800px; margin: 40px auto 0;">
-                <details style="background-color: #FFF3E0; border-radius: 12px; padding: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid var(--color-accent); overflow: hidden;">
-                    <summary style="padding: 24px 32px; cursor: pointer; font-size: 22px; font-weight: 700; color: var(--color-accent); list-style: none; display: flex; align-items: center; gap: 12px;">
-                        <i class="fa fa-heart" aria-hidden="true" style="flex-shrink: 0;"></i>
+            <div class="u-max-width-800px u-margin-40px-auto-0">
+                <details class="u-background-color-fff3e0 u-border-radius-12px u-padding-0 u-box-shadow-0-4px-16px-rgba-0-0-0-0_08 u-border-left-4px-solid-accent u-overflow-hidden">
+                    <summary class="u-padding-24px-32px u-cursor-pointer u-font-size-1_375rem u-font-weight-700 u-color-accent-text u-list-style-none u-display-flex u-align-items-center u-gap-12px">
+                        <i class="fa fa-heart u-flex-shrink-0" aria-hidden="true"></i>
                         ¿Tu familiar tiene deterioro cognitivo?
-                        <i class="fa fa-chevron-down" aria-hidden="true" style="margin-left: auto; font-size: 16px; transition: transform 0.3s;"></i>
+                        <i class="fa fa-chevron-down u-margin-left-auto u-font-size-1rem u-transition-transform-0_3s" aria-hidden="true"></i>
                     </summary>
-                    <div style="padding: 0 32px 32px; font-size: 18px; line-height: 1.8; color: #555;">
-                        <p style="margin-bottom: 16px;">
+                    <div class="u-padding-0-32px-32px u-font-size-1_125rem u-line-height-1_8 u-color-444444">
+                        <p class="u-margin-bottom-16px">
                             Sabemos que es una situación difícil para toda la familia. Por eso Tita tiene un <strong>modo especial</strong> pensado para personas con Alzheimer u otro deterioro cognitivo:
                         </p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0">
+                            <li class="lista-icono lista-icono--compacta">
+                                <i class="fa fa-check-circle marca marca--acento" aria-hidden="true"></i>
                                 <span>Habla con frases cortas y claras, sin apurar. Si la persona no entiende, repite con paciencia.</span>
                             </li>
-                            <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono lista-icono--compacta">
+                                <i class="fa fa-check-circle marca marca--acento" aria-hidden="true"></i>
                                 <span>Ayuda con la orientación: le recuerda qué día es, dónde está, quién viene a visitarla.</span>
                             </li>
-                            <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono lista-icono--compacta">
+                                <i class="fa fa-check-circle marca marca--acento" aria-hidden="true"></i>
                                 <span>Propone recuerdos guiados con fotos y música de su época — momentos que reconfortan.</span>
                             </li>
-                            <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="lista-icono lista-icono--compacta">
+                                <i class="fa fa-check-circle marca marca--acento" aria-hidden="true"></i>
                                 <span>La persona cuidadora recibe capacitación específica y acompañamiento del equipo del Nodo.</span>
                             </li>
                         </ul>
-                        <p style="margin-top: 16px; color: #888; font-size: 16px;">
+                        <p class="u-margin-top-16px u-color-505050 u-font-size-1rem">
                             Este modo se activa cuando el equipo profesional del Nodo lo indica, a partir de la evaluación inicial o de las señales que detecta la persona cuidadora en sus visitas.
                         </p>
                     </div>
@@ -588,32 +409,32 @@
     </section>
 
     <!-- Cómo se arma tu plan de cuidado -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;">
+    <section class="seccion-gris">
         <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; background-color: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid var(--color-secondary);">
-                <h2 style="color: var(--color-secondary); font-size: 28px; margin-bottom: 20px;">
+            <div class="u-max-width-800px u-margin-0-auto u-background-color-white u-border-radius-12px u-padding-40px u-box-shadow-0-4px-16px-rgba-0-0-0-0_08 u-border-left-4px-solid-secondary">
+                <h2 class="u-color-secondary-text u-font-size-1_75rem u-margin-bottom-20px">
                     <i class="fa fa-clipboard" aria-hidden="true"></i> Tu plan de cuidado se arma a tu medida
                 </h2>
-                <p style="font-size: 18px; line-height: 1.8; color: #555; margin-bottom: 16px;">
+                <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444444 u-margin-bottom-16px">
                     Cuando te inscribís, un equipo del Nodo más cercano te visita en tu casa para entender qué necesitás. Según eso, te asignan un acompañamiento que puede ir desde unas pocas horas por semana hasta un cuidado más intensivo con tecnología de apoyo.
                 </p>
-                <p style="font-size: 18px; line-height: 1.8; color: #555; margin-bottom: 16px;">
+                <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444444 u-margin-bottom-16px">
                     Si tus necesidades cambian, tu plan se actualiza. Si necesitás algo que no está incluido, podés contratarlo a través del sistema a un valor regulado, con los mismos profesionales.
                 </p>
-                <p style="font-size: 16px; color: #999; margin-bottom: 0;">
-                    La evaluación inicial puede demorar entre 15 y 30 días hábiles desde la inscripción. Te van a avisar del Nodo para coordinar.
+                <p class="u-font-size-1rem u-color-505050 u-margin-bottom-0">
+                    La evaluación inicial se hace dentro de los 15 días hábiles desde la inscripción (hasta 30 en los Nodos con lista de espera). Te van a avisar del Nodo para coordinar.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Beneficios -->
-    <section style="padding: 60px 0; background-color: var(--color-warm);" aria-labelledby="beneficios-titulo">
+    <section class="u-padding-60px-0 u-background-color-warm" aria-labelledby="beneficios-titulo">
         <div class="container">
-            <h2 id="beneficios-titulo" style="color: var(--color-accent); text-align: center; margin-bottom: 48px; font-size: 36px;">
+            <h2 class="u-color-accent-text u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="beneficios-titulo">
                 ¿Qué ganás vos?
             </h2>
-            
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="benefit-item">
@@ -621,42 +442,42 @@
                             <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Seguís en tu casa
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 No tenés que ir a un geriátrico ni mudarte. Te cuidamos donde vos querés estar.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Menos soledad
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Tenés con quien charlar, compartir un mate, contar tus historias.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fa fa-heartbeat" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Mejor salud
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Te ayudamos a tomar tus medicamentos a horario y controlar tu salud. El sensor de cama y el módulo del baño monitorean tu bienestar todos los días sin que tengas que hacer nada.
                             </p>
                         </div>
@@ -669,58 +490,58 @@
                             <i class="fa fa-shield" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Detección temprana
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Tita y tu persona cuidadora están atentas a cambios sutiles en tu memoria y tu habla. Si notan algo, avisan al Nodo para que te vea un profesional — mucho antes de que sea tarde.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fa fa-smile-o" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Más tranquilidad
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Sabés que si pasa algo, hay alguien que te va a ayudar de inmediato.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Más independencia
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Te ayudamos con las tareas difíciles para que puedas hacer lo que te gusta.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent); font-size: 22px; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Dignidad y respeto
                             </h3>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 La persona cuidadora respeta tus tiempos, tus gustos, tu forma de ser.
                             </p>
                         </div>
@@ -729,79 +550,79 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Cómo es un día con Cuidados en Red -->
-    <section style="padding: 60px 0;" aria-labelledby="dia-titulo">
+    <section class="u-padding-60px-0" aria-labelledby="dia-titulo">
         <div class="container">
-            <h2 id="dia-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 24px; font-size: 36px;">
+            <h2 class="u-color-secondary-text u-text-align-center u-margin-bottom-24px u-font-size-2_25rem" id="dia-titulo">
                 Un día con Cuidados en Red
             </h2>
-            <p style="text-align: center; font-size: 20px; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Así es un día típico de María, usuaria de Cuidados en Red
+            <p class="u-text-align-center u-font-size-1_25rem u-color-444 u-margin-bottom-48px u-max-width-800px u-margin-left-auto u-margin-right-auto">
+                Así es un día típico de Beatriz, usuaria de Cuidados en Red
             </p>
-            
+
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
+                <div class="col-md-8 u-margin-0-auto">
                     <div class="timeline">
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> 8:00 AM
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 8:00 h
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
-                                Tita te saluda: "Buen día, María. Hoy es martes, hace 18 grados". Te recuerda tus medicamentos. Mientras tanto, el sensor de cama ya mandó al Nodo que dormiste bien anoche.
+                            <p class="texto-cuerpo">
+                                Tita te saluda: "Buen día, Beatriz. Hoy es martes, hace 18 grados". Te recuerda tus medicamentos. Mientras tanto, el sensor de cama ya mandó al Nodo que dormiste bien anoche.
                             </p>
                         </div>
-                        
+
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> 10:00 AM
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 10:00 h
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
-                                Llega Carlos, tu persona cuidadora. Tomás un mate juntos mientras charlan. Carlos ya vio en su app que dormiste bien y que los valores del baño están normales.
+                            <p class="texto-cuerpo">
+                                Llega Carlos, tu persona cuidadora. Hoy se demoró 20 minutos por un paro de colectivos y te avisó antes por mensaje. Tomás un mate juntos mientras charlan. Carlos ya vio en su app que dormiste bien y que los valores del baño están normales.
                             </p>
                         </div>
-                        
+
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 AM
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 h
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Van juntos al supermercado del barrio. Carlos te ayuda a cargar las bolsas.
                             </p>
                         </div>
-                        
+
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Preparan el almuerzo juntos. Carlos te ayuda a cortar las verduras.
                             </p>
                         </div>
-                        
+
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> 3:00 PM
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 15:00 h
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Videollamada con tu nieto por Tita. Le contás cómo te fue en la semana.
                             </p>
                         </div>
-                        
+
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> 7:00 PM
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 19:00 h
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Tita te recuerda tu medicación de la noche. "¿Querés que te ponga Sábados Circulares?" Le decís que sí y te pone tu programa favorito. También te recuerda tomar agua — el módulo del baño notó que estás un poco deshidratada.
                             </p>
                         </div>
-                        
+
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary); font-size: 20px; display: block; margin-bottom: 8px;">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 PM
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 23:00 h
                             </strong>
-                            <p style="font-size: 18px; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="texto-cuerpo">
                                 Te acostás tranquila sabiendo que si pasa algo, el sensor de cama y la pulsera de emergencia están ahí. Y si la pulsera no te resulta cómoda, el sensor de cama y Tita cubren la noche.
                             </p>
                         </div>
@@ -810,63 +631,63 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Preguntas frecuentes -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="preguntas-titulo">
+    <section class="seccion-gris" aria-labelledby="preguntas-titulo">
         <div class="container">
-            <h2 id="preguntas-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 48px; font-size: 36px;">
+            <h2 class="u-color-primary u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="preguntas-titulo">
                 Preguntas que nos hacen seguido
             </h2>
-            
+
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
-                    
+                <div class="col-md-8 u-margin-0-auto">
+
                     <!-- NUEVAS FAQs con fricción -->
                     <div class="faq-item">
                         <details>
                             <summary>¿Cuánto tarda desde que me inscribo hasta que empieza el servicio?</summary>
                             <p>
-                                El proceso completo suele tomar entre <strong>2 y 3 semanas</strong>. Primero validamos tu elegibilidad (2-3 días), 
-                                luego hacemos la visita domiciliaria (1 semana), y finalmente asignamos persona cuidadora según disponibilidad en tu zona. 
-                                En algunos barrios la demanda es alta y puede demorar un poco más. Te mantenemos informado/a en cada paso.
+                                El proceso completo suele tomar entre <strong>3 y 5 semanas</strong>. Primero te llamamos para validar tus datos (24 a 48 horas hábiles),
+                                después hacemos la visita domiciliaria (dentro de los 15 días hábiles) y finalmente asignamos persona cuidadora según disponibilidad en tu zona.
+                                En Palermo, Belgrano, Recoleta y Caballito la demanda es alta y puede demorar hasta 8 semanas. Te mantenemos informado/a en cada paso.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿Qué pasa si no hay personas cuidadoras disponibles en mi barrio?</summary>
                             <p>
-                                Estamos expandiendo la red constantemente, pero algunos barrios tienen más demanda que otros. 
-                                Si no hay disponibilidad inmediata, te ponemos en lista de espera prioritaria y mientras tanto te conectamos 
-                                con otros recursos del Nodo de tu zona (centros de día, talleres, red de vecinos). Buscamos alternativas 
+                                Estamos expandiendo la red constantemente, pero algunos barrios tienen más demanda que otros.
+                                Si no hay disponibilidad inmediata, te ponemos en lista de espera prioritaria y mientras tanto te conectamos
+                                con otros recursos del Nodo de tu zona (centros de día, talleres, red de vecinos). Buscamos alternativas
                                 para que no quedes sin apoyo.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿Cómo me priorizan si hay lista de espera?</summary>
                             <p>
-                                Priorizamos según vulnerabilidad: personas que viven solas sin red de apoyo, con condiciones de salud 
-                                que requieren atención urgente, o en situación socioeconómica crítica tienen prioridad. 
+                                Priorizamos según vulnerabilidad: personas que viven solas sin red de apoyo, con condiciones de salud
+                                que requieren atención urgente, o en situación socioeconómica crítica tienen prioridad.
                                 La trabajadora social del Nodo evalúa cada caso individualmente.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿Es gratis o tengo que pagar algo?</summary>
                             <p>
-                                Depende de tu situación. Es <strong>100% gratis</strong> si tenés AUH o jubilación mínima — sin importar cuánto cuidado necesites.
-                                Si tu ingreso es mayor, hay un copago proporcional (entre el 10% y el 15% de tu ingreso, según tu situación).
+                                Depende de tu situación. Es <strong>100% gratis</strong> si cobrás jubilación mínima, PUAM o pensión no contributiva, sin importar cuánto cuidado necesites.
+                                Si tu ingreso es mayor, hay un copago proporcional de hasta el 10% o el 15% de tu ingreso, según tu nivel de cuidado.
                                 Nadie paga más del 15% de lo que cobra. Nadie queda afuera por no poder pagar.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿La persona cuidadora viene todos los días?</summary>
@@ -878,79 +699,79 @@
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿La persona cuidadora entra con llave a mi casa?</summary>
                             <p>
-                                Solo si vos querés. Muchas personas nos dan una copia de la llave para emergencias, 
+                                Solo si vos querés. Muchas personas nos dan una copia de la llave para emergencias,
                                 pero es totalmente opcional. Lo que vos decidas está bien.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿Puedo pedir que me cambien de persona cuidadora?</summary>
                             <p>
-                                Sí, sin problema. Lo importante es que te sientas cómodo/a. Podés pedir cambio 
-                                hasta 2 veces. Queremos que encuentres a alguien con quien te lleves bien. Ten en cuenta que 
-                                conseguir un reemplazo puede tomar 1-2 semanas según disponibilidad.
+                                Sí, sin problema. Lo importante es que te sientas cómodo/a. Podés pedir cambio
+                                hasta 2 veces. Queremos que encuentres a alguien con quien te lleves bien. Tené en cuenta que
+                                conseguir un reemplazo puede tomar 2 a 3 semanas según disponibilidad.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿Qué pasa si me caigo y no puedo apretar el botón?</summary>
                             <p>
-                                Los sensores en tu casa detectan si te caés o si no te movés por mucho tiempo. 
+                                Los sensores en tu casa detectan si te caés o si no te movés por mucho tiempo.
                                 Automáticamente avisan al Nodo y a la persona cuidadora. No te preocupes, estamos atentos.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿Me van a obligar a hacer cosas que no quiero?</summary>
                             <p>
-                                Jamás. Vos decidís qué ayuda necesitás y cuándo. Si un día no querés hacer algo, 
+                                Jamás. Vos decidís qué ayuda necesitás y cuándo. Si un día no querés hacer algo,
                                 no hay problema. Respetamos tus tiempos y tus ganas.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿Puedo usar Cuidados en Red si ya tengo una empleada doméstica?</summary>
                             <p>
-                                Sí, son cosas diferentes. Tu empleada doméstica se encarga de la limpieza y otras tareas. 
+                                Sí, son cosas diferentes. Tu empleada doméstica se encarga de la limpieza y otras tareas.
                                 La persona cuidadora de Cuidados en Red se enfoca en tu bienestar y compañía. Pueden trabajar juntas sin problema.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿Qué pasa si me voy de vacaciones?</summary>
                             <p>
-                                Avisanos y pausamos el servicio hasta 30 días al año sin perder tu lugar. 
+                                Avisanos y pausamos el servicio hasta 30 días al año sin perder tu lugar.
                                 Si te vas más tiempo, hablamos y vemos qué hacemos.
                             </p>
                         </details>
                     </div>
-                    
+
                     <div class="faq-item">
                         <details>
                             <summary>¿Puedo elegir los días que viene la persona cuidadora?</summary>
                             <p>
-                                En parte sí. Tratamos de adaptarnos a tus preferencias (ej: martes y jueves), 
-                                pero depende de la disponibilidad de las personas cuidadoras de tu zona. Lo coordinamos juntos 
+                                En parte sí. Tratamos de adaptarnos a tus preferencias (ej: martes y jueves),
+                                pero depende de la disponibilidad de las personas cuidadoras de tu zona. Lo coordinamos juntos
                                 buscando horarios que funcionen para ambas partes.
                             </p>
                         </details>
                     </div>
-                    
+
                     <!-- NUEVA FAQ con fricción sobre tecnología -->
                     <div class="faq-item">
                         <details>
@@ -973,11 +794,11 @@
                 </div>
 
                     <!-- Privacidad -->
-                    <div style="margin-top: 32px; padding: 24px; background-color: #E3F2FD; border-radius: 8px; text-align: center;">
-                        <p style="font-size: 18px; color: #1565C0; margin: 0; line-height: 1.6;">
-                            <i class="fa fa-lock" aria-hidden="true" style="margin-right: 8px;"></i>
+                    <div class="u-margin-top-32px u-padding-24px u-background-color-e3f2fd u-border-radius-8px u-text-align-center">
+                        <p class="u-font-size-1_125rem u-color-0d47a1 u-margin-0 u-line-height-1_6">
+                            <i class="fa fa-lock u-margin-right-8px" aria-hidden="true"></i>
                             <strong>Tus datos son tuyos.</strong> Podés ver qué información tiene el sistema sobre vos y pedir que se borre en cualquier momento. Nadie fuera del programa accede a tus datos.
-                            <a href="politica-privacidad.html" style="color: var(--color-primary); text-decoration: underline; margin-left: 4px;">Más información</a>
+                            <a class="u-color-primary u-text-decoration-underline u-margin-left-4px" href="politica-privacidad.html">Más información</a>
                         </p>
                     </div>
 
@@ -986,30 +807,30 @@
     </section>
 
     <!-- CTA Final -->
-    <section style="padding: 80px 0;">
+    <section class="u-padding-80px-0">
         <div class="container">
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
+                <div class="col-md-8 u-margin-0-auto">
                     <div class="cta-box">
-                        <h2 style="font-size: 36px; margin-bottom: 24px; color: white;">
+                        <h2 class="u-font-size-2_25rem u-margin-bottom-24px u-color-white">
                             ¿Te gustaría recibir este acompañamiento?
                         </h2>
-                        <p style="font-size: 22px; margin-bottom: 40px;">
+                        <p class="u-font-size-1_375rem u-margin-bottom-40px">
                             Llamanos gratis al 147 o inscribite online. Te contactamos en 24-48hs.
                         </p>
-                        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                            <a href="tel:147" class="btn btn-lg" style="background-color: white; color: var(--color-secondary); border-color: white; font-size: 20px; padding: 18px 40px;" aria-label="Llamar al 147">
+                        <div class="u-display-flex u-gap-20px u-justify-content-center u-flex-wrap-wrap">
+                            <a href="tel:147" class="btn btn-lg u-background-color-white u-color-secondary-text u-border-color-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Llamar al 147">
                                 <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                             </a>
-                            <a href="inscripcion.html" class="btn btn-lg" style="background-color: transparent; color: white; border: 3px solid white; font-size: 20px; padding: 18px 40px;" aria-label="Inscribirme online">
+                            <a href="inscripcion.html" class="btn btn-lg u-background-color-transparent u-color-white u-border-3px-solid-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Inscribirme online">
                                 <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme online
                             </a>
                         </div>
-                        
+
                         <!-- NUEVO: Disclaimer de priorización -->
                         <div class="priority-disclaimer">
-                            <strong><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre los tiempos:</strong> 
-                            El servicio puede demorar entre 2 y 4 semanas desde la inscripción. Priorizamos casos de mayor vulnerabilidad. 
+                            <strong><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre los tiempos:</strong>
+                            El servicio suele empezar entre 3 y 5 semanas después de la inscripción (hasta 8 en los Nodos con lista de espera). Priorizamos casos de mayor vulnerabilidad.
                             Mientras esperás, el Nodo te conecta con recursos de tu barrio.
                         </div>
                     </div>
@@ -1019,16 +840,9 @@
     </section>
     </main>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5491112345678"
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp">
-        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-    </a>
-    
-    <footer role="contentinfo">
+
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
+    <footer>
         <div class="container">
             <div class="row">
                 <nav class="col-md-3" aria-label="Enlaces de inscripción">
@@ -1040,7 +854,7 @@
                 <nav class="col-md-3" aria-label="Enlaces informativos">
                     <h4>INFORMACIÓN</h4>
                     <a href="el-sistema.html">Cómo funciona</a>
-                    <a href="para-personas-mayores.html" aria-current="page">Para personas mayores</a>
+                    <a href="para-personas-mayores.html">Para personas mayores</a>
                     <a href="para-cuidadores.html">Para personas cuidadoras</a>
                 </nav>
                 <nav class="col-md-3" aria-label="Enlaces de contacto">
@@ -1054,25 +868,36 @@
                     <a href="transparencia.html">Datos abiertos</a>
                     <a href="transparencia.html#presupuesto">Presupuesto</a>
                     <a href="politica-privacidad.html">Política de privacidad</a>
+                    <a href="terminos.html">Términos y condiciones</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
                 </nav>
             </div>
             <div class="footer-legal">
-                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
+                <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
+
         <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
-                <strong>Proyecto de diseño especulativo</strong> · 
-                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
-                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                <strong>Proyecto de diseño especulativo</strong> ·
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental,
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>.
                 Todo el contenido, concepto, diseño y código es de su autoría.
             </p>
         </div>
     </footer>
-    
-    <script src="accessibility.js"></script>
+
+    <!-- Acceso a WhatsApp: lleva a cómo pedir el enlace (el número no se publica) -->
+    <a href="contacto.html#whatsapp" class="whatsapp-float" aria-label="WhatsApp: cómo escribirnos">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <!-- fin:pie -->
+
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
 </body>
 </html>

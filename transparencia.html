@@ -2,396 +2,32 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datos abiertos, presupuesto público e informes de gestión de Cuidados en Red. Accedé a datasets descargables, API pública y estadísticas en tiempo real.">
     <meta property="og:title" content="Transparencia y Datos Abiertos — Cuidados en Red GCBA">
     <meta property="og:description" content="Datos abiertos, presupuesto público e informes de gestión de Cuidados en Red. Accedé a datasets descargables, API pública y estadísticas en tiempo real.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/transparencia.html">
+    <meta property="og:url" content="https://nbronzina.github.io/cuidar/transparencia.html">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
-    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/transparencia.html">
+    <link rel="canonical" href="https://nbronzina.github.io/cuidar/transparencia.html">
     <title>Transparencia y Datos Abiertos — Cuidados en Red GCBA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        /* Estilos específicos solo para transparencia.html */
-        .hero-transparencia {
-            background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(27,94,32,0.95)),
-                        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&h=400&fit=crop&fm=webp&q=30') center/cover;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .hero-transparencia h1 {
-            font-size: 48px;
-            margin-bottom: 24px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hero-transparencia .lead {
-            font-size: 24px;
-            line-height: 1.5;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .stat-box {
-            background-color: white;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
-            border-top: 4px solid var(--color-secondary);
-            margin-bottom: 20px;
-        }
-        
-        .stat-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        
-        .stat-box.friction {
-            border-top-color: var(--color-friction-warning-border);
-        }
-        
-        .stat-number {
-            font-size: 56px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            line-height: 1.3;
-            margin-bottom: 8px;
-        }
-        
-        .stat-number.warning {
-            color: var(--color-friction-emphasis);
-        }
-        
-        .stat-label {
-            font-size: 18px;
-            color: #444;
-            font-weight: 500;
-        }
-        
-        .friction-note {
-            font-size: 16px;
-            color: #999;
-            font-style: italic;
-            margin-top: 8px;
-        }
-        
-        .budget-section {
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 32px;
-        }
-        
-        .budget-item {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            padding: 24px;
-            background-color: #F5F5F5;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .budget-item:hover {
-            background-color: #E8F5E9;
-        }
-        
-        .budget-item.delayed {
-            background-color: #FFF3E0;
-            border-left: 4px solid var(--color-friction-warning-border);
-        }
-        
-        .budget-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            flex-shrink: 0;
-        }
-        
-        .budget-bar {
-            flex: 1;
-        }
-        
-        .budget-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .progress-bar-container {
-            width: 100%;
-            height: 24px;
-            background-color: #E0E0E0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 12px;
-            color: white;
-            font-weight: 700;
-            font-size: 16px;
-            transition: width 1s ease-out;
-        }
-        
-        .progress-bar-fill.small {
-            font-size: 0;
-        }
-        
-        .progress-bar-fill.delayed {
-            background: linear-gradient(90deg, var(--color-friction-emphasis), var(--color-accent));
-        }
-        
-        .delayed-info {
-            background-color: #FFF3E0;
-            border-left: 3px solid var(--color-friction-warning-border);
-            padding: 12px 16px;
-            margin-top: 12px;
-            border-radius: 4px;
-            font-size: 16px;
-            color: #444;
-        }
-        
-        .download-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 24px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid var(--color-primary);
-        }
-        
-        .download-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        
-        .download-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .download-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 32px;
-        }
-        
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background-color: var(--color-primary);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s, background-color 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-download:hover {
-            background-color: #0D3B5E;
-            transform: translateY(-2px);
-            color: white;
-        }
-        
-        .timeline-item {
-            display: flex;
-            gap: 32px;
-            margin-bottom: 48px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid #E0E0E0;
-        }
-        
-        .timeline-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-        
-        .timeline-item.friction {
-            opacity: 0.9;
-        }
-        
-        .timeline-dot {
-            width: 24px;
-            height: 24px;
-            background-color: var(--color-secondary);
-            border-radius: 50%;
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
-        
-        .timeline-item.friction .timeline-dot {
-            background-color: var(--color-friction-emphasis);
-        }
-        
-        .timeline-content strong {
-            color: var(--color-secondary);
-            font-size: 20px;
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .timeline-item.friction .timeline-content strong {
-            color: var(--color-friction-emphasis);
-        }
-        
-        .timeline-content p {
-            font-size: 16px;
-            color: #444;
-            margin: 0;
-            line-height: 1.6;
-        }
-        
-        .section-bg-gray {
-            background-color: #F5F5F5;
-            padding: 60px 0;
-        }
-        
-        .section-bg-white {
-            background-color: white;
-            padding: 60px 0;
-        }
-        
-        .section-bg-warm {
-            background-color: var(--color-warm);
-            padding: 60px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 48px;
-            color: var(--color-primary);
-            font-size: 36px;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: #444;
-            margin-bottom: 48px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-        
-        .api-code {
-            background-color: #F5F5F5;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-        
-        .api-list {
-            list-style: none;
-            padding: 0;
-            font-size: 16px;
-            line-height: 2;
-        }
-        
-        .api-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #E0E0E0;
-        }
-        
-        .api-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .cta-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
-            text-align: center;
-            color: white;
-        }
-        
-        .cta-section h2 {
-            font-size: 36px;
-            margin-bottom: 24px;
-            color: white;
-        }
-        
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .cta-section a {
-            color: white;
-            text-decoration: underline;
-            font-weight: 700;
-        }
-
-        @media (max-width: 767px) {
-            .hero-transparencia {
-                padding: 48px 0;
-            }
-            .hero-transparencia h1 {
-                font-size: 1.75rem;
-            }
-            .hero-transparencia .lead {
-                font-size: 1.125rem;
-            }
-            .stat-number {
-                font-size: 36px;
-            }
-            .budget-section {
-                padding: 24px;
-            }
-            .budget-item {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+    <link href="css/transparencia.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -400,38 +36,39 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Inicio",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+        "item": "https://nbronzina.github.io/cuidar/"
       }, {
         "@type": "ListItem",
         "position": 2,
         "name": "Transparencia",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/transparencia.html"
+        "item": "https://nbronzina.github.io/cuidar/transparencia.html"
       }]
     }
     </script>
 </head>
 <body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
-    
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+
+    <section class="accessibility-bar" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button aria-label="Texto normal">A</button>
-            <button aria-label="Texto grande">A+</button>
-            <button aria-label="Texto extra grande">A++</button>
-            <button aria-label="Alto contraste">
+            <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
+            <button type="button" data-a11y="large" aria-label="Texto grande" aria-pressed="false">A+</button>
+            <button type="button" data-a11y="xlarge" aria-label="Texto extra grande" aria-pressed="false">A++</button>
+            <button type="button" data-a11y="contrast" aria-label="Alto contraste" aria-pressed="false">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
                 <i class="fa fa-phone" aria-hidden="true"></i> 147
             </a>
         </div>
-    </div>
-    
-    <header class="header-gcba" role="banner">
+    </section>
+
+    <header class="header-gcba">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
+                <img src="img/escudo-caba.svg" alt="" class="escudo" width="40" height="48">
                 <div class="logo-text">
                     <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
                     <span class="program-name">Cuidados en Red</span>
@@ -439,22 +76,32 @@
             </a>
         </div>
     </header>
-    
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+
+    <nav class="main-nav" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="para-personas-mayores.html">Para Personas Mayores</a>
-            <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
-            <a href="el-sistema.html">El Sistema</a>
-            <a href="transparencia.html" class="active" aria-current="page">Transparencia</a>
-            <a href="contacto.html">Contacto</a>
+                <div class="nav-info">
+                    <a href="index.html">Inicio</a>
+                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                    <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                    <a href="transparencia.html" class="active" aria-current="page">Transparencia</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="nav-tramites" role="group" aria-labelledby="nav-tramites-titulo">
+                    <p class="nav-tramites-titulo" id="nav-tramites-titulo">Trámites</p>
+                    <a href="elegibilidad.html"><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Es para mí?</a>
+                    <a href="inscripcion.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Inscribirme</a>
+                    <a href="estado-tramite.html"><i class="fa fa-search" aria-hidden="true"></i> Estado de mi trámite</a>
+                    <a href="nodos.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Nodos en tu barrio</a>
+                </div>
             </div>
         </div>
     </nav>
+    <!-- fin:cabecera -->
 
     <div class="container">
         <nav class="breadcrumb" aria-label="Ubicación">
@@ -473,17 +120,17 @@
             </p>
         </div>
     </section>
-    
+
     <!-- Estadísticas clave CON FRICCIÓN -->
     <section class="section-bg-gray" aria-labelledby="estadisticas-titulo">
         <div class="container">
             <h2 id="estadisticas-titulo" class="section-title">
-                Impacto en números (Actualizado: Octubre 2032)
+                Impacto en números (actualizado: <span data-mundo-mes>octubre de 2032</span>)
             </h2>
             <div class="row">
                 <div class="col-md-3">
                     <div class="stat-box">
-                        <div class="stat-number">42.187</div>
+                        <div class="stat-number">13.874</div>
                         <div class="stat-label">Personas mayores atendidas</div>
                     </div>
                 </div>
@@ -491,6 +138,7 @@
                     <div class="stat-box">
                         <div class="stat-number">2.543</div>
                         <div class="stat-label">Personas cuidadoras certificadas</div>
+                        <div class="friction-note">De 4.200 activas: 1.657 en período de prueba supervisado</div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -503,11 +151,11 @@
                 <div class="col-md-3">
                     <div class="stat-box">
                         <div class="stat-number">16</div>
-                        <div class="stat-label">Nodos Horizontales activos</div>
+                        <div class="stat-label">Nodos territoriales activos</div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-3">
                     <div class="stat-box">
@@ -517,7 +165,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="stat-box friction">
-                        <div class="stat-number warning">68%</div>
+                        <div class="stat-number warning">68 %</div>
                         <div class="stat-label">Desembolsos a tiempo</div>
                         <div class="friction-note">32% con demoras de 15-30 días</div>
                     </div>
@@ -525,7 +173,8 @@
                 <div class="col-md-3">
                     <div class="stat-box">
                         <div class="stat-number">8</div>
-                        <div class="stat-label">Comunas con cobertura</div>
+                        <div class="stat-label">Comunas con cobertura completa</div>
+                        <div class="friction-note">Las otras 7 tienen cobertura parcial</div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -538,7 +187,7 @@
             </div>
 
             <!-- KPIs Línea 147 -->
-            <h3 style="color: var(--color-primary); text-align: center; margin: 40px 0 24px; font-size: 22px;">
+            <h3 class="u-color-primary u-text-align-center u-margin-40px-0-24px u-font-size-1_375rem">
                 <i class="fa fa-phone" aria-hidden="true"></i> Línea 147 — sistema de triaje automatizado con escalamiento a operadores
             </h3>
             <div class="row">
@@ -556,68 +205,68 @@
                 </div>
                 <div class="col-md-3">
                     <div class="stat-box">
-                        <div class="stat-number">82%</div>
+                        <div class="stat-number">82 %</div>
                         <div class="stat-label">Satisfacción de usuarios</div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="stat-box friction">
-                        <div class="stat-number warning">35%</div>
+                        <div class="stat-number warning">35 %</div>
                         <div class="stat-label">Consultas escaladas a operador</div>
                         <div class="friction-note">65% resueltas sin intervención humana</div>
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; color: #888; font-size: 16px; margin-top: 12px;">
+            <p class="u-text-align-center u-color-505050 u-font-size-1rem u-margin-top-12px">
                 Tasa de abandono: 1,8% · Duración promedio de llamada: 2:40 min
             </p>
         </div>
     </section>
-    
+
     <!-- Distribución por nivel y copago -->
     <section class="section-bg-white">
         <div class="container">
-            <h3 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 22px;">
+            <h3 class="u-color-primary u-text-align-center u-margin-bottom-32px u-font-size-1_375rem">
                 <i class="fa fa-bar-chart" aria-hidden="true"></i> Distribución por nivel de cuidado
             </h3>
-            <p style="text-align: center; font-size: 16px; color: #444; margin-bottom: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <p class="u-text-align-center u-font-size-1rem u-color-444 u-margin-bottom-24px u-max-width-700px u-margin-left-auto u-margin-right-auto">
                 Niveles asignados mediante evaluación funcional estandarizada (Índice de Barthel + Mini Examen Cognitivo) conforme a la Resolución 3315/2023 de la autoridad sanitaria nacional.
             </p>
             <div class="row">
                 <div class="col-md-3">
                     <div class="stat-box">
-                        <div class="stat-number">5%</div>
+                        <div class="stat-number">5 %</div>
                         <div class="stat-label">Nivel 0 (Universal)</div>
                         <div class="friction-note">Solo teleasistencia o en evaluación</div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="stat-box">
-                        <div class="stat-number">35%</div>
+                        <div class="stat-number">35 %</div>
                         <div class="stat-label">Nivel 1 (Leve)</div>
                         <div class="friction-note">20–40 hs/mes</div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="stat-box">
-                        <div class="stat-number">40%</div>
+                        <div class="stat-number">40 %</div>
                         <div class="stat-label">Nivel 2 (Moderada)</div>
                         <div class="friction-note">40–70 hs/mes</div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="stat-box">
-                        <div class="stat-number">20%</div>
+                        <div class="stat-number">20 %</div>
                         <div class="stat-label">Nivel 3 (Severa)</div>
                         <div class="friction-note">70–100 hs/mes</div>
                     </div>
                 </div>
             </div>
 
-            <div class="row" style="margin-top: 24px;">
+            <div class="row u-margin-top-24px">
                 <div class="col-md-4">
                     <div class="stat-box">
-                        <div class="stat-number">62%</div>
+                        <div class="stat-number">62 %</div>
                         <div class="stat-label">Personas exentas de copago</div>
                     </div>
                 </div>
@@ -630,7 +279,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="stat-box">
-                        <div class="stat-number">15%</div>
+                        <div class="stat-number">15 %</div>
                         <div class="stat-label">Tope máximo de copago</div>
                         <div class="friction-note">Nadie paga más del 15% de su ingreso</div>
                     </div>
@@ -649,7 +298,7 @@
                 </h4>
                 <ul>
                     <li>
-                        <strong>Listas de espera desiguales:</strong> Los Nodos en Palermo, Belgrano y Recoleta tienen 6-8 meses de demora. Los de zona sur tienen cupo inmediato pero menos servicios especializados.
+                        <strong>Listas de espera desiguales:</strong> Los Nodos de Palermo, Belgrano, Recoleta y Caballito tienen listas de espera de 2 a 3 meses (Palermo, hasta 4). En el resto de la Ciudad no hay lista de espera; en zona sur hay menos servicios especializados.
                     </li>
                     <li>
                         <strong>Demoras en pagos:</strong> El 32% de los pagos a personas cuidadoras se demoran entre 15 y 30 días por cuestiones administrativas. Estamos trabajando en automatizar el sistema.
@@ -667,7 +316,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Presupuesto CON FRICCIÓN -->
     <section id="presupuesto" class="section-bg-gray" aria-labelledby="presupuesto-titulo">
         <div class="container">
@@ -678,7 +327,7 @@
                 Inversión total: <strong>$94.500 millones</strong> (86% de fondos nacionales coparticipados, 14% GCBA)
                 <span class="friction-badge">Ejecución: 91%</span>
             </p>
-            
+
             <div class="budget-section">
                 <div class="budget-item">
                     <div class="budget-icon">
@@ -687,14 +336,14 @@
                     <div class="budget-bar">
                         <div class="budget-label">
                             <span>Salarios de personas cuidadoras</span>
-                            <span>$57.800 millones (61.2%)</span>
+                            <span>$57.800 millones (61,2 %)</span>
                         </div>
-                        <div class="progress-bar-container" role="progressbar" aria-valuenow="61.2" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill" style="width: 61.2%;">61.2%</div>
+                        <div class="progress-bar-container" aria-hidden="true">
+                            <div class="progress-bar-fill" data-ancho="61.2">61,2 %</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="budget-item delayed">
                     <div class="budget-icon">
                         <i class="fa fa-building" aria-hidden="true"></i>
@@ -702,18 +351,18 @@
                     <div class="budget-bar">
                         <div class="budget-label">
                             <span>Infraestructura de Nodos <span class="friction-badge">DEMORADO</span></span>
-                            <span>$18.200 millones (19.3%)</span>
+                            <span>$18.200 millones (19,3 %)</span>
                         </div>
-                        <div class="progress-bar-container" role="progressbar" aria-valuenow="19.3" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill delayed" style="width: 19.3%;">19.3%</div>
+                        <div class="progress-bar-container" aria-hidden="true">
+                            <div class="progress-bar-fill delayed" data-ancho="19.3">19,3 %</div>
                         </div>
                         <div class="delayed-info">
-                            <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
                             Obras de Nodos en Villa Lugano y Villa Soldati tienen 4 meses de demora por conflictos con empresa constructora.
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="budget-item">
                     <div class="budget-icon">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
@@ -721,14 +370,14 @@
                     <div class="budget-bar">
                         <div class="budget-label">
                             <span>Capacitación y certificación</span>
-                            <span>$9.900 millones (10.5%)</span>
+                            <span>$9.900 millones (10,5 %)</span>
                         </div>
-                        <div class="progress-bar-container" role="progressbar" aria-valuenow="10.5" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill" style="width: 10.5%;">10.5%</div>
+                        <div class="progress-bar-container" aria-hidden="true">
+                            <div class="progress-bar-fill" data-ancho="10.5">10,5 %</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="budget-item">
                     <div class="budget-icon">
                         <i class="fa fa-laptop" aria-hidden="true"></i>
@@ -736,14 +385,14 @@
                     <div class="budget-bar">
                         <div class="budget-label">
                             <span>Tecnología y sistemas</span>
-                            <span>$5.700 millones (6%)</span>
+                            <span>$5.700 millones (6 %)</span>
                         </div>
-                        <div class="progress-bar-container" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill small" style="width: 6%;"></div>
+                        <div class="progress-bar-container" aria-hidden="true">
+                            <div class="progress-bar-fill small" data-ancho="6"></div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="budget-item">
                     <div class="budget-icon">
                         <i class="fa fa-cogs" aria-hidden="true"></i>
@@ -751,24 +400,24 @@
                     <div class="budget-bar">
                         <div class="budget-label">
                             <span>Administración</span>
-                            <span>$2.900 millones (3%)</span>
+                            <span>$2.900 millones (3 %)</span>
                         </div>
-                        <div class="progress-bar-container" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill small" style="width: 3%;"></div>
+                        <div class="progress-bar-container" aria-hidden="true">
+                            <div class="progress-bar-fill small" data-ancho="3"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Informes descargables -->
     <section id="informes" class="section-bg-white" aria-labelledby="informes-titulo">
         <div class="container">
             <h2 id="informes-titulo" class="section-title">
                 Informes y reportes
             </h2>
-            
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="download-card">
@@ -777,20 +426,20 @@
                                 <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="margin: 0 0 8px 0; font-size: 22px; color: #333;">Informe Anual 2031-2032</h3>
-                                <p style="margin: 0; color: #444; font-size: 16px;">Resultados, desafíos y aprendizajes del último año</p>
+                                <h3 class="u-margin-0-0-8px-0 u-font-size-1_375rem u-color-333">Resumen de gestión 2032</h3>
+                                <p class="u-margin-0 u-color-444 u-font-size-1rem">Resultados, desafíos y aprendizajes del último año</p>
                             </div>
                         </div>
-                        <p style="margin-bottom: 20px; font-size: 16px; color: #444; line-height: 1.6;">
-                            156 páginas con análisis de cobertura, satisfacción de usuarios, indicadores de calidad, 
-                            <strong>incluyendo sección de "lecciones aprendidas" sobre demoras y conflictos.</strong>
+                        <p class="u-margin-bottom-20px u-font-size-1rem u-color-444 u-line-height-1_6">
+                            Cobertura, presupuesto y ejecución, con una sección sobre <strong>lo que todavía no funciona como debería</strong>
+                            y los aprendizajes desde 2025. El informe anual completo se publica al cierre del ejercicio.
                         </p>
-                        <a href="#" class="btn-download" aria-label="Descargar Informe Anual 2031-2032">
-                            <i class="fa fa-download" aria-hidden="true"></i> Descargar PDF (8.2 MB)
+                        <a href="datos/resumen-gestion-2032.pdf" class="btn-download" download aria-label="Descargar el resumen de gestión 2032, PDF de 57 KB">
+                            <i class="fa fa-download" aria-hidden="true"></i> Descargar PDF (1 página, 57 KB)
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="download-card">
                         <div class="download-header">
@@ -798,21 +447,21 @@
                                 <i class="fa fa-line-chart" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="margin: 0 0 8px 0; font-size: 22px; color: #333;">Datos trimestrales Q3 2032</h3>
-                                <p style="margin: 0; color: #444; font-size: 16px;">Indicadores de gestión y métricas de impacto</p>
+                                <h3 class="u-margin-0-0-8px-0 u-font-size-1_375rem u-color-333">Indicadores 2032</h3>
+                                <p class="u-margin-0 u-color-444 u-font-size-1rem">Indicadores de gestión y métricas de impacto</p>
                             </div>
                         </div>
-                        <p style="margin-bottom: 20px; font-size: 16px; color: #444; line-height: 1.6;">
-                            Dashboard interactivo con 47 indicadores clave. Datos desagregados por comuna, edad y tipo de servicio.
-                            <strong>Incluye sección de "alertas rojas" sobre áreas problemáticas.</strong>
+                        <p class="u-margin-bottom-20px u-font-size-1rem u-color-444 u-line-height-1_6">
+                            27 indicadores de gestión con su unidad: cobertura, lista de espera, línea 147, reclamos, pagos y copago.
+                            <strong>Todavía no están desagregados por comuna:</strong> esa apertura está en preparación. Actualizado al cierre del <span data-mundo-trimestre>3.er trimestre de 2032</span>.
                         </p>
-                        <a href="#" class="btn-download" aria-label="Ver Dashboard de Q3 2032">
-                            <i class="fa fa-bar-chart" aria-hidden="true"></i> Ver Dashboard
+                        <a href="datos/indicadores-2032.csv" class="btn-download" download aria-label="Descargar los indicadores 2032, CSV de 1,4 KB">
+                            <i class="fa fa-download" aria-hidden="true"></i> Descargar CSV (1,4 KB)
                         </a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="download-card">
@@ -821,20 +470,20 @@
                                 <i class="fa fa-database" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="margin: 0 0 8px 0; font-size: 22px; color: #333;">Dataset completo 2025-2032</h3>
-                                <p style="margin: 0; color: #444; font-size: 16px;">Datos abiertos en formato CSV y JSON</p>
+                                <h3 class="u-margin-0-0-8px-0 u-font-size-1_375rem u-color-333">Serie histórica 2025-2032</h3>
+                                <p class="u-margin-0 u-color-444 u-font-size-1rem">Datos abiertos en formato CSV</p>
                             </div>
                         </div>
-                        <p style="margin-bottom: 20px; font-size: 16px; color: #444; line-height: 1.6;">
-                            Todos los datos históricos anonimizados para investigación, análisis y desarrollo. 
-                            Incluye información sobre usuarios, servicios, costos y satisfacción.
+                        <p class="u-margin-bottom-20px u-font-size-1rem u-color-444 u-line-height-1_6">
+                            Nodos, personas atendidas, personas cuidadoras y presupuesto de cada año.
+                            <strong>Hay años sin datos publicados</strong> (2026, 2028, 2030 y 2031): la serie se sistematizó recién en 2029 y esos huecos no se completan con estimaciones.
                         </p>
-                        <a href="#" class="btn-download" aria-label="Descargar Dataset completo">
-                            <i class="fa fa-download" aria-hidden="true"></i> Descargar (42 MB)
+                        <a href="datos/serie-historica-2025-2032.csv" class="btn-download" download aria-label="Descargar la serie histórica 2025-2032, CSV de 0,6 KB">
+                            <i class="fa fa-download" aria-hidden="true"></i> Descargar CSV (0,6 KB)
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="download-card">
                         <div class="download-header">
@@ -842,33 +491,37 @@
                                 <i class="fa fa-comments" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="margin: 0 0 8px 0; font-size: 22px; color: #333;">Informe de reclamos y sugerencias</h3>
-                                <p style="margin: 0; color: #444; font-size: 16px;">Transparencia en quejas y resoluciones</p>
+                                <h3 class="u-margin-0-0-8px-0 u-font-size-1_375rem u-color-333">Informe de reclamos y sugerencias</h3>
+                                <p class="u-margin-0 u-color-444 u-font-size-1rem">Transparencia en quejas y resoluciones</p>
                             </div>
                         </div>
-                        <p style="margin-bottom: 20px; font-size: 16px; color: #444; line-height: 1.6;">
-                            <strong>1.247 reclamos recibidos en 2032.</strong> 68% resueltos satisfactoriamente. 
+                        <p class="u-margin-bottom-20px u-font-size-1rem u-color-444 u-line-height-1_6">
+                            <strong>1.247 reclamos recibidos en 2032.</strong> 68% resueltos satisfactoriamente.
                             Principales motivos: demoras en pagos, conflictos vecinales y problemas de coordinación.
                         </p>
-                        <a href="#" class="btn-download" aria-label="Ver informe de reclamos">
-                            <i class="fa fa-file-text" aria-hidden="true"></i> Ver informe
+                        <a href="datos/reclamos-2032.csv" class="btn-download" download aria-label="Descargar los datos de reclamos 2032, CSV">
+                            <i class="fa fa-download" aria-hidden="true"></i> Descargar CSV
                         </a>
                     </div>
                 </div>
             </div>
+            <p class="datos-licencia">
+                <i class="fa fa-creative-commons" aria-hidden="true"></i>
+                Los archivos se publican con licencia Creative Commons Atribución 4.0 (CC BY 4.0), en formato CSV separado por comas y codificación UTF-8. <a href="datos/LEEME.txt">Acerca de estos datos</a>.
+            </p>
         </div>
     </section>
-    
+
     <!-- Timeline del sistema CON FRICCIÓN -->
     <section class="section-bg-gray" aria-labelledby="historia-titulo">
         <div class="container">
             <h2 id="historia-titulo" class="section-title">
                 Historia del sistema: de la idea a la realidad
             </h2>
-            
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div style="background-color: white; border-radius: 12px; padding: 48px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-                    
+
+            <div class="u-max-width-900px u-margin-0-auto">
+                <div class="u-background-color-white u-border-radius-12px u-padding-48px u-box-shadow-0-4px-16px-rgba-0-0-0-0_08">
+
                     <!-- 2025 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
@@ -877,14 +530,14 @@
                             <p>
                                 En octubre, el GCBA crea el "Programa de Apoyo para la Desinstitucionalización de Residentes de Hogares de Residencia Permanente"
                                 (Resolución 682/MDHYHGC/25) — primer reconocimiento institucional de que el modelo de residencias necesita alternativas.
-                                En paralelo, se lanza el primer Nodo Horizontal en Palermo con 8 personas mayores y 3 personas cuidadoras.
+                                En paralelo, se lanza el primer Nodo en Palermo con 8 personas mayores y 3 personas cuidadoras.
                                 Presupuesto: $180 millones. Financiamiento 100% GCBA. Contexto: las camas PAMI en residencias caen de 22.000 a 17.000;
                                 el IBAM baja a 4,9/10; el 33% de personas mayores declara sentirse sola.
                                 En el sector de obras sociales, más de 60 prestadores dejan de atender por deudas acumuladas, dejando a miles de afiliados sin cobertura efectiva.
                             </p>
                         </div>
                     </div>
-                    
+
                     <!-- 2026 FRICCIÓN -->
                     <div class="timeline-item friction">
                         <div class="timeline-dot"></div>
@@ -899,111 +552,112 @@
                             </p>
                         </div>
                     </div>
-                    
+
                     <!-- 2027 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>2027 - Expansión cautelosa</strong>
                             <p>
-                                Se abren 3 nuevos Nodos (Caballito, Villa Urquiza, Almagro). 
-                                187 personas mayores atendidas, 24 personas cuidadoras certificadas. 
+                                Se abren 3 nuevos Nodos (Caballito, Villa Urquiza, Almagro).
+                                187 personas mayores atendidas, 62 personas cuidadoras.
                                 Presupuesto: $1.200 millones (60% Nación, 40% GCBA).
                             </p>
                         </div>
                     </div>
-                    
+
                     <!-- 2028 FRICCIÓN -->
                     <div class="timeline-item friction">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>2028 - Crisis de pagos <span class="friction-badge">DEMORAS</span></strong>
                             <p>
-                                Por descoordinación administrativa, los pagos a personas cuidadoras se demoran hasta 45 días. 
-                                16 personas cuidadoras renuncian. Se implementa sistema de pagos automatizados. 
+                                Por descoordinación administrativa, los pagos a personas cuidadoras se demoran hasta 45 días.
+                                16 personas cuidadoras renuncian. Se implementa sistema de pagos automatizados.
                                 <strong>Costo del error:</strong> retroceso de 8 meses en expansión.
                             </p>
                         </div>
                     </div>
-                    
+
                     <!-- 2029 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>2029 - Institucionalización</strong>
                             <p>
-                                Se crea la Dirección de Cuidados Horizontales dentro del gobierno porteño. 
-                                10 Nodos activos, 3.428 usuarios, 187 personas cuidadoras. 
+                                Se crea la Dirección de Cuidados Horizontales dentro del gobierno porteño.
+                                10 Nodos activos, 3.428 usuarios, 1.140 personas cuidadoras.
                                 Presupuesto: $8.500 millones. Primera auditoría externa.
                             </p>
                         </div>
                     </div>
-                    
+
                     <!-- 2030 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>2030 - Reconocimiento nacional</strong>
                             <p>
-                                El modelo Cuidados en Red recibe premio internacional "Ciudades del Futuro" en Dubai. 
-                                Rosario y Córdoba anuncian adaptaciones del sistema. 
+                                El modelo Cuidados en Red recibe premio internacional "Ciudades del Futuro" en Dubai.
+                                Rosario y Córdoba anuncian adaptaciones del sistema.
                                 Satisfacción de usuarios: 91,3%.
+                                El Nodo Villa Urquiza se muda a Coghlan al vencer el alquiler del local; durante tres meses atiende en la sede comunal.
                             </p>
                         </div>
                     </div>
-                    
+
                     <!-- 2031 FRICCIÓN -->
                     <div class="timeline-item friction">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>2031 - Tensión por demanda <span class="friction-badge">DESBORDE</span></strong>
                             <p>
-                                Las listas de espera alcanzan 1.200 personas. Manifestación de familiares frente a Legislatura. 
+                                Las listas de espera alcanzan 1.200 personas. Manifestación de familiares frente a Legislatura.
                                 Se aprueba presupuesto de emergencia. <strong>Lección:</strong> el éxito genera demanda que debe anticiparse.
                             </p>
                         </div>
                     </div>
-                    
+
                     <!-- 2032 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>2032 - Consolidación imperfecta</strong>
                             <p>
-                                16 Nodos activos, 42.187 personas atendidas, 2.543 personas cuidadoras. 
-                                Presupuesto: $94.500 millones. Satisfacción: 93,2%. 
+                                16 Nodos activos, 13.874 personas atendidas, 4.200 personas cuidadoras (2.543 con certificación completa). Se cumple el 91% de las horas de cuidado asignadas.
+                                Presupuesto: $94.500 millones. Satisfacción: 93,2%.
                                 <strong>Desafíos pendientes:</strong> listas de espera, demoras en pagos, conflictos vecinales aún sin resolver completamente.
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contexto internacional -->
-    <section style="padding: 60px 0; background-color: white;" aria-labelledby="contexto-int-titulo">
+    <section class="u-padding-60px-0 u-background-color-white" aria-labelledby="contexto-int-titulo">
         <div class="container">
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div style="background-color: #E3F2FD; border-radius: 12px; padding: 40px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid var(--color-primary);">
-                    <h2 id="contexto-int-titulo" style="color: var(--color-primary); font-size: 26px; margin-bottom: 16px;">
+            <div class="u-max-width-900px u-margin-0-auto">
+                <div class="u-background-color-e3f2fd u-border-radius-12px u-padding-40px u-box-shadow-0-4px-16px-rgba-0-0-0-0_08 u-border-left-4px-solid-primary">
+                    <h2 class="u-color-primary u-font-size-1_625rem u-margin-bottom-16px" id="contexto-int-titulo">
                         <i class="fa fa-globe" aria-hidden="true"></i> Contexto internacional
                     </h2>
-                    <p style="font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 16px;">
+                    <p class="u-font-size-1_125rem u-line-height-1_8 u-color-333 u-margin-bottom-16px">
                         Cuidados en Red se inscribe en una tendencia regional e internacional hacia modelos de cuidado domiciliario y comunitario:
                     </p>
-                    <ul style="list-style: none; padding: 0; font-size: 17px; line-height: 1.8; color: #555;">
-                        <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                            <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                    <ul class="u-list-style-none u-padding-0 u-font-size-1_0625rem u-line-height-1_8 u-color-444444">
+                        <li class="lista-icono lista-icono--compacta">
+                            <i class="fa fa-check-circle marca marca--primaria" aria-hidden="true"></i>
                             <span><strong>España:</strong> Estrategia Nacional de Desinstitucionalización con más de €2.053 millones movilizados entre 2024 y 2025.</span>
                         </li>
-                        <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                            <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <li class="lista-icono lista-icono--compacta">
+                            <i class="fa fa-check-circle marca marca--primaria" aria-hidden="true"></i>
                             <span><strong>Barcelona:</strong> Plan "Cap al dret a la cura" con €140,5 millones para atención domiciliaria (2025–2030).</span>
                         </li>
-                        <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                            <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <li class="lista-icono lista-icono--compacta">
+                            <i class="fa fa-check-circle marca marca--primaria" aria-hidden="true"></i>
                             <span><strong>Uruguay:</strong> Sistema Nacional Integrado de Cuidados desde 2015, con Plan Nacional de Cuidados 2026–2030 en ejecución.</span>
                         </li>
                     </ul>
@@ -1019,50 +673,49 @@
                 API de datos abiertos
             </h2>
             <p class="section-subtitle">
-                Desarrolladores, investigadores y organizaciones pueden acceder a nuestros datos en tiempo real 
+                Desarrolladores, investigadores y organizaciones pueden acceder a nuestros datos en tiempo real
                 a través de nuestra <strong>API pública gratuita</strong>.
             </p>
-            
+
             <div class="row">
                 <div class="col-md-12">
-                    <div style="background-color: white; border-radius: 12px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); max-width: 800px; margin: 0 auto;">
-                        <h3 style="color: var(--color-primary); margin-bottom: 20px; font-size: 22px;">
+                    <div class="u-background-color-white u-border-radius-12px u-padding-32px u-box-shadow-0-4px-16px-rgba-0-0-0-0_08 u-max-width-800px u-margin-0-auto">
+                        <h3 class="u-color-primary u-margin-bottom-20px u-font-size-1_375rem">
                             <i class="fa fa-code" aria-hidden="true"></i> Endpoints disponibles
                         </h3>
                         <ul class="api-list">
                             <li>
-                                <code class="api-code">GET /api/v1/stats</code> 
+                                <code class="api-code">GET /api/v1/stats</code>
                                 - Estadísticas generales
                             </li>
                             <li>
-                                <code class="api-code">GET /api/v1/nodos</code> 
+                                <code class="api-code">GET /api/v1/nodos</code>
                                 - Información de los 16 Nodos
                             </li>
                             <li>
-                                <code class="api-code">GET /api/v1/comunas/:id</code> 
+                                <code class="api-code">GET /api/v1/comunas/:id</code>
                                 - Datos por comuna
                             </li>
                             <li>
-                                <code class="api-code">GET /api/v1/indicadores</code> 
+                                <code class="api-code">GET /api/v1/indicadores</code>
                                 - Indicadores de gestión
                             </li>
                             <li>
-                                <code class="api-code">GET /api/v1/reclamos</code> 
+                                <code class="api-code">GET /api/v1/reclamos</code>
                                 - Registro de reclamos y resoluciones <span class="friction-badge">NUEVO</span>
                             </li>
                         </ul>
-                        
-                        <div class="text-center mt-4">
-                            <a href="https://api.cuidadosenred.gob.ar/docs" class="btn-download" target="_blank" rel="noopener noreferrer" aria-label="Ver documentación completa de la API">
-                                <i class="fa fa-book" aria-hidden="true"></i> Ver documentación completa
-                            </a>
-                        </div>
+
+                        <p class="text-center mt-4 u-color-444">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            La documentación completa de la API todavía no está publicada. Mientras tanto, los mismos datos están en los archivos CSV de <a href="#informes-titulo">Informes y reportes</a>.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- CTA -->
     <section class="cta-section">
         <div class="container">
@@ -1070,23 +723,16 @@
             <p>
                 Escribinos a <a href="mailto:transparencia@cuidadosenred.gob.ar">transparencia@cuidadosenred.gob.ar</a>
             </p>
-            <a href="contacto.html" class="btn btn-lg" style="background-color: white; color: var(--color-primary); border-color: white;" aria-label="Ir a la página de contacto">
+            <a href="contacto.html" class="btn btn-lg u-background-color-white u-color-primary u-border-color-white" aria-label="Ir a la página de contacto">
                 <i class="fa fa-envelope" aria-hidden="true"></i> Contactanos
             </a>
         </div>
     </section>
-    
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5491112345678" 
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp">
-        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-    </a>
+
     </main>
 
-    <footer role="contentinfo">
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
+    <footer>
         <div class="container">
             <div class="row">
                 <nav class="col-md-3" aria-label="Enlaces de inscripción">
@@ -1109,41 +755,40 @@
                 </nav>
                 <nav class="col-md-3" aria-label="Enlaces institucionales">
                     <h4>GOBIERNO ABIERTO</h4>
-                    <a href="transparencia.html" aria-current="page">Datos abiertos</a>
-                    <a href="#presupuesto">Presupuesto</a>
+                    <a href="transparencia.html">Datos abiertos</a>
+                    <a href="transparencia.html#presupuesto">Presupuesto</a>
                     <a href="politica-privacidad.html">Política de privacidad</a>
+                    <a href="terminos.html">Términos y condiciones</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
                 </nav>
             </div>
             <div class="footer-legal">
-                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
+                <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
+
+        <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
-                <strong>Proyecto de diseño especulativo</strong> · 
-                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
-                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                <strong>Proyecto de diseño especulativo</strong> ·
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental,
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>.
                 Todo el contenido, concepto, diseño y código es de su autoría.
             </p>
         </div>
     </footer>
-    
-    <script src="accessibility.js"></script>
-    <script>
-        // Animación de las barras de progreso al cargar
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.querySelectorAll('.progress-bar-fill').forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0%';
-                    setTimeout(() => {
-                        bar.style.width = width;
-                    }, 100);
-                });
-            }, 500);
-        });
-    </script>
+
+    <!-- Acceso a WhatsApp: lleva a cómo pedir el enlace (el número no se publica) -->
+    <a href="contacto.html#whatsapp" class="whatsapp-float" aria-label="WhatsApp: cómo escribirnos">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <!-- fin:pie -->
+
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
+    <script src="js/transparencia.js"></script>
 </body>
 </html>

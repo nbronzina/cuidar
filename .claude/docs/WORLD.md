@@ -16,7 +16,8 @@ Un sistema integral de cuidados domiciliarios para personas mayores de la Ciudad
 - **Órgano de gobierno:** Dirección de Cuidados Horizontales (creada en 2029 dentro del GCBA).
 - **Dependencia:** No se especifica ministerio actual (cambian con cada gobierno). Solo se referencia "Ministerio de Desarrollo Humano y Hábitat" en la resolución fundacional de 2025.
 - **Financiamiento:** 86% coparticipación de fondos nacionales, 14% GCBA (2032).
-- **Dominio:** cuidadosenred.gob.ar (ficticio, bajo .gob.ar real).
+- **Dominio ficticio:** cuidadosenred.gob.ar, para emails, API y cualquier dirección que aparezca dentro de la ficción.
+- **Dirección real de publicación:** https://nbronzina.github.io/cuidar/ (GitHub Pages). Es la que usan canonical, og:url, sitemap y datos estructurados, para que buscadores y enlaces compartidos no atribuyan el sitio a un dominio del Estado.
 
 ## Modelo de financiamiento y niveles
 
@@ -31,7 +32,7 @@ El copago se determina por evaluación funcional domiciliaria usando Índice de 
 | **2 — Moderado** | Barthel 60-80, MEC moderado | 40-70 hs | 0% | Hasta 15% |
 | **3 — Severo** | Barthel <60, MEC severo | 70-100 hs | 0% | Hasta 10% (tope reducido) |
 
-**Regla:** Nadie paga más del 15% de su ingreso mensual. Jubilación mínima = gratuito siempre.
+**Regla:** Nadie paga más del 15% de su ingreso mensual. Gratuito siempre para quienes cobran la jubilación mínima, la PUAM (Pensión Universal para el Adulto Mayor) o una pensión no contributiva. Los ingresos altos no excluyen: pagan el copago máximo de su nivel.
 
 ### Reevaluación
 - Nivel 0: solo evaluación inicial
@@ -89,7 +90,7 @@ El sistema dice lo que NO puede hacer:
 - No cubre medicamentos ni internaciones
 - No reemplaza atención médica especializada
 - No incluye ambulancias (salvo emergencias)
-- No sirve para personas en geriátricos
+- Para personas que viven en un geriátrico no es un servicio inmediato: se ofrece la vía de retorno al hogar (el origen del programa es la desinstitucionalización), con evaluación previa de la vivienda
 
 ### 3. Burocracia realista
 Los trámites tienen fricción real:

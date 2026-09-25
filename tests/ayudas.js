@@ -1,0 +1,74 @@
+// Utilidades compartidas por las pruebas
+const path = require('path');
+const fs = require('fs');
+
+const PAGINAS = ['index', 'el-sistema', 'para-personas-mayores', 'para-cuidadores', 'transparencia', 'contacto',
+    'inscripcion', 'nodos', 'elegibilidad', 'estado-tramite', 'politica-privacidad', 'terminos', 'accesibilidad', '404'];
+
+const NM = path.join(__dirname, '..', 'node_modules');
+const GRIS = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==', 'base64');
+
+/* Las pruebas no dependen de la red: Font Awesome y Leaflet se sirven desde node_modules
+   (mismos archivos que el CDN; el hash SRI lo confirma), fuentes y teselas se reemplazan. */
+async function redLocal(context) {
+    await context.route(/cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome\/4\.7\.0\/(.*)/, (r, q) =>
+        r.fulfill({ path: path.join(NM, 'font-awesome', q.url().split('/4.7.0/')[1].split(/[?#]/)[0]), headers: { 'access-control-allow-origin': '*' } }));
+    await context.route(/unpkg\.com\/leaflet@1\.9\.4\/(.*)/, (r, q) =>
+        r.fulfill({ path: path.join(NM, 'leaflet', q.url().split('@1.9.4/')[1].split(/[?#]/)[0]), headers: { 'access-control-allow-origin': '*' } }));
+    await context.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.fulfill({ status: 200, contentType: 'text/css', body: '' }));
+    await context.route(/tile\.openstreetmap\.org/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: GRIS }));
+}
+
+/* Registra errores de JavaScript y violaciones de CSP de la página */
+function vigilar(page) {
+    const errores = [];
+    page.on('pageerror', (e) => errores.push('JS: ' + e.message));
+    page.on('console', (m) => { if (/Content Security Policy/.test(m.text())) errores.push('CSP: ' + m.text()); });
+    return errores;
+}
+
+const AXE = fs.readFileSync(path.join(NM, 'axe-core', 'axe.min.js'), 'utf8');
+
+async function axe(page, opciones) {
+    await page.addScriptTag({ content: AXE });
+    return page.evaluate(async (o) => {
+        const r = await window.axe.run(document, o);
+        return r.violations.map((v) => `${v.id} ×${v.nodes.length}: ${v.nodes[0].target.join(' ')}`);
+    }, opciones);
+}
+
+/* axe no evalúa texto sobre degradados (lo deja como "incompleto").
+   Este control mide cada texto contra todos los colores del degradado y usa el peor caso. */
+async function contrasteSobreDegradados(page) {
+    return page.evaluate(() => {
+        const colores = (s) => (s.match(/rgba?\([^)]+\)/g) || []).map((x) => x.match(/[\d.]+/g).map(Number));
+        const lum = ([r, g, b]) => {
+            const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+            return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+        };
+        const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+        const fallas = [];
+        document.querySelectorAll('body *').forEach((el) => {
+            if (![...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) return;
+            if (!el.offsetParent && getComputedStyle(el).position !== 'fixed') return;
+            let a = el, degradado = null;
+            while (a && a !== document.body) {
+                const s = getComputedStyle(a);
+                if (s.backgroundImage.includes('gradient')) { degradado = s.backgroundImage; break; }
+                if (s.backgroundColor !== 'rgba(0, 0, 0, 0)' && s.backgroundColor !== 'transparent') break;
+                a = a.parentElement;
+            }
+            if (!degradado) return;
+            const cs = getComputedStyle(el);
+            const texto = colores(cs.color)[0];
+            const paradas = colores(degradado).filter((c) => c.length < 4 || c[3] > 0.5);
+            if (!paradas.length) return;
+            const peor = Math.min(...paradas.map((c) => ratio(texto, c.slice(0, 3))));
+            const grande = parseFloat(cs.fontSize) >= 24 || (parseFloat(cs.fontSize) >= 18.66 && Number(cs.fontWeight) >= 700);
+            if (peor < (grande ? 4.5 : 7)) fallas.push(`${peor.toFixed(2)}:1 · ${el.textContent.trim().slice(0, 40)}`);
+        });
+        return [...new Set(fallas)];
+    });
+}
+
+module.exports = { PAGINAS, redLocal, vigilar, axe, contrasteSobreDegradados };

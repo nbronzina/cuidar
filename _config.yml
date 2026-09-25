@@ -1,0 +1,16 @@
+# GitHub Pages publica el sitio estático tal cual (las páginas no tienen front matter).
+# Esta lista solo evita publicar documentos de trabajo y herramientas de desarrollo.
+exclude:
+  - README.md
+  - CLAUDE.md
+  - docs/
+  - package.json
+  - package-lock.json
+  - playwright.config.js
+  - .htmlvalidate.json
+  - partials/
+  - tools/
+  - tests/
+  - node_modules/
+  - test-results/
+  - playwright-report/

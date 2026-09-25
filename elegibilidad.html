@@ -2,327 +2,32 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Verificá en 2 minutos si cumplís los requisitos para acceder a Cuidados en Red. Test online con resultado inmediato, sin necesidad de registrarte.">
     <meta property="og:title" content="¿Es para mí? — Test de Elegibilidad | Cuidados en Red">
     <meta property="og:description" content="Verificá en 2 minutos si cumplís los requisitos para acceder a Cuidados en Red. Test online con resultado inmediato, sin necesidad de registrarte.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/elegibilidad.html">
+    <meta property="og:url" content="https://nbronzina.github.io/cuidar/elegibilidad.html">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
-    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/elegibilidad.html">
+    <link rel="canonical" href="https://nbronzina.github.io/cuidar/elegibilidad.html">
     <title>¿Es para mí? — Test de Elegibilidad | Cuidados en Red</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        .hero-elegibilidad {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
-                        url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1600&h=400&fit=crop&fm=webp&q=30') center/cover;
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .hero-elegibilidad h1 {
-            font-size: 42px;
-            margin-bottom: 16px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hero-elegibilidad .lead {
-            font-size: 20px;
-            line-height: 1.5;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .quiz-container {
-            background-color: white;
-            border-radius: 12px;
-            padding: 48px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .question-card {
-            background-color: #F5F5F5;
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 24px;
-            border-left: 4px solid var(--color-accent);
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .question-card.answered {
-            background-color: #E8F5E9;
-            border-left-color: var(--color-secondary);
-        }
-        
-        .question-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--color-accent), #BF360C);
-            color: white;
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 20px;
-            margin-bottom: 16px;
-        }
-        
-        .question-card.answered .question-number {
-            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
-        }
-        
-        .question-text {
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        
-        .answer-options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .answer-option {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 16px 20px;
-            background-color: white;
-            border: 2px solid #E0E0E0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: border-color 0.3s, background-color 0.3s;
-            font-size: 16px;
-        }
-
-        .answer-option:hover {
-            border-color: var(--color-accent);
-            background-color: #FFF8E1;
-        }
-        
-        .answer-option input[type="radio"] {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-        }
-        
-        .answer-option.selected {
-            background-color: #E8F5E9;
-            border-color: var(--color-secondary);
-            font-weight: 600;
-        }
-        
-        .result-box {
-            display: none;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 32px;
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        .result-box.show {
-            display: block;
-        }
-        
-        .result-eligible {
-            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
-            border: 3px solid var(--color-secondary);
-        }
-        
-        .result-not-eligible {
-            background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
-            border: 3px solid var(--color-accent);
-        }
-        
-        .result-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            animation: scaleIn 0.5s ease-out;
-        }
-        
-        .result-eligible .result-icon {
-            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
-            color: white;
-        }
-        
-        .result-not-eligible .result-icon {
-            background: linear-gradient(135deg, var(--color-accent), #BF360C);
-            color: white;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes scaleIn {
-            from {
-                transform: scale(0);
-            }
-            to {
-                transform: scale(1);
-            }
-        }
-        
-        .criteria-list {
-            background-color: white;
-            border-radius: 12px;
-            padding: 32px;
-            margin-top: 24px;
-            text-align: left;
-        }
-        
-        .criteria-item {
-            display: flex;
-            align-items: start;
-            gap: 16px;
-            padding: 16px 0;
-            border-bottom: 1px solid #E0E0E0;
-        }
-        
-        .criteria-item:last-child {
-            border-bottom: none;
-        }
-        
-        .criteria-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--color-warm);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-accent);
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-        
-        .info-banner {
-            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
-            border-left: 4px solid var(--color-primary);
-            padding: 24px;
-            border-radius: 8px;
-            margin-bottom: 32px;
-        }
-        
-        .info-banner h3 {
-            color: var(--color-primary);
-            margin-bottom: 12px;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background-color: #E0E0E0;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 24px;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
-            border-radius: 4px;
-            transition: width 0.5s ease-out;
-            width: 0%;
-        }
-        
-        .progress-text {
-            text-align: center;
-            color: #444;
-            font-size: 16px;
-            margin-bottom: 32px;
-        }
-        
-        .btn-check {
-            background: linear-gradient(135deg, var(--color-accent), #BF360C);
-            color: white;
-            padding: 18px 48px;
-            font-size: 20px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 16px rgba(230,81,0,0.3);
-        }
-        
-        .btn-check:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(230,81,0,0.4);
-        }
-        
-        .btn-check:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        @media (max-width: 767px) {
-            .hero-elegibilidad h1 {
-                font-size: 28px;
-            }
-            .hero-elegibilidad .lead {
-                font-size: 16px;
-            }
-            .quiz-container {
-                padding: 24px;
-            }
-            .question-card {
-                padding: 20px;
-            }
-            .question-text {
-                font-size: 18px;
-            }
-            .result-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 40px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+    <link href="css/elegibilidad.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -331,38 +36,39 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Inicio",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+        "item": "https://nbronzina.github.io/cuidar/"
       }, {
         "@type": "ListItem",
         "position": 2,
         "name": "Test de elegibilidad",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/elegibilidad.html"
+        "item": "https://nbronzina.github.io/cuidar/elegibilidad.html"
       }]
     }
     </script>
 </head>
 <body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
-    
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+
+    <section class="accessibility-bar" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button aria-label="Texto normal">A</button>
-            <button aria-label="Texto grande">A+</button>
-            <button aria-label="Texto extra grande">A++</button>
-            <button aria-label="Alto contraste">
+            <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
+            <button type="button" data-a11y="large" aria-label="Texto grande" aria-pressed="false">A+</button>
+            <button type="button" data-a11y="xlarge" aria-label="Texto extra grande" aria-pressed="false">A++</button>
+            <button type="button" data-a11y="contrast" aria-label="Alto contraste" aria-pressed="false">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
                 <i class="fa fa-phone" aria-hidden="true"></i> 147
             </a>
         </div>
-    </div>
-    
-    <header class="header-gcba" role="banner">
+    </section>
+
+    <header class="header-gcba">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="Cuidados en Red - Ir a la página principal">
-                <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
+            <a href="index.html" class="logo">
+                <img src="img/escudo-caba.svg" alt="" class="escudo" width="40" height="48">
                 <div class="logo-text">
                     <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
                     <span class="program-name">Cuidados en Red</span>
@@ -370,22 +76,32 @@
             </a>
         </div>
     </header>
-    
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+
+    <nav class="main-nav" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
-                <a href="index.html">Inicio</a>
-                <a href="para-personas-mayores.html">Para Personas Mayores</a>
-                <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
-                <a href="el-sistema.html">El Sistema</a>
-                <a href="transparencia.html">Transparencia</a>
-                <a href="contacto.html">Contacto</a>
+                <div class="nav-info">
+                    <a href="index.html">Inicio</a>
+                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                    <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                    <a href="transparencia.html">Transparencia</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="nav-tramites" role="group" aria-labelledby="nav-tramites-titulo">
+                    <p class="nav-tramites-titulo" id="nav-tramites-titulo">Trámites</p>
+                    <a href="elegibilidad.html" class="active" aria-current="page"><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Es para mí?</a>
+                    <a href="inscripcion.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Inscribirme</a>
+                    <a href="estado-tramite.html"><i class="fa fa-search" aria-hidden="true"></i> Estado de mi trámite</a>
+                    <a href="nodos.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Nodos en tu barrio</a>
+                </div>
             </div>
         </div>
     </nav>
+    <!-- fin:cabecera -->
 
     <div class="container">
         <nav class="breadcrumb" aria-label="Ubicación">
@@ -404,40 +120,41 @@
             </p>
         </div>
     </section>
-    
-    <section style="padding: 60px 0;">
+
+    <section class="u-padding-60px-0">
         <div class="container">
-            <div class="alert alert-warning" style="border-left-color: var(--color-accent);">
-                <p style="margin: 0 0 12px 0; color: var(--color-accent); font-weight: bold; font-size: 1rem;">
+            <div class="alert alert-warning u-border-left-color-accent">
+                <p class="u-margin-0-0-12px-0 u-color-accent-text u-font-weight-bold u-font-size-1rem">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     Este test es orientativo
                 </p>
-                <p style="color: #333; margin: 0 0 12px 0; line-height: 1.6;">
-                    Aunque cumplas todos los requisitos del test, la confirmación final se hace en la 
-                    <strong>evaluación domiciliaria</strong>. Este test solo te ayuda a saber si vale 
+                <p class="u-color-333 u-margin-0-0-12px-0 u-line-height-1_6">
+                    Aunque cumplas todos los requisitos del test, la confirmación final se hace en la
+                    <strong>evaluación domiciliaria</strong>. Este test solo te ayuda a saber si vale
                     la pena inscribirte.
                 </p>
-                <p style="color: #E65100; margin: 0; line-height: 1.6; font-size: 16px;">
-                    <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Importante:</strong> Cumplir los requisitos no garantiza admisión inmediata. Puede haber lista de espera según tu zona (2-4 semanas en promedio).
+                <p class="u-color-accent-text u-margin-0 u-line-height-1_6 u-font-size-1rem">
+                    <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Importante:</strong> Cumplir los requisitos no garantiza admisión inmediata. Puede haber lista de espera según tu zona (21 días en promedio; en Palermo, Belgrano, Recoleta y Caballito, de 2 a 3 meses).
                 </p>
             </div>
-            
-            <div class="quiz-container">
+
+            <div class="quiz-container" id="eligibilityQuiz">
                 <!-- Progress Bar -->
+                <!-- [html-validate-disable-next prefer-native-element -- barra con estilo propio; expone role y aria-valuenow] -->
                 <div class="progress-bar" role="progressbar" aria-label="Progreso del cuestionario" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 <div class="progress-text" id="progressText">
                     <strong>0 de 6</strong> preguntas respondidas
                 </div>
-                
+
                 <!-- Question 1: Edad -->
                 <div class="question-card" id="q1" data-question="1">
                     <div class="question-number">1</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q1-text">
                         ¿Cuántos años tenés (o tiene la persona que recibirá el cuidado)?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q1-text">
                         <label class="answer-option">
                             <input type="radio" name="edad" value="menos60">
                             <span>Menos de 60 años</span>
@@ -456,14 +173,14 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <!-- Question 2: Residencia -->
                 <div class="question-card" id="q2" data-question="2">
                     <div class="question-number">2</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q2-text">
                         ¿Dónde vivís actualmente?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q2-text">
                         <label class="answer-option">
                             <input type="radio" name="residencia" value="caba">
                             <span>En la Ciudad de Buenos Aires (CABA)</span>
@@ -478,14 +195,14 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <!-- Question 3: Tipo de vivienda -->
                 <div class="question-card" id="q3" data-question="3">
                     <div class="question-number">3</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q3-text">
                         ¿Qué tipo de vivienda tenés?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q3-text">
                         <label class="answer-option">
                             <input type="radio" name="vivienda" value="propia">
                             <span>Casa o departamento propio</span>
@@ -508,14 +225,14 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <!-- Question 4: Autonomía -->
                 <div class="question-card" id="q4" data-question="4">
                     <div class="question-number">4</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q4-text">
                         ¿Podés realizar actividades básicas sin ayuda? (bañarte, vestirte, cocinar)
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q4-text">
                         <label class="answer-option">
                             <input type="radio" name="autonomia" value="total">
                             <span>Sí, puedo hacer todo solo/a</span>
@@ -534,14 +251,14 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <!-- Question 5: Cuidado actual -->
                 <div class="question-card" id="q5" data-question="5">
                     <div class="question-number">5</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q5-text">
                         ¿Tenés actualmente algún tipo de cuidado o asistencia?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q5-text">
                         <label class="answer-option">
                             <input type="radio" name="cuidadoActual" value="no">
                             <span>No, no tengo ningún tipo de ayuda</span>
@@ -564,14 +281,14 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <!-- Question 6: Movilidad -->
                 <div class="question-card" id="q6" data-question="6">
                     <div class="question-number">6</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q6-text">
                         ¿Podés salir de tu casa solo/a?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q6-text">
                         <label class="answer-option">
                             <input type="radio" name="movilidad" value="si">
                             <span>Sí, salgo sin problemas</span>
@@ -590,100 +307,102 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <!-- Check Button -->
-                <div style="text-align: center; margin-top: 40px;">
-                    <button id="checkBtn" class="btn-check" disabled>
+                <div class="u-text-align-center u-margin-top-40px">
+                    <button type="button" id="checkBtn" class="btn-check" disabled aria-describedby="checkHint">
                         <i class="fa fa-check-circle" aria-hidden="true"></i> Ver resultado
                     </button>
-                    <button type="button" id="resetBtn" class="btn-reset" style="background: transparent; color: #1A5276; border: 2px solid #1A5276; padding: 14px 32px; border-radius: 8px; font-size: 18px; font-weight: 600; cursor: pointer; margin-left: 12px;">
+                    <button type="button" id="resetBtn" class="btn-reset u-background-transparent u-color-1a5276 u-border-2px-solid-1a5276 u-padding-14px-32px u-border-radius-8px u-font-size-1_125rem u-font-weight-600 u-cursor-pointer u-margin-left-12px">
                         <i class="fa fa-refresh" aria-hidden="true"></i> Reiniciar test
                     </button>
                 </div>
-                
+
+                <p id="checkHint" class="check-hint">Respondé las 6 preguntas para ver tu resultado.</p>
+
                 <!-- Result Box -->
-                <div id="resultBox" class="result-box" role="alert" aria-live="polite">
+                <div id="resultBox" class="result-box">
                     <!-- Content will be inserted by JavaScript -->
                 </div>
             </div>
-            
+
             <!-- Criteria Reference -->
-            <div style="margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto;">
-                <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 32px;">
+            <div class="u-margin-top-48px u-max-width-900px u-margin-left-auto u-margin-right-auto">
+                <h2 class="u-color-primary u-text-align-center u-margin-bottom-32px u-font-size-2rem">
                     Requisitos principales
                 </h2>
-                
+
                 <div class="criteria-list">
                     <div class="criteria-item">
                         <div class="criteria-icon">
                             <i class="fa fa-birthday-cake" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
+                            <strong class="u-color-333 u-font-size-1_125rem u-display-block u-margin-bottom-4px">
                                 Edad mínima: 60 años
                             </strong>
-                            <p style="color: #444; margin: 0; line-height: 1.6;">
-                                El programa está destinado a personas mayores de 60 años. 
+                            <p class="u-color-444 u-margin-0 u-line-height-1_6">
+                                El programa está destinado a personas mayores de 60 años.
                                 En casos excepcionales (discapacidad, enfermedades crónicas) se evalúan situaciones desde los 55 años.
                             </p>
                         </div>
                     </div>
-                    
+
                     <div class="criteria-item">
                         <div class="criteria-icon">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
+                            <strong class="u-color-333 u-font-size-1_125rem u-display-block u-margin-bottom-4px">
                                 Residencia en CABA
                             </strong>
-                            <p style="color: #444; margin: 0; line-height: 1.6;">
-                                Tenés que vivir en la Ciudad de Buenos Aires. No importa si sos propietario, inquilino o vivís con familiares, 
+                            <p class="u-color-444 u-margin-0 u-line-height-1_6">
+                                Tenés que vivir en la Ciudad de Buenos Aires. No importa si sos propietario, inquilino o vivís con familiares,
                                 lo importante es que tu domicilio esté en CABA.
                             </p>
                         </div>
                     </div>
-                    
+
                     <div class="criteria-item">
                         <div class="criteria-icon">
                             <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
-                                Vivienda propia o compartida
+                            <strong class="u-color-333 u-font-size-1_125rem u-display-block u-margin-bottom-4px">
+                                Vivir en tu casa, o querer volver a ella
                             </strong>
-                            <p style="color: #444; margin: 0; line-height: 1.6;">
-                                El servicio es domiciliario. Si estás en un geriátrico o residencia, 
-                                Cuidados en Red no aplica (pero podés consultar por otros programas del GCBA).
+                            <p class="u-color-444 u-margin-0 u-line-height-1_6">
+                                El servicio es domiciliario: puede ser tu casa, alquilada o compartida con familiares.
+                                Si hoy vivís en un geriátrico o residencia, podés acceder por la vía de retorno a tu casa, que se planifica con el Nodo.
                             </p>
                         </div>
                     </div>
-                    
+
                     <div class="criteria-item">
                         <div class="criteria-icon">
                             <i class="fa fa-heartbeat" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
-                                Autonomía parcial o total
+                            <strong class="u-color-333 u-font-size-1_125rem u-display-block u-margin-bottom-4px">
+                                Cualquier nivel de autonomía
                             </strong>
-                            <p style="color: #444; margin: 0; line-height: 1.6;">
-                                Cuidados en Red es para personas que pueden vivir en su casa con apoyo. 
-                                Si necesitás cuidado permanente 24/7, te orientamos hacia otros servicios más adecuados.
+                            <p class="u-color-444 u-margin-0 u-line-height-1_6">
+                                Si necesitás mucha ayuda, te corresponde el Nivel 3 (70 a 100 horas por mes).
+                                El servicio no es cuidado permanente las 24 horas: si lo necesitás, en la evaluación armamos cómo combinarlo con tu familia u otros programas.
                             </p>
                         </div>
                     </div>
-                    
+
                     <div class="criteria-item">
                         <div class="criteria-icon">
                             <i class="fa fa-money" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
+                            <strong class="u-color-333 u-font-size-1_125rem u-display-block u-margin-bottom-4px">
                                 Evaluación socioeconómica
                             </strong>
-                            <p style="color: #444; margin: 0; line-height: 1.6;">
-                                El servicio es gratuito o tiene un copago según tus ingresos. 
+                            <p class="u-color-444 u-margin-0 u-line-height-1_6">
+                                El servicio es gratuito o tiene un copago según tus ingresos.
                                 Esto se evalúa en la visita domiciliaria. Nadie queda excluido por falta de recursos.
                             </p>
                         </div>
@@ -692,24 +411,17 @@
             </div>
         </div>
     </section>
-    
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5491112345678" 
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp">
-        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-    </a>
+
     </main>
 
-    <footer role="contentinfo">
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
+    <footer>
         <div class="container">
             <div class="row">
                 <nav class="col-md-3" aria-label="Enlaces de inscripción">
                     <h4>INSCRIBIRSE</h4>
                     <a href="inscripcion.html">Dejá tu teléfono</a>
-                    <a href="elegibilidad.html" aria-current="page">¿Es para mí?</a>
+                    <a href="elegibilidad.html">¿Es para mí?</a>
                     <a href="estado-tramite.html">Ver mi solicitud</a>
                 </nav>
                 <nav class="col-md-3" aria-label="Enlaces informativos">
@@ -729,252 +441,37 @@
                     <a href="transparencia.html">Datos abiertos</a>
                     <a href="transparencia.html#presupuesto">Presupuesto</a>
                     <a href="politica-privacidad.html">Política de privacidad</a>
+                    <a href="terminos.html">Términos y condiciones</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
                 </nav>
             </div>
             <div class="footer-legal">
-                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
+                <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
+
         <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
-                <strong>Proyecto de diseño especulativo</strong> · 
-                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
-                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                <strong>Proyecto de diseño especulativo</strong> ·
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental,
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>.
                 Todo el contenido, concepto, diseño y código es de su autoría.
             </p>
         </div>
     </footer>
-    
-    <script src="accessibility.js"></script>
-    <script>
-        let answeredQuestions = new Set();
-        const totalQuestions = 6;
 
-        /* Event delegation for quiz — replaces inline onchange/onclick handlers */
-        document.addEventListener('DOMContentLoaded', function() {
-            var questionMap = {edad:1, residencia:2, vivienda:3, autonomia:4, cuidadoActual:5, movilidad:6};
-            var quiz = document.getElementById('eligibilityQuiz');
-            if (quiz) {
-                quiz.addEventListener('change', function(e) {
-                    if (e.target.type === 'radio' && questionMap[e.target.name]) {
-                        answerQuestion(questionMap[e.target.name]);
-                    }
-                });
-            }
-            var checkBtn = document.getElementById('checkBtn');
-            if (checkBtn) checkBtn.addEventListener('click', checkEligibility);
-            var resetBtn = document.getElementById('resetBtn');
-            if (resetBtn) resetBtn.addEventListener('click', resetQuiz);
-        });
+    <!-- Acceso a WhatsApp: lleva a cómo pedir el enlace (el número no se publica) -->
+    <a href="contacto.html#whatsapp" class="whatsapp-float" aria-label="WhatsApp: cómo escribirnos">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <!-- fin:pie -->
 
-        function answerQuestion(questionNum) {
-            // Mark question as answered
-            answeredQuestions.add(questionNum);
-            
-            // Update question card styling
-            const card = document.getElementById('q' + questionNum);
-            card.classList.add('answered');
-            
-            // Update selected option styling
-            const options = card.querySelectorAll('.answer-option');
-            options.forEach(option => {
-                const radio = option.querySelector('input[type="radio"]');
-                if (radio.checked) {
-                    option.classList.add('selected');
-                } else {
-                    option.classList.remove('selected');
-                }
-            });
-            
-            // Update progress
-            updateProgress();
-            
-            // Enable check button if all questions answered
-            if (answeredQuestions.size === totalQuestions) {
-                document.getElementById('checkBtn').disabled = false;
-            }
-        }
-        
-        function updateProgress() {
-            const percentage = (answeredQuestions.size / totalQuestions) * 100;
-            document.getElementById('progressFill').style.width = percentage + '%';
-            document.getElementById('progressText').innerHTML = 
-                `<strong>${answeredQuestions.size} de ${totalQuestions}</strong> preguntas respondidas`;
-            
-            // Update aria-valuenow
-            const progressBar = document.querySelector('.progress-bar');
-            progressBar.setAttribute('aria-valuenow', percentage);
-        }
-        
-        function checkEligibility() {
-            // Get answers
-            const edad = document.querySelector('input[name="edad"]:checked').value;
-            const residencia = document.querySelector('input[name="residencia"]:checked').value;
-            const vivienda = document.querySelector('input[name="vivienda"]:checked').value;
-            const autonomia = document.querySelector('input[name="autonomia"]:checked').value;
-            const cuidadoActual = document.querySelector('input[name="cuidadoActual"]:checked').value;
-            const movilidad = document.querySelector('input[name="movilidad"]:checked').value;
-            
-            // Determine eligibility
-            let eligible = true;
-            let reasons = [];
-            
-            // Check age
-            if (edad === 'menos60') {
-                eligible = false;
-                reasons.push('Tenés menos de 60 años. El programa está destinado a mayores de 60.');
-            }
-            
-            // Check residence
-            if (residencia !== 'caba') {
-                eligible = false;
-                reasons.push('Vivís fuera de CABA. El programa solo cubre la Ciudad de Buenos Aires.');
-            }
-            
-            // Check housing
-            if (vivienda === 'geriatrico') {
-                eligible = false;
-                reasons.push('Estás en un geriátrico. Cuidados en Red es un servicio domiciliario para personas que viven en su casa.');
-            }
-            
-            // Check autonomy
-            if (autonomia === 'dependiente') {
-                eligible = false;
-                reasons.push('Necesitás cuidado permanente 24/7. Cuidados en Red te puede orientar hacia servicios más intensivos.');
-            }
-            
-            // Show result
-            showResult(eligible, reasons, {
-                edad, residencia, vivienda, autonomia, cuidadoActual, movilidad
-            });
-        }
-        
-        function showResult(eligible, reasons, answers) {
-            const resultBox = document.getElementById('resultBox');
-            
-            if (eligible) {
-                resultBox.className = 'result-box result-eligible show';
-                resultBox.innerHTML = `
-                    <div class="result-icon">
-                        <i class="fa fa-check" aria-hidden="true"></i>
-                    </div>
-                    <h2 style="color: var(--color-secondary); font-size: 36px; margin-bottom: 16px;">
-                        ¡Sí, cumplís los requisitos!
-                    </h2>
-                    <p style="font-size: 20px; color: #333; margin-bottom: 32px; line-height: 1.6;">
-                        Según tus respuestas, <strong>podés acceder a Cuidados en Red</strong>. 
-                        El siguiente paso es inscribirte para que te hagamos una evaluación domiciliaria.
-                    </p>
-                    <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 32px; text-align: left;">
-                        <h3 style="color: var(--color-secondary); margin-bottom: 16px; font-size: 22px; text-align: center;">
-                            <i class="fa fa-list-ol" aria-hidden="true"></i> Próximos pasos
-                        </h3>
-                        <ol style="padding-left: 24px; margin: 0; line-height: 2; font-size: 16px;">
-                            <li><strong>Inscribite</strong> online, por teléfono o presencialmente</li>
-                            <li>Te <strong>llamamos en 24-48hs hábiles</strong> del Nodo de tu zona <span style="color: #999; font-size: 16px;">(a veces puede tardar hasta 5 días)</span></li>
-                            <li>Coordinamos una <strong>visita domiciliaria</strong> <span style="color: #999; font-size: 16px;">(puede reprogramarse por emergencias)</span></li>
-                            <li>Evaluamos tus necesidades y armamos tu plan <span style="color: #999; font-size: 16px;">(5-15 días hábiles)</span></li>
-                            <li>Asignamos persona cuidadora <span style="color: #999; font-size: 16px;">(7-21 días según disponibilidad)</span></li>
-                            <li>¡<strong>Empezás con el servicio</strong>!</li>
-                        </ol>
-                        <div style="background-color: #FFF3E0; padding: 16px; border-radius: 6px; margin-top: 16px; border-left: 4px solid var(--color-accent);">
-                            <p style="margin: 0; color: #E65100; font-size: 16px; line-height: 1.6;">
-                                <strong><i class="fa fa-clock-o" aria-hidden="true"></i> Tiempo total estimado:</strong> Entre 3 y 8 semanas desde la inscripción hasta el inicio del servicio, dependiendo de tu zona y complejidad del caso.
-                            </p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                        <a href="inscripcion.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 16px 40px; font-size: 18px;">
-                            <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme ahora
-                        </a>
-                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 18px;">
-                            <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
-                        </a>
-                    </div>
-                `;
-                announceToScreenReader('Resultado: Cumplís los requisitos para Cuidados en Red');
-            } else {
-                resultBox.className = 'result-box result-not-eligible show';
-                resultBox.innerHTML = `
-                    <div class="result-icon">
-                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                    </div>
-                    <h2 style="color: var(--color-accent); font-size: 36px; margin-bottom: 16px;">
-                        Por el momento, no cumplís los requisitos
-                    </h2>
-                    <p style="font-size: 18px; color: #333; margin-bottom: 24px; line-height: 1.6;">
-                        Según tus respuestas, hay algunos requisitos que no se cumplen:
-                    </p>
-                    <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 24px; text-align: left;">
-                        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444;">
-                            ${reasons.map(r => `<li>${r}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 32px;">
-                        <h3 style="color: var(--color-accent); margin-bottom: 16px; font-size: 20px;">
-                            <i class="fa fa-lightbulb-o" aria-hidden="true"></i> ¿Qué podés hacer?
-                        </h3>
-                        <p style="color: #444; margin: 0 0 16px 0; line-height: 1.6; text-align: left;">
-                            Aunque no califiques para Cuidados en Red, la Ciudad tiene otros programas:
-                        </p>
-                        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444; text-align: left;">
-                            <li><strong>Residencias para mayores</strong> (si estás en geriátrico)</li>
-                            <li><strong>Asistencia domiciliaria intensiva</strong> (si necesitás cuidado 24/7)</li>
-                            <li><strong>Centros de día</strong> (si vivís fuera de CABA pero cerca)</li>
-                        </ul>
-                    </div>
-                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 18px;">
-                            <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147 para orientación
-                        </a>
-                        <a href="contacto.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 16px 40px; font-size: 18px;">
-                            <i class="fa fa-envelope" aria-hidden="true"></i> Contactanos
-                        </a>
-                    </div>
-                `;
-                announceToScreenReader('Resultado: Por el momento no cumplís los requisitos');
-            }
-            
-            // Scroll to result
-            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        function resetQuiz() {
-            // Clear all radio buttons
-            document.querySelectorAll('.question-card input[type="radio"]').forEach(function(r) { r.checked = false; });
-            // Reset progress
-            answeredQuestions.clear();
-            var progressFill = document.getElementById('progressFill');
-            if (progressFill) { progressFill.style.width = '0%'; }
-            var progressText = document.getElementById('progressText');
-            if (progressText) { progressText.innerHTML = '<strong>0 de 6</strong> preguntas respondidas'; }
-            var progressBar = document.querySelector('.progress-bar');
-            if (progressBar) { progressBar.setAttribute('aria-valuenow', '0'); }
-            // Hide results
-            var resultBox = document.getElementById('resultBox');
-            if (resultBox) { resultBox.className = 'result-box'; resultBox.innerHTML = ''; }
-            // Reset question card styling
-            document.querySelectorAll('.question-card').forEach(function(card) {
-                card.classList.remove('answered');
-            });
-            document.querySelectorAll('.answer-option').forEach(function(opt) {
-                opt.classList.remove('selected');
-            });
-            // Disable check button
-            var checkBtn = document.getElementById('checkBtn');
-            if (checkBtn) checkBtn.disabled = true;
-            // Scroll to top of quiz
-            var quizContainer = document.querySelector('.quiz-container');
-            if (quizContainer) quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Announce to screen reader
-            if (typeof announceToScreenReader === 'function') {
-                announceToScreenReader('Test reiniciado. Podés comenzar de nuevo.');
-            }
-        }
-
-    </script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
+    <script src="js/elegibilidad.js"></script>
 </body>
 </html>

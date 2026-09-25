@@ -2,6 +2,10 @@
 
 Fuente de verdad para todos los personajes que aparecen en el sitio. Antes de crear un personaje nuevo, verificar que no contradiga los existentes y agregarlo aquí primero.
 
+## Regla de nombres
+
+Cada personaje tiene un nombre de pila único en todo el sitio (renombres de 2026: Marta → Silvina y Norma, María → Graciela y Beatriz, Roberto → Osvaldo). Antes de sumar uno nuevo, verificar que el nombre no esté usado.
+
 ## Beneficiarias (personas que reciben el servicio)
 
 ### Elena R.
@@ -9,10 +13,10 @@ Fuente de verdad para todos los personajes que aparecen en el sitio. Antes de cr
 - **Barrio:** Palermo
 - **Rol:** Beneficiaria
 - **Página:** index.html (testimonio)
-- **Cita:** "Antes me sentía sola y con miedo. Ahora Marta viene dos veces por semana, me ayuda con todo y siento que tengo una amiga. El botón de emergencia me da tranquilidad."
-- **Notas:** Su cuidadora se llama Marta.
+- **Cita:** "Antes me sentía sola y con miedo. Ahora Silvina viene dos veces por semana, me ayuda con todo y siento que tengo una amiga. La pulsera de emergencia me da tranquilidad."
+- **Notas:** Su persona cuidadora se llama Silvina.
 
-### María C.
+### Graciela C.
 - **Edad:** 78 años
 - **Barrio:** Flores
 - **Rol:** Beneficiaria
@@ -20,7 +24,7 @@ Fuente de verdad para todos los personajes que aparecen en el sitio. Antes de cr
 - **Cita:** "Me inscribí en mayo y tardaron 3 semanas en conseguir cuidadora para Flores. Mientras tanto, el Nodo me conectó con un centro de día. No fue instantáneo, pero es más de lo que tenía antes."
 - **Notas:** Testimonio que muestra imperfección deliberada del sistema.
 
-### María (ejemplo de día típico)
+### Beatriz (ejemplo de día típico)
 - **Edad:** No especificada (persona mayor)
 - **Barrio:** No especificado
 - **Rol:** Beneficiaria (ejemplo de uso diario)
@@ -28,15 +32,15 @@ Fuente de verdad para todos los personajes que aparecen en el sitio. Antes de cr
 - **Notas:** Personaje narrativo para ilustrar un día típico. Su cuidador es Carlos. Tiene un nieto con quien hace videollamadas. Usa Tita.
 
 ### María Isabel González
-- **Edad:** No especificada
+- **Edad:** 76 años (nacida el 14/03/1956)
 - **Barrio:** Caballito (Nodo Caballito)
 - **Rol:** Beneficiaria (ejemplo de seguimiento de trámite)
 - **Página:** estado-tramite.html
-- **DNI ficticio:** 12.345.678
-- **Trámite ficticio:** CER-2032-123456
-- **Notas:** Ejemplo hardcodeado del seguimiento de trámite. Inscripta el 15/10/2025, contacto inicial 22/10/2025, visita reprogramada al 30/10/2025.
+- **DNI ficticio:** 12.345.678 · se consulta con DNI + fecha de nacimiento, o DNI + número de trámite
+- **Trámite ficticio:** CR-2032-0041377 (DNI de ejemplo 12.345.678, se consulta en estado-tramite.html)
+- **Notas:** Ejemplo del seguimiento de trámite. Las fechas son relativas al "hoy" dinámico de 2032 (mundo.js): inscripta hace 16 días; contacto inicial hace 9 días (5 días más tarde de lo previsto por un error en el teléfono); visita domiciliaria prevista hace 2 días, reprogramada para dentro de 3 días.
 
-### Marta (ejemplo de copago - jubilación mínima)
+### Norma (ejemplo de copago - jubilación mínima)
 - **Edad:** No especificada
 - **Barrio:** No especificado
 - **Rol:** Beneficiaria (ejemplo de copago)
@@ -45,7 +49,7 @@ Fuente de verdad para todos los personajes que aparecen en el sitio. Antes de cr
 - **Nivel:** 2 (dependencia moderada)
 - **Copago:** $0
 
-### Roberto (ejemplo de copago - ingreso medio)
+### Osvaldo (ejemplo de copago - ingreso medio)
 - **Edad:** No especificada
 - **Barrio:** No especificado
 - **Rol:** Beneficiario (ejemplo de copago)
@@ -78,7 +82,7 @@ Fuente de verdad para todos los personajes que aparecen en el sitio. Antes de cr
 ### Carlos
 - **Edad:** No especificada
 - **Barrio:** No especificado
-- **Rol:** Persona cuidadora de María
+- **Rol:** Persona cuidadora de Beatriz
 - **Página:** para-personas-mayores.html (día típico)
 - **Notas:** Llega a las 10:00, toman mate, la acompaña al supermercado, le ayuda a cocinar. Puede ver datos de salud en su app.
 
@@ -89,7 +93,7 @@ Fuente de verdad para todos los personajes que aparecen en el sitio. Antes de cr
 - **Página:** index.html
 - **Notas:** Cuidador de la mamá de Javier M. Le cocina y la acompaña al médico.
 
-### Marta (cuidadora de Elena R.)
+### Silvina (persona cuidadora de Elena R.)
 - **Edad:** No especificada
 - **Barrio:** Palermo
 - **Rol:** Persona cuidadora de Elena R.

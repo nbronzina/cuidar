@@ -9,9 +9,10 @@
 .DS_Store
 Thumbs.db
 
-# Node (if build tools added later)
+# Node (pruebas automáticas)
 node_modules/
-package-lock.json
+test-results/
+playwright-report/
 
 # Misc
 *.log

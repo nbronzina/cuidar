@@ -9,11 +9,20 @@ Autor: **Nicolás Bronzina**. Todo el contenido, concepto, diseño y código es 
 ## Stack técnico
 
 - HTML/CSS/JS vanilla, sin frameworks
-- GitHub Pages, rama `main`
-- 11 páginas con header/footer compartido — cualquier cambio estructural se replica en todas
+- GitHub Pages, rama `main` (https://nbronzina.github.io/cuidar/); `_config.yml` excluye documentos y herramientas de la publicación
 - Tipografía: Roboto via Google Fonts
 - Iconos: Font Awesome 4.7
 - Mapa: Leaflet (solo en nodos.html)
+
+### Cómo se trabaja
+- **Cabecera y pie**: se editan solo en `partials/cabecera.html` y `partials/pie.html`, y se copian a las 11 páginas con `node tools/sincronizar.js`. Nunca editar a mano lo que está entre los marcadores `<!-- inicio:cabecera -->` / `<!-- inicio:pie -->`.
+- **JavaScript**: todo en `js/` (compartidos: `accessibility.js`, `forms.js`, `mundo.js`; uno por página cuando hace falta). Sin `<script>` en línea ni atributos `on*=`: la CSP es `script-src 'self'`. Para mostrar u ocultar, usar el atributo `hidden` o clases, no estilos que pisen utilidades.
+- **Fecha del mundo**: `js/mundo.js` traslada la fecha del visitante a 2032. Para fechas relativas usar `data-mundo-fecha="-3"`, `data-mundo-dia`, `data-mundo-mes`, `data-mundo-trimestre`, `data-mundo-hora`.
+- **CSS**: `styles.css` (componentes compartidos) → `css/<página>.css` (estilos propios de cada página) → `css/utilidades.css` (clases `u-*` generadas al migrar los antiguos `style=""`, con `!important`). Prohibido `style=""` y `<style>` en el HTML: la CSP es `style-src 'self'` y el lint (`no-inline-style`) lo controla. Para estilos nuevos, usar los componentes de `styles.css` (`.lista-icono`, `.marca--*`, `.texto-cuerpo`, `.lista-advertencia-*`, `.faq-*`, `.seccion-gris`, `.lista-simple`, `.documento-*`) antes que sumar utilidades.
+- **Regresión visual (local)**: `node tools/regresion-visual.js <url-antes> <url-después>` compara las páginas en 3 viewports píxel por píxel (levantar la versión anterior con `git worktree` y `node tools/servidor.js <puerto>`).
+- **Tamaños**: `font-size` siempre en `rem` (la barra A/A+/A++ escala `<html>`).
+- **Colores de texto**: usar los tokens (`--color-accent-text`, `--color-secondary-text`, grises `#444`/`#505050`); todo texto debe pasar 7:1.
+- **Pruebas**: `npm test` (sincronización + lint de HTML + Playwright y axe) verifica en escritorio, tableta y móvil, incluido el contraste de texto sobre degradados que axe no mide: WCAG 2.2 AA y contraste 7:1, CSP, scroll horizontal a 320/390 px con A++, barra de accesibilidad y los flujos de elegibilidad, inscripción, estado de trámite, contacto y Nodos. Corre en GitHub Actions en cada push.
 
 ## Páginas del sitio
 

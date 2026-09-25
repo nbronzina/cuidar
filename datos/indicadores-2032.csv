@@ -1,0 +1,28 @@
+indicador,valor,unidad,periodo
+personas_mayores_atendidas,13874,personas,2032
+personas_cuidadoras_activas,4200,personas,2032
+personas_cuidadoras_certificadas,2543,personas,2032
+personas_cuidadoras_en_periodo_de_prueba,1657,personas,2032
+horas_de_cuidado_asignadas_cumplidas,91,porcentaje,2032
+personas_en_lista_de_espera,847,personas,2032
+espera_promedio_lista,21,días,2032
+nodos_activos,16,nodos,2032
+comunas_con_cobertura_completa,8,comunas,2032
+comunas_con_cobertura_parcial,7,comunas,2032
+satisfaccion_general,93.2,porcentaje,2032
+satisfaccion_linea_147,82,porcentaje,2032
+llamadas_147_atendidas_por_mes,38400,llamadas,2032
+abandono_llamadas_147,1.8,porcentaje,2032
+llamadas_147_resueltas_sin_operador,65,porcentaje,2032
+reclamos_recibidos,1247,reclamos,2032
+reclamos_resueltos_satisfactoriamente,68,porcentaje,2032
+reclamos_vecinales_activos,27,reclamos,2032
+desembolsos_a_personas_cuidadoras_a_tiempo,68,porcentaje,2032
+personas_eximidas_de_copago,62,porcentaje,2032
+copago_promedio_mensual,48200,pesos,2032
+nivel_0_universal,5,porcentaje de personas atendidas,2032
+nivel_1_leve,35,porcentaje de personas atendidas,2032
+nivel_2_moderado,40,porcentaje de personas atendidas,2032
+nivel_3_severo,20,porcentaje de personas atendidas,2032
+presupuesto,94500,millones de pesos,2032
+ejecucion_presupuestaria,91,porcentaje,2032

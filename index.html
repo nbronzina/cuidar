@@ -2,452 +2,44 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc https://unpkg.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cuidados en Red - Sistema Integral de Cuidados para Personas Mayores en Buenos Aires. Cuidado domiciliario con tecnología y acompañamiento profesional.">
     <meta property="og:title" content="Cuidados en Red — Cuidado Domiciliario Personas Mayores">
     <meta property="og:description" content="Cuidados en Red - Sistema Integral de Cuidados para Personas Mayores en Buenos Aires. Cuidado domiciliario con tecnología y acompañamiento profesional.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/">
+    <meta property="og:url" content="https://nbronzina.github.io/cuidar/">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
-    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/index.html">
+    <link rel="canonical" href="https://nbronzina.github.io/cuidar/">
     <title>Cuidados en Red — Cuidado Domiciliario Personas Mayores</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        /* =============================================
-           ESTILOS ESPECÍFICOS DEL INDEX
-           Armonizados con para-personas-mayores.html
-           ============================================= */
-        
-        /* HERO - Ahora consistente con hero-personas */
-        .hero {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
-                        url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1600&h=500&fit=crop&fm=webp&q=30') center/cover;
-            color: white;
-            padding: 80px 0; /* Ahora usa 80px como personas-mayores */
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 48px; /* Reducido de 56px para consistencia */
-            margin-bottom: 24px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Consistente con personas-mayores */
-            line-height: 1.3;
-        }
-
-        .hero .lead {
-            font-size: 26px; /* Ahora 26px como personas-mayores */
-            line-height: 1.5; /* Consistente */
-            max-width: 800px; /* Consistente */
-            margin: 0 auto 40px;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        /* SECCIÓN INFO RÁPIDA */
-        .quick-info {
-            background-color: #F5F5F5;
-            padding: 60px 0;
-        }
-        
-        .quick-card {
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
-        }
-
-        .quick-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        
-        .quick-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #1A5276, #0D3B5E);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            color: white;
-            font-size: 36px;
-        }
-        
-        .quick-card h3 {
-            color: #1A5276;
-            font-size: 24px;
-            margin-bottom: 16px;
-        }
-        
-        .quick-card p {
-            color: #444;
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-        
-        /* SOBRE EL PROGRAMA */
-        .about-program {
-            padding: 80px 0;
-        }
-        
-        .about-program h2 {
-            text-align: center;
-            color: #1A5276;
-            font-size: 42px;
-            margin-bottom: 24px;
-        }
-        
-        .section-intro {
-            text-align: center;
-            font-size: 20px;
-            color: #444;
-            max-width: 800px;
-            margin: 0 auto 60px;
-            line-height: 1.6;
-        }
-        
-        /* FEATURE CARDS */
-        .feature-card {
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            text-align: center;
-            height: 100%;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        
-        .feature-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #2E7D32, #1B5E20);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            color: white;
-            font-size: 48px;
-        }
-        
-        .feature-card h3 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 16px;
-        }
-        
-        .feature-card p {
-            color: #444;
-            line-height: 1.8;
-        }
-        
-        /* CTA INSCRIPCIÓN */
-        .cta-inscripcion {
-            background: linear-gradient(135deg, #2E7D32, #1B5E20);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .cta-inscripcion h2 {
-            font-size: 42px;
-            margin-bottom: 16px;
-        }
-        
-        .cta-inscripcion > p {
-            font-size: 20px;
-            margin-bottom: 48px;
-            opacity: 0.95;
-        }
-        
-        /* PASOS SIMPLES */
-        .steps-simple {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 16px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto 48px;
-        }
-        
-        .step-simple {
-            background-color: rgba(255,255,255,0.15);
-            padding: 24px;
-            border-radius: 12px;
-            text-align: center;
-            flex: 1;
-            min-width: 180px;
-            max-width: 220px;
-        }
-        
-        .step-number-simple {
-            width: 60px;
-            height: 60px;
-            background-color: white;
-            color: #2E7D32;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: 700;
-            margin: 0 auto 16px;
-        }
-        
-        .step-simple p {
-            font-size: 18px;
-            font-weight: 500;
-            margin: 0;
-        }
-        
-        /* TESTIMONIOS */
-        .testimonios {
-            background-color: #F5F5F5;
-            padding: 80px 0;
-        }
-        
-        .testimonios h2 {
-            text-align: center;
-            color: #1A5276;
-            font-size: 42px;
-            margin-bottom: 60px;
-        }
-        
-        .testimonial-card {
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .testimonial-quote {
-            font-size: 48px;
-            color: #1A5276;
-            margin-bottom: 24px;
-            line-height: 1;
-        }
-        
-        .testimonial-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #444;
-            flex-grow: 1;
-            margin-bottom: 24px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        
-        .testimonial-author strong {
-            color: #333;
-            font-size: 18px;
-        }
-        
-        .testimonial-author span {
-            color: #767676;
-            font-size: 16px;
-        }
-        
-        /* Testimonial realista con fricción */
-        .testimonial-card.realistic {
-            border-left: 4px solid var(--color-friction-warning-border);
-        }
-        
-        /* ESTADÍSTICAS */
-        .stats {
-            background-color: white;
-            padding: 80px 0;
-        }
-        
-        .stats h2 {
-            text-align: center;
-            color: #1A5276;
-            font-size: 42px;
-            margin-bottom: 60px;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        
-        .stat-number {
-            font-size: 56px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 16px;
-        }
-        
-        .stat-label {
-            font-size: 18px;
-            color: #444;
-            line-height: 1.4;
-        }
-        
-        /* Stats de fricción */
-        .stat-card.friction .stat-number {
-            color: var(--color-friction-emphasis);
-        }
-        
-        .stat-sublabel {
-            font-size: 16px;
-            color: #767676;
-            margin-top: 8px;
-        }
-        
-        /* CTA FINAL */
-        .final-cta {
-            background-color: #F5F5F5;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .final-cta h2 {
-            color: #1A5276;
-            font-size: 42px;
-            margin-bottom: 16px;
-        }
-        
-        .final-cta-subtitle {
-            font-size: 20px;
-            color: #444;
-            margin-bottom: 48px;
-        }
-        
-        .contact-options {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-option {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            padding: 32px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            min-width: 200px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            color: #333;
-        }
-        
-        .contact-option:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-            color: var(--color-primary);
-        }
-        
-        .contact-option i {
-            font-size: 48px;
-            color: var(--color-secondary);
-        }
-        
-        .contact-option strong {
-            font-size: 20px;
-            color: #333;
-        }
-        
-        .contact-option span {
-            font-size: 16px;
-            color: #444;
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 991px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero .lead {
-                font-size: 20px;
-            }
-            
-            .about-program h2,
-            .testimonios h2,
-            .stats h2,
-            .final-cta h2,
-            .cta-inscripcion h2 {
-                font-size: 32px;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .hero {
-                padding: 60px 0;
-            }
-            
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero .lead {
-                font-size: 18px;
-            }
-            
-            .step-simple {
-                min-width: 150px;
-            }
-            
-            .stat-number {
-                font-size: 42px;
-            }
-        }
-    </style>
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "GovernmentOrganization",
+      "@type": "WebSite",
       "name": "Cuidados en Red",
-      "description": "Sistema Integral de Cuidados para Personas Mayores de la Ciudad de Buenos Aires",
-      "url": "https://cuidadosenred.buenosaires.gob.ar/",
-      "telephone": "147",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Buenos Aires",
-        "addressCountry": "AR"
-      },
-      "parentOrganization": {
-        "@type": "GovernmentOrganization",
-        "name": "Gobierno de la Ciudad de Buenos Aires"
+      "url": "https://nbronzina.github.io/cuidar/",
+      "inLanguage": "es-AR",
+      "genre": "Diseño especulativo",
+      "description": "Prototipo diegético de diseño especulativo: simula una plataforma del Gobierno de la Ciudad de Buenos Aires en 2032 para el cuidado domiciliario de personas mayores. No es un servicio real.",
+      "author": {
+        "@type": "Person",
+        "name": "Nicolás Bronzina"
       }
     }
     </script>
@@ -459,33 +51,34 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Inicio",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+        "item": "https://nbronzina.github.io/cuidar/"
       }]
     }
     </script>
 </head>
 <body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
-    
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+
+    <section class="accessibility-bar" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
-            <button aria-label="Texto normal">A</button>
-            <button aria-label="Texto grande">A+</button>
-            <button aria-label="Texto extra grande">A++</button>
-            <button aria-label="Alto contraste">
+            <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
+            <button type="button" data-a11y="large" aria-label="Texto grande" aria-pressed="false">A+</button>
+            <button type="button" data-a11y="xlarge" aria-label="Texto extra grande" aria-pressed="false">A++</button>
+            <button type="button" data-a11y="contrast" aria-label="Alto contraste" aria-pressed="false">
                 <i class="fa fa-adjust" aria-hidden="true"></i>
             </button>
             <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
                 <i class="fa fa-phone" aria-hidden="true"></i> 147
             </a>
         </div>
-    </div>
-    
-    <header class="header-gcba" role="banner">
+    </section>
+
+    <header class="header-gcba">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
+                <img src="img/escudo-caba.svg" alt="" class="escudo" width="40" height="48">
                 <div class="logo-text">
                     <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
                     <span class="program-name">Cuidados en Red</span>
@@ -493,23 +86,33 @@
             </a>
         </div>
     </header>
-    
-    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+
+    <nav class="main-nav" aria-label="Navegación principal">
         <div class="container">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
-                <a href="index.html" class="active" aria-current="page">Inicio</a>
-                <a href="para-personas-mayores.html">Para Personas Mayores</a>
-                <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
-                <a href="el-sistema.html">El Sistema</a>
-                <a href="transparencia.html">Transparencia</a>
-                <a href="contacto.html">Contacto</a>
+                <div class="nav-info">
+                    <a href="index.html" class="active" aria-current="page">Inicio</a>
+                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                    <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                    <a href="transparencia.html">Transparencia</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="nav-tramites" role="group" aria-labelledby="nav-tramites-titulo">
+                    <p class="nav-tramites-titulo" id="nav-tramites-titulo">Trámites</p>
+                    <a href="elegibilidad.html"><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Es para mí?</a>
+                    <a href="inscripcion.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Inscribirme</a>
+                    <a href="estado-tramite.html"><i class="fa fa-search" aria-hidden="true"></i> Estado de mi trámite</a>
+                    <a href="nodos.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Nodos en tu barrio</a>
+                </div>
             </div>
         </div>
     </nav>
-    
+    <!-- fin:cabecera -->
+
     <main id="main-content">
         <section class="hero">
             <div class="container">
@@ -527,7 +130,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="quick-info">
             <div class="container">
                 <div class="row">
@@ -541,18 +144,18 @@
                             <a href="elegibilidad.html" class="btn-link">Ver si es para vos <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </article>
-                    
+
                     <article class="col-md-4">
                         <div class="quick-card">
                             <div class="quick-icon">
                                 <i class="fa fa-money" aria-hidden="true"></i>
                             </div>
                             <h2>¿Cuánto cuesta?</h2>
-                            <p>Gratis para personas con AUH o jubilación mínima. Copago proporcional para otros casos</p>
+                            <p>Gratis si cobrás jubilación mínima, PUAM o pensión no contributiva. Copago proporcional para otros casos</p>
                             <a href="el-sistema.html#costos-titulo" class="btn-link">Ver costos <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </article>
-                    
+
                     <article class="col-md-4">
                         <div class="quick-card">
                             <div class="quick-icon">
@@ -566,15 +169,15 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="about-program">
             <div class="container">
                 <h2>¿Qué es Cuidados en Red?</h2>
                 <p class="section-intro">
-                    Un sistema integral que combina acompañamiento humano, tecnología de apoyo y una red de profesionales 
+                    Un sistema integral que combina acompañamiento humano, tecnología de apoyo y una red de profesionales
                     para que las personas mayores puedan vivir de forma independiente y segura en sus hogares
                 </p>
-                
+
                 <div class="row">
                     <article class="col-md-4">
                         <div class="feature-card">
@@ -588,7 +191,7 @@
                             </p>
                         </div>
                     </article>
-                    
+
                     <article class="col-md-4">
                         <div class="feature-card">
                             <div class="feature-icon">
@@ -597,11 +200,11 @@
                             <h3>Tecnología de apoyo</h3>
                             <p>
                                 Tita (compañera conversacional de voz), sensor de cama, módulo de salud en el baño, sensores de movimiento
-                                y pulsera de emergencia. Conectado 24/7 con el Nodo de tu barrio
+                                y pulsera de emergencia. Conectado 24/7 con el centro de operaciones; el Nodo de tu barrio atiende de 8 a 18 h
                             </p>
                         </div>
                     </article>
-                    
+
                     <article class="col-md-4">
                         <div class="feature-card">
                             <div class="feature-icon">
@@ -609,7 +212,7 @@
                             </div>
                             <h3>Red de contención</h3>
                             <p>
-                                Acceso a 16 Nodos en toda la Ciudad con profesionales de salud, trabajadores sociales 
+                                Acceso a 16 Nodos en toda la Ciudad con profesionales de salud, trabajadores sociales
                                 y conexión con centros de día y hospitales
                             </p>
                         </div>
@@ -617,12 +220,12 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="cta-inscripcion">
             <div class="container">
                 <h2>¿Listo para inscribirte?</h2>
-                <p>Es simple y rápido. Seguí estos 3 pasos:</p>
-                
+                <p>Son 3 pasos. El último tarda más o menos según tu zona:</p>
+
                 <div class="steps-simple">
                     <div class="step-simple">
                         <div class="step-number-simple">1</div>
@@ -637,22 +240,22 @@
                         <p>Empezás a recibir el servicio</p>
                     </div>
                 </div>
-                
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="tel:147" class="btn btn-lg" style="background-color: white; color: #2E7D32; border-color: white; font-size: 20px; padding: 18px 40px;" aria-label="Llamar al 147">
+
+                <div class="u-display-flex u-gap-20px u-justify-content-center u-flex-wrap-wrap">
+                    <a href="tel:147" class="btn btn-lg u-background-color-white u-color-secondary-text u-border-color-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Llamar al 147">
                         <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                     </a>
-                    <a href="inscripcion.html" class="btn btn-lg" style="background-color: transparent; color: white; border: 3px solid white; font-size: 20px; padding: 18px 40px;" aria-label="Inscribirme online">
+                    <a href="inscripcion.html" class="btn btn-lg u-background-color-transparent u-color-white u-border-3px-solid-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Inscribirme online">
                         <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme online
                     </a>
                 </div>
             </div>
         </section>
-        
+
         <section class="testimonios">
             <div class="container">
                 <h2>Lo que dicen las personas que ya usan Cuidados en Red</h2>
-                
+
                 <div class="row">
                     <article class="col-md-4">
                         <div class="testimonial-card">
@@ -660,7 +263,7 @@
                                 <i class="fa fa-quote-left" aria-hidden="true"></i>
                             </div>
                             <p class="testimonial-text">
-                                "Antes me sentía sola y con miedo. Ahora Marta viene dos veces por semana, me ayuda con todo y siento que tengo una amiga. La pulsera de emergencia me da tranquilidad."
+                                "Antes me sentía sola y con miedo. Ahora Silvina viene dos veces por semana, me ayuda con todo y siento que tengo una amiga. La pulsera de emergencia me da tranquilidad."
                             </p>
                             <div class="testimonial-author">
                                 <strong>Elena R., 74 años</strong>
@@ -668,7 +271,7 @@
                             </div>
                         </div>
                     </article>
-                    
+
                     <article class="col-md-4">
                         <div class="testimonial-card">
                             <div class="testimonial-quote">
@@ -683,7 +286,7 @@
                             </div>
                         </div>
                     </article>
-                    
+
                     <!-- NUEVO: Testimonial con fricción -->
                     <article class="col-md-4">
                         <div class="testimonial-card realistic">
@@ -694,7 +297,7 @@
                                 "Me inscribí en mayo y tardaron 3 semanas en conseguir cuidadora para Flores. Mientras tanto, el Nodo me conectó con un centro de día. No fue instantáneo, pero es más de lo que tenía antes."
                             </p>
                             <div class="testimonial-author">
-                                <strong>María C., 78 años</strong>
+                                <strong>Graciela C., 78 años</strong>
                                 <span>Beneficiaria, Flores</span>
                             </div>
                         </div>
@@ -702,14 +305,14 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="stats">
             <div class="container">
                 <h2>Cuidados en Red en números</h2>
                 <div class="row">
                     <div class="col-md-3">
                         <div class="stat-card">
-                            <div class="stat-number">42.187</div>
+                            <div class="stat-number">13.874</div>
                             <div class="stat-label">Personas mayores atendidas</div>
                         </div>
                     </div>
@@ -736,7 +339,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="final-cta">
             <div class="container">
                 <h2>¿Necesitás más información?</h2>
@@ -747,10 +350,10 @@
                         <strong>Llamá al 147</strong>
                         <span>Gratis, 24/7</span>
                     </a>
-                    <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="contact-option">
+                    <a href="contacto.html#whatsapp" class="contact-option">
                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                         <strong>WhatsApp</strong>
-                        <span>11 1234-5678</span>
+                        <span>Pedí el enlace al 147</span>
                     </a>
                     <a href="nodos.html" class="contact-option">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -761,16 +364,10 @@
             </div>
         </section>
     </main>
-    
-    <a href="https://wa.me/5491112345678" 
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp">
-        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-    </a>
-    
-    <footer role="contentinfo">
+
+
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
+    <footer>
         <div class="container">
             <div class="row">
                 <nav class="col-md-3" aria-label="Enlaces de inscripción">
@@ -796,26 +393,36 @@
                     <a href="transparencia.html">Datos abiertos</a>
                     <a href="transparencia.html#presupuesto">Presupuesto</a>
                     <a href="politica-privacidad.html">Política de privacidad</a>
+                    <a href="terminos.html">Términos y condiciones</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
                 </nav>
             </div>
             <div class="footer-legal">
-                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
+                <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
-        
+
         <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
-                <strong>Proyecto de diseño especulativo</strong> · 
-                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
-                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                <strong>Proyecto de diseño especulativo</strong> ·
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental,
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>.
                 Todo el contenido, concepto, diseño y código es de su autoría.
             </p>
         </div>
     </footer>
-    
-    <script src="accessibility.js"></script>
+
+    <!-- Acceso a WhatsApp: lleva a cómo pedir el enlace (el número no se publica) -->
+    <a href="contacto.html#whatsapp" class="whatsapp-float" aria-label="WhatsApp: cómo escribirnos">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <!-- fin:pie -->
+
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
 </body>
 </html>
