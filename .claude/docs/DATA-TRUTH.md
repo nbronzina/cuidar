@@ -210,3 +210,8 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Los 16 Nodos se llaman por el 147 con interno: Nodo 1 = interno 1001 … Nodo 16 = interno 1016. No se publican líneas directas (cualquier número "realista" podría ser de una persona real).
 - WhatsApp: el número no se publica, para evitar cuentas falsas que se hacen pasar por el programa. Se pide el enlace llamando al 147 y llega por SMS al celular registrado. El programa nunca pide claves, códigos ni pagos por WhatsApp.
 - Horario de WhatsApp: lunes a viernes de 8 a 20 h; demora de respuesta de 30 minutos a 6 horas según demanda.
+
+### Consulta del estado de trámite (verificación de identidad)
+- Se piden dos datos: DNI + fecha de nacimiento, o DNI + número de trámite. Si no coinciden, el mensaje es el mismo en todos los casos (no se revela si el DNI existe).
+- 3 intentos sin coincidencia bloquean la consulta durante 15 minutos; mientras tanto se deriva al 147, que pide los mismos datos.
+- Legajo de ejemplo: DNI 12.345.678, nacida el 14/03/1956, trámite CR-2032-0041377.

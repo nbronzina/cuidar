@@ -418,3 +418,29 @@
         padding: 24px;
     }
 }
+
+/* Verificación de identidad */
+.verificacion {
+    border: 2px solid #D6DCD8;
+    border-radius: 8px;
+    padding: 16px 20px 4px;
+    margin: 0 0 24px;
+}
+
+.verificacion legend {
+    font-weight: 700;
+    padding: 0 6px;
+    color: #333;
+}
+
+.verificacion-o {
+    text-align: center;
+    color: #505050;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+.lookup-intentos {
+    font-weight: 600;
+    color: #7A1010;
+}

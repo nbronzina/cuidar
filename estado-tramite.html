@@ -133,10 +133,11 @@
                     ¿Cómo consultar?
                 </h2>
                 <p class="u-color-333 u-margin-0 u-line-height-1_6">
-                    Ingresá tu <strong>DNI</strong> o el <strong>número de trámite</strong> que recibiste por email
-                    cuando te inscribiste. También podés llamar al
-                    <a class="u-color-primary u-font-weight-700" href="tel:147">147</a>
-                    y consultar el estado de tu trámite por teléfono — te lo buscan con tu DNI o número de trámite y te lo dictan.
+                    Para proteger tus datos te pedimos dos cosas: tu <strong>DNI</strong> y tu <strong>fecha de nacimiento</strong>
+                    (o el <strong>número de trámite</strong> que recibiste por email). Si consultás por otra persona, usá sus datos.
+                    También podés llamar al
+                    <a class="u-color-primary u-font-weight-700" href="tel:147">147</a>:
+                    te piden los mismos datos y te dictan el estado.
                 </p>
             </div>
 
@@ -155,6 +156,8 @@
                             type="text"
                             id="dni"
                             name="dni"
+                            required
+                            data-error-required="Escribí tu DNI."
                             placeholder="Ej: 12345678"
                             pattern="[0-9]{7,8}"
                             maxlength="8"
@@ -166,24 +169,21 @@
                         <small>Solo números, sin puntos ni espacios</small>
                     </div>
 
-                    <div class="u-text-align-center u-color-505050 u-font-weight-600 u-margin-8px-0" aria-hidden="true">
-                        o
-                    </div>
+                    <fieldset class="verificacion" id="verificacion">
+                        <legend>Y uno de estos datos para confirmar que sos vos</legend>
+                        <div class="form-group">
+                            <label for="fechaNacimiento">Fecha de nacimiento</label>
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" min="1900-01-01" max="1977-12-31" autocomplete="bday">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="tramite">
-                            Número de trámite
-                        </label>
-                        <input
-                            type="text"
-                            id="tramite"
-                            name="tramite"
-                            placeholder="Ej: CR-2032-0048213"
-                            autocomplete="off"
-                            spellcheck="false"
-                        >
-                        <small>Lo recibiste por email cuando te inscribiste</small>
-                    </div>
+                        <p class="verificacion-o" aria-hidden="true">o</p>
+
+                        <div class="form-group">
+                            <label for="tramite">Número de trámite</label>
+                            <input type="text" id="tramite" name="tramite" placeholder="Ej: CR-2032-0048213" autocomplete="off" spellcheck="false">
+                            <small>Lo recibiste por email cuando te inscribiste</small>
+                        </div>
+                    </fieldset>
 
                     <p class="form-status" hidden></p>
                     <button type="submit" class="btn-search">
@@ -193,14 +193,15 @@
                 </form>
                 <p class="demo-hint">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
-                    <strong>Proyecto de diseño especulativo:</strong> para ver un trámite de ejemplo, consultá el DNI 12345678.
+                    <strong>Proyecto de diseño especulativo:</strong> para ver un trámite de ejemplo, consultá el DNI 12345678 con la fecha de nacimiento 14/03/1956.
                 </p>
             </div>
 
             <!-- Sin resultados -->
             <div class="lookup-card lookup-empty" id="notFound" hidden>
                 <h2 id="notFoundTitle">No encontramos un trámite con esos datos</h2>
-                <p>Revisá que el DNI esté escrito sin puntos y que el número de trámite sea el que figura en el email de confirmación.</p>
+                <p>Revisá que el DNI esté escrito sin puntos y que la fecha de nacimiento o el número de trámite correspondan a esa persona. Por seguridad no te decimos cuál de los datos no coincide.</p>
+                <p class="lookup-intentos" id="intentosAviso" hidden></p>
                 <p>Si te inscribiste por teléfono o en un Nodo, puede que tu trámite todavía no aparezca en esta consulta. Llamá al <a href="tel:147">147</a> y pedí el estado de tu inscripción a Cuidados en Red.</p>
             </div>
 

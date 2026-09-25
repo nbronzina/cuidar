@@ -95,28 +95,62 @@ test.describe('Inscripción y estado de trámite', () => {
         const numero = await page.textContent('#tramiteNumero');
 
         await page.goto('estado-tramite.html');
+        await page.fill('#dni', '23456789');
         await page.fill('#tramite', numero.toLowerCase());
         await page.click('.btn-search');
         await expect(page.locator('#newRecordTitle')).toHaveText('Rosa Ferreyra', { timeout: 5000 });
         await expect(page.locator('#newRecordTitle')).toBeFocused();
     });
 
-    test('estado de trámite: vacío, desconocido y legajo de ejemplo', async ({ page }) => {
+    test('estado de trámite: verifica la identidad antes de mostrar un legajo (A-05)', async ({ page }) => {
         await page.goto('estado-tramite.html');
+        const buscar = async (dni, fecha, numero) => {
+            await page.fill('#dni', dni);
+            await page.fill('#fechaNacimiento', fecha);
+            await page.fill('#tramite', numero);
+            await page.click('.btn-search');
+        };
+
         await page.click('.btn-search');
-        await expect(page.locator('#error-dni')).toHaveText(/Escribí tu DNI o tu número de trámite/);
+        await expect(page.locator('#error-dni')).toHaveText(/Escribí tu DNI/);
         await expect(page.locator('#dni')).toBeFocused();
 
-        await page.fill('#dni', '99999999');
-        await page.click('.btn-search');
-        await expect(page.locator('#notFoundTitle')).toBeFocused({ timeout: 5000 });
+        await buscar('12345678', '', '');
+        await expect(page.locator('#error-fechaNacimiento')).toContainText('fecha de nacimiento');
         await expect(page.locator('#resultContainer')).toBeHidden();
 
-        await page.fill('#dni', '12345678');
-        await page.click('.btn-search');
+        // DNI del ejemplo con otra fecha: mismo mensaje que un DNI inexistente
+        await buscar('12345678', '1960-01-01', '');
+        await expect(page.locator('#notFoundTitle')).toBeFocused({ timeout: 5000 });
+        await expect(page.locator('#resultContainer')).toBeHidden();
+        await expect(page.locator('#intentosAviso')).toHaveText(/Te quedan 2 intentos/);
+
+        await buscar('12345678', '1956-03-14', '');
         await expect(page.locator('#userName')).toBeFocused({ timeout: 5000 });
         await expect(page.locator('#resultContainer')).not.toContainText('2025');
         await expect(page.locator('#resultContainer [data-mundo-fecha]').first()).toHaveText(/\/20(31|32)$/);
+
+        // DNI y número de trámite también verifican
+        await page.reload();
+        await buscar('12345678', '', 'cr-2032-0041377');
+        await expect(page.locator('#userName')).toBeFocused({ timeout: 5000 });
+    });
+
+    test('estado de trámite: 3 intentos fallidos bloquean la consulta', async ({ page }) => {
+        await page.goto('estado-tramite.html');
+        for (let i = 0; i < 3; i++) {
+            await page.fill('#dni', '99999999');
+            await page.fill('#fechaNacimiento', '1950-01-01');
+            await page.click('.btn-search');
+            await expect(page.locator('#notFoundTitle')).toBeFocused({ timeout: 5000 });
+        }
+        await expect(page.locator('#intentosAviso')).toContainText('bloqueada 15 minutos');
+        // Con la consulta bloqueada, ni los datos correctos muestran el legajo
+        await page.fill('#dni', '12345678');
+        await page.fill('#fechaNacimiento', '1956-03-14');
+        await page.click('.btn-search');
+        await expect(page.locator('#intentosAviso')).toContainText('bloqueada hasta las');
+        await expect(page.locator('#resultContainer')).toBeHidden();
     });
 });
 

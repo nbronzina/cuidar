@@ -41,6 +41,7 @@ function handleInscription(event) {
         CR.writeSession('cuidar-tramite', {
             numero: numero,
             dni: dni,
+            fechaNacimiento: document.getElementById('fechaNacimiento').value,
             nombre: document.getElementById('nombreCompleto').value.trim()
         });
 

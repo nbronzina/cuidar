@@ -32,11 +32,11 @@ Cada personaje tiene un nombre de pila único en todo el sitio (renombres de 202
 - **Notas:** Personaje narrativo para ilustrar un día típico. Su cuidador es Carlos. Tiene un nieto con quien hace videollamadas. Usa Tita.
 
 ### María Isabel González
-- **Edad:** No especificada
+- **Edad:** 76 años (nacida el 14/03/1956)
 - **Barrio:** Caballito (Nodo Caballito)
 - **Rol:** Beneficiaria (ejemplo de seguimiento de trámite)
 - **Página:** estado-tramite.html
-- **DNI ficticio:** 12.345.678
+- **DNI ficticio:** 12.345.678 · se consulta con DNI + fecha de nacimiento, o DNI + número de trámite
 - **Trámite ficticio:** CR-2032-0041377 (DNI de ejemplo 12.345.678, se consulta en estado-tramite.html)
 - **Notas:** Ejemplo del seguimiento de trámite. Las fechas son relativas al "hoy" dinámico de 2032 (mundo.js): inscripta hace 16 días; contacto inicial hace 9 días (5 días más tarde de lo previsto por un error en el teléfono); visita domiciliaria prevista hace 2 días, reprogramada para dentro de 3 días.
 
