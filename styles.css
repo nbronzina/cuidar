@@ -893,6 +893,114 @@ footer a:hover {
 }
 
 /* ============================================
+   DOCUMENTO INSTITUCIONAL
+   Privacidad, términos y declaración de accesibilidad
+   ============================================ */
+
+.hero-documento {
+    background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95));
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero-documento h1 {
+    font-size: 2.625rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero-documento .lead {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.documento {
+    padding: 60px 0;
+}
+
+.documento-cuerpo {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.documento-cuerpo h2 {
+    color: var(--color-primary);
+    font-size: 1.75rem;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #E0E0E0;
+}
+
+.documento-cuerpo h2:first-of-type {
+    margin-top: 0;
+}
+
+.documento-cuerpo p {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.documento-cuerpo ul {
+    padding-left: 24px;
+    margin-bottom: 24px;
+}
+
+.documento-cuerpo ul li {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.documento-cuerpo ul li strong {
+    color: #333;
+}
+
+.documento-fecha {
+    background-color: #F5F5F5;
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin-top: 48px;
+    font-size: 1rem;
+    color: #444;
+    text-align: center;
+}
+
+.documento-destacado {
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    border-left: 4px solid var(--color-primary);
+    padding: 24px;
+    border-radius: 8px;
+    margin: 24px 0;
+}
+
+.documento-destacado p {
+    margin-bottom: 0;
+    color: #0D47A1;
+}
+
+@media (max-width: 767px) {
+    .hero-documento h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero-documento .lead {
+        font-size: 1rem;
+    }
+
+    .documento-cuerpo h2 {
+        font-size: 1.375rem;
+    }
+}
+
+/* ============================================
    UTILIDADES
    ============================================ */
 

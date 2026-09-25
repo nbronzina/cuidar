@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const PAGINAS = ['index', 'el-sistema', 'para-personas-mayores', 'para-cuidadores', 'transparencia', 'contacto',
-    'inscripcion', 'nodos', 'elegibilidad', 'estado-tramite', 'politica-privacidad'];
+    'inscripcion', 'nodos', 'elegibilidad', 'estado-tramite', 'politica-privacidad', 'terminos', 'accesibilidad', '404'];
 
 const NM = path.join(__dirname, '..', 'node_modules');
 const GRIS = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==', 'base64');

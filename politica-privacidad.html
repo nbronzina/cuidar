@@ -27,121 +27,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
-        .hero-privacidad {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .hero-privacidad h1 {
-            font-size: 2.625rem;
-            margin-bottom: 16px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-privacidad .lead {
-            font-size: 1.25rem;
-            line-height: 1.5;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .breadcrumb {
-            background-color: #F5F5F5;
-            padding: 16px 0;
-            font-size: 1rem;
-        }
-
-        .breadcrumb a {
-            color: var(--color-primary);
-            text-decoration: underline;
-            text-underline-offset: 2px;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumb span {
-            color: #505050;
-            margin: 0 8px;
-        }
-
-        .breadcrumb .current {
-            color: #444;
-            font-weight: 500;
-        }
-
-        .policy-content {
-            padding: 60px 0;
-        }
-
-        .policy-container {
-            max-width: 860px;
-            margin: 0 auto;
-        }
-
-        .policy-container h2 {
-            color: var(--color-primary);
-            font-size: 1.75rem;
-            margin-top: 48px;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #E0E0E0;
-        }
-
-        .policy-container h2:first-of-type {
-            margin-top: 0;
-        }
-
-        .policy-container p {
-            color: #444;
-            line-height: 1.8;
-            margin-bottom: 16px;
-            font-size: 1rem;
-        }
-
-        .policy-container ul {
-            padding-left: 24px;
-            margin-bottom: 24px;
-        }
-
-        .policy-container ul li {
-            color: #444;
-            line-height: 1.8;
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-
-        .policy-container ul li strong {
-            color: #333;
-        }
-
-        .policy-update {
-            background-color: #F5F5F5;
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin-top: 48px;
-            font-size: 1rem;
-            color: #444;
-            text-align: center;
-        }
-
-        .legal-highlight {
-            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
-            border-left: 4px solid var(--color-primary);
-            padding: 24px;
-            border-radius: 8px;
-            margin: 24px 0;
-        }
-
-        .legal-highlight p {
-            margin-bottom: 0;
-            color: #0D47A1;
-        }
-
         .contact-box {
             background-color: white;
             border-radius: 12px;
@@ -178,18 +63,6 @@
             font-size: 1.25rem;
             width: 24px;
             text-align: center;
-        }
-
-        @media (max-width: 767px) {
-            .hero-privacidad h1 {
-                font-size: 1.75rem;
-            }
-            .hero-privacidad .lead {
-                font-size: 1rem;
-            }
-            .policy-container h2 {
-                font-size: 1.375rem;
-            }
         }
     </style>
     <script type="application/ld+json">
@@ -267,8 +140,16 @@
     </nav>
     <!-- fin:cabecera -->
 
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Ubicación">
+            <a href="index.html">Inicio</a>
+            <span class="separator" aria-hidden="true">›</span>
+            <span class="current" aria-current="page">Política de privacidad</span>
+        </nav>
+    </div>
+
     <main id="main-content">
-        <section class="hero-privacidad">
+        <section class="hero-documento">
             <div class="container">
                 <h1>Política de Privacidad</h1>
                 <p class="lead">
@@ -277,21 +158,11 @@
             </div>
         </section>
 
-        <nav class="breadcrumb" aria-label="Migas de pan">
+        <section class="documento">
             <div class="container">
-                <a href="index.html">Inicio</a>
-                <span aria-hidden="true">&gt;</span>
-                <a href="inscripcion.html">Inscripción</a>
-                <span aria-hidden="true">&gt;</span>
-                <span class="current" aria-current="page">Política de Privacidad</span>
-            </div>
-        </nav>
+                <div class="documento-cuerpo">
 
-        <section class="policy-content">
-            <div class="container">
-                <div class="policy-container">
-
-                    <div class="legal-highlight">
+                    <div class="documento-destacado">
                         <p>
                             <i class="fa fa-balance-scale" aria-hidden="true"></i>
                             <strong>Marco legal:</strong> Esta política se rige por la <strong>Ley 25.326 de Protección de Datos Personales</strong>, la <strong>Ley 26.529 de Derechos del Paciente</strong> en lo relativo a historia clínica e información sanitaria, y el <strong>Protocolo de Datos Sensibles de Cuidados en Red</strong> (Resolución GCBA 1847/2031). Garantizamos el derecho a la intimidad y al control sobre tus datos personales.
@@ -406,7 +277,7 @@
                         <li><strong>Solicitudes no aprobadas:</strong> los datos de inscripciones no elegibles se conservan por 6 meses y luego se eliminan.</li>
                     </ul>
 
-                    <div class="legal-highlight" style="background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-left-color: var(--color-accent);">
+                    <div class="documento-destacado" style="background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-left-color: var(--color-accent);">
                         <p style="color: var(--color-accent-text);">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <strong>Importante:</strong> El sistema retiene datos anonimizados con fines estadísticos y de mejora del servicio. Una vez anonimizados, los datos no pueden vincularse a ninguna persona y no es posible solicitar su eliminación.
@@ -477,7 +348,7 @@
                         </ul>
                     </div>
 
-                    <div class="policy-update">
+                    <div class="documento-fecha">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                         <strong>Última actualización:</strong> 2 de enero de 2032.
                         Esta política se revisa cada 6 meses o cuando se incorporan nuevas funcionalidades al sistema.
@@ -525,6 +396,8 @@
                     <a href="transparencia.html">Datos abiertos</a>
                     <a href="transparencia.html#presupuesto">Presupuesto</a>
                     <a href="politica-privacidad.html">Política de privacidad</a>
+                    <a href="terminos.html">Términos y condiciones</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
                 </nav>
             </div>
             <div class="footer-legal">

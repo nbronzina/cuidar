@@ -1,0 +1,12 @@
+Cuidados en Red — datos abiertos
+
+Estos archivos son DATOS FICTICIOS de un proyecto de diseño especulativo
+(Cuidados en Red, Ciudad de Buenos Aires, 2032), obra de Nicolás Bronzina.
+No describen un programa real.
+
+Todas las cifras salen de la fuente de verdad del proyecto
+(.claude/docs/DATA-TRUTH.md y TIMELINE-2025-2032.md). Los años sin dato
+publicado quedan vacíos en la serie histórica: no se completan con estimaciones.
+
+Formato: CSV separado por comas, UTF-8, decimales con punto.
+Licencia dentro de la ficción: Creative Commons Atribución 4.0 (CC BY 4.0).

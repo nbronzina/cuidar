@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Declaración de accesibilidad de Cuidados en Red: nivel de conformidad con WCAG 2.2, qué se verifica en cada actualización, limitaciones conocidas y cómo reportar un problema.">
+    <meta property="og:title" content="Declaración de accesibilidad | Cuidados en Red">
+    <meta property="og:description" content="Declaración de accesibilidad de Cuidados en Red: nivel de conformidad con WCAG 2.2, qué se verifica en cada actualización, limitaciones conocidas y cómo reportar un problema.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nbronzina.github.io/cuidar/accesibilidad.html">
+    <meta property="og:site_name" content="Cuidados en Red">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1A5276">
+    <link rel="canonical" href="https://nbronzina.github.io/cuidar/accesibilidad.html">
+    <title>Declaración de accesibilidad | Cuidados en Red</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://nbronzina.github.io/cuidar/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Accesibilidad",
+        "item": "https://nbronzina.github.io/cuidar/accesibilidad.html"
+      }]
+    }
+    </script>
+</head>
+<body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
+    <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
+
+    <section class="accessibility-bar" aria-label="Herramientas de accesibilidad">
+        <div class="container clearfix">
+            <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
+            <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
+            <button type="button" data-a11y="large" aria-label="Texto grande" aria-pressed="false">A+</button>
+            <button type="button" data-a11y="xlarge" aria-label="Texto extra grande" aria-pressed="false">A++</button>
+            <button type="button" data-a11y="contrast" aria-label="Alto contraste" aria-pressed="false">
+                <i class="fa fa-adjust" aria-hidden="true"></i>
+            </button>
+            <a href="tel:147" class="accessibility-phone" aria-label="Llamar al 147">
+                <i class="fa fa-phone" aria-hidden="true"></i> 147
+            </a>
+        </div>
+    </section>
+
+    <header class="header-gcba">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
+                <div class="logo-text">
+                    <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
+                    <span class="program-name">Cuidados en Red</span>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+        <div class="container">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+                <i class="fa fa-bars" aria-hidden="true"></i> Menú
+            </button>
+            <div class="nav-links" id="nav-links">
+                <div class="nav-info">
+                    <a href="index.html">Inicio</a>
+                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                    <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
+                    <a href="el-sistema.html">El Sistema</a>
+                    <a href="transparencia.html">Transparencia</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="nav-tramites" role="group" aria-labelledby="nav-tramites-titulo">
+                    <p class="nav-tramites-titulo" id="nav-tramites-titulo">Trámites</p>
+                    <a href="elegibilidad.html"><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Es para mí?</a>
+                    <a href="inscripcion.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Inscribirme</a>
+                    <a href="estado-tramite.html"><i class="fa fa-search" aria-hidden="true"></i> Estado de mi trámite</a>
+                    <a href="nodos.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Nodos en tu barrio</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- fin:cabecera -->
+
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Ubicación">
+            <a href="index.html">Inicio</a>
+            <span class="separator" aria-hidden="true">›</span>
+            <span class="current" aria-current="page">Accesibilidad</span>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <section class="hero-documento">
+            <div class="container">
+                <h1>Declaración de accesibilidad</h1>
+                <p class="lead">Qué hacemos para que el sitio se pueda usar sin barreras y qué nos falta resolver.</p>
+            </div>
+        </section>
+
+        <section class="documento">
+            <div class="container">
+                <div class="documento-cuerpo">
+                    <div class="documento-destacado">
+                        <p><i class="fa fa-universal-access" aria-hidden="true"></i> <strong>Estado de conformidad:</strong> parcialmente conforme con las Pautas de Accesibilidad para el Contenido Web (WCAG) 2.2, nivel AA. Todo el texto del sitio cumple además el contraste de nivel AAA (7:1).</p>
+                    </div>
+
+                    <h2>Qué verificamos en cada actualización</h2>
+                    <p>Antes de publicar cualquier cambio, una batería de pruebas automáticas revisa todas las páginas en computadora, tableta y celular:</p>
+                    <ul>
+                        <li>Criterios de WCAG 2.2 nivel AA que se pueden medir automáticamente, y contraste de 7:1 en todo el texto.</li>
+                        <li>Que la página no se desplace hacia los costados en pantallas de 320 píxeles, también con el texto en su tamaño más grande.</li>
+                        <li>Que los botones de tamaño de texto y de alto contraste funcionen y recuerden tu preferencia.</li>
+                        <li>Que los trámites se puedan completar: test de elegibilidad, inscripción, consulta del estado, contacto y búsqueda de Nodos.</li>
+                    </ul>
+
+                    <h2>Herramientas del sitio</h2>
+                    <ul>
+                        <li><strong>Tamaño de texto:</strong> los botones A, A+ y A++ de la barra superior agrandan todo el texto hasta un 25%.</li>
+                        <li><strong>Alto contraste:</strong> el botón con el círculo mitad negro cambia a una paleta de mayor contraste.</li>
+                        <li><strong>Teclado:</strong> todo el sitio se puede recorrer con la tecla Tab. El primer enlace lleva directo al contenido principal.</li>
+                        <li><strong>Atención telefónica:</strong> cualquier trámite del sitio también se puede hacer llamando al <a href="tel:147">147</a>, gratis y las 24 horas.</li>
+                    </ul>
+
+                    <h2>Limitaciones conocidas</h2>
+                    <ul>
+                        <li>El mapa de <a href="nodos.html">Nodos</a> se maneja con mouse o con el dedo. La misma información (dirección, teléfono, horario y cobertura de cada Nodo) está en la lista que aparece debajo del mapa.</li>
+                        <li>Las pruebas con lectores de pantalla, como NVDA o VoiceOver, se hacen a mano y todavía no cubren todas las páginas. Por eso la conformidad es parcial.</li>
+                        <li>Los criterios que dependen del juicio de una persona, como la claridad de los textos, se revisan en cada cambio de contenido pero no se miden automáticamente.</li>
+                    </ul>
+
+                    <h2>Cómo reportar un problema</h2>
+                    <p>Si encontrás algo que no podés usar, contanos qué página era y qué pasó. Podés llamar al <a href="tel:147">147</a> o usar el <a href="contacto.html">formulario de contacto</a> eligiendo el motivo "Problema de accesibilidad". Respondemos en 48 a 72 horas hábiles.</p>
+
+                    <div class="documento-fecha">
+                        <strong>Última revisión de esta declaración:</strong> 2 de enero de 2032.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-3" aria-label="Enlaces de inscripción">
+                    <h4>INSCRIBIRSE</h4>
+                    <a href="inscripcion.html">Dejá tu teléfono</a>
+                    <a href="elegibilidad.html">¿Es para mí?</a>
+                    <a href="estado-tramite.html">Ver mi solicitud</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces informativos">
+                    <h4>INFORMACIÓN</h4>
+                    <a href="el-sistema.html">Cómo funciona</a>
+                    <a href="para-personas-mayores.html">Para personas mayores</a>
+                    <a href="para-cuidadores.html">Para personas cuidadoras</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces de contacto">
+                    <h4>CONTACTO</h4>
+                    <a href="tel:147" aria-label="Llamar al 147">147 (gratis)</a>
+                    <a href="nodos.html">Lugares en tu barrio</a>
+                    <a href="contacto.html">Todas las formas de contacto</a>
+                </nav>
+                <nav class="col-md-3" aria-label="Enlaces institucionales">
+                    <h4>GOBIERNO ABIERTO</h4>
+                    <a href="transparencia.html">Datos abiertos</a>
+                    <a href="transparencia.html#presupuesto">Presupuesto</a>
+                    <a href="politica-privacidad.html">Política de privacidad</a>
+                    <a href="terminos.html">Términos y condiciones</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
+                </nav>
+            </div>
+            <div class="footer-legal">
+                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
+                <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
+            </div>
+        </div>
+
+        <!-- DISCLAIMER DE AUTORÍA -->
+        <div class="author-disclaimer">
+            <p>
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <strong>Proyecto de diseño especulativo</strong> ·
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental,
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>.
+                Todo el contenido, concepto, diseño y código es de su autoría.
+            </p>
+        </div>
+    </footer>
+    <!-- fin:pie -->
+
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
+</body>
+</html>

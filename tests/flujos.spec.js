@@ -207,3 +207,32 @@ test('índice de El Sistema lleva a cada sección sin taparla (A-24)', async ({ 
     });
     expect(tapado).toBe(false);
 });
+
+test.describe('Piezas institucionales (A-25)', () => {
+    test('las descargas de Transparencia llevan a archivos que existen', async ({ page, request }) => {
+        await page.goto('transparencia.html');
+        const enlaces = await page.$$eval('.btn-download[href]', (as) => as.map((a) => a.getAttribute('href')));
+        expect(enlaces.length).toBeGreaterThanOrEqual(4);
+        for (const href of enlaces) {
+            expect(href, 'sin enlaces a #').not.toBe('#');
+            const r = await request.get(href);
+            expect(r.status(), href).toBe(200);
+        }
+    });
+
+    test('no quedan enlaces a # ni a redes sociales', async ({ page }) => {
+        for (const p of ['contacto.html', 'transparencia.html', 'para-cuidadores.html', 'index.html']) {
+            await page.goto(p);
+            await expect(page.locator('a[href="#"]')).toHaveCount(0);
+            await expect(page.locator('.fa-facebook-square, .fa-twitter-square, .fa-instagram')).toHaveCount(0);
+        }
+    });
+
+    test('términos y accesibilidad están enlazados desde el pie', async ({ page }) => {
+        await page.goto('index.html');
+        await page.click('footer a[href="terminos.html"]');
+        await expect(page.locator('h1')).toHaveText('Términos y condiciones de uso');
+        await page.click('footer a[href="accesibilidad.html"]');
+        await expect(page.locator('h1')).toHaveText('Declaración de accesibilidad');
+    });
+});
