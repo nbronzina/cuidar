@@ -870,6 +870,101 @@ body:has(.nav-links.open) .whatsapp-float {
 }
 
 /* ============================================
+   COMPONENTES DE CONTENIDO
+   Consolidados en 2026 a partir de los estilos en línea más repetidos (A-29)
+   ============================================ */
+
+/* Lista con ícono al costado de cada ítem */
+.lista-icono {
+    padding: 8px 0;
+    display: flex;
+    align-items: start;
+    gap: 12px;
+}
+
+.lista-icono--compacta {
+    padding: 6px 0;
+}
+
+/* Ícono que marca un ítem de lista */
+.marca {
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.marca--primaria { color: var(--color-primary); }
+.marca--acento { color: var(--color-accent-text); }
+.marca--verde { color: var(--color-secondary-text); }
+.marca--violeta { color: var(--color-purple); }
+
+/* Párrafo de lectura en tarjetas y secciones */
+.texto-cuerpo {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #444;
+    margin: 0;
+}
+
+/* Lista de advertencias ("Tiempos y limitaciones") con marca al costado */
+.lista-advertencia-item {
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+    color: #444;
+    line-height: 1.6;
+}
+
+.lista-advertencia-marca {
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-text);
+}
+
+/* Preguntas frecuentes desplegables */
+.faq-tarjeta {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--color-purple);
+}
+
+.faq-pregunta {
+    font-weight: 700;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.faq-respuesta {
+    margin-top: 20px;
+    padding-left: 16px;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Sección con fondo gris */
+.seccion-gris {
+    padding: 60px 0;
+    background-color: #F5F5F5;
+}
+
+/* Lista sin viñetas */
+.lista-simple {
+    list-style: none;
+    padding: 0;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.lista-simple--chica {
+    font-size: 1rem;
+}
+
+/* ============================================
    DOCUMENTO INSTITUCIONAL
    Privacidad, términos y declaración de accesibilidad
    ============================================ */
@@ -1172,6 +1267,12 @@ body.high-contrast {
 body.high-contrast a {
     color: #0000CC;
     text-decoration: underline;
+}
+
+/* Enlaces sobre fondos oscuros: en alto contraste van en blanco, no en azul */
+body.high-contrast .cta-section a:not(.btn),
+body.high-contrast [class*="hero"] a:not(.btn) {
+    color: #FFFFFF;
 }
 
 body.high-contrast .header-gcba {

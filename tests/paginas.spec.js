@@ -30,6 +30,19 @@ for (const pagina of PAGINAS) {
             expect(await contrasteSobreDegradados(page)).toEqual([]);
         });
 
+        test('el modo de alto contraste mantiene 7:1, también sobre degradados', async ({ browser }, info) => {
+            const context = await browser.newContext({ ...info.project.use, bypassCSP: true });
+            await redLocal(context);
+            const page = await context.newPage();
+            await page.goto(pagina + '.html');
+            await page.evaluate(() => localStorage.setItem('highContrast', 'true'));
+            await page.reload();
+            await expect(page.locator('body')).toHaveClass(/high-contrast/);
+            expect(await axe(page, { runOnly: { type: 'rule', values: ['color-contrast-enhanced'] } })).toEqual([]);
+            expect(await contrasteSobreDegradados(page)).toEqual([]);
+            await context.close();
+        });
+
         test('no tiene scroll horizontal, tampoco con texto A++', async ({ page, context }) => {
             await redLocal(context);
             for (const ancho of [320, 390, 1440]) {
