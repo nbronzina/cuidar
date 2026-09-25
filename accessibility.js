@@ -17,15 +17,17 @@ function syncA11yButtons() {
         var action = btn.getAttribute('data-a11y');
         var pressed = action === 'contrast'
             ? body.classList.contains('high-contrast')
-            : body.classList.contains('text-size-' + action);
+            : document.documentElement.classList.contains('text-size-' + action);
         btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
     });
 }
 
 function applyTextSize(size) {
     if (TEXT_SIZES.indexOf(size) === -1) size = 'normal';
-    TEXT_SIZES.forEach(function(s) { document.body.classList.remove('text-size-' + s); });
-    document.body.classList.add('text-size-' + size);
+    /* Sobre <html>: así los tamaños en rem crecen con la preferencia */
+    var root = document.documentElement;
+    TEXT_SIZES.forEach(function(s) { root.classList.remove('text-size-' + s); });
+    root.classList.add('text-size-' + size);
     syncA11yButtons();
 }
 

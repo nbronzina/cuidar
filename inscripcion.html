@@ -33,14 +33,14 @@
         }
         
         .hero-inscripcion h1 {
-            font-size: 42px;
+            font-size: 2.625rem;
             margin-bottom: 16px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         
         .hero-inscripcion .lead {
-            font-size: 20px;
+            font-size: 1.25rem;
             line-height: 1.5;
             max-width: 700px;
             margin: 0 auto;
@@ -63,7 +63,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             font-weight: 600;
-            color: #767676;
+            color: #595959;
         }
         
         .step.active {
@@ -110,7 +110,7 @@
         
         .form-section h3 {
             color: var(--color-secondary);
-            font-size: 24px;
+            font-size: 1.5rem;
             margin-bottom: 24px;
             display: flex;
             align-items: center;
@@ -126,7 +126,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 20px;
+            font-size: 1.25rem;
         }
         
         .form-group {
@@ -138,7 +138,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             color: #333;
-            font-size: 16px;
+            font-size: 1rem;
         }
         
         .form-group input,
@@ -146,9 +146,9 @@
         .form-group textarea {
             width: 100%;
             padding: 14px 16px;
-            border: 2px solid #E0E0E0;
+            border: 2px solid #767676;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 1rem;
             font-family: 'Roboto', sans-serif;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
@@ -165,7 +165,7 @@
             display: block;
             margin-top: 6px;
             color: #444;
-            font-size: 16px;
+            font-size: 1rem;
         }
         
         .form-group .help-text {
@@ -176,7 +176,7 @@
             padding: 12px;
             background-color: #E3F2FD;
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 1rem;
             color: #1565C0;
         }
         
@@ -242,7 +242,7 @@
         .info-box h3 {
             color: var(--color-primary);
             margin-bottom: 12px;
-            font-size: 18px;
+            font-size: 1.125rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -268,9 +268,9 @@
         }
         
         .alternative-methods h3 {
-            color: var(--color-accent);
+            color: var(--color-accent-text);
             margin-bottom: 24px;
-            font-size: 24px;
+            font-size: 1.5rem;
         }
         
         .alt-buttons {
@@ -293,6 +293,65 @@
         .success-message.show {
             display: block;
         }
+
+        .tramite-box {
+            background: white;
+            border: 2px dashed var(--color-secondary);
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto 24px;
+        }
+
+        .tramite-label {
+            margin: 0;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .tramite-number {
+            font-family: 'Roboto Mono', ui-monospace, Menlo, Consolas, monospace;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #1B5E20;
+            margin: 4px 0 12px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .btn-copy, .draft-clear {
+            background: white;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            border-radius: 8px;
+            padding: 8px 16px;
+            min-height: 44px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .tramite-help {
+            margin: 12px 0 0;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .draft-note {
+            background: #E3F2FD;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 1rem;
+            color: #333;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            align-items: center;
+        }
+
+        .draft-note[hidden] {
+            display: none;
+        }
         
         .success-icon {
             width: 80px;
@@ -304,7 +363,7 @@
             justify-content: center;
             margin: 0 auto 24px;
             color: white;
-            font-size: 40px;
+            font-size: 2.5rem;
             animation: scaleIn 0.5s ease-out;
         }
         
@@ -319,10 +378,10 @@
         
         @media (max-width: 767px) {
             .hero-inscripcion h1 {
-                font-size: 28px;
+                font-size: 1.75rem;
             }
             .hero-inscripcion .lead {
-                font-size: 16px;
+                font-size: 1rem;
             }
             .form-container {
                 padding: 24px;
@@ -446,22 +505,32 @@
             </div>
             
             <!-- Success Message (hidden by default) -->
-            <div id="successMessage" class="success-message" role="alert">
+            <div id="successMessage" class="success-message">
                 <div class="success-icon">
                     <i class="fa fa-check" aria-hidden="true"></i>
                 </div>
-                <h2 style="color: var(--color-secondary); font-size: 32px; margin-bottom: 16px;">
+                <h2 id="successTitle" style="color: var(--color-secondary); font-size: 2rem; margin-bottom: 16px;">
                     ¡Inscripción recibida!
                 </h2>
-                <p style="font-size: 20px; color: #333; margin-bottom: 24px; line-height: 1.6;">
+                <div class="tramite-box">
+                    <p class="tramite-label">Tu número de trámite</p>
+                    <p class="tramite-number" id="tramiteNumero"></p>
+                    <button type="button" id="copyTramite" class="btn-copy">
+                        <i class="fa fa-clone" aria-hidden="true"></i> <span>Copiar número</span>
+                    </button>
+                    <p class="tramite-help">
+                        Guardalo: lo vas a necesitar para <a href="estado-tramite.html">consultar el estado de tu solicitud</a>.
+                    </p>
+                </div>
+                <p style="font-size: 1.25rem; color: #333; margin-bottom: 24px; line-height: 1.6;">
                     Gracias por inscribirte en Cuidados en Red. 
                     <strong>Te vamos a contactar según los tiempos de tu zona (ver arriba)</strong> al teléfono que nos dejaste.
                 </p>
-                <p style="font-size: 16px; color: #444; margin-bottom: 32px;">
-                    También te enviamos un email de confirmación a <strong id="confirmedEmail"></strong>
+                <p style="font-size: 1rem; color: #444; margin-bottom: 32px;">
+                    También te enviamos el número por email a <strong id="confirmedEmail"></strong>. Puede tardar en llegar: si no lo ves, revisá la carpeta de correo no deseado.
                 </p>
                 <div style="background-color: white; padding: 24px; border-radius: 8px; max-width: 500px; margin: 0 auto;">
-                    <h3 style="color: var(--color-accent); margin-bottom: 16px; font-size: 20px;">
+                    <h3 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.25rem;">
                         <i class="fa fa-info-circle" aria-hidden="true"></i> ¿Qué sigue ahora?
                     </h3>
                     <ol style="text-align: left; padding-left: 24px; margin: 0; line-height: 1.8;">
@@ -473,13 +542,13 @@
                 </div>
                 
                 <div style="background-color: #fff3e0; padding: 16px; border-radius: 8px; margin-top: 24px; border-left: 3px solid var(--color-accent);">
-                    <p style="font-size: 16px; color: #444; margin: 0; line-height: 1.6;">
-                        <strong style="color: #e65100;">Recordá:</strong> La confirmación de inscripción no garantiza la asignación inmediata del servicio. 
+                    <p style="font-size: 1rem; color: #444; margin: 0; line-height: 1.6;">
+                        <strong style="color: var(--color-accent-text);">Recordá:</strong> La confirmación de inscripción no garantiza la asignación inmediata del servicio. 
                         Los tiempos dependen de la disponibilidad de cuidadoras en tu zona y tu situación particular.
                     </p>
                 </div>
                 <div style="margin-top: 32px;">
-                    <a href="index.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 14px 32px; font-size: 18px;">
+                    <a href="index.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 14px 32px; font-size: 1.125rem;">
                         <i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
                     </a>
                 </div>
@@ -502,33 +571,33 @@
             
             <!-- BLOQUE REALITY CHECK - FRICCIÓN REALISTA -->
             <div class="reality-check" style="margin-bottom: 32px; background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left: 4px solid var(--color-accent); padding: 24px; border-radius: 8px;">
-                <h3 style="color: #e65100; margin-bottom: 16px; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                <h3 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.125rem; display: flex; align-items: center; gap: 8px;">
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     Tiempos y limitaciones del proceso
                 </h3>
                 <ul style="list-style: none; padding: 0; margin: 0;">
                     <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
+                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
                         <strong>Tiempo de respuesta variable:</strong> En zonas norte (Palermo, Belgrano, Núñez) la espera puede extenderse a 3-4 semanas. En zona sur la respuesta es en 48-72hs.
                     </li>
                     <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
+                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
                         <strong>Documentación adicional:</strong> En la visita domiciliaria van a pedirte: DNI original, último recibo de jubilación o ANSES, comprobante de domicilio (ABL o servicio), y certificado de discapacidad si tenés.
                     </li>
                     <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
+                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
                         <strong>No todos califican:</strong> Si tenés cobertura de salud privada de alta gama o ingresos superiores a $800.000/mes, probablemente no seas elegible para el subsidio.
                     </li>
                     <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
+                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
                         <strong>Limitaciones de servicio:</strong> El programa NO cubre cuidados médicos especializados (enfermería, kinesiología), traslados en ambulancia, ni atención nocturna permanente.
                     </li>
                     <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
+                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
                         <strong>Problemas técnicos frecuentes:</strong> El sistema puede tener demoras en procesamiento. 18% de las inscripciones online requieren completar datos por teléfono.
                     </li>
                     <li style="margin-bottom: 0; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent);">⚠</span>
+                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
                         <strong>Cambio de cuidadora:</strong> Si por alguna razón necesitás cambiar de cuidadora, el proceso puede demorar 2-3 semanas adicionales y quedás sin servicio durante ese período.
                     </li>
                 </ul>
@@ -537,6 +606,11 @@
             
             <!-- Form -->
             <form class="form-container" id="inscriptionForm">
+                <p class="draft-note" id="draftNote" hidden>
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    Guardamos lo que vas escribiendo en esta pestaña para que no lo pierdas. Se borra al cerrarla y no incluye la descripción de tu situación.
+                    <button type="button" id="clearDraft" class="draft-clear">Borrar lo escrito</button>
+                </p>
                 <!-- Sección 1: Datos personales -->
                 <div class="form-section">
                     <h3>
@@ -558,7 +632,7 @@
                             <label for="dni">
                                 DNI <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <input type="text" id="dni" name="dni" required aria-required="true" placeholder="12345678" pattern="[0-9]{7,8}" maxlength="8" autocomplete="off" spellcheck="false">
+                            <input type="text" id="dni" name="dni" required aria-required="true" placeholder="12345678" pattern="[0-9]{7,8}" maxlength="8" inputmode="numeric" autocomplete="off" spellcheck="false" data-error-pattern="Escribí el DNI solo con números, sin puntos: 7 u 8 dígitos.">
                             <small>Sin puntos ni espacios</small>
                         </div>
                         
@@ -571,7 +645,7 @@
                     </div>
                     
                     <fieldset class="form-group" style="border: none; padding: 0; margin-bottom: 24px;">
-                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 16px;">
+                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 1rem;">
                             Género <span class="required" aria-label="campo requerido">*</span>
                         </legend>
                         <div class="radio-group">
@@ -684,7 +758,7 @@
                             <label for="codigoPostal">
                                 Código Postal <span class="required" aria-label="campo requerido">*</span>
                             </label>
-                            <input type="text" id="codigoPostal" name="codigoPostal" required aria-required="true" placeholder="C1234ABC" pattern="[Cc][0-9]{4}[A-Za-z]{3}" autocomplete="postal-code" spellcheck="false">
+                            <input type="text" id="codigoPostal" name="codigoPostal" required aria-required="true" placeholder="C1234ABC" pattern="[Cc][0-9]{4}[A-Za-z]{3}" autocomplete="postal-code" spellcheck="false" data-error-pattern="El código postal de la Ciudad tiene la forma C1234ABC: una C, cuatro números y tres letras.">
                             <small>Formato: C1234ABC</small>
                         </div>
                     </div>
@@ -703,7 +777,7 @@
                         <label for="telefono">
                             Teléfono <span class="required" aria-label="campo requerido">*</span>
                         </label>
-                        <input type="tel" id="telefono" name="telefono" required aria-required="true" placeholder="11 1234-5678" pattern="[0-9]{2,4}[\s\-]?[0-9]{4}[\s\-]?[0-9]{4}" autocomplete="tel">
+                        <input type="tel" id="telefono" name="telefono" required aria-required="true" placeholder="11 1234-5678" pattern="[\s\-]*([0-9][\s\-]*){10,13}" autocomplete="tel" data-error-pattern="Escribí el teléfono con código de área, por ejemplo 11 4567-8901 o 351 456-7890.">
                         <div class="help-text">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <span>A este número te vamos a llamar según la disponibilidad de tu zona. <strong>Si no contestás en 3 intentos, tu inscripción queda pausada.</strong></span>
@@ -754,7 +828,7 @@
                     </div>
                     
                     <fieldset class="form-group" style="border: none; padding: 0; margin-bottom: 24px;">
-                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 16px;">
+                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 1rem;">
                             ¿Vivís solo/a? <span class="required" aria-label="campo requerido">*</span>
                         </legend>
                         <div class="radio-group">
@@ -770,7 +844,7 @@
                     </fieldset>
                     
                     <fieldset class="form-group" style="border: none; padding: 0; margin-bottom: 24px;">
-                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 16px;">
+                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 1rem;">
                             ¿Tenés alguna obra social o prepaga? <span class="required" aria-label="campo requerido">*</span>
                         </legend>
                         <div class="radio-group">
@@ -798,7 +872,7 @@
                 <div class="form-section">
                     <div class="form-group">
                         <label class="checkbox-group">
-                            <input type="checkbox" id="privacidad" name="privacidad" required aria-required="true">
+                            <input type="checkbox" id="privacidad" name="privacidad" required aria-required="true" data-error-required="Para inscribirte necesitamos que aceptes la política de privacidad.">
                             <span>
                                 He leído y acepto la <a href="politica-privacidad.html" style="color: var(--color-primary); text-decoration: underline;" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>
                                 y autorizo el tratamiento de mis datos personales conforme a la Ley 25.326, incluyendo: datos de salud relevantes para la evaluación funcional, monitoreo domiciliario mediante dispositivos (sensor de cama, módulo de baño), análisis conversacional de voz (Tita) y reportes a familiares autorizados. Puedo revocar el monitoreo en cualquier momento sin perder acceso al programa.
@@ -819,7 +893,8 @@
                 
                 <!-- Submit Button -->
                 <div style="text-align: center; margin-top: 40px;">
-                    <button type="submit" class="btn btn-lg" style="background: linear-gradient(135deg, var(--color-secondary), #1B5E20); color: white; padding: 18px 48px; font-size: 20px; box-shadow: 0 4px 16px rgba(46,125,50,0.3);">
+                    <p class="form-status" hidden></p>
+                    <button type="submit" class="btn btn-lg" style="background: linear-gradient(135deg, var(--color-secondary), #1B5E20); color: white; padding: 18px 48px; font-size: 1.25rem; box-shadow: 0 4px 16px rgba(46,125,50,0.3);">
                         <i class="fa fa-check-circle" aria-hidden="true"></i> Completar inscripción
                     </button>
                 </div>
@@ -831,7 +906,7 @@
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                     ¿Preferís inscribirte de otra forma?
                 </h3>
-                <p style="color: #444; margin-bottom: 24px; font-size: 16px;">
+                <p style="color: #444; margin-bottom: 24px; font-size: 1rem;">
                     Podés hacerlo por teléfono o presencialmente en cualquiera de nuestros Nodos
                 </p>
                 <div class="alt-buttons">
@@ -841,7 +916,7 @@
                     <a href="nodos.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 14px 32px;">
                         <i class="fa fa-map-marker" aria-hidden="true"></i> Ver Nodos cercanos
                     </a>
-                    <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #25D366; color: white; padding: 14px 32px;">
+                    <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #075E54; color: white; padding: 14px 32px;">
                         <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
                     </a>
                 </div>
@@ -905,98 +980,134 @@
     </footer>
     
     <script src="accessibility.js"></script>
+    <script src="forms.js"></script>
     <script>
-        /* Attach form submit handler — replaces inline onsubmit */
+        var DRAFT_KEY = 'cuidar-borrador';
+        /* No se guardan en el borrador: datos de salud ni consentimientos */
+        var NOT_SAVED = ['situacion', 'privacidad', 'comunicaciones'];
+        var formDirty = false;
+
         document.addEventListener('DOMContentLoaded', function() {
             var form = document.getElementById('inscriptionForm');
-            if (form) form.addEventListener('submit', function(e) { handleInscription(e); });
+            CR.enhance(form);
+            form.addEventListener('submit', handleInscription);
+
+            // Versiones anteriores guardaban el borrador completo en localStorage: se elimina
+            try { localStorage.removeItem('cuidar-form-data'); } catch (e) { /* sin acceso */ }
+
+            restoreDraft();
+            form.addEventListener('input', onEdit);
+            form.addEventListener('change', onEdit);
+            document.getElementById('clearDraft').addEventListener('click', clearDraft);
+            document.getElementById('copyTramite').addEventListener('click', copyTramite);
         });
+
+        function onEdit() {
+            formDirty = true;
+            saveDraft();
+        }
 
         function handleInscription(event) {
             event.preventDefault();
+            var form = document.getElementById('inscriptionForm');
+            if (!CR.validateForm(form)) return;
 
-            // Get email value
-            const email = document.getElementById('email').value;
-
-            // Show loading state
-            const submitBtn = document.querySelector('#inscriptionForm button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
+            var submitBtn = form.querySelector('button[type="submit"]');
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Procesando inscripción...';
 
-            // Simulate server processing
+            // Simulación del procesamiento en el servidor
             setTimeout(function() {
-                // Hide form
-                document.getElementById('inscriptionForm').style.display = 'none';
+                var numero = CR.newNumber('CR');
+                var dni = document.getElementById('dni').value.trim();
+                CR.writeSession('cuidar-tramite', {
+                    numero: numero,
+                    dni: dni,
+                    nombre: document.getElementById('nombreCompleto').value.trim()
+                });
+
+                form.style.display = 'none';
                 document.querySelector('.info-box').style.display = 'none';
                 document.querySelector('.reality-check').style.display = 'none';
                 document.querySelector('.alternative-methods').style.display = 'none';
 
-                // Show success message
-                var successMessage = document.getElementById('successMessage');
-                successMessage.classList.add('show');
-                document.getElementById('confirmedEmail').textContent = email;
+                document.getElementById('tramiteNumero').textContent = numero;
+                document.getElementById('confirmedEmail').textContent = document.getElementById('email').value.trim();
+                document.getElementById('successMessage').classList.add('show');
 
-                // Clear saved form data and dirty flag
-                localStorage.removeItem('cuidar-form-data');
+                CR.removeSession(DRAFT_KEY);
                 formDirty = false;
-
-                // Scroll to top
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
-                // Announce to screen reader
-                announceToScreenReader('Inscripción completada exitosamente. Te contactaremos en 24 a 48 horas.');
+                CR.focusHeading(document.getElementById('successTitle'));
             }, 1800);
-
-            return false;
         }
 
-        // Form persistence with localStorage
-        function saveFormData() {
+        function copyTramite() {
+            var btn = document.getElementById('copyTramite');
+            var numero = document.getElementById('tramiteNumero').textContent;
+            var done = function() { btn.querySelector('span').textContent = 'Número copiado'; };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(numero).then(done, function() { selectNumber(); });
+            } else {
+                selectNumber();
+            }
+        }
+
+        function selectNumber() {
+            var range = document.createRange();
+            range.selectNodeContents(document.getElementById('tramiteNumero'));
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+
+        // Borrador: solo en esta pestaña (sessionStorage), sin datos de salud
+        function saveDraft() {
             var form = document.getElementById('inscriptionForm');
-            if (!form) return;
             var data = {};
-            var inputs = form.querySelectorAll('input, select, textarea');
-            inputs.forEach(function(input) {
+            form.querySelectorAll('input, select, textarea').forEach(function(input) {
+                var key = input.type === 'radio' ? input.name : input.id;
+                if (!key || NOT_SAVED.indexOf(key) !== -1) return;
                 if (input.type === 'radio') {
-                    if (input.checked) data[input.name] = input.value;
-                } else if (input.type === 'checkbox') {
-                    data[input.id] = input.checked;
-                } else {
-                    data[input.id || input.name] = input.value;
+                    if (input.checked) data[key] = input.value;
+                } else if (input.type !== 'checkbox') {
+                    data[key] = input.value;
                 }
             });
-            localStorage.setItem('cuidar-form-data', JSON.stringify(data));
+            CR.writeSession(DRAFT_KEY, data);
+            document.getElementById('draftNote').hidden = false;
         }
 
-        function restoreFormData() {
-            var saved = localStorage.getItem('cuidar-form-data');
-            if (!saved) return;
-            var data = JSON.parse(saved);
+        function restoreDraft() {
+            var data = CR.readSession(DRAFT_KEY);
+            if (!data) return;
+            var form = document.getElementById('inscriptionForm');
             Object.keys(data).forEach(function(key) {
-                var el = document.getElementById(key) || document.querySelector('[name="' + key + '"][value="' + data[key] + '"]');
-                if (!el) return;
-                if (el.type === 'radio') el.checked = true;
-                else if (el.type === 'checkbox') el.checked = data[key];
-                else el.value = data[key];
+                var el = document.getElementById(key);
+                if (el && el.type !== 'radio') {
+                    el.value = data[key];
+                    return;
+                }
+                form.querySelectorAll('input[type="radio"]').forEach(function(r) {
+                    if (r.name === key && r.value === data[key]) r.checked = true;
+                });
             });
+            document.getElementById('draftNote').hidden = false;
         }
 
-        var formDirty = false;
-        document.getElementById('inscriptionForm').addEventListener('input', function() { formDirty = true; });
+        function clearDraft() {
+            var form = document.getElementById('inscriptionForm');
+            form.reset();
+            form.querySelectorAll('[aria-invalid]').forEach(function(f) { CR.clearError(f); });
+            CR.removeSession(DRAFT_KEY);
+            formDirty = false;
+            document.getElementById('draftNote').hidden = true;
+            document.getElementById('nombreCompleto').focus();
+        }
+
         window.addEventListener('beforeunload', function(e) {
             if (formDirty) {
                 e.preventDefault();
                 e.returnValue = '';
-            }
-        });
-
-        window.addEventListener('load', function() {
-            restoreFormData();
-            var form = document.getElementById('inscriptionForm');
-            if (form) {
-                form.addEventListener('input', saveFormData);
-                form.addEventListener('change', saveFormData);
             }
         });
     </script>

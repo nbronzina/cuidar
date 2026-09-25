@@ -35,14 +35,14 @@
         }
         
         .hero-nodos h1 {
-            font-size: 42px;
+            font-size: 2.625rem;
             margin-bottom: 16px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         
         .hero-nodos .lead {
-            font-size: 20px;
+            font-size: 1.25rem;
             line-height: 1.5;
             max-width: 700px;
             margin: 0 auto;
@@ -63,16 +63,16 @@
         .filter-bar label {
             font-weight: 600;
             color: #333;
-            font-size: 16px;
+            font-size: 1rem;
         }
         
         .filter-bar select {
             flex: 1;
             min-width: 250px;
             padding: 12px 16px;
-            border: 2px solid #E0E0E0;
+            border: 2px solid #767676;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 1rem;
             font-family: 'Roboto', sans-serif;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
@@ -94,12 +94,12 @@
         .leaflet-popup-content h3 {
             margin: 0 0 8px 0;
             color: #2E7D32;
-            font-size: 16px;
+            font-size: 1rem;
         }
         
         .leaflet-popup-content p {
             margin: 4px 0;
-            font-size: 16px;
+            font-size: 1rem;
             color: #444;
         }
         
@@ -111,7 +111,7 @@
             color: white;
             text-decoration: none;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: 600;
         }
         
@@ -154,7 +154,7 @@
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 32px;
+            font-size: 2rem;
             flex-shrink: 0;
             box-shadow: 0 4px 12px rgba(46,125,50,0.3);
         }
@@ -165,13 +165,13 @@
         
         .nodo-title h3 {
             color: var(--color-secondary);
-            font-size: 26px;
+            font-size: 1.625rem;
             margin: 0 0 8px 0;
         }
         
         .nodo-title .comunas {
-            color: #999;
-            font-size: 16px;
+            color: #595959;
+            font-size: 1rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -199,7 +199,7 @@
             align-items: center;
             justify-content: center;
             color: var(--color-secondary);
-            font-size: 18px;
+            font-size: 1.125rem;
             flex-shrink: 0;
         }
         
@@ -210,14 +210,14 @@
         .info-content strong {
             display: block;
             color: #333;
-            font-size: 16px;
+            font-size: 1rem;
             margin-bottom: 4px;
         }
         
         .info-content span,
         .info-content a {
             color: #444;
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 1.6;
         }
         
@@ -246,7 +246,7 @@
             font-weight: 600;
             text-decoration: none;
             transition: color 0.3s, background-color 0.3s;
-            font-size: 16px;
+            font-size: 1rem;
         }
         
         .btn-primary {
@@ -293,7 +293,7 @@
         .info-banner h2 {
             color: var(--color-primary);
             margin-bottom: 12px;
-            font-size: 20px;
+            font-size: 1.25rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -310,23 +310,23 @@
         }
         
         .stats-box .stats-number {
-            font-size: 56px;
+            font-size: 3.5rem;
             margin: 0 0 8px 0;
             font-weight: 700;
         }
         
         .stats-box p {
-            font-size: 18px;
+            font-size: 1.125rem;
             margin: 0;
             opacity: 0.95;
         }
         
         @media (max-width: 767px) {
             .hero-nodos h1 {
-                font-size: 28px;
+                font-size: 1.75rem;
             }
             .hero-nodos .lead {
-                font-size: 16px;
+                font-size: 1rem;
             }
             .nodo-card {
                 padding: 20px;
@@ -355,6 +355,13 @@
             #map {
                 height: 350px;
             }
+        }
+
+        .filter-count {
+            margin: 0;
+            font-weight: 600;
+            color: #333;
+            flex-basis: 100%;
         }
     </style>
     <script type="application/ld+json">
@@ -475,7 +482,7 @@
             <div class="stats-box">
                 <p class="stats-number"><i class="fa fa-map-marker" aria-hidden="true"></i> 16</p>
                 <p>Nodos operativos en todas las comunas de CABA</p>
-                <p style="font-size: 16px; margin-top: 12px; opacity: 0.9;">
+                <p style="font-size: 1rem; margin-top: 12px; opacity: 0.9;">
                     <i class="fa fa-clock-o" aria-hidden="true"></i> 
                     Tiempos de espera: 2-4 semanas en zona norte, disponibilidad inmediata en zona sur
                 </p>
@@ -486,7 +493,7 @@
                 <label for="comunaFilter">
                     <i class="fa fa-filter" aria-hidden="true"></i> Filtrar por comuna:
                 </label>
-                <select id="comunaFilter" aria-label="Filtrar Nodos por comuna">
+                <select id="comunaFilter">
                     <option value="all">Todas las comunas</option>
                     <option value="1">Comuna 1</option>
                     <option value="2">Comuna 2</option>
@@ -504,6 +511,7 @@
                     <option value="14">Comuna 14</option>
                     <option value="15">Comuna 15</option>
                 </select>
+                <p class="filter-count" id="nodosCount" aria-live="polite">Mostrando los 16 Nodos</p>
             </div>
             
             <!-- Map -->
@@ -954,11 +962,11 @@
                         
                         <div class="info-item" style="background-color: #FFF3E0; border-left: 3px solid #E65100; padding: 12px; border-radius: 4px; margin-top: 12px;">
                             <div class="info-icon">
-                                <i class="fa fa-clock-o" aria-hidden="true" style="color: #E65100;"></i>
+                                <i class="fa fa-clock-o" aria-hidden="true" style="color: var(--color-accent-text);"></i>
                             </div>
                             <div class="info-content">
-                                <strong style="color: #E65100;">Lista de espera</strong>
-                                <span style="color: #444; font-size: 16px;">6-8 meses. Alta demanda en la zona</span>
+                                <strong style="color: var(--color-accent-text);">Lista de espera</strong>
+                                <span style="color: #444; font-size: 1rem;">6-8 meses. Alta demanda en la zona</span>
                             </div>
                         </div>
                     </div>
@@ -1098,7 +1106,7 @@
                             </div>
                             <div class="info-content">
                                 <strong style="color: #2E7D32;">Disponibilidad inmediata</strong>
-                                <span style="color: #444; font-size: 16px;">Sin lista de espera. Menos servicios especializados disponibles</span>
+                                <span style="color: #444; font-size: 1rem;">Sin lista de espera. Menos servicios especializados disponibles</span>
                             </div>
                         </div>
                     </div>
@@ -1302,7 +1310,7 @@
                         <a href="https://maps.google.com/?q=Av.+San+Martín+4890+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="btn-action btn-primary">
                             <i class="fa fa-map-marker" aria-hidden="true"></i> Cómo llegar
                         </a>
-                        <a href="tel:+541145551011" class="btn-action btn-secondary">
+                        <a href="tel:+541145551012" class="btn-action btn-secondary">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar
                         </a>
                         <a href="mailto:nodo.villadevoto@cuidadosenred.gob.ar" class="btn-action btn-outline">
@@ -1367,7 +1375,7 @@
                         <a href="https://maps.google.com/?q=Av.+Cabildo+3456+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="btn-action btn-primary">
                             <i class="fa fa-map-marker" aria-hidden="true"></i> Cómo llegar
                         </a>
-                        <a href="tel:+541145551012" class="btn-action btn-secondary">
+                        <a href="tel:+541145551013" class="btn-action btn-secondary">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar
                         </a>
                         <a href="mailto:nodo.coghlan@cuidadosenred.gob.ar" class="btn-action btn-outline">
@@ -1432,7 +1440,7 @@
                         <a href="https://maps.google.com/?q=Av.+Cabildo+2123+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="btn-action btn-primary">
                             <i class="fa fa-map-marker" aria-hidden="true"></i> Cómo llegar
                         </a>
-                        <a href="tel:+541145551013" class="btn-action btn-secondary">
+                        <a href="tel:+541145551014" class="btn-action btn-secondary">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar
                         </a>
                         <a href="mailto:nodo.belgrano@cuidadosenred.gob.ar" class="btn-action btn-outline">
@@ -1494,11 +1502,11 @@
                         
                         <div class="info-item" style="background-color: #FFF3E0; border-left: 3px solid #E65100; padding: 12px; border-radius: 4px; margin-top: 12px;">
                             <div class="info-icon">
-                                <i class="fa fa-clock-o" aria-hidden="true" style="color: #E65100;"></i>
+                                <i class="fa fa-clock-o" aria-hidden="true" style="color: var(--color-accent-text);"></i>
                             </div>
                             <div class="info-content">
-                                <strong style="color: #E65100;">Lista de espera</strong>
-                                <span style="color: #444; font-size: 16px;">8 meses aproximadamente. El Nodo más demandado</span>
+                                <strong style="color: var(--color-accent-text);">Lista de espera</strong>
+                                <span style="color: #444; font-size: 1rem;">8 meses aproximadamente. El Nodo más demandado</span>
                             </div>
                         </div>
                     </div>
@@ -1507,7 +1515,7 @@
                         <a href="https://maps.google.com/?q=Av.+Santa+Fe+4567+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="btn-action btn-primary">
                             <i class="fa fa-map-marker" aria-hidden="true"></i> Cómo llegar
                         </a>
-                        <a href="tel:+541145551014" class="btn-action btn-secondary">
+                        <a href="tel:+541145551015" class="btn-action btn-secondary">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar
                         </a>
                         <a href="mailto:nodo.palermo@cuidadosenred.gob.ar" class="btn-action btn-outline">
@@ -1572,7 +1580,7 @@
                         <a href="https://maps.google.com/?q=Av.+Warnes+2890+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="btn-action btn-primary">
                             <i class="fa fa-map-marker" aria-hidden="true"></i> Cómo llegar
                         </a>
-                        <a href="tel:+541145551015" class="btn-action btn-secondary">
+                        <a href="tel:+541145551016" class="btn-action btn-secondary">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar
                         </a>
                         <a href="mailto:nodo.chacarita@cuidadosenred.gob.ar" class="btn-action btn-outline">
@@ -1643,29 +1651,28 @@
     <script>
         document.getElementById('comunaFilter').addEventListener('change', filterByComuna);
 
+        var nodoMarkers = [];
+        var nodoMap = null;
+
         function filterByComuna() {
-            const selectedComuna = document.getElementById('comunaFilter').value;
-            const nodoCards = document.querySelectorAll('.nodo-card');
-            
-            nodoCards.forEach(card => {
-                if (selectedComuna === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    const comunas = card.getAttribute('data-comuna').split(',');
-                    if (comunas.includes(selectedComuna)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }
+            var selected = document.getElementById('comunaFilter').value;
+            var visible = 0;
+            document.querySelectorAll('.nodo-card').forEach(function(card) {
+                var show = selected === 'all' || card.getAttribute('data-comuna').split(',').indexOf(selected) !== -1;
+                card.style.display = show ? 'block' : 'none';
+                if (show) visible++;
             });
-            
-            const visibleCards = document.querySelectorAll('.nodo-card[style="display: block;"], .nodo-card:not([style*="display"])').length;
-            if (selectedComuna === 'all') {
-                announceToScreenReader('Mostrando todos los 16 Nodos');
-            } else {
-                announceToScreenReader(`Mostrando ${visibleCards} Nodo${visibleCards !== 1 ? 's' : ''} de la Comuna ${selectedComuna}`);
-            }
+
+            // El mapa muestra los mismos Nodos que la lista
+            nodoMarkers.forEach(function(item) {
+                var show = selected === 'all' || item.comunas.indexOf(selected) !== -1;
+                if (show && !nodoMap.hasLayer(item.marker)) item.marker.addTo(nodoMap);
+                if (!show && nodoMap.hasLayer(item.marker)) nodoMap.removeLayer(item.marker);
+            });
+
+            document.getElementById('nodosCount').textContent = selected === 'all'
+                ? 'Mostrando los 16 Nodos'
+                : 'Mostrando ' + visible + (visible === 1 ? ' Nodo' : ' Nodos') + ' de la Comuna ' + selected;
         }
         
         // Inicializar mapa cuando todo esté cargado
@@ -1678,6 +1685,7 @@
             
             // Inicializar mapa de Leaflet
             const map = L.map('map').setView([-34.6037, -58.3816], 12);
+            nodoMap = map;
             
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
@@ -1710,19 +1718,22 @@
             ];
             
             nodos.forEach(nodo => {
-                const marker = L.marker([nodo.lat, nodo.lng], { icon: nodoIcon }).addTo(map);
+                const marker = L.marker([nodo.lat, nodo.lng], { icon: nodoIcon, alt: nodo.nombre }).addTo(map);
+                nodoMarkers.push({ marker: marker, comunas: nodo.comunas.match(/\d+/g) || [] });
                 
                 const popupContent = `
                     <h3>${nodo.numero}. ${nodo.nombre}</h3>
                     <p><strong>${nodo.comunas}</strong></p>
-                    <p>📍 ${nodo.direccion}</p>
-                    <p>📞 ${nodo.telefono}</p>
-                    <p>✉️ ${nodo.email}</p>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> ${nodo.direccion}</p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i> ${nodo.telefono}</p>
+                    <p><i class="fa fa-envelope" aria-hidden="true"></i> ${nodo.email}</p>
                     <a href="https://maps.google.com/?q=${encodeURIComponent(nodo.direccion + ', Buenos Aires')}" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
                 `;
                 
                 marker.bindPopup(popupContent);
             });
+            // Si ya había un filtro elegido antes de que cargara el mapa, aplicarlo
+            filterByComuna();
         });
     </script>
 </body>

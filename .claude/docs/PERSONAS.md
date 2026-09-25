@@ -33,7 +33,7 @@ Fuente de verdad para todos los personajes que aparecen en el sitio. Antes de cr
 - **Rol:** Beneficiaria (ejemplo de seguimiento de trámite)
 - **Página:** estado-tramite.html
 - **DNI ficticio:** 12.345.678
-- **Trámite ficticio:** CER-2032-123456
+- **Trámite ficticio:** CR-2032-0041377 (DNI de ejemplo 12.345.678, se consulta en estado-tramite.html)
 - **Notas:** Ejemplo hardcodeado del seguimiento de trámite. Inscripta el 15/10/2025, contacto inicial 22/10/2025, visita reprogramada al 30/10/2025.
 
 ### Marta (ejemplo de copago - jubilación mínima)

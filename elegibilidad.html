@@ -33,14 +33,14 @@
         }
         
         .hero-elegibilidad h1 {
-            font-size: 42px;
+            font-size: 2.625rem;
             margin-bottom: 16px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         
         .hero-elegibilidad .lead {
-            font-size: 20px;
+            font-size: 1.25rem;
             line-height: 1.5;
             max-width: 700px;
             margin: 0 auto;
@@ -79,7 +79,7 @@
             color: white;
             border-radius: 50%;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 1.25rem;
             margin-bottom: 16px;
         }
         
@@ -88,7 +88,7 @@
         }
         
         .question-text {
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 600;
             color: #333;
             margin-bottom: 20px;
@@ -111,7 +111,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: border-color 0.3s, background-color 0.3s;
-            font-size: 16px;
+            font-size: 1rem;
         }
 
         .answer-option:hover {
@@ -162,7 +162,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px;
+            font-size: 3.125rem;
             animation: scaleIn 0.5s ease-out;
         }
         
@@ -224,8 +224,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-accent);
-            font-size: 20px;
+            color: var(--color-accent-text);
+            font-size: 1.25rem;
             flex-shrink: 0;
         }
         
@@ -240,7 +240,7 @@
         .info-banner h3 {
             color: var(--color-primary);
             margin-bottom: 12px;
-            font-size: 20px;
+            font-size: 1.25rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -266,7 +266,7 @@
         .progress-text {
             text-align: center;
             color: #444;
-            font-size: 16px;
+            font-size: 1rem;
             margin-bottom: 32px;
         }
         
@@ -274,7 +274,7 @@
             background: linear-gradient(135deg, var(--color-accent), #BF360C);
             color: white;
             padding: 18px 48px;
-            font-size: 20px;
+            font-size: 1.25rem;
             border-radius: 8px;
             border: none;
             font-weight: 700;
@@ -295,10 +295,10 @@
         
         @media (max-width: 767px) {
             .hero-elegibilidad h1 {
-                font-size: 28px;
+                font-size: 1.75rem;
             }
             .hero-elegibilidad .lead {
-                font-size: 16px;
+                font-size: 1rem;
             }
             .quiz-container {
                 padding: 24px;
@@ -307,12 +307,12 @@
                 padding: 20px;
             }
             .question-text {
-                font-size: 18px;
+                font-size: 1.125rem;
             }
             .result-icon {
                 width: 80px;
                 height: 80px;
-                font-size: 40px;
+                font-size: 2.5rem;
             }
         }
 
@@ -321,6 +321,13 @@
                 animation-duration: 0.01ms !important;
                 transition-duration: 0.01ms !important;
             }
+        }
+
+        .check-hint {
+            text-align: center;
+            color: #595959;
+            font-size: 1rem;
+            margin: 12px 0 0;
         }
     </style>
     <script type="application/ld+json">
@@ -408,7 +415,7 @@
     <section style="padding: 60px 0;">
         <div class="container">
             <div class="alert alert-warning" style="border-left-color: var(--color-accent);">
-                <p style="margin: 0 0 12px 0; color: var(--color-accent); font-weight: bold; font-size: 1rem;">
+                <p style="margin: 0 0 12px 0; color: var(--color-accent-text); font-weight: bold; font-size: 1rem;">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     Este test es orientativo
                 </p>
@@ -417,7 +424,7 @@
                     <strong>evaluación domiciliaria</strong>. Este test solo te ayuda a saber si vale 
                     la pena inscribirte.
                 </p>
-                <p style="color: #E65100; margin: 0; line-height: 1.6; font-size: 16px;">
+                <p style="color: var(--color-accent-text); margin: 0; line-height: 1.6; font-size: 1rem;">
                     <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Importante:</strong> Cumplir los requisitos no garantiza admisión inmediata. Puede haber lista de espera según tu zona (2-4 semanas en promedio).
                 </p>
             </div>
@@ -434,10 +441,10 @@
                 <!-- Question 1: Edad -->
                 <div class="question-card" id="q1" data-question="1">
                     <div class="question-number">1</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q1-text">
                         ¿Cuántos años tenés (o tiene la persona que recibirá el cuidado)?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q1-text">
                         <label class="answer-option">
                             <input type="radio" name="edad" value="menos60">
                             <span>Menos de 60 años</span>
@@ -460,10 +467,10 @@
                 <!-- Question 2: Residencia -->
                 <div class="question-card" id="q2" data-question="2">
                     <div class="question-number">2</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q2-text">
                         ¿Dónde vivís actualmente?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q2-text">
                         <label class="answer-option">
                             <input type="radio" name="residencia" value="caba">
                             <span>En la Ciudad de Buenos Aires (CABA)</span>
@@ -482,10 +489,10 @@
                 <!-- Question 3: Tipo de vivienda -->
                 <div class="question-card" id="q3" data-question="3">
                     <div class="question-number">3</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q3-text">
                         ¿Qué tipo de vivienda tenés?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q3-text">
                         <label class="answer-option">
                             <input type="radio" name="vivienda" value="propia">
                             <span>Casa o departamento propio</span>
@@ -512,10 +519,10 @@
                 <!-- Question 4: Autonomía -->
                 <div class="question-card" id="q4" data-question="4">
                     <div class="question-number">4</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q4-text">
                         ¿Podés realizar actividades básicas sin ayuda? (bañarte, vestirte, cocinar)
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q4-text">
                         <label class="answer-option">
                             <input type="radio" name="autonomia" value="total">
                             <span>Sí, puedo hacer todo solo/a</span>
@@ -538,10 +545,10 @@
                 <!-- Question 5: Cuidado actual -->
                 <div class="question-card" id="q5" data-question="5">
                     <div class="question-number">5</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q5-text">
                         ¿Tenés actualmente algún tipo de cuidado o asistencia?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q5-text">
                         <label class="answer-option">
                             <input type="radio" name="cuidadoActual" value="no">
                             <span>No, no tengo ningún tipo de ayuda</span>
@@ -568,10 +575,10 @@
                 <!-- Question 6: Movilidad -->
                 <div class="question-card" id="q6" data-question="6">
                     <div class="question-number">6</div>
-                    <div class="question-text">
+                    <div class="question-text" id="q6-text">
                         ¿Podés salir de tu casa solo/a?
                     </div>
-                    <div class="answer-options">
+                    <div class="answer-options" role="radiogroup" aria-labelledby="q6-text">
                         <label class="answer-option">
                             <input type="radio" name="movilidad" value="si">
                             <span>Sí, salgo sin problemas</span>
@@ -593,23 +600,25 @@
                 
                 <!-- Check Button -->
                 <div style="text-align: center; margin-top: 40px;">
-                    <button id="checkBtn" class="btn-check" disabled>
+                    <button type="button" id="checkBtn" class="btn-check" disabled aria-describedby="checkHint">
                         <i class="fa fa-check-circle" aria-hidden="true"></i> Ver resultado
                     </button>
-                    <button type="button" id="resetBtn" class="btn-reset" style="background: transparent; color: #1A5276; border: 2px solid #1A5276; padding: 14px 32px; border-radius: 8px; font-size: 18px; font-weight: 600; cursor: pointer; margin-left: 12px;">
+                    <button type="button" id="resetBtn" class="btn-reset" style="background: transparent; color: #1A5276; border: 2px solid #1A5276; padding: 14px 32px; border-radius: 8px; font-size: 1.125rem; font-weight: 600; cursor: pointer; margin-left: 12px;">
                         <i class="fa fa-refresh" aria-hidden="true"></i> Reiniciar test
                     </button>
                 </div>
                 
+                <p id="checkHint" class="check-hint">Respondé las 6 preguntas para ver tu resultado.</p>
+
                 <!-- Result Box -->
-                <div id="resultBox" class="result-box" role="alert" aria-live="polite">
+                <div id="resultBox" class="result-box">
                     <!-- Content will be inserted by JavaScript -->
                 </div>
             </div>
             
             <!-- Criteria Reference -->
             <div style="margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto;">
-                <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 32px;">
+                <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 2rem;">
                     Requisitos principales
                 </h2>
                 
@@ -619,7 +628,7 @@
                             <i class="fa fa-birthday-cake" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
+                            <strong style="color: #333; font-size: 1.125rem; display: block; margin-bottom: 4px;">
                                 Edad mínima: 60 años
                             </strong>
                             <p style="color: #444; margin: 0; line-height: 1.6;">
@@ -634,7 +643,7 @@
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
+                            <strong style="color: #333; font-size: 1.125rem; display: block; margin-bottom: 4px;">
                                 Residencia en CABA
                             </strong>
                             <p style="color: #444; margin: 0; line-height: 1.6;">
@@ -649,7 +658,7 @@
                             <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
+                            <strong style="color: #333; font-size: 1.125rem; display: block; margin-bottom: 4px;">
                                 Vivienda propia o compartida
                             </strong>
                             <p style="color: #444; margin: 0; line-height: 1.6;">
@@ -664,7 +673,7 @@
                             <i class="fa fa-heartbeat" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
+                            <strong style="color: #333; font-size: 1.125rem; display: block; margin-bottom: 4px;">
                                 Autonomía parcial o total
                             </strong>
                             <p style="color: #444; margin: 0; line-height: 1.6;">
@@ -679,7 +688,7 @@
                             <i class="fa fa-money" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="color: #333; font-size: 18px; display: block; margin-bottom: 4px;">
+                            <strong style="color: #333; font-size: 1.125rem; display: block; margin-bottom: 4px;">
                                 Evaluación socioeconómica
                             </strong>
                             <p style="color: #444; margin: 0; line-height: 1.6;">
@@ -795,6 +804,7 @@
             // Enable check button if all questions answered
             if (answeredQuestions.size === totalQuestions) {
                 document.getElementById('checkBtn').disabled = false;
+                document.getElementById('checkHint').hidden = true;
             }
         }
         
@@ -861,51 +871,50 @@
                     <div class="result-icon">
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
-                    <h2 style="color: var(--color-secondary); font-size: 36px; margin-bottom: 16px;">
+                    <h2 style="color: var(--color-secondary); font-size: 2.25rem; margin-bottom: 16px;">
                         ¡Sí, cumplís los requisitos!
                     </h2>
-                    <p style="font-size: 20px; color: #333; margin-bottom: 32px; line-height: 1.6;">
+                    <p style="font-size: 1.25rem; color: #333; margin-bottom: 32px; line-height: 1.6;">
                         Según tus respuestas, <strong>podés acceder a Cuidados en Red</strong>. 
                         El siguiente paso es inscribirte para que te hagamos una evaluación domiciliaria.
                     </p>
                     <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 32px; text-align: left;">
-                        <h3 style="color: var(--color-secondary); margin-bottom: 16px; font-size: 22px; text-align: center;">
+                        <h3 style="color: var(--color-secondary); margin-bottom: 16px; font-size: 1.375rem; text-align: center;">
                             <i class="fa fa-list-ol" aria-hidden="true"></i> Próximos pasos
                         </h3>
-                        <ol style="padding-left: 24px; margin: 0; line-height: 2; font-size: 16px;">
+                        <ol style="padding-left: 24px; margin: 0; line-height: 2; font-size: 1rem;">
                             <li><strong>Inscribite</strong> online, por teléfono o presencialmente</li>
-                            <li>Te <strong>llamamos en 24-48hs hábiles</strong> del Nodo de tu zona <span style="color: #999; font-size: 16px;">(a veces puede tardar hasta 5 días)</span></li>
-                            <li>Coordinamos una <strong>visita domiciliaria</strong> <span style="color: #999; font-size: 16px;">(puede reprogramarse por emergencias)</span></li>
-                            <li>Evaluamos tus necesidades y armamos tu plan <span style="color: #999; font-size: 16px;">(5-15 días hábiles)</span></li>
-                            <li>Asignamos persona cuidadora <span style="color: #999; font-size: 16px;">(7-21 días según disponibilidad)</span></li>
+                            <li>Te <strong>llamamos en 24-48hs hábiles</strong> del Nodo de tu zona <span style="color: #595959; font-size: 1rem;">(a veces puede tardar hasta 5 días)</span></li>
+                            <li>Coordinamos una <strong>visita domiciliaria</strong> <span style="color: #595959; font-size: 1rem;">(puede reprogramarse por emergencias)</span></li>
+                            <li>Evaluamos tus necesidades y armamos tu plan <span style="color: #595959; font-size: 1rem;">(5-15 días hábiles)</span></li>
+                            <li>Asignamos persona cuidadora <span style="color: #595959; font-size: 1rem;">(7-21 días según disponibilidad)</span></li>
                             <li>¡<strong>Empezás con el servicio</strong>!</li>
                         </ol>
                         <div style="background-color: #FFF3E0; padding: 16px; border-radius: 6px; margin-top: 16px; border-left: 4px solid var(--color-accent);">
-                            <p style="margin: 0; color: #E65100; font-size: 16px; line-height: 1.6;">
+                            <p style="margin: 0; color: var(--color-accent-text); font-size: 1rem; line-height: 1.6;">
                                 <strong><i class="fa fa-clock-o" aria-hidden="true"></i> Tiempo total estimado:</strong> Entre 3 y 8 semanas desde la inscripción hasta el inicio del servicio, dependiendo de tu zona y complejidad del caso.
                             </p>
                         </div>
                     </div>
                     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                        <a href="inscripcion.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 16px 40px; font-size: 18px;">
+                        <a href="inscripcion.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 16px 40px; font-size: 1.125rem;">
                             <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme ahora
                         </a>
-                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 18px;">
+                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 1.125rem;">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                         </a>
                     </div>
                 `;
-                announceToScreenReader('Resultado: Cumplís los requisitos para Cuidados en Red');
             } else {
                 resultBox.className = 'result-box result-not-eligible show';
                 resultBox.innerHTML = `
                     <div class="result-icon">
                         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     </div>
-                    <h2 style="color: var(--color-accent); font-size: 36px; margin-bottom: 16px;">
+                    <h2 style="color: var(--color-accent-text); font-size: 2.25rem; margin-bottom: 16px;">
                         Por el momento, no cumplís los requisitos
                     </h2>
-                    <p style="font-size: 18px; color: #333; margin-bottom: 24px; line-height: 1.6;">
+                    <p style="font-size: 1.125rem; color: #333; margin-bottom: 24px; line-height: 1.6;">
                         Según tus respuestas, hay algunos requisitos que no se cumplen:
                     </p>
                     <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 24px; text-align: left;">
@@ -914,7 +923,7 @@
                         </ul>
                     </div>
                     <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 32px;">
-                        <h3 style="color: var(--color-accent); margin-bottom: 16px; font-size: 20px;">
+                        <h3 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.25rem;">
                             <i class="fa fa-lightbulb-o" aria-hidden="true"></i> ¿Qué podés hacer?
                         </h3>
                         <p style="color: #444; margin: 0 0 16px 0; line-height: 1.6; text-align: left;">
@@ -927,19 +936,22 @@
                         </ul>
                     </div>
                     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 18px;">
+                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 1.125rem;">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147 para orientación
                         </a>
-                        <a href="contacto.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 16px 40px; font-size: 18px;">
+                        <a href="contacto.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 16px 40px; font-size: 1.125rem;">
                             <i class="fa fa-envelope" aria-hidden="true"></i> Contactanos
                         </a>
                     </div>
                 `;
-                announceToScreenReader('Resultado: Por el momento no cumplís los requisitos');
             }
             
             // Scroll to result
-            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Llevar el foco al título del resultado: el lector de pantalla lo anuncia una sola vez
+            var resultTitle = resultBox.querySelector('h2');
+            resultTitle.setAttribute('tabindex', '-1');
+            resultTitle.focus({ preventScroll: true });
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function resetQuiz() {
@@ -966,6 +978,8 @@
             // Disable check button
             var checkBtn = document.getElementById('checkBtn');
             if (checkBtn) checkBtn.disabled = true;
+            var checkHint = document.getElementById('checkHint');
+            if (checkHint) checkHint.hidden = false;
             // Scroll to top of quiz
             var quizContainer = document.querySelector('.quiz-container');
             if (quizContainer) quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });

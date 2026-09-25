@@ -185,3 +185,9 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Nivel 1: reevaluación anual
 - Nivel 2: reevaluación cada 6 meses
 - Nivel 3: reevaluación cada 3 meses
+
+### Formatos de identificadores
+- Número de trámite de inscripción: `CR-2032-NNNNNNN` (7 dígitos). Se emite al completar el formulario online y se envía por email.
+- Número de consulta (formulario de contacto): `C-2032-NNNNNNN` (7 dígitos).
+- Legajo de ejemplo en estado-tramite.html: María Isabel González, DNI 12.345.678, trámite CR-2032-0041377.
+- Plazo de respuesta a consultas por formulario: 48 a 72 horas hábiles (oficial 48 hs; ver contacto.html).

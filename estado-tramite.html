@@ -35,14 +35,14 @@
         }
         
         .hero-estado h1 {
-            font-size: 42px;
+            font-size: 2.625rem;
             margin-bottom: 16px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         
         .hero-estado .lead {
-            font-size: 20px;
+            font-size: 1.25rem;
             line-height: 1.5;
             max-width: 700px;
             margin: 0 auto;
@@ -72,15 +72,15 @@
             font-weight: 600;
             margin-bottom: 8px;
             color: #333;
-            font-size: 16px;
+            font-size: 1rem;
         }
         
         .form-group input {
             width: 100%;
             padding: 16px 20px;
-            border: 2px solid #E0E0E0;
+            border: 2px solid #767676;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-family: 'Roboto', sans-serif;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
@@ -95,14 +95,14 @@
             display: block;
             margin-top: 6px;
             color: #444;
-            font-size: 16px;
+            font-size: 1rem;
         }
         
         .btn-search {
             background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
             color: white;
             padding: 18px 48px;
-            font-size: 20px;
+            font-size: 1.25rem;
             border-radius: 8px;
             border: none;
             font-weight: 700;
@@ -146,20 +146,20 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 36px;
+            font-size: 2.25rem;
             flex-shrink: 0;
         }
         
         .status-info h2 {
             margin: 0 0 8px 0;
             color: var(--color-primary);
-            font-size: 28px;
+            font-size: 1.75rem;
         }
         
         .status-info p {
             margin: 0;
             color: #444;
-            font-size: 16px;
+            font-size: 1rem;
         }
         
         .timeline {
@@ -193,7 +193,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 18px;
+            font-size: 1.125rem;
             z-index: 1;
         }
         
@@ -230,7 +230,7 @@
         .step-content h3 {
             margin: 0 0 8px 0;
             color: var(--color-primary);
-            font-size: 20px;
+            font-size: 1.25rem;
         }
         
         .step-content p {
@@ -243,8 +243,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #888;
-            font-size: 16px;
+            color: #595959;
+            font-size: 1rem;
             font-weight: 600;
         }
         
@@ -259,7 +259,7 @@
         .next-steps h3 {
             margin: 0 0 16px 0;
             color: var(--color-primary);
-            font-size: 22px;
+            font-size: 1.375rem;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -287,7 +287,7 @@
         
         .contact-box h3 {
             color: var(--color-secondary);
-            font-size: 20px;
+            font-size: 1.25rem;
             margin: 0 0 16px 0;
             display: flex;
             align-items: center;
@@ -327,7 +327,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
         
@@ -341,8 +341,8 @@
         
         .friction-alert p {
             margin: 0;
-            color: #E65100;
-            font-size: 16px;
+            color: var(--color-accent-text);
+            font-size: 1rem;
             line-height: 1.6;
         }
         
@@ -367,7 +367,7 @@
                 left: -44px;
                 width: 36px;
                 height: 36px;
-                font-size: 16px;
+                font-size: 1rem;
             }
             
             .states-guide {
@@ -389,6 +389,58 @@
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 transition-duration: 0.01ms !important;
+            }
+        }
+
+        .demo-hint {
+            background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+            border-top: 3px solid var(--color-accent);
+            color: #3E2723;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 24px 0 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .demo-hint i {
+            color: var(--color-accent-text);
+            margin-right: 6px;
+        }
+
+        .lookup-card {
+            margin-top: 48px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border-left: 6px solid var(--color-secondary);
+        }
+
+        .lookup-card h2 {
+            color: var(--color-primary);
+            font-size: 1.75rem;
+        }
+
+        .lookup-empty {
+            border-left-color: var(--color-accent);
+        }
+
+        .lookup-state {
+            font-size: 1.25rem;
+            color: #1B5E20;
+        }
+
+        .lookup-note {
+            background: #FFF3E0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #444;
+        }
+
+        @media (max-width: 767px) {
+            .lookup-card {
+                padding: 24px;
             }
         }
     </style>
@@ -498,7 +550,7 @@
             
             <!-- Search Form -->
             <div class="search-container">
-                <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 28px;">
+                <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 1.75rem;">
                     Consultá tu solicitud
                 </h2>
                 
@@ -514,12 +566,15 @@
                             placeholder="Ej: 12345678"
                             pattern="[0-9]{7,8}"
                             maxlength="8"
+                            inputmode="numeric"
                             autocomplete="off"
+                            spellcheck="false"
+                            data-error-pattern="Escribí el DNI solo con números, sin puntos: 7 u 8 dígitos."
                         >
                         <small>Solo números, sin puntos ni espacios</small>
                     </div>
                     
-                    <div style="text-align: center; color: #888; font-weight: 600; margin: 8px 0;">
+                    <div style="text-align: center; color: #595959; font-weight: 600; margin: 8px 0;" aria-hidden="true">
                         o
                     </div>
                     
@@ -531,17 +586,39 @@
                             type="text"
                             id="tramite"
                             name="tramite"
-                            placeholder="Ej: CER-2025-123456"
+                            placeholder="Ej: CR-2032-0048213"
                             autocomplete="off"
+                            spellcheck="false"
                         >
                         <small>Lo recibiste por email cuando te inscribiste</small>
                     </div>
                     
+                    <p class="form-status" hidden></p>
                     <button type="submit" class="btn-search">
                         <i class="fa fa-search" aria-hidden="true"></i>
                         Consultar estado
                     </button>
                 </form>
+                <p class="demo-hint">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    <strong>Proyecto de diseño especulativo:</strong> para ver un trámite de ejemplo, consultá el DNI 12345678.
+                </p>
+            </div>
+
+            <!-- Sin resultados -->
+            <div class="lookup-card lookup-empty" id="notFound" style="display: none;">
+                <h2 id="notFoundTitle">No encontramos un trámite con esos datos</h2>
+                <p>Revisá que el DNI esté escrito sin puntos y que el número de trámite sea el que figura en el email de confirmación.</p>
+                <p>Si te inscribiste por teléfono o en un Nodo, puede que tu trámite todavía no aparezca en esta consulta. Llamá al <a href="tel:147">147</a> y pedí el estado de tu inscripción a Cuidados en Red.</p>
+            </div>
+
+            <!-- Trámite iniciado en esta sesión desde el formulario de inscripción -->
+            <div class="lookup-card" id="newRecord" style="display: none;">
+                <h2 id="newRecordTitle"></h2>
+                <p>DNI: <strong id="newRecordDni"></strong> | Trámite: <strong id="newRecordTramite"></strong></p>
+                <p class="lookup-state">Estado actual: <strong>Inscripción recibida</strong></p>
+                <p><strong>Próximo paso:</strong> te llama el Nodo de tu zona para coordinar la visita domiciliaria. El primer contacto suele llegar en 24 a 48 horas hábiles, pero puede tardar hasta 5 a 7 días.</p>
+                <p class="lookup-note">Si el teléfono que dejaste tiene un error, la llamada no te llega. Si pasaron más de 7 días, llamá al <a href="tel:147">147</a>.</p>
             </div>
             
             <!-- Result Container (ejemplo hardcodeado) -->
@@ -552,14 +629,14 @@
                     </div>
                     <div class="status-info">
                         <h2 id="userName">María Isabel González</h2>
-                        <p>DNI: <strong id="userDni">12.345.678</strong> | Trámite: <strong id="userTramite">CER-2032-123456</strong></p>
+                        <p>DNI: <strong id="userDni">12.345.678</strong> | Trámite: <strong id="userTramite">CR-2032-0041377</strong></p>
                     </div>
                 </div>
                 
                 <div style="text-align: center; margin-bottom: 32px;">
                     <div style="display: inline-block; padding: 12px 24px; background-color: rgba(255,255,255,0.7); border-radius: 8px;">
-                        <strong style="color: var(--color-accent); font-size: 16px;">
-                            Estado actual: <span id="currentStatus" style="font-size: 20px;">En evaluación domiciliaria</span>
+                        <strong style="color: var(--color-accent-text); font-size: 1rem;">
+                            Estado actual: <span id="currentStatus" style="font-size: 1.25rem;">En evaluación domiciliaria</span>
                         </strong>
                     </div>
                 </div>
@@ -667,7 +744,7 @@
                         <a href="tel:147" class="btn btn-primary">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                         </a>
-                        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #25D366; color: white;">
+                        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #075E54; color: white;">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
                         </a>
                     </div>
@@ -676,7 +753,7 @@
             
             <!-- States Guide -->
             <div class="states-guide">
-                <h2 style="color: var(--color-secondary); text-align: center; margin-bottom: 32px; font-size: 32px;">
+                <h2 style="color: var(--color-secondary); text-align: center; margin-bottom: 32px; font-size: 2rem;">
                     Estados posibles de tu solicitud
                 </h2>
                 
@@ -685,7 +762,7 @@
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 style="color: var(--color-secondary); font-size: 1.25rem; margin: 0 0 8px 0;">
                             Inscripción recibida
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
@@ -703,7 +780,7 @@
                         <i class="fa fa-phone" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 style="color: var(--color-secondary); font-size: 1.25rem; margin: 0 0 8px 0;">
                             Contacto inicial
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
@@ -721,7 +798,7 @@
                         <i class="fa fa-home" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 style="color: var(--color-secondary); font-size: 1.25rem; margin: 0 0 8px 0;">
                             Evaluación funcional domiciliaria
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
@@ -739,7 +816,7 @@
                         <i class="fa fa-users" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 style="color: var(--color-secondary); font-size: 1.25rem; margin: 0 0 8px 0;">
                             Asignación de nivel y persona cuidadora
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
@@ -757,7 +834,7 @@
                         <i class="fa fa-cogs" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 style="color: var(--color-secondary); font-size: 1.25rem; margin: 0 0 8px 0;">
                             Instalación de tecnología
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
@@ -775,7 +852,7 @@
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: #2E7D32; font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 style="color: #2E7D32; font-size: 1.25rem; margin: 0 0 8px 0;">
                             Servicio activo
                         </h3>
                         <p style="color: #444; margin: 0; line-height: 1.6;">
@@ -790,7 +867,7 @@
                         <i class="fa fa-pause" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-accent); font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 style="color: var(--color-accent-text); font-size: 1.25rem; margin: 0 0 8px 0;">
                             En espera (lista de espera)
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
@@ -808,7 +885,7 @@
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: #D32F2F; font-size: 20px; margin: 0 0 8px 0;">
+                        <h3 style="color: #D32F2F; font-size: 1.25rem; margin: 0 0 8px 0;">
                             No admitido
                         </h3>
                         <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
@@ -882,48 +959,70 @@
     </footer>
     
     <script src="accessibility.js"></script>
+    <script src="forms.js"></script>
     <script>
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-            searchStatus(event);
-            return false;
+        var DEMO_DNI = '12345678';
+        var DEMO_TRAMITE = 'CR-2032-0041377';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('searchForm');
+            CR.enhance(form);
+            form.addEventListener('submit', searchStatus);
         });
+
+        function showOnly(id) {
+            ['resultContainer', 'notFound', 'newRecord'].forEach(function(x) {
+                document.getElementById(x).style.display = x === id ? 'block' : 'none';
+            });
+        }
 
         function searchStatus(event) {
             event.preventDefault();
-
-            const dni = document.getElementById('dni').value;
-            const tramite = document.getElementById('tramite').value;
+            var form = document.getElementById('searchForm');
+            var dniField = document.getElementById('dni');
+            var dni = dniField.value.replace(/\D/g, '');
+            var tramite = document.getElementById('tramite').value.trim().toUpperCase();
+            var status = form.querySelector('.form-status');
 
             if (!dni && !tramite) {
-                var searchInput = document.querySelector('.search-form input');
-                if (searchInput) {
-                    searchInput.focus();
-                    searchInput.style.borderColor = '#D32F2F';
-                    searchInput.setAttribute('aria-invalid', 'true');
-                    setTimeout(function() { searchInput.style.borderColor = ''; searchInput.removeAttribute('aria-invalid'); }, 3000);
-                }
-                return false;
+                CR.showError(dniField, 'Escribí tu DNI o tu número de trámite.');
+                status.textContent = 'Necesitamos al menos uno de los dos datos para buscar tu trámite.';
+                status.hidden = false;
+                dniField.focus();
+                return;
+            }
+            CR.clearError(dniField);
+            status.hidden = true;
+            if (dniField.value && !CR.validateField(dniField)) {
+                dniField.focus();
+                return;
             }
 
-            // Show loading state
-            var searchBtn = document.querySelector('.btn-search');
+            var searchBtn = form.querySelector('.btn-search');
             var originalText = searchBtn.innerHTML;
-            if (searchBtn) {
-                searchBtn.disabled = true;
-                searchBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Buscando...';
-            }
+            searchBtn.disabled = true;
+            searchBtn.innerHTML = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Buscando...';
 
-            // Simular búsqueda con delay
+            // Simulación de la consulta al sistema
             setTimeout(function() {
-                document.getElementById('resultContainer').style.display = 'block';
-                document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                if (searchBtn) {
-                    searchBtn.disabled = false;
-                    searchBtn.innerHTML = originalText;
+                searchBtn.disabled = false;
+                searchBtn.innerHTML = originalText;
+
+                var own = CR.readSession('cuidar-tramite');
+                if (dni === DEMO_DNI || tramite === DEMO_TRAMITE) {
+                    showOnly('resultContainer');
+                    CR.focusHeading(document.getElementById('userName'));
+                } else if (own && ((dni && dni === own.dni) || (tramite && tramite === own.numero))) {
+                    document.getElementById('newRecordTitle').textContent = own.nombre || 'Tu solicitud';
+                    document.getElementById('newRecordDni').textContent = CR.formatDni(own.dni);
+                    document.getElementById('newRecordTramite').textContent = own.numero;
+                    showOnly('newRecord');
+                    CR.focusHeading(document.getElementById('newRecordTitle'));
+                } else {
+                    showOnly('notFound');
+                    CR.focusHeading(document.getElementById('notFoundTitle'));
                 }
             }, 1500);
-
-            return false;
         }
     </script>
 </body>
