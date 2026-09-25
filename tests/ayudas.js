@@ -37,4 +37,38 @@ async function axe(page, opciones) {
     }, opciones);
 }
 
-module.exports = { PAGINAS, redLocal, vigilar, axe };
+/* axe no evalúa texto sobre degradados (lo deja como "incompleto").
+   Este control mide cada texto contra todos los colores del degradado y usa el peor caso. */
+async function contrasteSobreDegradados(page) {
+    return page.evaluate(() => {
+        const colores = (s) => (s.match(/rgba?\([^)]+\)/g) || []).map((x) => x.match(/[\d.]+/g).map(Number));
+        const lum = ([r, g, b]) => {
+            const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+            return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+        };
+        const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+        const fallas = [];
+        document.querySelectorAll('body *').forEach((el) => {
+            if (![...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) return;
+            if (!el.offsetParent && getComputedStyle(el).position !== 'fixed') return;
+            let a = el, degradado = null;
+            while (a && a !== document.body) {
+                const s = getComputedStyle(a);
+                if (s.backgroundImage.includes('gradient')) { degradado = s.backgroundImage; break; }
+                if (s.backgroundColor !== 'rgba(0, 0, 0, 0)' && s.backgroundColor !== 'transparent') break;
+                a = a.parentElement;
+            }
+            if (!degradado) return;
+            const cs = getComputedStyle(el);
+            const texto = colores(cs.color)[0];
+            const paradas = colores(degradado).filter((c) => c.length < 4 || c[3] > 0.5);
+            if (!paradas.length) return;
+            const peor = Math.min(...paradas.map((c) => ratio(texto, c.slice(0, 3))));
+            const grande = parseFloat(cs.fontSize) >= 24 || (parseFloat(cs.fontSize) >= 18.66 && Number(cs.fontWeight) >= 700);
+            if (peor < (grande ? 4.5 : 7)) fallas.push(`${peor.toFixed(2)}:1 · ${el.textContent.trim().slice(0, 40)}`);
+        });
+        return [...new Set(fallas)];
+    });
+}
+
+module.exports = { PAGINAS, redLocal, vigilar, axe, contrasteSobreDegradados };

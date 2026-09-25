@@ -1,6 +1,6 @@
 // Cada página: sin errores, sin violaciones de CSP, WCAG 2.2 AA y contraste 7:1, sin scroll horizontal
 const { test, expect } = require('@playwright/test');
-const { PAGINAS, redLocal, vigilar, axe } = require('./ayudas');
+const { PAGINAS, redLocal, vigilar, axe, contrasteSobreDegradados } = require('./ayudas');
 
 for (const pagina of PAGINAS) {
     test.describe(pagina, () => {
@@ -22,6 +22,12 @@ for (const pagina of PAGINAS) {
             expect(await axe(page, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } })).toEqual([]);
             expect(await axe(page, { runOnly: { type: 'rule', values: ['color-contrast-enhanced'] } })).toEqual([]);
             await context.close();
+        });
+
+        test('el texto sobre degradados llega a 7:1 (axe no lo mide)', async ({ page, context }) => {
+            await redLocal(context);
+            await page.goto(pagina + '.html');
+            expect(await contrasteSobreDegradados(page)).toEqual([]);
         });
 
         test('no tiene scroll horizontal, tampoco con texto A++', async ({ page, context }) => {

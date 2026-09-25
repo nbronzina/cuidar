@@ -255,3 +255,18 @@ test('ningún enlace lleva a un número inventado (placeholders)', async ({ page
     await expect(page).toHaveURL(/contacto\.html#whatsapp$/);
     await expect(page.locator('#whatsapp')).toContainText('Nunca te vamos a pedir claves');
 });
+
+test('el botón de WhatsApp no tapa el final de la página ni el menú abierto (A-34)', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('contacto.html');
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    const tapa = await page.evaluate(() => {
+        const b = document.querySelector('.whatsapp-float').getBoundingClientRect();
+        const texto = document.querySelector('.author-disclaimer p').getBoundingClientRect();
+        return !(b.bottom < texto.top || b.top > texto.bottom);
+    });
+    expect(tapa).toBe(false);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.click('.nav-toggle');
+    await expect(page.locator('.whatsapp-float')).toBeHidden();
+});

@@ -1,5 +1,9 @@
 /* elegibilidad.html — Cuidados en Red */
 
+function prefiereMenosMovimiento() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 let answeredQuestions = new Set();
 const totalQuestions = 6;
 
@@ -187,7 +191,7 @@ function showResult(reasons, answers) {
     var resultTitle = resultBox.querySelector('h2');
     resultTitle.setAttribute('tabindex', '-1');
     resultTitle.focus({ preventScroll: true });
-    resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    resultBox.scrollIntoView({ behavior: prefiereMenosMovimiento() ? 'auto' : 'smooth', block: 'start' });
 }
 
 function resetQuiz() {
@@ -218,7 +222,7 @@ function resetQuiz() {
     if (checkHint) checkHint.hidden = false;
     // Scroll to top of quiz
     var quizContainer = document.querySelector('.quiz-container');
-    if (quizContainer) quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (quizContainer) quizContainer.scrollIntoView({ behavior: prefiereMenosMovimiento() ? 'auto' : 'smooth', block: 'start' });
     // Announce to screen reader
     if (typeof announceToScreenReader === 'function') {
         announceToScreenReader('Test reiniciado. Podés comenzar de nuevo.');

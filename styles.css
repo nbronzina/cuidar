@@ -691,7 +691,7 @@ footer a:hover {
    ============================================ */
 
 .author-disclaimer {
-    background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+    background: linear-gradient(135deg, #FFF3E0, #FFEFDC);
     border-top: 3px solid #E65100;
     padding: 24px 20px;
     margin-top: 40px;
@@ -710,13 +710,13 @@ footer a:hover {
 }
 
 .author-disclaimer strong {
-    color: #E65100;
+    color: #7A2B00;
     font-weight: 600;
 }
 
 .author-disclaimer i {
     margin-right: 8px;
-    color: #E65100;
+    color: #7A2B00;
 }
 
 /* ============================================
@@ -741,6 +741,11 @@ footer a:hover {
     justify-content: center;
     transition: transform 0.3s, box-shadow 0.3s;
     text-decoration: none;
+}
+
+/* Con el menú abierto, el botón no se superpone a las opciones */
+body:has(.nav-links.open) .whatsapp-float {
+    display: none;
 }
 
 .whatsapp-float:hover {
@@ -974,7 +979,7 @@ footer a:hover {
 }
 
 .documento-destacado {
-    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    background: linear-gradient(135deg, #E3F2FD, #E0F0FD);
     border-left: 4px solid var(--color-primary);
     padding: 24px;
     border-radius: 8px;
@@ -1087,12 +1092,14 @@ footer a:hover {
         width: 56px;
         height: 56px;
         font-size: 1.875rem;
-        bottom: 80px;
-        right: 20px;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        right: 16px;
     }
 
+
+    /* El último bloque deja lugar para el botón flotante de WhatsApp */
     .author-disclaimer {
-        padding: 20px 15px;
+        padding: 20px 15px 96px;
     }
 
     .author-disclaimer p {
@@ -1325,7 +1332,7 @@ body.high-contrast *:focus-visible {
 .alert-warning {
     background-color: #FFF3E0;
     border-left-color: var(--color-accent);
-    color: #E65100;
+    color: var(--color-accent-text);
 }
 
 /* Cards */

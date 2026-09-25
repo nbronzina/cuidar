@@ -24,7 +24,7 @@ description: >
 | **Gris secundario** | `#505050` | 8,2:1 AAA | Texto secundario (autores, sublabels, notas); mantiene 7:1 sobre los fondos tintados. No usar #595959, #767676, #888 ni #999 para texto |
 | **Fondo claro** | `#F5F5F5` | — | Secciones alternadas, fondos de tarjetas |
 
-Sobre fondos tintados (`#FFF3E0`, `#E3F2FD`, `#E8F5E9`) los contrastes bajan un 8–10 %. Azul sobre `#E3F2FD`: usar `#0D47A1`. Rojo como texto: `#9A1515`. El sitio pasa axe `color-contrast-enhanced` (7:1) en las 11 páginas.
+Sobre fondos tintados (`#FFF3E0`, `#E3F2FD`, `#E8F5E9`) los contrastes bajan un 8–10 %. Azul sobre `#E3F2FD`: usar `#0D47A1`. Rojo como texto: `#9A1515`. El sitio pasa axe `color-contrast-enhanced` (7:1) en todas las páginas. **Degradados:** axe no mide texto sobre degradados; `tests/ayudas.js` (`contrasteSobreDegradados`) lo verifica contra cada color del degradado. Para fondos naranjas con texto blanco usar `linear-gradient(135deg, var(--color-accent-text), #6B2600)`; los extremos claros son `#FFEFDC` (naranja), `#E0F0FD` (azul) y `#EEDDF1` (violeta).
 
 ### Colores auxiliares (ya en styles.css como variables)
 - `--color-primary`: `#1A5276`
