@@ -215,4 +215,4 @@ Las calles son reales y están dentro del barrio de cada Nodo (Coghlan y Villa D
 ### Consulta del estado de trámite (verificación de identidad)
 - Se piden dos datos: DNI + fecha de nacimiento, o DNI + número de trámite. Si no coinciden, el mensaje es el mismo en todos los casos (no se revela si el DNI existe).
 - 3 intentos sin coincidencia bloquean la consulta durante 15 minutos; mientras tanto se deriva al 147, que pide los mismos datos.
-- Legajo de ejemplo: DNI 12.345.678, nacida el 14/03/1956, trámite CR-2032-0041377.
+- Legajo de ejemplo: DNI 12.345.678, nacida el 14/03/1956, trámite CR-2032-0041377. La página no lo anuncia (sin aviso de demostración); sirve para probar el flujo.
