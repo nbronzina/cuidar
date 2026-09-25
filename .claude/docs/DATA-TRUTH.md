@@ -48,12 +48,14 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 ## Datos ficticios (del sistema 2032)
 
 ### Cobertura y escala
-- 42.187 personas mayores atendidas
-- 2.543 personas cuidadoras certificadas
+- 13.874 personas mayores atendidas (revisado en 2026: la cifra anterior, 42.187, no cerraba con el presupuesto ni con la cantidad de personas cuidadoras)
+- 4.200 personas cuidadoras activas en el sistema, contratadas a través de cooperativas reguladas por el GCBA
+  - 2.543 con certificación completa
+  - 1.657 en período de prueba supervisado (6 meses)
+- 91% de las horas asignadas se cumplen; el 9% restante se pierde por ausencias y reemplazos que no llegan a tiempo
 - 847 en lista de espera (tiempo promedio: 21 días)
-- 16 Nodos en toda la Ciudad
-- 8 comunas con cobertura
-- 4.200 cuidadoras en cooperativas reguladas GCBA
+- 16 Nodos en las 15 comunas
+- 8 comunas con cobertura completa y 7 con cobertura parcial (ver "Cobertura por comuna")
 - 150+ organizaciones comunitarias trabajando en red
 - 45 Centros de Día en toda CABA
 
@@ -90,7 +92,7 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Capacitación paga: $340.000/mes por 3 meses
 - Vacaciones: 14 días por año
 - Jornada: 40 horas semanales
-- 4-8 usuarios por cuidadora
+- 2 a 5 personas por cuidadora según el nivel (Nivel 1: hasta 5; Nivel 3: 1 o 2)
 - Rotación anual de equipos: ~15%
 - Rotación anual de cuidadoras: 18%
 
@@ -111,17 +113,31 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - 65% resueltas sin intervención humana
 - 35% escaladas a operador
 
-### Tiempos del sistema
-- Contacto inicial tras inscripción: 24-48 hs (puede tardar hasta 5-7 días)
-- Evaluación funcional: 15-30 días hábiles desde inscripción
-- Asignación de cuidadora: 7-21 días según disponibilidad
-- Tiempo total inscripción → servicio: 15-45 días (3-8 semanas)
-- Instalación tecnología: 2-3 horas
+### Tiempos del sistema (fuente única: usar estos valores en todas las páginas)
+
+| Etapa | Plazo oficial | Real en zonas centro, sur y oeste | Real en Nodos con lista de espera |
+|---|---|---|---|
+| Primer contacto tras inscribirse | 24-48 horas hábiles | 48-72 horas hábiles | hasta 5-7 días hábiles |
+| Evaluación domiciliaria | 15 días hábiles | 15-20 días hábiles | hasta 30 días hábiles |
+| Asignación de persona cuidadora | 7 días | 7-14 días | 14-21 días, o lista de espera |
+| Total inscripción → inicio del servicio | 3-4 semanas | 3-5 semanas | 6-8 semanas |
+| Lista de espera | — | sin lista de espera | 2-3 meses (Nodo Palermo: hasta 4 meses) |
+
+- Nodos con lista de espera: Palermo, Belgrano, Recoleta y Caballito.
+- Promedio general de lista de espera: 21 días (847 personas).
+- Instalación de tecnología: 2-3 horas
 - Visita domiciliaria: 90 minutos
-- Reemplazo cuidadora enferma: 24-48 horas
-- Lista de espera zona norte (Belgrano, Palermo, Recoleta): 2-4 meses / 6-8 meses
-- Lista de espera zona sur: disponibilidad casi inmediata
-- Tiempo promedio lista de espera general: 30-45 días
+- Reemplazo de persona cuidadora enferma: 24-48 horas
+- Cambio de persona cuidadora a pedido: 2-3 semanas, con brecha de servicio
+
+### Cobertura por comuna
+"Cobertura completa": el Nodo tiene equipo interdisciplinario completo, tecnología instalable y personas cuidadoras suficientes para asignar sin lista de espera.
+
+- Cobertura completa (8): Comunas 1, 3, 4, 5, 7, 10, 12 y 15.
+- Cobertura parcial (7):
+  - Comuna 2 (Recoleta), 6 (Caballito), 13 (Belgrano) y 14 (Palermo): lista de espera por demanda mayor a la cantidad de personas cuidadoras.
+  - Comuna 8 (Villa Lugano): el Nodo funciona en una sede provisoria por la obra demorada; la tecnología se instala con demora.
+  - Comunas 9 (Liniers) y 11 (Villa Devoto): Nodos abiertos en 2032, con el equipo interdisciplinario todavía incompleto.
 
 ### Tecnología
 - Sensor de cama: $30-50 USD por unidad a escala pública
@@ -144,9 +160,7 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Crisis pagos 2028: hasta 45 días de demora, 16 cuidadoras renunciaron, 8 meses de retraso en expansión
 - Inscripción online: 18% requiere seguimiento telefónico por problemas técnicos
 - Cambio de cuidadora: proceso tarda 2-3 semanas con brecha de servicio
-- Zona norte (Palermo, Belgrano, Núñez): 3-4 semanas de espera para contacto inicial
-- Zona sur: 48-72 horas de respuesta
-- Nodo Palermo: ~8 meses de espera (más demandado)
+- Nodo Palermo: hasta 4 meses de lista de espera (el más demandado)
 
 ### Horarios de los Nodos
 - Lunes a viernes: 8-18 hs

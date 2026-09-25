@@ -8,13 +8,13 @@
     <meta property="og:title" content="¿Es para mí? — Test de Elegibilidad | Cuidados en Red">
     <meta property="og:description" content="Verificá en 2 minutos si cumplís los requisitos para acceder a Cuidados en Red. Test online con resultado inmediato, sin necesidad de registrarte.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/elegibilidad.html">
+    <meta property="og:url" content="https://nbronzina.github.io/cuidar/elegibilidad.html">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
     <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
-    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/elegibilidad.html">
+    <link rel="canonical" href="https://nbronzina.github.io/cuidar/elegibilidad.html">
     <title>¿Es para mí? — Test de Elegibilidad | Cuidados en Red</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -338,12 +338,12 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Inicio",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+        "item": "https://nbronzina.github.io/cuidar/"
       }, {
         "@type": "ListItem",
         "position": 2,
         "name": "Test de elegibilidad",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/elegibilidad.html"
+        "item": "https://nbronzina.github.io/cuidar/elegibilidad.html"
       }]
     }
     </script>
@@ -425,7 +425,7 @@
                     la pena inscribirte.
                 </p>
                 <p style="color: var(--color-accent-text); margin: 0; line-height: 1.6; font-size: 1rem;">
-                    <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Importante:</strong> Cumplir los requisitos no garantiza admisión inmediata. Puede haber lista de espera según tu zona (2-4 semanas en promedio).
+                    <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Importante:</strong> Cumplir los requisitos no garantiza admisión inmediata. Puede haber lista de espera según tu zona (21 días en promedio; en Palermo, Belgrano, Recoleta y Caballito, de 2 a 3 meses).
                 </p>
             </div>
             
@@ -659,11 +659,11 @@
                         </div>
                         <div>
                             <strong style="color: #333; font-size: 1.125rem; display: block; margin-bottom: 4px;">
-                                Vivienda propia o compartida
+                                Vivir en tu casa, o querer volver a ella
                             </strong>
                             <p style="color: #444; margin: 0; line-height: 1.6;">
-                                El servicio es domiciliario. Si estás en un geriátrico o residencia, 
-                                Cuidados en Red no aplica (pero podés consultar por otros programas del GCBA).
+                                El servicio es domiciliario: puede ser tu casa, alquilada o compartida con familiares.
+                                Si hoy vivís en un geriátrico o residencia, podés acceder por la vía de retorno a tu casa, que se planifica con el Nodo.
                             </p>
                         </div>
                     </div>
@@ -674,11 +674,11 @@
                         </div>
                         <div>
                             <strong style="color: #333; font-size: 1.125rem; display: block; margin-bottom: 4px;">
-                                Autonomía parcial o total
+                                Cualquier nivel de autonomía
                             </strong>
                             <p style="color: #444; margin: 0; line-height: 1.6;">
-                                Cuidados en Red es para personas que pueden vivir en su casa con apoyo. 
-                                Si necesitás cuidado permanente 24/7, te orientamos hacia otros servicios más adecuados.
+                                Si necesitás mucha ayuda, te corresponde el Nivel 3 (70 a 100 horas por mes).
+                                El servicio no es cuidado permanente las 24 horas: si lo necesitás, en la evaluación armamos cómo combinarlo con tu familia u otros programas.
                             </p>
                         </div>
                     </div>
@@ -741,7 +741,8 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
+                <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
         <!-- DISCLAIMER DE AUTORÍA -->
@@ -758,6 +759,7 @@
     </footer>
     
     <script src="accessibility.js"></script>
+    <script src="mundo.js"></script>
     <script>
         let answeredQuestions = new Set();
         const totalQuestions = 6;
@@ -819,134 +821,129 @@
             progressBar.setAttribute('aria-valuenow', percentage);
         }
         
-        function checkEligibility() {
-            // Get answers
-            const edad = document.querySelector('input[name="edad"]:checked').value;
-            const residencia = document.querySelector('input[name="residencia"]:checked').value;
-            const vivienda = document.querySelector('input[name="vivienda"]:checked').value;
-            const autonomia = document.querySelector('input[name="autonomia"]:checked').value;
-            const cuidadoActual = document.querySelector('input[name="cuidadoActual"]:checked').value;
-            const movilidad = document.querySelector('input[name="movilidad"]:checked').value;
-            
-            // Determine eligibility
-            let eligible = true;
-            let reasons = [];
-            
-            // Check age
-            if (edad === 'menos60') {
-                eligible = false;
-                reasons.push('Tenés menos de 60 años. El programa está destinado a mayores de 60.');
-            }
-            
-            // Check residence
-            if (residencia !== 'caba') {
-                eligible = false;
-                reasons.push('Vivís fuera de CABA. El programa solo cubre la Ciudad de Buenos Aires.');
-            }
-            
-            // Check housing
-            if (vivienda === 'geriatrico') {
-                eligible = false;
-                reasons.push('Estás en un geriátrico. Cuidados en Red es un servicio domiciliario para personas que viven en su casa.');
-            }
-            
-            // Check autonomy
-            if (autonomia === 'dependiente') {
-                eligible = false;
-                reasons.push('Necesitás cuidado permanente 24/7. Cuidados en Red te puede orientar hacia servicios más intensivos.');
-            }
-            
-            // Show result
-            showResult(eligible, reasons, {
-                edad, residencia, vivienda, autonomia, cuidadoActual, movilidad
-            });
+        var NIVELES = {
+            0: { nombre: 'Nivel 0 (Universal)', horas: 'evaluación, teleasistencia y seguimiento del Nodo, sin horas de persona cuidadora' },
+            1: { nombre: 'Nivel 1 (Leve)', horas: 'entre 20 y 40 horas por mes de persona cuidadora' },
+            2: { nombre: 'Nivel 2 (Moderado)', horas: 'entre 40 y 70 horas por mes de persona cuidadora' },
+            3: { nombre: 'Nivel 3 (Severo)', horas: 'entre 70 y 100 horas por mes de persona cuidadora' }
+        };
+
+        function nivelOrientativo(answers) {
+            var base = { total: 0, parcial: 1, minima: 2, dependiente: 3 }[answers.autonomia];
+            var movilidad = { si: 0, dificultad: 0, ayuda: 1, no: 1 }[answers.movilidad];
+            return Math.min(3, base + movilidad);
         }
-        
-        function showResult(eligible, reasons, answers) {
-            const resultBox = document.getElementById('resultBox');
-            
-            if (eligible) {
-                resultBox.className = 'result-box result-eligible show';
-                resultBox.innerHTML = `
-                    <div class="result-icon">
-                        <i class="fa fa-check" aria-hidden="true"></i>
-                    </div>
-                    <h2 style="color: var(--color-secondary); font-size: 2.25rem; margin-bottom: 16px;">
-                        ¡Sí, cumplís los requisitos!
-                    </h2>
-                    <p style="font-size: 1.25rem; color: #333; margin-bottom: 32px; line-height: 1.6;">
-                        Según tus respuestas, <strong>podés acceder a Cuidados en Red</strong>. 
-                        El siguiente paso es inscribirte para que te hagamos una evaluación domiciliaria.
-                    </p>
-                    <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 32px; text-align: left;">
-                        <h3 style="color: var(--color-secondary); margin-bottom: 16px; font-size: 1.375rem; text-align: center;">
-                            <i class="fa fa-list-ol" aria-hidden="true"></i> Próximos pasos
-                        </h3>
-                        <ol style="padding-left: 24px; margin: 0; line-height: 2; font-size: 1rem;">
-                            <li><strong>Inscribite</strong> online, por teléfono o presencialmente</li>
-                            <li>Te <strong>llamamos en 24-48hs hábiles</strong> del Nodo de tu zona <span style="color: #595959; font-size: 1rem;">(a veces puede tardar hasta 5 días)</span></li>
-                            <li>Coordinamos una <strong>visita domiciliaria</strong> <span style="color: #595959; font-size: 1rem;">(puede reprogramarse por emergencias)</span></li>
-                            <li>Evaluamos tus necesidades y armamos tu plan <span style="color: #595959; font-size: 1rem;">(5-15 días hábiles)</span></li>
-                            <li>Asignamos persona cuidadora <span style="color: #595959; font-size: 1rem;">(7-21 días según disponibilidad)</span></li>
-                            <li>¡<strong>Empezás con el servicio</strong>!</li>
-                        </ol>
-                        <div style="background-color: #FFF3E0; padding: 16px; border-radius: 6px; margin-top: 16px; border-left: 4px solid var(--color-accent);">
-                            <p style="margin: 0; color: var(--color-accent-text); font-size: 1rem; line-height: 1.6;">
-                                <strong><i class="fa fa-clock-o" aria-hidden="true"></i> Tiempo total estimado:</strong> Entre 3 y 8 semanas desde la inscripción hasta el inicio del servicio, dependiendo de tu zona y complejidad del caso.
-                            </p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                        <a href="inscripcion.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 16px 40px; font-size: 1.125rem;">
-                            <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme ahora
-                        </a>
-                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 1.125rem;">
-                            <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
-                        </a>
-                    </div>
-                `;
-            } else {
-                resultBox.className = 'result-box result-not-eligible show';
-                resultBox.innerHTML = `
-                    <div class="result-icon">
-                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                    </div>
-                    <h2 style="color: var(--color-accent-text); font-size: 2.25rem; margin-bottom: 16px;">
-                        Por el momento, no cumplís los requisitos
-                    </h2>
-                    <p style="font-size: 1.125rem; color: #333; margin-bottom: 24px; line-height: 1.6;">
-                        Según tus respuestas, hay algunos requisitos que no se cumplen:
-                    </p>
-                    <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 24px; text-align: left;">
-                        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444;">
-                            ${reasons.map(r => `<li>${r}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div style="background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 32px;">
-                        <h3 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.25rem;">
-                            <i class="fa fa-lightbulb-o" aria-hidden="true"></i> ¿Qué podés hacer?
-                        </h3>
-                        <p style="color: #444; margin: 0 0 16px 0; line-height: 1.6; text-align: left;">
-                            Aunque no califiques para Cuidados en Red, la Ciudad tiene otros programas:
-                        </p>
-                        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444; text-align: left;">
-                            <li><strong>Residencias para mayores</strong> (si estás en geriátrico)</li>
-                            <li><strong>Asistencia domiciliaria intensiva</strong> (si necesitás cuidado 24/7)</li>
-                            <li><strong>Centros de día</strong> (si vivís fuera de CABA pero cerca)</li>
-                        </ul>
-                    </div>
-                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                        <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 1.125rem;">
-                            <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147 para orientación
-                        </a>
-                        <a href="contacto.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 16px 40px; font-size: 1.125rem;">
-                            <i class="fa fa-envelope" aria-hidden="true"></i> Contactanos
-                        </a>
-                    </div>
-                `;
+
+        function checkEligibility() {
+            var q = function(name) { return document.querySelector('input[name="' + name + '"]:checked').value; };
+            var answers = {
+                edad: q('edad'), residencia: q('residencia'), vivienda: q('vivienda'),
+                autonomia: q('autonomia'), cuidadoActual: q('cuidadoActual'), movilidad: q('movilidad')
+            };
+
+            // Solo la edad y el domicilio impiden el acceso
+            var reasons = [];
+            if (answers.edad === 'menos60') {
+                reasons.push('Tenés menos de 60 años. El programa está destinado a personas de 60 años o más.');
             }
-            
-            // Scroll to result
+            if (answers.residencia !== 'caba') {
+                reasons.push('Vivís fuera de CABA. El programa cubre solo la Ciudad de Buenos Aires.');
+            }
+
+            showResult(reasons, answers);
+        }
+
+        function stepList(items) {
+            return '<ol style="padding-left: 24px; margin: 0; line-height: 2; font-size: 1rem;">' +
+                items.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ol>';
+        }
+
+        function actionButtons(primaryHref, primaryText) {
+            return '<div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">' +
+                '<a href="' + primaryHref + '" class="btn" style="background-color: #1B5E20; color: white; padding: 16px 40px; font-size: 1.125rem;"><i class="fa fa-edit" aria-hidden="true"></i> ' + primaryText + '</a>' +
+                '<a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 1.125rem;"><i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147</a>' +
+                '</div>';
+        }
+
+        function showResult(reasons, answers) {
+            var resultBox = document.getElementById('resultBox');
+            var nivel = NIVELES[nivelOrientativo(answers)];
+            var box = 'background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 24px; text-align: left;';
+            var note = 'background-color: #FFF3E0; padding: 16px; border-radius: 6px; margin-top: 16px; border-left: 4px solid var(--color-accent);';
+            var noteText = 'margin: 0; color: var(--color-accent-text); font-size: 1rem; line-height: 1.6;';
+
+            var nivelHtml =
+                '<div style="' + box + '">' +
+                    '<h3 style="color: var(--color-primary); margin-bottom: 8px; font-size: 1.25rem;"><i class="fa fa-sliders" aria-hidden="true"></i> Tu nivel de cuidado orientativo</h3>' +
+                    '<p style="margin: 0 0 8px; color: #333;"><strong>' + nivel.nombre + ':</strong> ' + nivel.horas + '.</p>' +
+                    '<p style="margin: 0; color: #595959; font-size: 1rem;">Es una estimación según tus respuestas. El nivel definitivo se decide en la evaluación domiciliaria.</p>' +
+                    (answers.autonomia === 'dependiente'
+                        ? '<div style="' + note + '"><p style="' + noteText + '"><strong>Tené en cuenta:</strong> el servicio llega hasta 100 horas por mes, no es cuidado permanente las 24 horas. Si necesitás compañía todo el día, en la evaluación armamos cómo combinarlo con tu familia u otros programas.</p></div>'
+                        : '') +
+                    (answers.cuidadoActual === 'no'
+                        ? '<p style="margin: 12px 0 0; color: #1B5E20;"><i class="fa fa-flag" aria-hidden="true"></i> Como hoy nadie te ayuda en tu casa, tu inscripción tiene prioridad.</p>'
+                        : '') +
+                '</div>';
+
+            if (reasons.length) {
+                resultBox.className = 'result-box result-not-eligible show';
+                var alternativas = [];
+                if (answers.edad === 'menos60') {
+                    alternativas.push('<li>Si tenés entre 55 y 59 años y una discapacidad o una enfermedad crónica, llamá al 147: se evalúan casos excepcionales.</li>');
+                }
+                if (answers.residencia !== 'caba') {
+                    alternativas.push('<li>Consultá los programas de cuidado de tu municipio. Si tenés PAMI, preguntá en tu agencia por las prestaciones para personas mayores.</li>');
+                }
+                resultBox.innerHTML =
+                    '<div class="result-icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div>' +
+                    '<h2 style="color: var(--color-accent-text); font-size: 2.25rem; margin-bottom: 16px;">Por el momento, no cumplís los requisitos</h2>' +
+                    '<p style="font-size: 1.125rem; color: #333; margin-bottom: 24px; line-height: 1.6;">Según tus respuestas, hay requisitos que no se cumplen:</p>' +
+                    '<div style="' + box + '"><ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444;">' +
+                        reasons.map(function(r) { return '<li>' + r + '</li>'; }).join('') + '</ul></div>' +
+                    '<div style="' + box + '"><h3 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.25rem;"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ¿Qué podés hacer?</h3>' +
+                        '<ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444;">' + alternativas.join('') + '</ul></div>' +
+                    '<div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">' +
+                        '<a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 1.125rem;"><i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147 para orientación</a>' +
+                        '<a href="contacto.html" class="btn" style="background-color: #1B5E20; color: white; padding: 16px 40px; font-size: 1.125rem;"><i class="fa fa-envelope" aria-hidden="true"></i> Contactanos</a>' +
+                    '</div>';
+            } else if (answers.vivienda === 'geriatrico') {
+                resultBox.className = 'result-box result-eligible show';
+                resultBox.innerHTML =
+                    '<div class="result-icon"><i class="fa fa-home" aria-hidden="true"></i></div>' +
+                    '<h2 style="color: #1B5E20; font-size: 2.25rem; margin-bottom: 16px;">Podés acceder por la vía de retorno a tu casa</h2>' +
+                    '<p style="font-size: 1.25rem; color: #333; margin-bottom: 32px; line-height: 1.6;">Cuidados en Red nació para acompañar a personas que viven en una residencia y quieren volver a su casa. Tu caso entra por esa vía.</p>' +
+                    '<div style="' + box + '"><h3 style="color: #1B5E20; margin-bottom: 16px; font-size: 1.375rem; text-align: center;"><i class="fa fa-list-ol" aria-hidden="true"></i> Cómo es la vuelta</h3>' +
+                        stepList([
+                            '<strong>Inscribite</strong> y contá en “Contanos tu situación” que hoy vivís en una residencia',
+                            'El Nodo evalúa <strong>la vivienda a la que volverías</strong> (tuya o de un familiar) y tu nivel de cuidado',
+                            'Armamos el <strong>plan de vuelta</strong>: persona cuidadora y tecnología listas antes de que llegues',
+                            '¡<strong>Volvés a tu casa</strong> con el servicio funcionando!'
+                        ]) +
+                        '<div style="' + note + '"><p style="' + noteText + '"><strong>La vuelta no es inmediata:</strong> se planifica con el equipo del Nodo y depende de que la vivienda esté en condiciones y de que haya personas cuidadoras disponibles en tu zona.</p></div>' +
+                    '</div>' +
+                    nivelHtml +
+                    actionButtons('inscripcion.html', 'Inscribirme');
+            } else {
+                resultBox.className = 'result-box result-eligible show';
+                resultBox.innerHTML =
+                    '<div class="result-icon"><i class="fa fa-check" aria-hidden="true"></i></div>' +
+                    '<h2 style="color: #1B5E20; font-size: 2.25rem; margin-bottom: 16px;">¡Sí, cumplís los requisitos!</h2>' +
+                    '<p style="font-size: 1.25rem; color: #333; margin-bottom: 32px; line-height: 1.6;">Según tus respuestas, <strong>podés acceder a Cuidados en Red</strong>. El siguiente paso es inscribirte para que te hagamos una evaluación domiciliaria.</p>' +
+                    nivelHtml +
+                    '<div style="' + box + '"><h3 style="color: #1B5E20; margin-bottom: 16px; font-size: 1.375rem; text-align: center;"><i class="fa fa-list-ol" aria-hidden="true"></i> Próximos pasos</h3>' +
+                        stepList([
+                            '<strong>Inscribite</strong> online, por teléfono o presencialmente',
+                            'Te <strong>llamamos en 24-48 h hábiles</strong> del Nodo de tu zona <span style="color: #595959; font-size: 1rem;">(en los Nodos con más demanda, hasta 5-7 días)</span>',
+                            'Coordinamos una <strong>visita domiciliaria</strong> <span style="color: #595959; font-size: 1rem;">(puede reprogramarse por emergencias)</span>',
+                            'Evaluamos tus necesidades y armamos tu plan <span style="color: #595959; font-size: 1rem;">(dentro de los 15 días hábiles)</span>',
+                            'Asignamos persona cuidadora <span style="color: #595959; font-size: 1rem;">(7 a 14 días; más si tu Nodo tiene lista de espera)</span>',
+                            '¡<strong>Empezás con el servicio</strong>!'
+                        ]) +
+                        '<div style="' + note + '"><p style="' + noteText + '"><strong><i class="fa fa-clock-o" aria-hidden="true"></i> Tiempo total estimado:</strong> entre 3 y 5 semanas desde la inscripción; hasta 8 en Palermo, Belgrano, Recoleta y Caballito.</p></div>' +
+                    '</div>' +
+                    actionButtons('inscripcion.html', 'Inscribirme ahora');
+            }
+
             // Llevar el foco al título del resultado: el lector de pantalla lo anuncia una sola vez
             var resultTitle = resultBox.querySelector('h2');
             resultTitle.setAttribute('tabindex', '-1');

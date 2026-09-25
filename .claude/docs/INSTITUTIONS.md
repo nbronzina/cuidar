@@ -12,8 +12,10 @@ Fuente de verdad para todas las instituciones mencionadas en el sitio. Antes de 
 | **Línea 147** | Canal principal de contacto | Institucionalizada 2009. Gratuita, 24/7, desde fijo o celular. SIEMPRE mencionarla como opción de contacto. |
 | **SAME** (107) | Emergencias médicas | Se deriva desde 147 o pulsera de emergencia. |
 | **Línea 137** | Violencia/abuso contra mayores | Protocolo de actuación, se activa desde el sistema. |
-| **buenosaires.gob.ar** | Dominio oficial del GCBA | Desde 1997. Usar siempre para URLs ficticias. |
-| **cuidadosenred.gob.ar** | Dominio ficticio del programa | Subdominio ficticio dentro de .gob.ar. |
+| **buenosaires.gob.ar** | Dominio oficial del GCBA | Desde 1997. Solo para referencias a servicios de toda la Ciudad (no del programa). |
+| **cuidadosenred.gob.ar** | Dominio ficticio del programa | Único dominio para emails y API del programa. Canonical y metadatos usan la dirección real de GitHub Pages (ver WORLD.md). |
+| **PUAM** | Pensión Universal para el Adulto Mayor (real, Ley 27.260) | ANSES; 65+ sin jubilación. Da acceso gratuito al programa. |
+| **Pensiones no contributivas** | Reales, ANSES | Por vejez, invalidez o madre de 7 hijos. Dan acceso gratuito al programa. |
 | **INECO** | Convenio ficticio para screening cognitivo | Instituto de Neurología Cognitiva. |
 | **Centros de Día públicos** | Expandidos a 45 en la ficción | Actividades recreativas y sociales. Incluidos sin costo adicional. |
 | **Nodos territoriales** | 16 centros ficticios del sistema | Llamarlos siempre "Nodos", nunca "centros" u "oficinas". |
@@ -27,6 +29,7 @@ Fuente de verdad para todas las instituciones mencionadas en el sitio. Antes de 
 
 | Institución | Por qué NO |
 |---|---|
+| **AUH** | Asignación Universal por Hijo: es para hijos menores de 18. No aplica a personas mayores. |
 | **OSECAC** | Es de empleados de comercio, no del GCBA. La obra social correcta es ObSBA. |
 | **OSDE** | Prepaga comercial. No tiene relación con el sistema público. |
 | **Swiss Medical** | Prepaga comercial. |

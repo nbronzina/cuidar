@@ -34,7 +34,7 @@ Fuente de verdad para todos los personajes que aparecen en el sitio. Antes de cr
 - **Página:** estado-tramite.html
 - **DNI ficticio:** 12.345.678
 - **Trámite ficticio:** CR-2032-0041377 (DNI de ejemplo 12.345.678, se consulta en estado-tramite.html)
-- **Notas:** Ejemplo hardcodeado del seguimiento de trámite. Inscripta el 15/10/2025, contacto inicial 22/10/2025, visita reprogramada al 30/10/2025.
+- **Notas:** Ejemplo del seguimiento de trámite. Las fechas son relativas al "hoy" dinámico de 2032 (mundo.js): inscripta hace 16 días; contacto inicial hace 9 días (5 días más tarde de lo previsto por un error en el teléfono); visita domiciliaria prevista hace 2 días, reprogramada para dentro de 3 días.
 
 ### Marta (ejemplo de copago - jubilación mínima)
 - **Edad:** No especificada

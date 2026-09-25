@@ -562,6 +562,12 @@ footer a:hover {
     margin: 0;
 }
 
+.footer-legal p.footer-updated {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    font-variant-numeric: tabular-nums;
+}
+
 .footer-escudo {
     display: inline-flex;
     align-items: center;

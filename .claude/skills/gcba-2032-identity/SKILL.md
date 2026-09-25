@@ -55,7 +55,7 @@ Cuidados en Red (span.program-name)
 ## Footer (todas las páginas)
 
 1. **Grid 4 columnas:** Inscribirse | Información | Contacto | Gobierno Abierto
-2. **Footer legal:** escudo (20x24px) + "Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1"
+2. **Footer legal:** escudo (20x24px) + "Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2" + línea "Información actualizada al [fecha], [hora]" (fecha dinámica de mundo.js)
 3. **Disclaimer de autoría:** "Proyecto de diseño especulativo · Cuidados en Red es una obra de ficción..."
 
 ## Barra de accesibilidad (todas las páginas)

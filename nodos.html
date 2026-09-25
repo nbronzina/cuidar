@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; img-src 'self' https://images.unsplash.com https://unpkg.com https://tile.openstreetmap.org data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Encontrá el Nodo Cuidados en Red más cercano a tu casa. 16 nodos en toda la Ciudad de Buenos Aires con atención presencial y mapa interactivo.">
-    <meta property="og:title" content="16 Nodos Barriales en la Ciudad — Cuidados en Red GCBA">
+    <meta property="og:title" content="16 Nodos en los barrios de la Ciudad — Cuidados en Red">
     <meta property="og:description" content="Encontrá el Nodo Cuidados en Red más cercano a tu casa. 16 nodos en toda la Ciudad de Buenos Aires con atención presencial y mapa interactivo.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cuidadosenred.buenosaires.gob.ar/nodos.html">
+    <meta property="og:url" content="https://nbronzina.github.io/cuidar/nodos.html">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
     <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
-    <link rel="canonical" href="https://cuidadosenred.buenosaires.gob.ar/nodos.html">
-    <title>16 Nodos Barriales en la Ciudad — Cuidados en Red GCBA</title>
+    <link rel="canonical" href="https://nbronzina.github.io/cuidar/nodos.html">
+    <title>16 Nodos en los barrios de la Ciudad — Cuidados en Red</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -357,6 +357,27 @@
             }
         }
 
+        .cobertura {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+        }
+
+        .cobertura-completa {
+            background: #E8F5E9;
+            color: #154A19;
+        }
+
+        .cobertura-parcial {
+            background: #FFF3E0;
+            color: var(--color-accent-text);
+        }
+
         .filter-count {
             margin: 0;
             font-weight: 600;
@@ -372,12 +393,12 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Inicio",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/"
+        "item": "https://nbronzina.github.io/cuidar/"
       }, {
         "@type": "ListItem",
         "position": 2,
         "name": "Nodos",
-        "item": "https://cuidadosenred.buenosaires.gob.ar/nodos.html"
+        "item": "https://nbronzina.github.io/cuidar/nodos.html"
       }]
     }
     </script>
@@ -441,7 +462,7 @@
         <div class="container">
             <h1>16 Nodos en toda la Ciudad</h1>
             <p class="lead">
-                Encontrá el centro más cercano a tu casa
+                Encontrá el Nodo más cercano a tu casa
             </p>
         </div>
     </section>
@@ -454,9 +475,13 @@
                     ¿Qué es un Nodo?
                 </h2>
                 <p style="color: #333; margin: 0; line-height: 1.6;">
-                    Los Nodos son <strong>centros territoriales</strong> donde coordinamos todo el servicio de tu zona: 
+                    Los Nodos son <strong>espacios territoriales</strong> donde coordinamos todo el servicio de tu zona: 
                     inscripciones, evaluaciones domiciliarias, seguimiento de personas cuidadoras y atención de consultas. 
                     <strong>No hace falta sacar turno</strong>, podés venir en el horario de atención.
+                </p>
+                <p style="color: #333; margin: 12px 0 0; line-height: 1.6;">
+                    <strong>Cobertura completa:</strong> el Nodo tiene equipo interdisciplinario, tecnología y personas cuidadoras para empezar sin lista de espera.
+                    <strong>Cobertura parcial:</strong> el Nodo atiende, inscribe y evalúa, pero tiene lista de espera, funciona en una sede provisoria o todavía está completando su equipo.
                 </p>
             </div>
             
@@ -468,7 +493,7 @@
                 </p>
                 <ul>
                     <li>
-                        <strong>Demanda desigual:</strong> Los Nodos en Palermo, Belgrano y Recoleta tienen listas de espera de 6-8 meses. Los de zona sur tienen cupo inmediato.
+                        <strong>Demanda desigual:</strong> Los Nodos de Palermo, Belgrano, Recoleta y Caballito tienen listas de espera de 2 a 3 meses (Palermo, hasta 4). En el resto de la Ciudad no hay lista de espera.
                     </li>
                     <li>
                         <strong>Horarios limitados:</strong> Los sábados hay horario reducido (9-13hs) y no todos los servicios están disponibles.
@@ -481,10 +506,10 @@
             
             <div class="stats-box">
                 <p class="stats-number"><i class="fa fa-map-marker" aria-hidden="true"></i> 16</p>
-                <p>Nodos operativos en todas las comunas de CABA</p>
+                <p>Nodos en las 15 comunas de CABA · 8 con cobertura completa</p>
                 <p style="font-size: 1rem; margin-top: 12px; opacity: 0.9;">
                     <i class="fa fa-clock-o" aria-hidden="true"></i> 
-                    Tiempos de espera: 2-4 semanas en zona norte, disponibilidad inmediata en zona sur
+                    Lista de espera: 2 a 3 meses en Palermo, Belgrano, Recoleta y Caballito; sin lista en el resto de la Ciudad
                 </p>
             </div>
             
@@ -526,6 +551,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Retiro</h3>
                             <span class="comunas">Comunas 1 y 2</span>
+                            <span class="cobertura cobertura-completa"><i class="fa fa-check-circle" aria-hidden="true"></i> Cobertura completa</span>
                         </div>
                     </div>
                     
@@ -591,6 +617,7 @@
                         <div class="nodo-title">
                             <h3>Nodo San Telmo</h3>
                             <span class="comunas">Comuna 1</span>
+                            <span class="cobertura cobertura-completa"><i class="fa fa-check-circle" aria-hidden="true"></i> Cobertura completa</span>
                         </div>
                     </div>
                     
@@ -656,6 +683,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Recoleta</h3>
                             <span class="comunas">Comuna 2</span>
+                            <span class="cobertura cobertura-parcial"><i class="fa fa-adjust" aria-hidden="true"></i> Cobertura parcial: lista de espera</span>
                         </div>
                     </div>
                     
@@ -721,6 +749,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Balvanera</h3>
                             <span class="comunas">Comuna 3</span>
+                            <span class="cobertura cobertura-completa"><i class="fa fa-check-circle" aria-hidden="true"></i> Cobertura completa</span>
                         </div>
                     </div>
                     
@@ -786,6 +815,7 @@
                         <div class="nodo-title">
                             <h3>Nodo La Boca</h3>
                             <span class="comunas">Comuna 4</span>
+                            <span class="cobertura cobertura-completa"><i class="fa fa-check-circle" aria-hidden="true"></i> Cobertura completa</span>
                         </div>
                     </div>
                     
@@ -851,6 +881,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Almagro</h3>
                             <span class="comunas">Comuna 5</span>
+                            <span class="cobertura cobertura-completa"><i class="fa fa-check-circle" aria-hidden="true"></i> Cobertura completa</span>
                         </div>
                     </div>
                     
@@ -916,6 +947,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Caballito</h3>
                             <span class="comunas">Comuna 6</span>
+                            <span class="cobertura cobertura-parcial"><i class="fa fa-adjust" aria-hidden="true"></i> Cobertura parcial: lista de espera</span>
                         </div>
                     </div>
                     
@@ -966,7 +998,7 @@
                             </div>
                             <div class="info-content">
                                 <strong style="color: var(--color-accent-text);">Lista de espera</strong>
-                                <span style="color: #444; font-size: 1rem;">6-8 meses. Alta demanda en la zona</span>
+                                <span style="color: #444; font-size: 1rem;">2 a 3 meses. Alta demanda en la zona</span>
                             </div>
                         </div>
                     </div>
@@ -991,6 +1023,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Flores</h3>
                             <span class="comunas">Comuna 7</span>
+                            <span class="cobertura cobertura-completa"><i class="fa fa-check-circle" aria-hidden="true"></i> Cobertura completa</span>
                         </div>
                     </div>
                     
@@ -1056,6 +1089,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Villa Lugano</h3>
                             <span class="comunas">Comuna 8</span>
+                            <span class="cobertura cobertura-parcial"><i class="fa fa-adjust" aria-hidden="true"></i> Cobertura parcial: sede provisoria por obra</span>
                         </div>
                     </div>
                     
@@ -1131,6 +1165,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Liniers</h3>
                             <span class="comunas">Comuna 9</span>
+                            <span class="cobertura cobertura-parcial"><i class="fa fa-adjust" aria-hidden="true"></i> Cobertura parcial: equipo en formación</span>
                         </div>
                     </div>
                     
@@ -1196,6 +1231,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Floresta</h3>
                             <span class="comunas">Comuna 10</span>
+                            <span class="cobertura cobertura-completa"><i class="fa fa-check-circle" aria-hidden="true"></i> Cobertura completa</span>
                         </div>
                     </div>
                     
@@ -1261,6 +1297,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Villa Devoto</h3>
                             <span class="comunas">Comuna 11</span>
+                            <span class="cobertura cobertura-parcial"><i class="fa fa-adjust" aria-hidden="true"></i> Cobertura parcial: equipo en formación</span>
                         </div>
                     </div>
                     
@@ -1326,6 +1363,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Coghlan</h3>
                             <span class="comunas">Comuna 12</span>
+                            <span class="cobertura cobertura-completa"><i class="fa fa-check-circle" aria-hidden="true"></i> Cobertura completa</span>
                         </div>
                     </div>
                     
@@ -1391,6 +1429,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Belgrano</h3>
                             <span class="comunas">Comuna 13</span>
+                            <span class="cobertura cobertura-parcial"><i class="fa fa-adjust" aria-hidden="true"></i> Cobertura parcial: lista de espera</span>
                         </div>
                     </div>
                     
@@ -1456,6 +1495,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Palermo</h3>
                             <span class="comunas">Comuna 14</span>
+                            <span class="cobertura cobertura-parcial"><i class="fa fa-adjust" aria-hidden="true"></i> Cobertura parcial: lista de espera</span>
                         </div>
                     </div>
                     
@@ -1506,7 +1546,7 @@
                             </div>
                             <div class="info-content">
                                 <strong style="color: var(--color-accent-text);">Lista de espera</strong>
-                                <span style="color: #444; font-size: 1rem;">8 meses aproximadamente. El Nodo más demandado</span>
+                                <span style="color: #444; font-size: 1rem;">Hasta 4 meses. El Nodo más demandado</span>
                             </div>
                         </div>
                     </div>
@@ -1531,6 +1571,7 @@
                         <div class="nodo-title">
                             <h3>Nodo Chacarita</h3>
                             <span class="comunas">Comuna 15</span>
+                            <span class="cobertura cobertura-completa"><i class="fa fa-check-circle" aria-hidden="true"></i> Cobertura completa</span>
                         </div>
                     </div>
                     
@@ -1630,7 +1671,8 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.1</p>
+                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
+                <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
                     <!-- NUEVO DISCLAIMER DE AUTORÍA -->
@@ -1648,6 +1690,7 @@
     
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
     <script src="accessibility.js"></script>
+    <script src="mundo.js"></script>
     <script>
         document.getElementById('comunaFilter').addEventListener('change', filterByComuna);
 
@@ -1699,22 +1742,22 @@
             });
             
             const nodos = [
-                { numero: 1, nombre: "Nodo Retiro", direccion: "Av. Córdoba 1235, Retiro", telefono: "4555-1001", email: "nodo.retiro@cuidadosenred.gob.ar", comunas: "Comunas 1 y 2", lat: -34.5947, lng: -58.3816 },
-                { numero: 2, nombre: "Nodo San Telmo", direccion: "Defensa 678, San Telmo", telefono: "4555-1002", email: "nodo.santelmo@cuidadosenred.gob.ar", comunas: "Comuna 1", lat: -34.6217, lng: -58.3724 },
-                { numero: 3, nombre: "Nodo Recoleta", direccion: "Av. Las Heras 2234, Recoleta", telefono: "4555-1003", email: "nodo.recoleta@cuidadosenred.gob.ar", comunas: "Comuna 2", lat: -34.5873, lng: -58.3974 },
-                { numero: 4, nombre: "Nodo Balvanera", direccion: "Av. Corrientes 2456, Balvanera", telefono: "4555-1004", email: "nodo.balvanera@cuidadosenred.gob.ar", comunas: "Comuna 3", lat: -34.6042, lng: -58.4005 },
-                { numero: 5, nombre: "Nodo La Boca", direccion: "Almirante Brown 756, La Boca", telefono: "4555-1005", email: "nodo.laboca@cuidadosenred.gob.ar", comunas: "Comuna 4", lat: -34.6345, lng: -58.3634 },
-                { numero: 6, nombre: "Nodo Almagro", direccion: "Av. Rivadavia 3890, Almagro", telefono: "4555-1006", email: "nodo.almagro@cuidadosenred.gob.ar", comunas: "Comuna 5", lat: -34.6085, lng: -58.4195 },
-                { numero: 7, nombre: "Nodo Caballito", direccion: "Av. Acoyte 234, Caballito", telefono: "4555-1007", email: "nodo.caballito@cuidadosenred.gob.ar", comunas: "Comuna 6", lat: -34.6178, lng: -58.4365 },
-                { numero: 8, nombre: "Nodo Flores", direccion: "Av. Rivadavia 6789, Flores", telefono: "4555-1008", email: "nodo.flores@cuidadosenred.gob.ar", comunas: "Comuna 7", lat: -34.6285, lng: -58.4628 },
-                { numero: 9, nombre: "Nodo Villa Lugano", direccion: "Av. Escalada 4567, Villa Lugano", telefono: "4555-1009", email: "nodo.villalugano@cuidadosenred.gob.ar", comunas: "Comuna 8", lat: -34.6742, lng: -58.4734 },
-                { numero: 10, nombre: "Nodo Liniers", direccion: "Av. Rivadavia 11234, Liniers", telefono: "4555-1010", email: "nodo.liniers@cuidadosenred.gob.ar", comunas: "Comuna 9", lat: -34.6428, lng: -58.5215 },
-                { numero: 11, nombre: "Nodo Floresta", direccion: "Av. Gaona 3456, Floresta", telefono: "4555-1011", email: "nodo.floresta@cuidadosenred.gob.ar", comunas: "Comuna 10", lat: -34.6295, lng: -58.4935 },
-                { numero: 12, nombre: "Nodo Villa Devoto", direccion: "Av. San Martín 4890, Villa Devoto", telefono: "4555-1012", email: "nodo.villadevoto@cuidadosenred.gob.ar", comunas: "Comuna 11", lat: -34.6012, lng: -58.5142 },
-                { numero: 13, nombre: "Nodo Coghlan", direccion: "Av. Cabildo 3456, Coghlan", telefono: "4555-1013", email: "nodo.coghlan@cuidadosenred.gob.ar", comunas: "Comuna 12", lat: -34.5678, lng: -58.4785 },
-                { numero: 14, nombre: "Nodo Belgrano", direccion: "Av. Cabildo 2123, Belgrano", telefono: "4555-1014", email: "nodo.belgrano@cuidadosenred.gob.ar", comunas: "Comuna 13", lat: -34.5645, lng: -58.4552 },
-                { numero: 15, nombre: "Nodo Palermo", direccion: "Av. Santa Fe 4567, Palermo", telefono: "4555-1015", email: "nodo.palermo@cuidadosenred.gob.ar", comunas: "Comuna 14", lat: -34.5875, lng: -58.4215 },
-                { numero: 16, nombre: "Nodo Chacarita", direccion: "Av. Warnes 2890, Chacarita", telefono: "4555-1016", email: "nodo.chacarita@cuidadosenred.gob.ar", comunas: "Comuna 15", lat: -34.5892, lng: -58.4512 }
+                { numero: 1, nombre: "Nodo Retiro", cobertura: "Cobertura completa", direccion: "Av. Córdoba 1235, Retiro", telefono: "4555-1001", email: "nodo.retiro@cuidadosenred.gob.ar", comunas: "Comunas 1 y 2", lat: -34.5947, lng: -58.3816 },
+                { numero: 2, nombre: "Nodo San Telmo", cobertura: "Cobertura completa", direccion: "Defensa 678, San Telmo", telefono: "4555-1002", email: "nodo.santelmo@cuidadosenred.gob.ar", comunas: "Comuna 1", lat: -34.6217, lng: -58.3724 },
+                { numero: 3, nombre: "Nodo Recoleta", cobertura: "Cobertura parcial: lista de espera", direccion: "Av. Las Heras 2234, Recoleta", telefono: "4555-1003", email: "nodo.recoleta@cuidadosenred.gob.ar", comunas: "Comuna 2", lat: -34.5873, lng: -58.3974 },
+                { numero: 4, nombre: "Nodo Balvanera", cobertura: "Cobertura completa", direccion: "Av. Corrientes 2456, Balvanera", telefono: "4555-1004", email: "nodo.balvanera@cuidadosenred.gob.ar", comunas: "Comuna 3", lat: -34.6042, lng: -58.4005 },
+                { numero: 5, nombre: "Nodo La Boca", cobertura: "Cobertura completa", direccion: "Almirante Brown 756, La Boca", telefono: "4555-1005", email: "nodo.laboca@cuidadosenred.gob.ar", comunas: "Comuna 4", lat: -34.6345, lng: -58.3634 },
+                { numero: 6, nombre: "Nodo Almagro", cobertura: "Cobertura completa", direccion: "Av. Rivadavia 3890, Almagro", telefono: "4555-1006", email: "nodo.almagro@cuidadosenred.gob.ar", comunas: "Comuna 5", lat: -34.6085, lng: -58.4195 },
+                { numero: 7, nombre: "Nodo Caballito", cobertura: "Cobertura parcial: lista de espera", direccion: "Av. Acoyte 234, Caballito", telefono: "4555-1007", email: "nodo.caballito@cuidadosenred.gob.ar", comunas: "Comuna 6", lat: -34.6178, lng: -58.4365 },
+                { numero: 8, nombre: "Nodo Flores", cobertura: "Cobertura completa", direccion: "Av. Rivadavia 6789, Flores", telefono: "4555-1008", email: "nodo.flores@cuidadosenred.gob.ar", comunas: "Comuna 7", lat: -34.6285, lng: -58.4628 },
+                { numero: 9, nombre: "Nodo Villa Lugano", cobertura: "Cobertura parcial: sede provisoria por obra", direccion: "Av. Escalada 4567, Villa Lugano", telefono: "4555-1009", email: "nodo.villalugano@cuidadosenred.gob.ar", comunas: "Comuna 8", lat: -34.6742, lng: -58.4734 },
+                { numero: 10, nombre: "Nodo Liniers", cobertura: "Cobertura parcial: equipo en formación", direccion: "Av. Rivadavia 11234, Liniers", telefono: "4555-1010", email: "nodo.liniers@cuidadosenred.gob.ar", comunas: "Comuna 9", lat: -34.6428, lng: -58.5215 },
+                { numero: 11, nombre: "Nodo Floresta", cobertura: "Cobertura completa", direccion: "Av. Gaona 3456, Floresta", telefono: "4555-1011", email: "nodo.floresta@cuidadosenred.gob.ar", comunas: "Comuna 10", lat: -34.6295, lng: -58.4935 },
+                { numero: 12, nombre: "Nodo Villa Devoto", cobertura: "Cobertura parcial: equipo en formación", direccion: "Av. San Martín 4890, Villa Devoto", telefono: "4555-1012", email: "nodo.villadevoto@cuidadosenred.gob.ar", comunas: "Comuna 11", lat: -34.6012, lng: -58.5142 },
+                { numero: 13, nombre: "Nodo Coghlan", cobertura: "Cobertura completa", direccion: "Av. Cabildo 3456, Coghlan", telefono: "4555-1013", email: "nodo.coghlan@cuidadosenred.gob.ar", comunas: "Comuna 12", lat: -34.5678, lng: -58.4785 },
+                { numero: 14, nombre: "Nodo Belgrano", cobertura: "Cobertura parcial: lista de espera", direccion: "Av. Cabildo 2123, Belgrano", telefono: "4555-1014", email: "nodo.belgrano@cuidadosenred.gob.ar", comunas: "Comuna 13", lat: -34.5645, lng: -58.4552 },
+                { numero: 15, nombre: "Nodo Palermo", cobertura: "Cobertura parcial: lista de espera", direccion: "Av. Santa Fe 4567, Palermo", telefono: "4555-1015", email: "nodo.palermo@cuidadosenred.gob.ar", comunas: "Comuna 14", lat: -34.5875, lng: -58.4215 },
+                { numero: 16, nombre: "Nodo Chacarita", cobertura: "Cobertura completa", direccion: "Av. Warnes 2890, Chacarita", telefono: "4555-1016", email: "nodo.chacarita@cuidadosenred.gob.ar", comunas: "Comuna 15", lat: -34.5892, lng: -58.4512 }
             ];
             
             nodos.forEach(nodo => {
@@ -1724,6 +1767,7 @@
                 const popupContent = `
                     <h3>${nodo.numero}. ${nodo.nombre}</h3>
                     <p><strong>${nodo.comunas}</strong></p>
+                    <p>${nodo.cobertura}</p>
                     <p><i class="fa fa-map-marker" aria-hidden="true"></i> ${nodo.direccion}</p>
                     <p><i class="fa fa-phone" aria-hidden="true"></i> ${nodo.telefono}</p>
                     <p><i class="fa fa-envelope" aria-hidden="true"></i> ${nodo.email}</p>

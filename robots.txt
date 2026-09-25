@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cuidadosenred.buenosaires.gob.ar/sitemap.xml
+Sitemap: https://nbronzina.github.io/cuidar/sitemap.xml
