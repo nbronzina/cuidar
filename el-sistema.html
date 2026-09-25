@@ -310,12 +310,21 @@
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
-                <a href="index.html">Inicio</a>
-                <a href="para-personas-mayores.html">Para Personas Mayores</a>
-                <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
-                <a href="el-sistema.html" class="active" aria-current="page">El Sistema</a>
-                <a href="transparencia.html">Transparencia</a>
-                <a href="contacto.html">Contacto</a>
+                <div class="nav-info">
+                    <a href="index.html">Inicio</a>
+                    <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                    <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
+                    <a href="el-sistema.html" class="active" aria-current="page">El Sistema</a>
+                    <a href="transparencia.html">Transparencia</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="nav-tramites" role="group" aria-labelledby="nav-tramites-titulo">
+                    <p class="nav-tramites-titulo" id="nav-tramites-titulo">Trámites</p>
+                    <a href="elegibilidad.html"><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Es para mí?</a>
+                    <a href="inscripcion.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Inscribirme</a>
+                    <a href="estado-tramite.html"><i class="fa fa-search" aria-hidden="true"></i> Estado de mi trámite</a>
+                    <a href="nodos.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Nodos en tu barrio</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -338,6 +347,24 @@
             </p>
         </div>
     </section>
+
+    <!-- Índice de la página -->
+    <nav class="toc" aria-label="En esta página">
+        <div class="container">
+            <details class="toc-details" id="tocDetails">
+                <summary><i class="fa fa-list-ul" aria-hidden="true"></i> En esta página <span class="toc-count">7 secciones</span></summary>
+                <ol>
+                    <li><a href="#vision-titulo">Un ecosistema completo de cuidado</a></li>
+                    <li><a href="#componentes-titulo">Los 4 pilares del sistema</a></li>
+                    <li><a href="#niveles-titulo">Niveles de cuidado</a></li>
+                    <li><a href="#costos-titulo">¿Cuánto cuesta?</a></li>
+                    <li><a href="#flujo-titulo">El recorrido de un usuario</a></li>
+                    <li><a href="#tech-titulo">La tecnología que te cuida</a></li>
+                    <li><a href="#red-titulo">Red de servicios complementarios</a></li>
+                </ol>
+            </details>
+        </div>
+    </nav>
 
     <!-- Visión general -->
     <section style="padding: 60px 0;" aria-labelledby="vision-titulo">
@@ -1312,5 +1339,6 @@
 
     <script src="js/accessibility.js"></script>
     <script src="js/mundo.js"></script>
+    <script src="js/el-sistema.js"></script>
 </body>
 </html>

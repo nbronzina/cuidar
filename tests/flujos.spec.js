@@ -173,3 +173,37 @@ test('menú móvil abre y Escape lo cierra', async ({ page }) => {
     await expect(page.locator('#nav-links')).not.toHaveClass(/open/);
     await expect(page.locator('.nav-toggle')).toBeFocused();
 });
+
+test.describe('Menú de trámites (A-14)', () => {
+    const TRAMITES = ['elegibilidad.html', 'inscripcion.html', 'estado-tramite.html', 'nodos.html'];
+
+    test('las 4 tareas están a un clic desde cualquier página', async ({ page }) => {
+        for (const origen of ['index.html', 'transparencia.html', 'politica-privacidad.html']) {
+            await page.goto(origen);
+            const toggle = page.locator('.nav-toggle');
+            if (await toggle.isVisible()) await toggle.click();
+            for (const destino of TRAMITES) {
+                await expect(page.locator(`.nav-tramites a[href="${destino}"]`)).toBeVisible();
+            }
+        }
+    });
+
+    test('la página de trámite actual queda marcada', async ({ page }) => {
+        await page.goto('estado-tramite.html');
+        await expect(page.locator('.nav-tramites a[href="estado-tramite.html"]')).toHaveAttribute('aria-current', 'page');
+    });
+});
+
+test('índice de El Sistema lleva a cada sección sin taparla (A-24)', async ({ page }) => {
+    await page.goto('el-sistema.html');
+    const indice = page.locator('#tocDetails');
+    if (!(await indice.getAttribute('open') !== null)) await page.click('#tocDetails summary');
+    await page.click('.toc a[href="#costos-titulo"]');
+    await page.waitForTimeout(600);
+    const tapado = await page.evaluate(() => {
+        const nav = document.querySelector('.main-nav').getBoundingClientRect();
+        const h = document.getElementById('costos-titulo').getBoundingClientRect();
+        return h.top < nav.bottom || h.top > innerHeight;
+    });
+    expect(tapado).toBe(false);
+});

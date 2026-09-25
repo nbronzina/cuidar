@@ -341,9 +341,7 @@ html.text-size-xlarge { font-size: 125%; }
 
 .main-nav .container {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-direction: column;
 }
 
 .main-nav a {
@@ -363,7 +361,50 @@ html.text-size-xlarge { font-size: 125%; }
     background-color: #F5F5F5;
 }
 
-/* Hamburger menu toggle */
+/* Menú: información arriba, trámites en una franja propia */
+.nav-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav-tramites {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    background-color: #EEF4F8;
+    border-radius: 8px;
+    padding: 2px 12px;
+    margin: 0 0 8px;
+}
+
+.nav-tramites-titulo {
+    margin: 0 8px 0 4px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.main-nav .nav-tramites a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.main-nav .nav-tramites a:hover,
+.main-nav .nav-tramites a.active {
+    background-color: white;
+}
+
+/* Menú plegable */
 .nav-toggle {
     display: none;
     background: none;
@@ -382,11 +423,8 @@ html.text-size-xlarge { font-size: 125%; }
     margin-right: 8px;
 }
 
-.nav-links {
-    display: contents;
-}
-
-@media (max-width: 767px) {
+/* Tableta y móvil: menú plegable con los dos grupos apilados */
+@media (max-width: 991px) {
     .nav-toggle {
         display: flex;
         align-items: center;
@@ -397,15 +435,82 @@ html.text-size-xlarge { font-size: 125%; }
         display: none;
         flex-direction: column;
         width: 100%;
+        padding-bottom: 8px;
     }
 
     .nav-links.open {
         display: flex;
     }
 
-    .main-nav .container {
+    .nav-info {
         flex-direction: column;
         gap: 0;
+    }
+
+    .main-nav a {
+        padding: 12px 16px;
+        border-bottom: 1px solid #E0E0E0;
+    }
+
+    .nav-tramites {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 12px 0 0;
+        padding: 8px 0 0;
+    }
+
+    .nav-tramites-titulo {
+        margin: 0 16px 4px;
+    }
+}
+
+/* Índice "En esta página" */
+.toc {
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #D6DCD8;
+    padding: 8px 0;
+}
+
+.toc summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
+}
+
+.toc-count {
+    font-weight: 400;
+    color: #505050;
+    font-size: 1rem;
+}
+
+.toc ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 4px 24px;
+    margin: 8px 0 8px;
+    padding-left: 24px;
+}
+
+.toc li {
+    padding: 6px 0;
+}
+
+.toc li a {
+    line-height: 1.6;
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Destinos de anclas bajo el menú fijo de dos filas */
+@media (min-width: 992px) {
+    h1, h2, h3, [tabindex="-1"], :target {
+        scroll-margin-top: 150px;
     }
 }
 
@@ -852,16 +957,6 @@ footer a:hover {
     h1 { font-size: 1.75rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.25rem; }
-
-    .main-nav .container {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .main-nav a {
-        padding: 12px 16px;
-        border-bottom: 1px solid #E0E0E0;
-    }
 
     .logo-text .institutional {
         display: none;
