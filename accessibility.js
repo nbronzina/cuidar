@@ -1,18 +1,45 @@
 /* Funcionalidad de accesibilidad compartida — Cuidados en Red */
 
-function adjustTextSize(size) {
-    document.body.classList.remove('text-size-normal', 'text-size-large', 'text-size-xlarge');
+var TEXT_SIZES = ['normal', 'large', 'xlarge'];
+
+/* localStorage puede no estar disponible (navegación privada, datos bloqueados) */
+function readPref(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+}
+
+function writePref(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) { /* sin persistencia */ }
+}
+
+function syncA11yButtons() {
+    var body = document.body;
+    document.querySelectorAll('.accessibility-bar [data-a11y]').forEach(function(btn) {
+        var action = btn.getAttribute('data-a11y');
+        var pressed = action === 'contrast'
+            ? body.classList.contains('high-contrast')
+            : body.classList.contains('text-size-' + action);
+        btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+    });
+}
+
+function applyTextSize(size) {
+    if (TEXT_SIZES.indexOf(size) === -1) size = 'normal';
+    TEXT_SIZES.forEach(function(s) { document.body.classList.remove('text-size-' + s); });
     document.body.classList.add('text-size-' + size);
-    localStorage.setItem('textSize', size);
+    syncA11yButtons();
+}
+
+function adjustTextSize(size) {
+    applyTextSize(size);
+    writePref('textSize', size);
     announceToScreenReader('Tamaño de texto cambiado a ' +
         (size === 'normal' ? 'normal' : size === 'large' ? 'grande' : 'extra grande'));
 }
 
 function toggleHighContrast() {
-    var body = document.body;
-    body.classList.toggle('high-contrast');
-    var isHighContrast = body.classList.contains('high-contrast');
-    localStorage.setItem('highContrast', isHighContrast ? 'true' : 'false');
+    var isHighContrast = document.body.classList.toggle('high-contrast');
+    writePref('highContrast', isHighContrast ? 'true' : 'false');
+    syncA11yButtons();
     announceToScreenReader(isHighContrast ?
         'Alto contraste activado' :
         'Alto contraste desactivado');
@@ -23,48 +50,45 @@ function announceToScreenReader(message) {
     announcement.setAttribute('role', 'status');
     announcement.setAttribute('aria-live', 'polite');
     announcement.setAttribute('aria-atomic', 'true');
+    announcement.className = 'sr-only';
     announcement.textContent = message;
-    announcement.style.position = 'absolute';
-    announcement.style.left = '-10000px';
-    announcement.style.width = '1px';
-    announcement.style.height = '1px';
-    announcement.style.overflow = 'hidden';
     document.body.appendChild(announcement);
-    setTimeout(function() { document.body.removeChild(announcement); }, 1000);
+    setTimeout(function() { announcement.remove(); }, 1000);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var textSize = localStorage.getItem('textSize');
-    if (textSize) document.body.classList.add('text-size-' + textSize);
-    if (localStorage.getItem('highContrast') === 'true') {
+    applyTextSize(readPref('textSize') || 'normal');
+    if (readPref('highContrast') === 'true') {
         document.body.classList.add('high-contrast');
     }
+    syncA11yButtons();
 
-    /* Accessibility bar buttons — replaces inline onclick handlers */
-    var accBar = document.querySelector('.accessibility-bar');
-    if (accBar) {
-        var buttons = accBar.querySelectorAll('button');
-        buttons.forEach(function(btn) {
-            var label = btn.getAttribute('aria-label');
-            if (label === 'Texto normal') {
-                btn.addEventListener('click', function() { adjustTextSize('normal'); });
-            } else if (label === 'Texto grande') {
-                btn.addEventListener('click', function() { adjustTextSize('large'); });
-            } else if (label === 'Texto extra grande') {
-                btn.addEventListener('click', function() { adjustTextSize('xlarge'); });
-            } else if (label === 'Alternar alto contraste') {
-                btn.addEventListener('click', toggleHighContrast);
+    /* Barra de accesibilidad: se engancha por data-a11y, nunca por el texto visible */
+    document.querySelectorAll('.accessibility-bar [data-a11y]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var action = btn.getAttribute('data-a11y');
+            if (action === 'contrast') {
+                toggleHighContrast();
+            } else {
+                adjustTextSize(action);
             }
         });
-    }
+    });
 
-    /* Navigation toggle — replaces inline onclick handler */
+    /* Menú móvil */
     var navToggle = document.querySelector('.nav-toggle');
-    if (navToggle) {
+    var navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
         navToggle.addEventListener('click', function() {
-            document.getElementById('nav-links').classList.toggle('open');
-            this.setAttribute('aria-expanded',
-                this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+            var open = navLinks.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.focus();
+            }
         });
     }
 });

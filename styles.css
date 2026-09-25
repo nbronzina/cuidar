@@ -641,7 +641,8 @@ footer a:hover {
     text-align: left;
 }
 
-.reality-check h4 {
+.reality-check h4,
+.reality-check-title {
     color: var(--color-friction-emphasis);
     margin-top: 0;
     margin-bottom: 12px;
@@ -708,7 +709,8 @@ footer a:hover {
     font-size: 24px;
 }
 
-.system-status-content h5 {
+.system-status-content h5,
+.system-status-title {
     margin: 0 0 4px 0;
     color: var(--color-friction-emphasis);
     font-size: 16px;
@@ -861,7 +863,8 @@ footer a:hover {
         margin: 24px 16px;
     }
 
-    .reality-check h4 {
+    .reality-check h4,
+    .reality-check-title {
         font-size: 16px;
     }
 
