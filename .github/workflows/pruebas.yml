@@ -1,0 +1,37 @@
+name: Pruebas
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Cabecera y pie sincronizados con partials/
+        run: node tools/sincronizar.js --check
+
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Accesibilidad, CSP y flujos críticos
+        run: npx playwright test
+
+      - name: Guardar el reporte si algo falla
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-playwright
+          path: playwright-report/
+          retention-days: 14

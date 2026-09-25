@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; img-src 'self' https://images.unsplash.com https://unpkg.com https://tile.openstreetmap.org data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; img-src 'self' data: https://unpkg.com https://tile.openstreetmap.org; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Encontrá el Nodo Cuidados en Red más cercano a tu casa. 16 nodos en toda la Ciudad de Buenos Aires con atención presencial y mapa interactivo.">
     <meta property="og:title" content="16 Nodos en los barrios de la Ciudad — Cuidados en Red">
@@ -11,7 +11,11 @@
     <meta property="og:url" content="https://nbronzina.github.io/cuidar/nodos.html">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
     <link rel="canonical" href="https://nbronzina.github.io/cuidar/nodos.html">
@@ -19,7 +23,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://unpkg.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -27,8 +30,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
     <style>
         .hero-nodos {
-            background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(27,94,32,0.95)),
-                        url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1600&h=400&fit=crop&fm=webp&q=30') center/cover;
+            background: linear-gradient(135deg, rgba(27,94,32,0.95), rgba(27,94,32,0.95));
             color: white;
             padding: 60px 0;
             text-align: center;
@@ -80,7 +82,7 @@
         .filter-bar select:focus-visible {
             outline: none;
             border-color: var(--color-secondary);
-            box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
+            box-shadow: 0 0 0 3px rgba(27,94,32,0.1);
         }
         
         #map {
@@ -93,7 +95,7 @@
         
         .leaflet-popup-content h3 {
             margin: 0 0 8px 0;
-            color: #2E7D32;
+            color: var(--color-secondary-text);
             font-size: 1rem;
         }
         
@@ -107,7 +109,7 @@
             display: inline-block;
             margin-top: 8px;
             padding: 6px 12px;
-            background-color: #2E7D32;
+            background-color: #1B5E20;
             color: white;
             text-decoration: none;
             border-radius: 4px;
@@ -116,7 +118,7 @@
         }
         
         .leaflet-popup-content a:hover {
-            background-color: #1B5E20;
+            background-color: #14461A;
         }
         
         .nodo-card {
@@ -147,7 +149,7 @@
         .nodo-number {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
+            background: linear-gradient(135deg, var(--color-secondary), #14461A);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -156,7 +158,7 @@
             font-weight: 700;
             font-size: 2rem;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(46,125,50,0.3);
+            box-shadow: 0 4px 12px rgba(27,94,32,0.3);
         }
         
         .nodo-title {
@@ -164,13 +166,13 @@
         }
         
         .nodo-title h3 {
-            color: var(--color-secondary);
+            color: var(--color-secondary-text);
             font-size: 1.625rem;
             margin: 0 0 8px 0;
         }
         
         .nodo-title .comunas {
-            color: #595959;
+            color: #505050;
             font-size: 1rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -198,7 +200,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-secondary);
+            color: var(--color-secondary-text);
             font-size: 1.125rem;
             flex-shrink: 0;
         }
@@ -266,7 +268,7 @@
         }
         
         .btn-secondary:hover {
-            background-color: #1B5E20;
+            background-color: #14461A;
             transform: translateY(-2px);
             color: white;
         }
@@ -274,7 +276,7 @@
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--color-secondary);
-            color: var(--color-secondary);
+            color: var(--color-secondary-text);
         }
         
         .btn-outline:hover {
@@ -404,9 +406,10 @@
     </script>
 </head>
 <body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+    <div class="accessibility-bar" role="region" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
@@ -448,6 +451,7 @@
             </div>
         </div>
     </nav>
+    <!-- fin:cabecera -->
 
     <div class="container">
         <nav class="breadcrumb" aria-label="Ubicación">
@@ -1134,12 +1138,12 @@
                             </div>
                         </div>
                         
-                        <div class="info-item" style="background-color: #E8F5E9; border-left: 3px solid #2E7D32; padding: 12px; border-radius: 4px; margin-top: 12px;">
+                        <div class="info-item" style="background-color: #E8F5E9; border-left: 3px solid #1B5E20; padding: 12px; border-radius: 4px; margin-top: 12px;">
                             <div class="info-icon">
-                                <i class="fa fa-check-circle" aria-hidden="true" style="color: #1B5E20;"></i>
+                                <i class="fa fa-check-circle" aria-hidden="true" style="color: #14461A;"></i>
                             </div>
                             <div class="info-content">
-                                <strong style="color: #2E7D32;">Disponibilidad inmediata</strong>
+                                <strong style="color: var(--color-secondary-text);">Disponibilidad inmediata</strong>
                                 <span style="color: #444; font-size: 1rem;">Sin lista de espera. Menos servicios especializados disponibles</span>
                             </div>
                         </div>
@@ -1642,6 +1646,7 @@
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
     </a>
     
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
     <footer role="contentinfo">
         <div class="container">
             <div class="row">
@@ -1660,7 +1665,7 @@
                 <nav class="col-md-3" aria-label="Enlaces de contacto">
                     <h4>CONTACTO</h4>
                     <a href="tel:147" aria-label="Llamar al 147">147 (gratis)</a>
-                    <a href="nodos.html" aria-current="page">Lugares en tu barrio</a>
+                    <a href="nodos.html">Lugares en tu barrio</a>
                     <a href="contacto.html">Todas las formas de contacto</a>
                 </nav>
                 <nav class="col-md-3" aria-label="Enlaces institucionales">
@@ -1675,110 +1680,24 @@
                 <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
-                    <!-- NUEVO DISCLAIMER DE AUTORÍA -->
-    <div class="author-disclaimer">
-        <p>
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-            <strong>Proyecto de diseño especulativo</strong> · 
-            Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
-            de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
-            es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
-            Todo el contenido, concepto, diseño y código es de su autoría.
-        </p>
-    </div>
+        
+        <!-- DISCLAIMER DE AUTORÍA -->
+        <div class="author-disclaimer">
+            <p>
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <strong>Proyecto de diseño especulativo</strong> · 
+                Cuidados en Red es una obra de ficción que explora futuros posibles para el cuidado 
+                de personas mayores en Buenos Aires. Aunque este sitio simula una plataforma gubernamental, 
+                es un trabajo independiente creado íntegramente por <strong>Nicolás Bronzina</strong>. 
+                Todo el contenido, concepto, diseño y código es de su autoría.
+            </p>
+        </div>
     </footer>
+    <!-- fin:pie -->
     
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-    <script src="accessibility.js"></script>
-    <script src="mundo.js"></script>
-    <script>
-        document.getElementById('comunaFilter').addEventListener('change', filterByComuna);
-
-        var nodoMarkers = [];
-        var nodoMap = null;
-
-        function filterByComuna() {
-            var selected = document.getElementById('comunaFilter').value;
-            var visible = 0;
-            document.querySelectorAll('.nodo-card').forEach(function(card) {
-                var show = selected === 'all' || card.getAttribute('data-comuna').split(',').indexOf(selected) !== -1;
-                card.style.display = show ? 'block' : 'none';
-                if (show) visible++;
-            });
-
-            // El mapa muestra los mismos Nodos que la lista
-            nodoMarkers.forEach(function(item) {
-                var show = selected === 'all' || item.comunas.indexOf(selected) !== -1;
-                if (show && !nodoMap.hasLayer(item.marker)) item.marker.addTo(nodoMap);
-                if (!show && nodoMap.hasLayer(item.marker)) nodoMap.removeLayer(item.marker);
-            });
-
-            document.getElementById('nodosCount').textContent = selected === 'all'
-                ? 'Mostrando los 16 Nodos'
-                : 'Mostrando ' + visible + (visible === 1 ? ' Nodo' : ' Nodos') + ' de la Comuna ' + selected;
-        }
-        
-        // Inicializar mapa cuando todo esté cargado
-        window.addEventListener('load', function() {
-            // Verificar que Leaflet esté cargado antes de inicializar
-            if (typeof L === 'undefined') {
-                console.error('Leaflet no está cargado');
-                return;
-            }
-            
-            // Inicializar mapa de Leaflet
-            const map = L.map('map').setView([-34.6037, -58.3816], 12);
-            nodoMap = map;
-            
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-            
-            const nodoIcon = L.icon({
-                iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iNDUiIHZpZXdCb3g9IjAgMCAzMCA0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUgMEMxMC41MDc1IDAgNi44NTc1IDMuNjUgNi44NTc1IDguMTQyNUM2Ljg1NzUgMTQuMDYyNSAxNSAyNy40Mjc1IDE1IDI3LjQyNzVDMTUgMjcuNDI3NSAyMy4xNDI1IDE0LjA2MjUgMjMuMTQyNSA4LjE0MjVDMjMuMTQyNSAzLjY1IDE5LjQ5MjUgMCAxNSAwWiIgZmlsbD0iIzY2QkI2QSIvPjxjaXJjbGUgY3g9IjE1IiBjeT0iOC41IiByPSI0IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==',
-                iconSize: [30, 45],
-                iconAnchor: [15, 45],
-                popupAnchor: [0, -45]
-            });
-            
-            const nodos = [
-                { numero: 1, nombre: "Nodo Retiro", cobertura: "Cobertura completa", direccion: "Av. Córdoba 1235, Retiro", telefono: "4555-1001", email: "nodo.retiro@cuidadosenred.gob.ar", comunas: "Comunas 1 y 2", lat: -34.5947, lng: -58.3816 },
-                { numero: 2, nombre: "Nodo San Telmo", cobertura: "Cobertura completa", direccion: "Defensa 678, San Telmo", telefono: "4555-1002", email: "nodo.santelmo@cuidadosenred.gob.ar", comunas: "Comuna 1", lat: -34.6217, lng: -58.3724 },
-                { numero: 3, nombre: "Nodo Recoleta", cobertura: "Cobertura parcial: lista de espera", direccion: "Av. Las Heras 2234, Recoleta", telefono: "4555-1003", email: "nodo.recoleta@cuidadosenred.gob.ar", comunas: "Comuna 2", lat: -34.5873, lng: -58.3974 },
-                { numero: 4, nombre: "Nodo Balvanera", cobertura: "Cobertura completa", direccion: "Av. Corrientes 2456, Balvanera", telefono: "4555-1004", email: "nodo.balvanera@cuidadosenred.gob.ar", comunas: "Comuna 3", lat: -34.6042, lng: -58.4005 },
-                { numero: 5, nombre: "Nodo La Boca", cobertura: "Cobertura completa", direccion: "Almirante Brown 756, La Boca", telefono: "4555-1005", email: "nodo.laboca@cuidadosenred.gob.ar", comunas: "Comuna 4", lat: -34.6345, lng: -58.3634 },
-                { numero: 6, nombre: "Nodo Almagro", cobertura: "Cobertura completa", direccion: "Av. Rivadavia 3890, Almagro", telefono: "4555-1006", email: "nodo.almagro@cuidadosenred.gob.ar", comunas: "Comuna 5", lat: -34.6085, lng: -58.4195 },
-                { numero: 7, nombre: "Nodo Caballito", cobertura: "Cobertura parcial: lista de espera", direccion: "Av. Acoyte 234, Caballito", telefono: "4555-1007", email: "nodo.caballito@cuidadosenred.gob.ar", comunas: "Comuna 6", lat: -34.6178, lng: -58.4365 },
-                { numero: 8, nombre: "Nodo Flores", cobertura: "Cobertura completa", direccion: "Av. Rivadavia 6789, Flores", telefono: "4555-1008", email: "nodo.flores@cuidadosenred.gob.ar", comunas: "Comuna 7", lat: -34.6285, lng: -58.4628 },
-                { numero: 9, nombre: "Nodo Villa Lugano", cobertura: "Cobertura parcial: sede provisoria por obra", direccion: "Av. Escalada 4567, Villa Lugano", telefono: "4555-1009", email: "nodo.villalugano@cuidadosenred.gob.ar", comunas: "Comuna 8", lat: -34.6742, lng: -58.4734 },
-                { numero: 10, nombre: "Nodo Liniers", cobertura: "Cobertura parcial: equipo en formación", direccion: "Av. Rivadavia 11234, Liniers", telefono: "4555-1010", email: "nodo.liniers@cuidadosenred.gob.ar", comunas: "Comuna 9", lat: -34.6428, lng: -58.5215 },
-                { numero: 11, nombre: "Nodo Floresta", cobertura: "Cobertura completa", direccion: "Av. Gaona 3456, Floresta", telefono: "4555-1011", email: "nodo.floresta@cuidadosenred.gob.ar", comunas: "Comuna 10", lat: -34.6295, lng: -58.4935 },
-                { numero: 12, nombre: "Nodo Villa Devoto", cobertura: "Cobertura parcial: equipo en formación", direccion: "Av. San Martín 4890, Villa Devoto", telefono: "4555-1012", email: "nodo.villadevoto@cuidadosenred.gob.ar", comunas: "Comuna 11", lat: -34.6012, lng: -58.5142 },
-                { numero: 13, nombre: "Nodo Coghlan", cobertura: "Cobertura completa", direccion: "Av. Cabildo 3456, Coghlan", telefono: "4555-1013", email: "nodo.coghlan@cuidadosenred.gob.ar", comunas: "Comuna 12", lat: -34.5678, lng: -58.4785 },
-                { numero: 14, nombre: "Nodo Belgrano", cobertura: "Cobertura parcial: lista de espera", direccion: "Av. Cabildo 2123, Belgrano", telefono: "4555-1014", email: "nodo.belgrano@cuidadosenred.gob.ar", comunas: "Comuna 13", lat: -34.5645, lng: -58.4552 },
-                { numero: 15, nombre: "Nodo Palermo", cobertura: "Cobertura parcial: lista de espera", direccion: "Av. Santa Fe 4567, Palermo", telefono: "4555-1015", email: "nodo.palermo@cuidadosenred.gob.ar", comunas: "Comuna 14", lat: -34.5875, lng: -58.4215 },
-                { numero: 16, nombre: "Nodo Chacarita", cobertura: "Cobertura completa", direccion: "Av. Warnes 2890, Chacarita", telefono: "4555-1016", email: "nodo.chacarita@cuidadosenred.gob.ar", comunas: "Comuna 15", lat: -34.5892, lng: -58.4512 }
-            ];
-            
-            nodos.forEach(nodo => {
-                const marker = L.marker([nodo.lat, nodo.lng], { icon: nodoIcon, alt: nodo.nombre }).addTo(map);
-                nodoMarkers.push({ marker: marker, comunas: nodo.comunas.match(/\d+/g) || [] });
-                
-                const popupContent = `
-                    <h3>${nodo.numero}. ${nodo.nombre}</h3>
-                    <p><strong>${nodo.comunas}</strong></p>
-                    <p>${nodo.cobertura}</p>
-                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> ${nodo.direccion}</p>
-                    <p><i class="fa fa-phone" aria-hidden="true"></i> ${nodo.telefono}</p>
-                    <p><i class="fa fa-envelope" aria-hidden="true"></i> ${nodo.email}</p>
-                    <a href="https://maps.google.com/?q=${encodeURIComponent(nodo.direccion + ', Buenos Aires')}" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
-                `;
-                
-                marker.bindPopup(popupContent);
-            });
-            // Si ya había un filtro elegido antes de que cargara el mapa, aplicarlo
-            filterByComuna();
-        });
-    </script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
+    <script src="js/nodos.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Trabajá como persona cuidadora en Cuidados en Red. Trabajo registrado, capacitación permanente, acompañamiento profesional y salario por encima del convenio.">
     <meta property="og:title" content="Trabajá como Persona Cuidadora — Cuidados en Red GCBA">
@@ -11,7 +11,11 @@
     <meta property="og:url" content="https://nbronzina.github.io/cuidar/para-cuidadores.html">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
     <link rel="canonical" href="https://nbronzina.github.io/cuidar/para-cuidadores.html">
@@ -19,14 +23,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-cuidadores {
-            background: linear-gradient(135deg, rgba(46,125,50,0.95), rgba(27,94,32,0.95)),
-                        url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1600&h=500&fit=crop&fm=webp&q=30') center/cover;
+            background: linear-gradient(135deg, rgba(27,94,32,0.95), rgba(27,94,32,0.95));
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -153,21 +155,36 @@
         }
         
         .testimonial-img {
+            flex-shrink: 0;
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            object-fit: cover;
             border: 4px solid white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+
+        .testimonial-initials {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-purple);
+            color: white;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .testimonial-initials-friction {
+            background: var(--color-accent-text);
+        }
         
         .salary-box {
-            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
+            background: linear-gradient(135deg, var(--color-secondary), #14461A);
             color: white;
             padding: 40px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 8px 24px rgba(46,125,50,0.3);
+            box-shadow: 0 8px 24px rgba(27,94,32,0.3);
             margin-bottom: 32px;
         }
         
@@ -302,9 +319,10 @@
     </script>
 </head>
 <body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+    <div class="accessibility-bar" role="region" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
@@ -337,15 +355,16 @@
                 <i class="fa fa-bars" aria-hidden="true"></i> Menú
             </button>
             <div class="nav-links" id="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="para-personas-mayores.html">Para Personas Mayores</a>
-            <a href="para-cuidadores.html" class="active" aria-current="page">Para Personas Cuidadoras</a>
-            <a href="el-sistema.html">El Sistema</a>
-            <a href="transparencia.html">Transparencia</a>
-            <a href="contacto.html">Contacto</a>
+                <a href="index.html">Inicio</a>
+                <a href="para-personas-mayores.html">Para Personas Mayores</a>
+                <a href="para-cuidadores.html" class="active" aria-current="page">Para Personas Cuidadoras</a>
+                <a href="el-sistema.html">El Sistema</a>
+                <a href="transparencia.html">Transparencia</a>
+                <a href="contacto.html">Contacto</a>
             </div>
         </div>
     </nav>
+    <!-- fin:cabecera -->
 
     <div class="container">
         <nav class="breadcrumb" aria-label="Ubicación">
@@ -494,7 +513,7 @@
     <!-- Salario y condiciones -->
     <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="salario-titulo">
         <div class="container">
-            <h2 id="salario-titulo" style="color: var(--color-secondary); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 id="salario-titulo" style="color: var(--color-secondary-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
                 ¿Cuánto ganás?
             </h2>
             
@@ -518,7 +537,7 @@
                         
                         <div style="display: grid; gap: 20px;">
                             <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-clock-o" style="color: var(--color-secondary); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                                <i class="fa fa-clock-o" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
                                 <div>
                                     <strong style="font-size: 1.125rem; color: #333;">Horario:</strong>
                                     <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
@@ -528,7 +547,7 @@
                             </div>
                             
                             <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-calendar" style="color: var(--color-secondary); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                                <i class="fa fa-calendar" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
                                 <div>
                                     <strong style="font-size: 1.125rem; color: #333;">Vacaciones:</strong>
                                     <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
@@ -538,7 +557,7 @@
                             </div>
                             
                             <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-medkit" style="color: var(--color-secondary); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                                <i class="fa fa-medkit" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
                                 <div>
                                     <strong style="font-size: 1.125rem; color: #333;">Obra social:</strong>
                                     <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
@@ -548,7 +567,7 @@
                             </div>
                             
                             <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-umbrella" style="color: var(--color-secondary); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                                <i class="fa fa-umbrella" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
                                 <div>
                                     <strong style="font-size: 1.125rem; color: #333;">Seguro:</strong>
                                     <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
@@ -558,7 +577,7 @@
                             </div>
                             
                             <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-bus" style="color: var(--color-secondary); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                                <i class="fa fa-bus" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
                                 <div>
                                     <strong style="font-size: 1.125rem; color: #333;">Viático de transporte:</strong>
                                     <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
@@ -682,7 +701,7 @@
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="font-size: 1.25rem; color: #D32F2F; display: block; margin-bottom: 8px;">
+                            <strong style="font-size: 1.25rem; color: #9A1515; display: block; margin-bottom: 8px;">
                                 NO se necesita
                             </strong>
                             <p style="font-size: 1.125rem; color: #444; margin: 0; line-height: 1.6;">
@@ -763,10 +782,10 @@
                     </div>
                     
                     <div class="process-step" style="border-top-color: var(--color-secondary);">
-                        <div class="process-number" style="background: linear-gradient(135deg, var(--color-secondary), #1B5E20);">
+                        <div class="process-number" style="background: linear-gradient(135deg, var(--color-secondary), #14461A);">
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-secondary); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
+                        <h3 style="color: var(--color-secondary-text); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
                             ¡Empezás a trabajar!
                         </h3>
                         <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
@@ -799,7 +818,7 @@
                 <article class="col-md-6">
                     <div class="testimonial-cuidador">
                         <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/80?img=44" alt="Foto de Gladys Rodríguez" class="testimonial-img" width="80" height="80" loading="lazy">
+                            <span class="testimonial-img testimonial-initials" aria-hidden="true">GR</span>
                             <div>
                                 <strong style="font-size: 1.375rem; color: var(--color-purple); display: block;">Gladys Rodríguez</strong>
                                 <p style="color: #444; margin: 4px 0; font-size: 1rem;">Cuidadora en Caballito - 3 años</p>
@@ -817,7 +836,7 @@
                 <article class="col-md-6">
                     <div class="testimonial-cuidador realistic">
                         <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/80?img=47" alt="Foto de Marta Silva" class="testimonial-img" width="80" height="80" loading="lazy">
+                            <span class="testimonial-img testimonial-initials testimonial-initials-friction" aria-hidden="true">MS</span>
                             <div>
                                 <strong style="font-size: 1.375rem; color: var(--color-friction-emphasis); display: block;">Marta Silva</strong>
                                 <p style="color: #444; margin: 4px 0; font-size: 1rem;">Cuidadora en Floresta - 1 año</p>
@@ -834,7 +853,7 @@
                 <article class="col-md-6">
                     <div class="testimonial-cuidador">
                         <div class="testimonial-header">
-                            <img src="https://i.pravatar.cc/80?img=12" alt="Foto de Roberto Fernández" class="testimonial-img" width="80" height="80" loading="lazy">
+                            <span class="testimonial-img testimonial-initials" aria-hidden="true">RF</span>
                             <div>
                                 <strong style="font-size: 1.375rem; color: var(--color-purple); display: block;">Roberto Fernández</strong>
                                 <p style="color: #444; margin: 4px 0; font-size: 1rem;">Cuidador en Flores - 2 años</p>
@@ -1013,6 +1032,7 @@
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
     </a>
     
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
     <footer role="contentinfo">
         <div class="container">
             <div class="row">
@@ -1026,7 +1046,7 @@
                     <h4>INFORMACIÓN</h4>
                     <a href="el-sistema.html">Cómo funciona</a>
                     <a href="para-personas-mayores.html">Para personas mayores</a>
-                    <a href="para-cuidadores.html" aria-current="page">Para personas cuidadoras</a>
+                    <a href="para-cuidadores.html">Para personas cuidadoras</a>
                 </nav>
                 <nav class="col-md-3" aria-label="Enlaces de contacto">
                     <h4>CONTACTO</h4>
@@ -1046,6 +1066,7 @@
                 <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
+        
         <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
@@ -1058,8 +1079,9 @@
             </p>
         </div>
     </footer>
+    <!-- fin:pie -->
     
-    <script src="accessibility.js"></script>
-    <script src="mundo.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
 </body>
 </html>

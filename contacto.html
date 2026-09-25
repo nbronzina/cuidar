@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contactá con Cuidados en Red por teléfono 147 (gratuito, 24hs), WhatsApp, email o visitá nuestros 16 nodos presenciales en la Ciudad de Buenos Aires.">
     <meta property="og:title" content="Contactanos — Teléfono, WhatsApp, Nodos | Cuidados en Red">
@@ -11,7 +11,11 @@
     <meta property="og:url" content="https://nbronzina.github.io/cuidar/contacto.html">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
     <link rel="canonical" href="https://nbronzina.github.io/cuidar/contacto.html">
@@ -19,14 +23,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <style>
         .hero-contacto {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
-                        url('https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=1600&h=400&fit=crop&fm=webp&q=30') center/cover;
+            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95));
             color: white;
             padding: 60px 0;
             text-align: center;
@@ -75,7 +77,7 @@
         }
         
         .contact-card.success {
-            border-top-color: #2E7D32;
+            border-top-color: #1B5E20;
         }
         
         .contact-card.warning {
@@ -97,8 +99,8 @@
         }
         
         .contact-card.success .contact-icon {
-            background: linear-gradient(135deg, #2E7D32, #1B5E20);
-            box-shadow: 0 4px 12px rgba(46,125,50,0.3);
+            background: linear-gradient(135deg, #1B5E20, #14461A);
+            box-shadow: 0 4px 12px rgba(27,94,32,0.3);
         }
         
         .contact-card.warning .contact-icon {
@@ -328,36 +330,12 @@
       }]
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "Contacto — Cuidados en Red",
-      "description": "Contactá con Cuidados en Red por teléfono 147, WhatsApp, email o visitá nuestros 16 nodos presenciales en toda la Ciudad de Buenos Aires.",
-      "url": "https://nbronzina.github.io/cuidar/contacto.html",
-      "mainEntity": {
-        "@type": "GovernmentOrganization",
-        "name": "Cuidados en Red",
-        "telephone": "147",
-        "email": "info@cuidadosenred.gob.ar",
-        "url": "https://nbronzina.github.io/cuidar/",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Buenos Aires",
-          "addressCountry": "AR"
-        },
-        "parentOrganization": {
-          "@type": "GovernmentOrganization",
-          "name": "Gobierno de la Ciudad de Buenos Aires"
-        }
-      }
-    }
-    </script>
 </head>
 <body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+    <div class="accessibility-bar" role="region" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
@@ -395,10 +373,11 @@
                 <a href="para-cuidadores.html">Para Personas Cuidadoras</a>
                 <a href="el-sistema.html">El Sistema</a>
                 <a href="transparencia.html">Transparencia</a>
-                <a href="contacto.html" aria-current="page" class="active">Contacto</a>
+                <a href="contacto.html" class="active" aria-current="page">Contacto</a>
             </div>
         </div>
     </nav>
+    <!-- fin:cabecera -->
 
     <div class="container">
         <nav class="breadcrumb" aria-label="Ubicación">
@@ -434,12 +413,12 @@
                 <h2 style="color: var(--color-primary); font-size: 1.375rem; margin-bottom: 20px;">
                     <i class="fa fa-phone" aria-hidden="true"></i> ¿Cómo funciona cuando llamás?
                 </h2>
-                <p style="font-size: 1.125rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
+                <p style="font-size: 1.125rem; line-height: 1.8; color: #444444; margin-bottom: 20px;">
                     Llamás al 147, te atiende el sistema de voz de Cuidados en Red. Te pregunta qué necesitás, clasifica tu consulta y te conecta con el área correcta. Si preferís hablar con una persona, decí <strong>"operador"</strong> en cualquier momento.
                 </p>
-                <ul style="list-style: none; padding: 0; font-size: 1.0625rem; line-height: 1.8; color: #555;">
+                <ul style="list-style: none; padding: 0; font-size: 1.0625rem; line-height: 1.8; color: #444444;">
                     <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                        <i class="fa fa-medkit" style="color: #D32F2F; margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <i class="fa fa-medkit" style="color: #9A1515; margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
                         <span><strong>Emergencia médica:</strong> te transfiere al SAME (107) de forma inmediata</span>
                     </li>
                     <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
@@ -455,7 +434,7 @@
                         <span><strong>Situación de riesgo:</strong> se activa el protocolo de actuación de forma prioritaria</span>
                     </li>
                 </ul>
-                <p style="font-size: 1rem; line-height: 1.6; color: #595959; margin-top: 16px; margin-bottom: 0;">
+                <p style="font-size: 1rem; line-height: 1.6; color: #505050; margin-top: 16px; margin-bottom: 0;">
                     Al finalizar la llamada recibís un número de seguimiento. Si tenés celular, te lo mandamos también por SMS o WhatsApp. Si te pasan a una persona, no tenés que repetir todo — el sistema le transfiere el resumen de tu consulta.
                 </p>
             </div>
@@ -628,8 +607,8 @@
     <section class="form-section">
         <div class="container">
             <div id="contactSuccess" class="inline-message success">
-                <i class="fa fa-check-circle" style="font-size: 3rem; color: var(--color-secondary); margin-bottom: 16px;" aria-hidden="true"></i>
-                <h2 id="contactSuccessTitle" style="color: #1B5E20; margin-bottom: 8px; font-size: 1.75rem;">Recibimos tu consulta</h2>
+                <i class="fa fa-check-circle" style="font-size: 3rem; color: var(--color-secondary-text); margin-bottom: 16px;" aria-hidden="true"></i>
+                <h2 id="contactSuccessTitle" style="color: #14461A; margin-bottom: 8px; font-size: 1.75rem;">Recibimos tu consulta</h2>
                 <p style="color: #333; font-size: 1.125rem;">Número de consulta: <strong id="consultaNumero" style="font-variant-numeric: tabular-nums;"></strong></p>
                 <p style="color: #333;">Respondemos en 48 a 72 horas hábiles por email o teléfono. Si es urgente, llamá al <a href="tel:147">147</a>.</p>
                 <button type="button" id="resetContactBtn" style="margin-top: 16px; background: transparent; color: #1A5276; border: 2px solid #1A5276; padding: 10px 24px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600;">
@@ -690,6 +669,7 @@
     </a>
     </main>
 
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
     <footer role="contentinfo">
         <div class="container">
             <div class="row">
@@ -709,7 +689,7 @@
                     <h4>CONTACTO</h4>
                     <a href="tel:147" aria-label="Llamar al 147">147 (gratis)</a>
                     <a href="nodos.html">Lugares en tu barrio</a>
-                    <a href="contacto.html" aria-current="page">Todas las formas de contacto</a>
+                    <a href="contacto.html">Todas las formas de contacto</a>
                 </nav>
                 <nav class="col-md-3" aria-label="Enlaces institucionales">
                     <h4>GOBIERNO ABIERTO</h4>
@@ -723,6 +703,7 @@
                 <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>
+        
         <!-- DISCLAIMER DE AUTORÍA -->
         <div class="author-disclaimer">
             <p>
@@ -735,46 +716,11 @@
             </p>
         </div>
     </footer>
+    <!-- fin:pie -->
     
-    <script src="accessibility.js"></script>
-    <script src="mundo.js"></script>
-    <script src="forms.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var form = document.getElementById('contactForm');
-            CR.enhance(form);
-            form.addEventListener('submit', sendContact);
-            document.getElementById('resetContactBtn').addEventListener('click', resetContactForm);
-        });
-
-        function sendContact(e) {
-            e.preventDefault();
-            var form = document.getElementById('contactForm');
-            if (!CR.validateForm(form)) return;
-
-            var submitBtn = form.querySelector('.btn-submit');
-            var originalText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Enviando...';
-
-            // Simulación del envío
-            setTimeout(function() {
-                document.getElementById('consultaNumero').textContent = CR.newNumber('C');
-                document.querySelector('.form-container').style.display = 'none';
-                document.getElementById('contactSuccess').classList.add('show');
-                form.reset();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-                CR.focusHeading(document.getElementById('contactSuccessTitle'));
-            }, 1500);
-        }
-
-        function resetContactForm() {
-            document.getElementById('contactForm').reset();
-            document.querySelector('.form-container').style.display = 'block';
-            document.getElementById('contactSuccess').classList.remove('show');
-            document.getElementById('nombre').focus();
-        }
-    </script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/contacto.js"></script>
 </body>
 </html>

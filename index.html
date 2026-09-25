@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cuidados en Red - Sistema Integral de Cuidados para Personas Mayores en Buenos Aires. Cuidado domiciliario con tecnología y acompañamiento profesional.">
     <meta property="og:title" content="Cuidados en Red — Cuidado Domiciliario Personas Mayores">
@@ -11,7 +11,11 @@
     <meta property="og:url" content="https://nbronzina.github.io/cuidar/">
     <meta property="og:site_name" content="Cuidados en Red">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop&fm=webp&q=80">
+    <meta property="og:image" content="https://nbronzina.github.io/cuidar/img/og-cuidados-en-red.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cuidados en Red, proyecto de diseño especulativo de Nicolás Bronzina: escudo de la Ciudad y nombre del programa.">
+    <meta name="author" content="Nicolás Bronzina">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1A5276">
     <link rel="canonical" href="https://nbronzina.github.io/cuidar/">
@@ -19,7 +23,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
@@ -31,8 +34,7 @@
         
         /* HERO - Ahora consistente con hero-personas */
         .hero {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95)),
-                        url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1600&h=500&fit=crop&fm=webp&q=30') center/cover;
+            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95));
             color: white;
             padding: 80px 0; /* Ahora usa 80px como personas-mayores */
             text-align: center;
@@ -147,7 +149,7 @@
         .feature-icon {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #2E7D32, #1B5E20);
+            background: linear-gradient(135deg, #1B5E20, #14461A);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -170,7 +172,7 @@
         
         /* CTA INSCRIPCIÓN */
         .cta-inscripcion {
-            background: linear-gradient(135deg, #2E7D32, #1B5E20);
+            background: linear-gradient(135deg, #1B5E20, #14461A);
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -212,7 +214,7 @@
             width: 60px;
             height: 60px;
             background-color: white;
-            color: #2E7D32;
+            color: var(--color-secondary-text);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -278,7 +280,7 @@
         }
         
         .testimonial-author span {
-            color: #595959;
+            color: #505050;
             font-size: 1rem;
         }
         
@@ -308,7 +310,7 @@
         .stat-number {
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--color-secondary);
+            color: var(--color-secondary-text);
             margin-bottom: 16px;
         }
         
@@ -325,7 +327,7 @@
         
         .stat-sublabel {
             font-size: 1rem;
-            color: #595959;
+            color: #505050;
             margin-top: 8px;
         }
         
@@ -378,7 +380,7 @@
         
         .contact-option i {
             font-size: 3rem;
-            color: var(--color-secondary);
+            color: var(--color-secondary-text);
         }
         
         .contact-option strong {
@@ -435,19 +437,15 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "GovernmentOrganization",
+      "@type": "WebSite",
       "name": "Cuidados en Red",
-      "description": "Sistema Integral de Cuidados para Personas Mayores de la Ciudad de Buenos Aires",
       "url": "https://nbronzina.github.io/cuidar/",
-      "telephone": "147",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Buenos Aires",
-        "addressCountry": "AR"
-      },
-      "parentOrganization": {
-        "@type": "GovernmentOrganization",
-        "name": "Gobierno de la Ciudad de Buenos Aires"
+      "inLanguage": "es-AR",
+      "genre": "Diseño especulativo",
+      "description": "Prototipo diegético de diseño especulativo: simula una plataforma del Gobierno de la Ciudad de Buenos Aires en 2032 para el cuidado domiciliario de personas mayores. No es un servicio real.",
+      "author": {
+        "@type": "Person",
+        "name": "Nicolás Bronzina"
       }
     }
     </script>
@@ -465,9 +463,10 @@
     </script>
 </head>
 <body>
+    <!-- inicio:cabecera · generado desde partials/cabecera.html con tools/sincronizar.js; no editar acá -->
     <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
     
-    <div class="accessibility-bar" role="complementary" aria-label="Herramientas de accesibilidad">
+    <div class="accessibility-bar" role="region" aria-label="Herramientas de accesibilidad">
         <div class="container clearfix">
             <span><i class="fa fa-universal-access" aria-hidden="true"></i> Accesibilidad:</span>
             <button type="button" data-a11y="normal" aria-label="Texto normal" aria-pressed="false">A</button>
@@ -509,6 +508,7 @@
             </div>
         </div>
     </nav>
+    <!-- fin:cabecera -->
     
     <main id="main-content">
         <section class="hero">
@@ -639,7 +639,7 @@
                 </div>
                 
                 <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="tel:147" class="btn btn-lg" style="background-color: white; color: #2E7D32; border-color: white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Llamar al 147">
+                    <a href="tel:147" class="btn btn-lg" style="background-color: white; color: var(--color-secondary-text); border-color: white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Llamar al 147">
                         <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                     </a>
                     <a href="inscripcion.html" class="btn btn-lg" style="background-color: transparent; color: white; border: 3px solid white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Inscribirme online">
@@ -770,6 +770,7 @@
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
     </a>
     
+    <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
     <footer role="contentinfo">
         <div class="container">
             <div class="row">
@@ -816,8 +817,9 @@
             </p>
         </div>
     </footer>
+    <!-- fin:pie -->
     
-    <script src="accessibility.js"></script>
-    <script src="mundo.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/mundo.js"></script>
 </body>
 </html>

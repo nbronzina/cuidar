@@ -20,7 +20,8 @@ html {
 
 :root {
     --color-primary: #1A5276;
-    --color-secondary: #2E7D32;
+    --color-secondary: #1B5E20;
+    --color-secondary-text: #14461A;
     --color-accent: #E65100;
     --color-accent-text: #8F3200;
     --color-warm: #FFF8E1;
@@ -415,7 +416,7 @@ html.text-size-xlarge { font-size: 125%; }
 .breadcrumb {
     padding: 12px 0;
     font-size: 1rem;
-    color: #595959;
+    color: #505050;
 }
 
 .breadcrumb a {
@@ -430,7 +431,7 @@ html.text-size-xlarge { font-size: 125%; }
 
 .breadcrumb .separator {
     margin: 0 8px;
-    color: #595959;
+    color: #505050;
 }
 
 .breadcrumb .current {
@@ -484,7 +485,7 @@ html.text-size-xlarge { font-size: 125%; }
 }
 
 .btn-success:hover {
-    background-color: #1B5E20;
+    background-color: #14461A;
     color: white;
 }
 
@@ -726,7 +727,7 @@ footer a:hover {
 
 .stat-sublabel {
     font-size: 1rem;
-    color: #595959;
+    color: #505050;
     margin-top: 8px;
 }
 
@@ -996,6 +997,7 @@ select:focus-visible {
 body.high-contrast {
     --color-primary: #0000CC;
     --color-secondary: #006600;
+    --color-secondary-text: #004400;
     --color-accent: #CC6600;
     --color-accent-text: #6B2600;
     --color-warm: #FFFFCC;
@@ -1114,7 +1116,7 @@ body.high-contrast *:focus-visible {
 .alert-success {
     background-color: #E8F5E9;
     border-left-color: var(--color-secondary);
-    color: #1B5E20;
+    color: #14461A;
 }
 
 .alert-warning {
@@ -1285,7 +1287,7 @@ tr:hover {
 .inline-message.success {
     background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
     border: 2px solid var(--color-secondary);
-    color: #1B5E20;
+    color: #14461A;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1343,7 +1345,7 @@ tr:hover {
 }
 
 .icon-secondary {
-    color: var(--color-secondary);
+    color: var(--color-secondary-text);
     margin-top: 4px;
     flex-shrink: 0;
 }
@@ -1397,7 +1399,7 @@ tr:hover {
 
 /* Icon decorative sizes */
 .icon-heading-secondary {
-    color: var(--color-secondary);
+    color: var(--color-secondary-text);
     font-size: 1.25rem;
     display: block;
     margin-bottom: 8px;
@@ -1417,7 +1419,7 @@ tr:hover {
 }
 
 .icon-heading-secondary-lg {
-    color: var(--color-secondary);
+    color: var(--color-secondary-text);
     font-size: 1.5rem;
     margin-bottom: 12px;
 }

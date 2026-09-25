@@ -1,0 +1,16 @@
+{
+  "name": "cuidados-en-red",
+  "private": true,
+  "description": "Prototipo diegético de diseño especulativo: plataforma ficticia del GCBA en 2032.",
+  "scripts": {
+    "sincronizar": "node tools/sincronizar.js",
+    "servidor": "node tools/servidor.js",
+    "test": "node tools/sincronizar.js --check && playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "axe-core": "4.11.0",
+    "font-awesome": "4.7.0",
+    "leaflet": "1.9.4"
+  }
+}

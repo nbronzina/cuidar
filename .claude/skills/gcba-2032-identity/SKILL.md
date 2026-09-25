@@ -15,19 +15,21 @@ description: >
 | Color | Hex | Contraste sobre blanco | Uso |
 |---|---|---|---|
 | **Teal institucional** | `#1A5276` | 8,4:1 AAA | Heroes informativos, headings, header, enlaces |
-| **Verde acción** | `#2E7D32` | 5,1:1 AA (no AAA) | Heroes de acción, fondos de CTAs con texto blanco. Para texto verde sobre fondo claro usar `#1B5E20` (7,9:1) |
+| **Verde acción** | `#1B5E20` | 7,9:1 AAA | Heroes de acción, fondos de CTAs con texto blanco (`--color-secondary`). Hasta 2026 era `#2E7D32` (5,1:1), reemplazado por no cumplir AAA |
+| **Verde texto** | `#14461A` | 11:1 AAA | Texto verde, también sobre fondos verdes claros (`--color-secondary-text`) |
 | **Naranja** | `#E65100` | 3,8:1 — no apto para texto | Solo bordes, íconos y fondos decorativos. Nunca texto |
 | **Naranja texto** | `#8F3200` | 8,0:1 AAA | Texto de advertencia/fricción (`--color-accent-text`, `--color-friction-emphasis`); también fondo de botones con texto blanco |
 | **Rojo alerta** | `#B71C1C` | 6,6:1 AA | Fondos de alertas y emergencias. Para texto de error usar `#9A1515` (8,4:1) |
 | **Gris body** | `#444444` | 9,7:1 AAA | Texto de cuerpo principal |
-| **Gris secundario** | `#595959` | 7,0:1 AAA | Texto secundario (autores, sublabels, notas). No usar #767676, #888 ni #999 para texto |
+| **Gris secundario** | `#505050` | 8,2:1 AAA | Texto secundario (autores, sublabels, notas); mantiene 7:1 sobre los fondos tintados. No usar #595959, #767676, #888 ni #999 para texto |
 | **Fondo claro** | `#F5F5F5` | — | Secciones alternadas, fondos de tarjetas |
 
-Sobre fondos tintados (`#FFF3E0`, `#FFF9E6`) los contrastes bajan un 8–10 %: verificar antes de usar gris secundario sobre ellos.
+Sobre fondos tintados (`#FFF3E0`, `#E3F2FD`, `#E8F5E9`) los contrastes bajan un 8–10 %. Azul sobre `#E3F2FD`: usar `#0D47A1`. Rojo como texto: `#9A1515`. El sitio pasa axe `color-contrast-enhanced` (7:1) en las 11 páginas.
 
 ### Colores auxiliares (ya en styles.css como variables)
 - `--color-primary`: `#1A5276`
-- `--color-secondary`: `#2E7D32`
+- `--color-secondary`: `#1B5E20`
+- `--color-secondary-text`: `#14461A`
 - `--color-accent`: `#E65100` (bordes e íconos)
 - `--color-accent-text`: `#8F3200` (texto)
 - `--color-warm`: fondo cálido para alertas
