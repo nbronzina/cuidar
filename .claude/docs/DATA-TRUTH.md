@@ -172,8 +172,8 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Cuidado nocturno permanente
 
 ### Copago por ejemplo
-- Marta (jubilación mínima, $680.000/mes, Nivel 2): $0
-- Roberto (ingreso medio, $1.200.000/mes, Nivel 1): $120.000/mes (10%)
+- Norma (jubilación mínima, $680.000/mes, Nivel 2): $0
+- Osvaldo (ingreso medio, $1.200.000/mes, Nivel 1): $120.000/mes (10%)
 - Nélida (ingreso alto, $4.000.000/mes, Nivel 3): $400.000/mes (10%, tope reducido)
 
 ### Los 16 Nodos
@@ -205,3 +205,8 @@ Fuente de verdad para todos los números del sitio. Antes de agregar cualquier n
 - Número de consulta (formulario de contacto): `C-2032-NNNNNNN` (7 dígitos).
 - Legajo de ejemplo en estado-tramite.html: María Isabel González, DNI 12.345.678, trámite CR-2032-0041377.
 - Plazo de respuesta a consultas por formulario: 48 a 72 horas hábiles (oficial 48 hs; ver contacto.html).
+
+### Teléfonos y WhatsApp (sin números inventados)
+- Los 16 Nodos se llaman por el 147 con interno: Nodo 1 = interno 1001 … Nodo 16 = interno 1016. No se publican líneas directas (cualquier número "realista" podría ser de una persona real).
+- WhatsApp: el número no se publica, para evitar cuentas falsas que se hacen pasar por el programa. Se pide el enlace llamando al 147 y llega por SMS al celular registrado. El programa nunca pide claves, códigos ni pagos por WhatsApp.
+- Horario de WhatsApp: lunes a viernes de 8 a 20 h; demora de respuesta de 30 minutos a 6 horas según demanda.

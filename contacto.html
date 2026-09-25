@@ -312,6 +312,11 @@
                 font-size: 2.25rem;
             }
         }
+
+        .contact-aviso {
+            font-weight: 600;
+            color: #444;
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -401,7 +406,7 @@
         <div class="container">
             <h1>Estamos para ayudarte</h1>
             <p class="lead">
-                Elegí el canal que más te convenga. Respondemos todas las consultas.
+                Elegí el canal que más te convenga. Respondemos todas las consultas que llegan con un email o teléfono correcto.
             </p>
         </div>
     </section>
@@ -513,15 +518,16 @@
                     </a>
                 </article>
 
-                <article class="contact-card success">
+                <article class="contact-card success" id="whatsapp">
                     <div class="contact-icon">
                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                     </div>
                     <h3>WhatsApp</h3>
                     <p>Lun-Vie 8-20hs. <strong>Demora de respuesta: 30min-6hs según demanda</strong></p>
-                    <span class="contact-info">11 1234-5678</span>
-                    <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn btn-success">
-                        <i class="fa fa-whatsapp" aria-hidden="true"></i> Chatear
+                    <p>Para evitar cuentas falsas que se hacen pasar por el programa, el número no se publica: <strong>llamá al 147 y te mandamos el enlace por SMS</strong> al celular que registraste.</p>
+                    <p class="contact-aviso">Nunca te vamos a pedir claves, códigos ni pagos por WhatsApp.</p>
+                    <a href="tel:147" class="btn btn-success">
+                        <i class="fa fa-phone" aria-hidden="true"></i> Pedir el enlace al 147
                     </a>
                 </article>
 
@@ -650,13 +656,6 @@
         </div>
     </section>
 
-    <a href="https://wa.me/5491112345678"
-       class="whatsapp-float"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp">
-        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-    </a>
     </main>
 
     <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
@@ -708,6 +707,11 @@
             </p>
         </div>
     </footer>
+
+    <!-- Acceso a WhatsApp: lleva a cómo pedir el enlace (el número no se publica) -->
+    <a href="contacto.html#whatsapp" class="whatsapp-float" aria-label="WhatsApp: cómo escribirnos">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
     <!-- fin:pie -->
 
     <script src="js/accessibility.js"></script>

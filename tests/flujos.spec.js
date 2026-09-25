@@ -154,13 +154,19 @@ test.describe('Nodos', () => {
         await expect(page.locator('#nodosCount')).toHaveText('Mostrando 2 Nodos de la Comuna 2');
     });
 
-    test('cada botón Llamar marca el número visible de su Nodo', async ({ page }) => {
+    test('cada Nodo se llama por el 147 con su propio interno', async ({ page }) => {
         await page.goto('nodos.html');
-        const cruzados = await page.$$eval('.nodo-card', (cards) => cards.filter((c) => {
-            const visible = c.textContent.match(/4555-(\d+)/)[1];
-            return [...c.querySelectorAll('a[href^="tel:"]')].some((a) => !a.href.endsWith(visible));
-        }).map((c) => c.querySelector('h3').textContent));
-        expect(cruzados).toEqual([]);
+        const nodos = await page.$$eval('.nodo-card', (cards) => cards.map((c) => ({
+            nombre: c.querySelector('h3').textContent,
+            numero: c.querySelector('.nodo-number').textContent.trim(),
+            interno: (c.textContent.match(/interno (\d+)/) || [])[1],
+            tel: [...c.querySelectorAll('a[href^="tel:"]')].map((a) => a.getAttribute('href'))
+        })));
+        expect(nodos).toHaveLength(16);
+        for (const n of nodos) {
+            expect(n.interno, n.nombre).toBe(String(1000 + Number(n.numero)));
+            expect(n.tel.every((t) => t === 'tel:147'), n.nombre).toBe(true);
+        }
     });
 });
 
@@ -235,4 +241,17 @@ test.describe('Piezas institucionales (A-25)', () => {
         await page.click('footer a[href="accesibilidad.html"]');
         await expect(page.locator('h1')).toHaveText('Declaración de accesibilidad');
     });
+});
+
+test('ningún enlace lleva a un número inventado (placeholders)', async ({ page }) => {
+    for (const p of ['index.html', 'contacto.html', 'nodos.html', 'estado-tramite.html', 'inscripcion.html', 'politica-privacidad.html']) {
+        await page.goto(p);
+        await expect(page.locator('a[href*="wa.me"]')).toHaveCount(0);
+        const tels = await page.$$eval('a[href^="tel:"]', (as) => [...new Set(as.map((a) => a.getAttribute('href')))]);
+        expect(tels.filter((t) => t !== 'tel:147'), p).toEqual([]);
+    }
+    await page.goto('index.html');
+    await page.click('.whatsapp-float');
+    await expect(page).toHaveURL(/contacto\.html#whatsapp$/);
+    await expect(page.locator('#whatsapp')).toContainText('Nunca te vamos a pedir claves');
 });

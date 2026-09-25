@@ -23,7 +23,7 @@ Fuente de verdad para todas las instituciones mencionadas en el sitio. Antes de 
 | **Programa Proteger del GCBA** | Protección contra violencia hacia mayores | Real, existente. |
 | **Agencia de Acceso a la Información Pública** | Órgano de control de datos personales | Real, www.argentina.gob.ar/aaip. |
 | **ART** | Seguro de riesgos del trabajo | Cobertura para personas cuidadoras. |
-| **Cooperativas GCBA** | Cooperativas reguladas de cuidadoras | 4.200 cuidadoras en cooperativas. |
+| **Cooperativas GCBA** | Cooperativas reguladas de personas cuidadoras | Régimen laboral de las 4.200 personas cuidadoras: contratación por cooperativas reguladas, salario fijado por convenio GCBA–cooperativas, ART, aportes y ObSBA por convenio. Los pagos pasan por la cooperativa (de ahí el 32 % con demoras). |
 
 ## NO usar NUNCA
 
@@ -45,9 +45,9 @@ Fuente de verdad para todas las instituciones mencionadas en el sitio. Antes de 
 | Ley 4.408/2012 | Real | Establece el escudo de la Ciudad como símbolo oficial. |
 | Constitución 1996 | Real | Establece el nombre constitucional "Ciudad Autónoma de Buenos Aires". |
 | Ley 25.326 | Real | Protección de Datos Personales. |
-| Ley 26.529 | Real | Derechos del Paciente, Historia Clínica. |
-| Ley 26.844 | Real | Régimen de trabajadores de casas particulares (convenio laboral). |
-| Res. CNTCP 1/2026 | Real | Resolución salarial base para cuidadoras. |
+| Ley 26.529 | Real | Derechos del Paciente, Historia Clínica. Art. 18: la historia clínica se conserva al menos 10 años (verificar texto vigente antes de citar otros plazos). |
+| Ley 26.844 | Real | Régimen de trabajadores de casas particulares. **No** es el régimen de las personas cuidadoras del programa (ver Cooperativas GCBA). |
+| Res. CNTCP 1/2026 | A verificar | Piso salarial de referencia para el convenio GCBA–cooperativas. TIMELINE la marca como ficticia. |
 | Resolución 682/MDHYHGC/25 | Ficticia | Crea el programa piloto de desinstitucionalización (octubre 2025). |
 | Resolución 3315/2023 | Real | Referencia regulatoria sanitaria. |
 | Resolución GCBA 1847/2031 | Ficticia | Protocolo de Datos Sensibles de Cuidados en Red. |

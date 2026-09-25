@@ -736,7 +736,7 @@
                                 <option value="Liniers">Liniers</option>
                                 <option value="Mataderos">Mataderos</option>
                                 <option value="Monte Castro">Monte Castro</option>
-                                <option value="Montserrat">Montserrat</option>
+                                <option value="Monserrat">Monserrat</option>
                                 <option value="Nueva Pompeya">Nueva Pompeya</option>
                                 <option value="Núñez">Núñez</option>
                                 <option value="Palermo">Palermo</option>
@@ -751,6 +751,7 @@
                                 <option value="San Cristóbal">San Cristóbal</option>
                                 <option value="San Nicolás">San Nicolás</option>
                                 <option value="San Telmo">San Telmo</option>
+                                <option value="Vélez Sársfield">Vélez Sársfield</option>
                                 <option value="Versalles">Versalles</option>
                                 <option value="Villa Crespo">Villa Crespo</option>
                                 <option value="Villa del Parque">Villa del Parque</option>
@@ -791,7 +792,7 @@
                         <label for="telefono">
                             Teléfono <span class="required" aria-hidden="true">*</span>
                         </label>
-                        <input type="tel" id="telefono" name="telefono" required aria-required="true" placeholder="11 1234-5678" pattern="[\s\-]*([0-9][\s\-]*){10,13}" autocomplete="tel" data-error-pattern="Escribí el teléfono con código de área, por ejemplo 11 4567-8901 o 351 456-7890.">
+                        <input type="tel" id="telefono" name="telefono" required aria-required="true" placeholder="Ej: 11 4567-8901" pattern="[\s\-]*([0-9][\s\-]*){10,13}" autocomplete="tel" data-error-pattern="Escribí el teléfono con código de área, por ejemplo 11 4567-8901 o 351 456-7890.">
                         <div class="help-text">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <span>A este número te vamos a llamar según la disponibilidad de tu zona. <strong>Si no contestás en 3 intentos, tu inscripción queda pausada.</strong></span>
@@ -930,7 +931,7 @@
                     <a href="nodos.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 14px 32px;">
                         <i class="fa fa-map-marker" aria-hidden="true"></i> Ver Nodos cercanos
                     </a>
-                    <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #075E54; color: white; padding: 14px 32px;">
+                    <a href="contacto.html#whatsapp" class="btn" style="background-color: #075E54; color: white; padding: 14px 32px;">
                         <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
                     </a>
                 </div>
@@ -939,14 +940,6 @@
     </section>
     </main>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5491112345678"
-       class="whatsapp-float"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp">
-        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-    </a>
 
     <!-- inicio:pie · generado desde partials/pie.html con tools/sincronizar.js; no editar acá -->
     <footer>
@@ -997,6 +990,11 @@
             </p>
         </div>
     </footer>
+
+    <!-- Acceso a WhatsApp: lleva a cómo pedir el enlace (el número no se publica) -->
+    <a href="contacto.html#whatsapp" class="whatsapp-float" aria-label="WhatsApp: cómo escribirnos">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </a>
     <!-- fin:pie -->
 
     <script src="js/accessibility.js"></script>
