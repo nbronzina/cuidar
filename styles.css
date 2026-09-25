@@ -1117,8 +1117,14 @@ body:has(.nav-links.open) .whatsapp-float {
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.25rem; }
 
+    /* En celular el nombre constitucional se oculta a la vista pero lo sigue anunciando el lector de pantalla */
     .logo-text .institutional {
-        display: none;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
     }
 
     .logo-text .program-name {

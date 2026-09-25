@@ -3,9 +3,7 @@
 exclude:
   - README.md
   - CLAUDE.md
-  - REVIEW.md
-  - AUDIT-REPORT.md
-  - AUDIT-REPORT-SKILLS.md
+  - docs/
   - package.json
   - package-lock.json
   - playwright.config.js

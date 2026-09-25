@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-/* Servidor estático mínimo para las pruebas (sin dependencias). Uso: node tools/servidor.js [puerto] */
+/* Servidor estático mínimo para las pruebas (sin dependencias). Uso: node tools/servidor.js [puerto]
+   Imita a GitHub Pages: el sitio también responde bajo /cuidar/ y las rutas inexistentes devuelven 404.html. */
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -13,11 +14,12 @@ const TIPOS = {
 
 http.createServer((req, res) => {
     let ruta = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    if (ruta === '/cuidar' || ruta.startsWith('/cuidar/')) ruta = ruta.slice('/cuidar'.length) || '/';
     if (ruta.endsWith('/')) ruta += 'index.html';
     const archivo = path.normalize(path.join(RAIZ, ruta));
     if (!archivo.startsWith(RAIZ) || !fs.existsSync(archivo) || fs.statSync(archivo).isDirectory()) {
-        res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-        return res.end('No encontrado');
+        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+        return fs.createReadStream(path.join(RAIZ, '404.html')).pipe(res);
     }
     res.writeHead(200, { 'Content-Type': TIPOS[path.extname(archivo)] || 'application/octet-stream' });
     fs.createReadStream(archivo).pipe(res);

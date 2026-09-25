@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-/* Sincroniza la cabecera y el pie compartidos en las 11 páginas.
+/* Sincroniza la cabecera y el pie compartidos en todas las páginas,
+   y el JSON-LD de preguntas frecuentes con las preguntas visibles.
 
    Fuente única:  partials/cabecera.html  (skip link, barra de accesibilidad, header, menú)
                   partials/pie.html       (footer y aviso de autoría)
@@ -67,11 +68,40 @@ function sincronizar(pagina, html) {
     return html;
 }
 
+/* Preguntas frecuentes: el JSON-LD FAQPage se genera desde las preguntas visibles (<details><summary>),
+   para que los buscadores muestren lo mismo que la página, incluidas las limitaciones. */
+function textoPlano(html) {
+    return html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+        .replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
+}
+
+function sincronizarFaq(html) {
+    const inicio = html.indexOf('"@type": "FAQPage"');
+    if (inicio === -1) return html;
+    const abre = html.lastIndexOf('<script type="application/ld+json">', inicio);
+    const cierra = html.indexOf('</script>', inicio);
+    const cuerpo = html.slice(html.indexOf('<body'));
+    const preguntas = [];
+    const re = /<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g;
+    let m;
+    while ((m = re.exec(cuerpo))) {
+        preguntas.push({
+            '@type': 'Question',
+            name: textoPlano(m[1]),
+            acceptedAnswer: { '@type': 'Answer', text: textoPlano(m[2]) }
+        });
+    }
+    if (!preguntas.length) return html;
+    const json = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: preguntas }, null, 2)
+        .split('\n').map((l) => '    ' + l).join('\n');
+    return html.slice(0, abre) + '<script type="application/ld+json">\n' + json + '\n    ' + html.slice(cierra);
+}
+
 let distintas = [];
 for (const pagina of paginas()) {
     const archivo = path.join(RAIZ, pagina);
     const actual = fs.readFileSync(archivo, 'utf8');
-    const nuevo = sincronizar(pagina, actual);
+    const nuevo = sincronizarFaq(sincronizar(pagina, actual));
     if (nuevo !== actual) {
         distintas.push(pagina);
         if (!CHECK) fs.writeFileSync(archivo, nuevo);
@@ -79,7 +109,7 @@ for (const pagina of paginas()) {
 }
 
 if (CHECK && distintas.length) {
-    console.error('Cabecera o pie desincronizados en: ' + distintas.join(', '));
+    console.error('Cabecera, pie o preguntas frecuentes desincronizados en: ' + distintas.join(', '));
     console.error('Editá partials/ y corré: node tools/sincronizar.js');
     process.exit(1);
 }

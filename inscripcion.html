@@ -68,7 +68,7 @@
     <header class="header-gcba">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" class="escudo" width="40" height="48">
+                <img src="img/escudo-caba.svg" alt="" class="escudo" width="40" height="48">
                 <div class="logo-text">
                     <span class="institutional">Ciudad Autónoma de Buenos Aires</span>
                     <span class="program-name">Cuidados en Red</span>
@@ -211,27 +211,27 @@
                 </h3>
                 <ul class="u-list-style-none u-padding-0 u-margin-0">
                     <li class="lista-advertencia-item">
-                        <span class="lista-advertencia-marca">⚠</span>
+                        <span class="lista-advertencia-marca" aria-hidden="true">⚠</span>
                         <strong>Tiempo de respuesta variable:</strong> En los Nodos de Palermo, Belgrano, Recoleta y Caballito el primer llamado puede tardar hasta 5-7 días hábiles. En el resto de la Ciudad suele llegar en 48-72 horas.
                     </li>
                     <li class="lista-advertencia-item">
-                        <span class="lista-advertencia-marca">⚠</span>
+                        <span class="lista-advertencia-marca" aria-hidden="true">⚠</span>
                         <strong>Documentación adicional:</strong> En la visita domiciliaria van a pedirte: DNI original, último recibo de jubilación o ANSES, comprobante de domicilio (ABL o servicio), y certificado de discapacidad si tenés.
                     </li>
                     <li class="lista-advertencia-item">
-                        <span class="lista-advertencia-marca">⚠</span>
+                        <span class="lista-advertencia-marca" aria-hidden="true">⚠</span>
                         <strong>El copago depende de tus ingresos:</strong> con jubilación mínima, PUAM o pensión no contributiva es gratis. Con ingresos más altos pagás un copago de hasta el 15% de tu ingreso, pero nadie queda afuera por lo que cobra.
                     </li>
                     <li class="lista-advertencia-item">
-                        <span class="lista-advertencia-marca">⚠</span>
+                        <span class="lista-advertencia-marca" aria-hidden="true">⚠</span>
                         <strong>Limitaciones de servicio:</strong> El programa NO cubre cuidados médicos especializados (enfermería, kinesiología), traslados en ambulancia, ni atención nocturna permanente.
                     </li>
                     <li class="lista-advertencia-item">
-                        <span class="lista-advertencia-marca">⚠</span>
+                        <span class="lista-advertencia-marca" aria-hidden="true">⚠</span>
                         <strong>Problemas técnicos frecuentes:</strong> El sistema puede tener demoras en procesamiento. 18% de las inscripciones online requieren completar datos por teléfono.
                     </li>
                     <li class="u-margin-bottom-0 u-padding-left-24px u-position-relative u-color-444 u-line-height-1_6">
-                        <span class="lista-advertencia-marca">⚠</span>
+                        <span class="lista-advertencia-marca" aria-hidden="true">⚠</span>
                         <strong>Cambio de cuidadora:</strong> Si por alguna razón necesitás cambiar de cuidadora, el proceso puede demorar 2-3 semanas adicionales y quedás sin servicio durante ese período.
                     </li>
                 </ul>
@@ -266,8 +266,8 @@
                             <label for="dni">
                                 DNI <span class="required" aria-hidden="true">*</span>
                             </label>
-                            <input type="text" id="dni" name="dni" required aria-required="true" placeholder="12345678" pattern="[0-9]{7,8}" maxlength="8" inputmode="numeric" autocomplete="off" spellcheck="false" data-error-pattern="Escribí el DNI solo con números, sin puntos: 7 u 8 dígitos.">
-                            <small>Sin puntos ni espacios</small>
+                            <input type="text" id="dni" name="dni" required aria-required="true" placeholder="12345678" pattern="[0-9]{7,8}" maxlength="8" inputmode="numeric" autocomplete="off" spellcheck="false" data-error-pattern="Escribí el DNI solo con números, sin puntos: 7 u 8 dígitos." aria-describedby="dni-ayuda">
+                            <small id="dni-ayuda">Sin puntos ni espacios</small>
                         </div>
 
                         <div class="form-group">
@@ -393,8 +393,8 @@
                             <label for="codigoPostal">
                                 Código Postal <span class="required" aria-hidden="true">*</span>
                             </label>
-                            <input type="text" id="codigoPostal" name="codigoPostal" required aria-required="true" placeholder="C1234ABC" pattern="[Cc][0-9]{4}[A-Za-z]{3}" autocomplete="postal-code" spellcheck="false" data-error-pattern="El código postal de la Ciudad tiene la forma C1234ABC: una C, cuatro números y tres letras.">
-                            <small>Formato: C1234ABC</small>
+                            <input type="text" id="codigoPostal" name="codigoPostal" required aria-required="true" placeholder="C1234ABC" pattern="[Cc][0-9]{4}[A-Za-z]{3}" autocomplete="postal-code" spellcheck="false" data-error-pattern="El código postal de la Ciudad tiene la forma C1234ABC: una C, cuatro números y tres letras." aria-describedby="codigoPostal-ayuda">
+                            <small id="codigoPostal-ayuda">Formato: C1234ABC</small>
                         </div>
                     </div>
                 </div>
@@ -423,8 +423,8 @@
                         <label for="email">
                             Email <span class="required" aria-hidden="true">*</span>
                         </label>
-                        <input type="email" id="email" name="email" required aria-required="true" placeholder="ejemplo@email.com" autocomplete="email" spellcheck="false">
-                        <small>Te enviaremos la confirmación de inscripción</small>
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="ejemplo@email.com" autocomplete="email" spellcheck="false" aria-describedby="email-ayuda">
+                        <small id="email-ayuda">Te enviaremos la confirmación de inscripción</small>
                     </div>
 
                     <div class="form-group">
@@ -458,8 +458,8 @@
                         <label for="situacion">
                             ¿Por qué querés inscribirte en Cuidados en Red? <span class="required" aria-hidden="true">*</span>
                         </label>
-                        <textarea id="situacion" name="situacion" required aria-required="true" rows="4" placeholder="Contanos brevemente tu situación. Por ejemplo: vivo solo/a, necesito compañía, tengo dificultades para cocinar, etc."></textarea>
-                        <small>No hace falta dar muchos detalles, esto lo charlamos en la visita domiciliaria</small>
+                        <textarea id="situacion" name="situacion" required aria-required="true" rows="4" placeholder="Contanos brevemente tu situación. Por ejemplo: vivo solo/a, necesito compañía, tengo dificultades para cocinar, etc." aria-describedby="situacion-ayuda"></textarea>
+                        <small id="situacion-ayuda">No hace falta dar muchos detalles, esto lo charlamos en la visita domiciliaria</small>
                     </div>
 
                     <fieldset class="form-group u-border-none u-padding-0 u-margin-bottom-24px">
@@ -593,7 +593,7 @@
                 </nav>
             </div>
             <div class="footer-legal">
-                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="Escudo de la Ciudad Autónoma de Buenos Aires" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
+                <p><span class="footer-escudo"><img src="img/escudo-caba.svg" alt="" width="20" height="24"></span> Ciudad Autónoma de Buenos Aires | Diseñado siguiendo las pautas WCAG 2.2</p>
                 <p class="footer-updated">Información actualizada al <span data-mundo-fecha="0">2032</span>, <span data-mundo-hora>08:00 h</span> · Dirección de Cuidados Horizontales</p>
             </div>
         </div>

@@ -304,3 +304,25 @@ test('el botón de WhatsApp no tapa el final de la página ni el menú abierto (
     await page.click('.nav-toggle');
     await expect(page.locator('.whatsapp-float')).toBeHidden();
 });
+
+test('la página 404 carga bien también en rutas con subcarpetas', async ({ page }) => {
+    const r = await page.goto('/cuidar/una/carpeta/que-no-existe.html');
+    expect(r.status()).toBe(404);
+    await expect(page.locator('h1')).toHaveText('No encontramos esta página');
+    // Los estilos cargaron: el hero tiene su degradado y el pie su fondo oscuro
+    expect(await page.$eval('.hero-documento', (e) => getComputedStyle(e).backgroundImage)).toContain('gradient');
+    const toggle = page.locator('.nav-toggle');
+    if (await toggle.isVisible()) await toggle.click();
+    await page.click('.nav-tramites a[href="nodos.html"]');
+    await expect(page).toHaveURL(/\/cuidar\/nodos\.html$/);
+});
+
+test('lo que anuncia un lector de pantalla: sin símbolos sueltos, ayudas asociadas, logo con nombre claro', async ({ page }) => {
+    await page.goto('inscripcion.html');
+    const arbol = await page.locator('body').ariaSnapshot();
+    expect(arbol).not.toContain('text: ⚠');
+    await expect(page.locator('#dni')).toHaveAccessibleDescription(/Sin puntos ni espacios/);
+    await page.goto('estado-tramite.html');
+    await expect(page.locator('#dni')).toHaveAccessibleDescription(/Solo números/);
+    await expect(page.locator('header a.logo')).toHaveAccessibleName('Ciudad Autónoma de Buenos Aires Cuidados en Red');
+});
