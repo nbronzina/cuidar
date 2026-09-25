@@ -1,14 +1,12 @@
 /* transparencia.html — Cuidados en Red */
 
-// Animación de las barras de progreso al cargar
+// Las barras de presupuesto toman su ancho de data-ancho y se animan al cargar
 window.addEventListener('load', function() {
-    setTimeout(() => {
-        document.querySelectorAll('.progress-bar-fill').forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0%';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
-        });
-    }, 500);
+    var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.progress-bar-fill[data-ancho]').forEach(function(bar) {
+        var ancho = bar.getAttribute('data-ancho') + '%';
+        if (reducir) { bar.style.width = ancho; return; }
+        bar.style.width = '0%';
+        setTimeout(function() { bar.style.width = ancho; }, 600);
+    });
 });

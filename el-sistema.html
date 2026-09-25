@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Conocé cómo funciona Cuidados en Red: personas cuidadoras capacitadas, tecnología de apoyo, Nodos territoriales y red comunitaria trabajando juntos.">
     <meta property="og:title" content="Cómo Funciona el Sistema de Cuidado | Cuidados en Red">
@@ -26,242 +26,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        .hero-sistema {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95));
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .hero-sistema h1 {
-            font-size: 3rem;
-            margin-bottom: 24px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-sistema .lead {
-            font-size: 1.625rem;
-            line-height: 1.5;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .component-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 32px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .component-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-secondary), var(--color-accent-text));
-        }
-
-        .component-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .component-icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, var(--color-secondary), #14461A);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            color: white;
-            font-size: 2.5rem;
-            box-shadow: 0 4px 16px rgba(27,94,32,0.3);
-        }
-
-        .flow-diagram {
-            background-color: white;
-            border-radius: 12px;
-            padding: 48px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 32px;
-        }
-
-        .flow-step {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .flow-step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            left: 60px;
-            top: 100%;
-            width: 4px;
-            height: 40px;
-            background: linear-gradient(180deg, var(--color-secondary), var(--color-accent));
-        }
-
-        .flow-number {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, var(--color-secondary), #14461A);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-            font-weight: 700;
-            flex-shrink: 0;
-            box-shadow: 0 8px 24px rgba(27,94,32,0.3);
-        }
-
-        .flow-content {
-            flex: 1;
-        }
-
-        .stats-banner {
-            background: linear-gradient(135deg, var(--color-accent-text), #6B2600);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(230,81,0,0.3);
-            margin-bottom: 32px;
-        }
-
-        .stat-item {
-            margin-bottom: 24px;
-        }
-
-        .stat-number-big {
-            font-size: 4rem;
-            font-weight: 700;
-            line-height: 1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .ecosystem-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 32px;
-            text-align: center;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .ecosystem-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .ecosystem-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 2.25rem;
-            transform: rotate(-5deg);
-            transition: transform 0.3s;
-        }
-
-        .ecosystem-card:hover .ecosystem-icon {
-            transform: rotate(0deg);
-        }
-
-        .tech-showcase {
-            background: linear-gradient(135deg, #F3E5F5, #EEDDF1);
-            border-radius: 12px;
-            padding: 48px;
-            margin-bottom: 32px;
-        }
-
-        .tech-item {
-            display: flex;
-            align-items: start;
-            gap: 24px;
-            background-color: white;
-            padding: 24px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-
-        .tech-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--color-purple), #6A1B9A);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 767px) {
-            .hero-sistema h1 {
-                font-size: 2rem;
-            }
-            .hero-sistema .lead {
-                font-size: 1.25rem;
-            }
-            .flow-step {
-                flex-direction: column;
-                text-align: center;
-            }
-            .flow-step::after {
-                left: 50%;
-                margin-left: -2px;
-            }
-            .flow-number {
-                width: 80px;
-                height: 80px;
-                font-size: 2.25rem;
-            }
-            .stat-number-big {
-                font-size: 3rem;
-            }
-            .tech-item {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        .valores-referencia {
-            text-align: center;
-            font-size: 1rem;
-            color: #505050;
-            margin: -8px 0 16px;
-        }
-    </style>
+    <link href="css/el-sistema.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -374,12 +140,12 @@
     </nav>
 
     <!-- Visión general -->
-    <section style="padding: 60px 0;" aria-labelledby="vision-titulo">
+    <section class="u-padding-60px-0" aria-labelledby="vision-titulo">
         <div class="container">
-            <h2 id="vision-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 24px; font-size: 2.25rem;">
+            <h2 class="u-color-primary u-text-align-center u-margin-bottom-24px u-font-size-2_25rem" id="vision-titulo">
                 Un ecosistema completo de cuidado
             </h2>
-            <p style="text-align: center; font-size: 1.25rem; color: #444; margin-bottom: 48px; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+            <p class="u-text-align-center u-font-size-1_25rem u-color-444 u-margin-bottom-48px u-max-width-900px u-margin-left-auto u-margin-right-auto u-line-height-1_8">
                 Cuidados en Red no es solo una persona que te visita. Es todo un <strong>ecosistema</strong> de servicios,
                 tecnología y comunidad trabajando juntos para que vivas mejor en tu casa.
             </p>
@@ -389,25 +155,25 @@
                     <div class="col-md-3">
                         <div class="stat-item">
                             <div class="stat-number-big">4</div>
-                            <div style="font-size: 1.25rem; margin-top: 12px;">Pilares del sistema</div>
+                            <div class="u-font-size-1_25rem u-margin-top-12px">Pilares del sistema</div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="stat-item">
                             <div class="stat-number-big">24/7</div>
-                            <div style="font-size: 1.25rem; margin-top: 12px;">Monitoreo y línea 147</div>
+                            <div class="u-font-size-1_25rem u-margin-top-12px">Monitoreo y línea 147</div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="stat-item">
                             <div class="stat-number-big">16</div>
-                            <div style="font-size: 1.25rem; margin-top: 12px;">Nodos territoriales</div>
+                            <div class="u-font-size-1_25rem u-margin-top-12px">Nodos territoriales</div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="stat-item">
                             <div class="stat-number-big">8 de 15</div>
-                            <div style="font-size: 1.25rem; margin-top: 12px;">Comunas con cobertura completa</div>
+                            <div class="u-font-size-1_25rem u-margin-top-12px">Comunas con cobertura completa</div>
                         </div>
                     </div>
                 </div>
@@ -416,9 +182,9 @@
     </section>
 
     <!-- Los 4 componentes -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="componentes-titulo">
+    <section class="u-padding-60px-0 u-background-color-f5f5f5" aria-labelledby="componentes-titulo">
         <div class="container">
-            <h2 id="componentes-titulo" style="color: var(--color-secondary-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-secondary-text u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="componentes-titulo">
                 Los 4 pilares del sistema
             </h2>
 
@@ -428,31 +194,31 @@
                         <div class="component-icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.625rem; margin-bottom: 20px; text-align: center;">
+                        <h3 class="u-color-secondary-text u-font-size-1_625rem u-margin-bottom-20px u-text-align-center">
                             1. Personas Cuidadoras Profesionales
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin-bottom: 20px;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-bottom-20px">
                             <strong>4.200 personas cuidadoras</strong> trabajando en cooperativas reguladas por el GCBA. 2.543 ya completaron la certificación; el resto está en período de prueba supervisado.
                         </p>
-                        <ul style="list-style: none; padding: 0; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1_125rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Capacitación continua en geriatría, primeros auxilios, comunicación y <strong>detección temprana de deterioro cognitivo</strong></span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Protocolo de observación cognitiva durante las visitas: las personas cuidadoras usan herramientas validadas en población argentina para detectar señales tempranas en actividades de la vida diaria. Ante alerta, derivan al equipo interdisciplinario del Nodo</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Supervisión permanente por equipos interdisciplinarios con protocolo de derivación a neurología</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>20–100 horas/mes por usuario según nivel de dependencia asignado</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Trabajo registrado con salario digno, derechos laborales y viático de transporte</span>
                             </li>
                         </ul>
@@ -461,39 +227,39 @@
 
                 <article class="col-md-6">
                     <div class="component-card">
-                        <div class="component-icon" style="background: linear-gradient(135deg, var(--color-accent-text), #6B2600);">
+                        <div class="component-icon u-background-linear-gradient-135deg-accent-text-6b2600">
                             <i class="fa fa-microphone" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-accent-text); font-size: 1.625rem; margin-bottom: 20px; text-align: center;">
+                        <h3 class="u-color-accent-text u-font-size-1_625rem u-margin-bottom-20px u-text-align-center">
                             2. Tecnología Asistiva
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin-bottom: 20px;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-bottom-20px">
                             <strong>Tita</strong> (compañera conversacional de voz) + sensor de cama + módulo de baño + sensores de movimiento + pulsera de emergencia. Tecnología validada internacionalmente, adaptada a costo público.
                         </p>
-                        <ul style="list-style: none; padding: 0; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1_125rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span><strong>Tita:</strong> Compañera conversacional de voz con dos modos (Normal y Alzheimer), monitoreo pasivo de patrones de lenguaje, reminiscencia guiada y reportes automáticos a familiares</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span><strong>Sensor de cama:</strong> Mide frecuencia cardíaca, respiración y calidad de sueño sin contacto directo (tecnología balistocardiográfica, costo ~USD 30-50 por unidad a escala)</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span><strong>Módulo de baño:</strong> Análisis automático de pH, cetonas y otros biomarcadores sin intervención del usuario (se adapta a cualquier baño, sin obra)</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span><strong>Detección cognitiva temprana:</strong> Tita analiza longitudinalmente diversidad léxica, coherencia semántica y fluidez verbal, alertando al Nodo ante desviaciones significativas</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Panel integrado para familias: datos de sueño, actividad, medicación y alertas. Sin cámaras.</span>
                             </li>
                         </ul>
-                        <p style="font-size: 1rem; color: #505050; font-style: italic; margin-top: 16px; padding: 12px; background-color: #FFF3E0; border-left: 3px solid var(--color-accent); border-radius: 4px;">
-                            <i class="fa fa-info-circle" style="color: var(--color-accent-text);" aria-hidden="true"></i>
+                        <p class="u-font-size-1rem u-color-505050 u-font-style-italic u-margin-top-16px u-padding-12px u-background-color-fff3e0 u-border-left-3px-solid-accent u-border-radius-4px">
+                            <i class="fa fa-info-circle u-color-accent-text" aria-hidden="true"></i>
                             <strong>Limitaciones conocidas:</strong> La detección de caídas tiene 8% de falsas alarmas. Tita requiere WiFi estable (algunos barrios tienen problemas de conectividad). El 23% de usuarios necesita ayuda para configuración inicial. El módulo de baño requiere recambio de cartucho cada 3 meses. La detección cognitiva es un sistema de alerta, no un diagnóstico — siempre requiere confirmación profesional.
                         </p>
                     </div>
@@ -501,30 +267,30 @@
 
                 <article class="col-md-6">
                     <div class="component-card">
-                        <div class="component-icon" style="background: linear-gradient(135deg, var(--color-primary), #0D3B5E);">
+                        <div class="component-icon u-background-linear-gradient-135deg-primary-0d3b5e">
                             <i class="fa fa-building" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-primary); font-size: 1.625rem; margin-bottom: 20px; text-align: center;">
+                        <h3 class="u-color-primary u-font-size-1_625rem u-margin-bottom-20px u-text-align-center">
                             3. Nodos Territoriales
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin-bottom: 20px;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-bottom-20px">
                             <strong>16 Nodos</strong> distribuidos estratégicamente en toda la Ciudad.
                         </p>
-                        <ul style="list-style: none; padding: 0; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1_125rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Coordinación de personas cuidadoras y usuarios de la zona</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Evaluaciones domiciliarias y seguimiento personalizado</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Equipo interdisciplinario: médicos, psicólogos, trabajadores sociales</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Centro de operaciones 24/7 para emergencias</span>
                             </li>
                         </ul>
@@ -533,34 +299,34 @@
 
                 <article class="col-md-6">
                     <div class="component-card">
-                        <div class="component-icon" style="background: linear-gradient(135deg, var(--color-purple), #6A1B9A);">
+                        <div class="component-icon u-background-linear-gradient-135deg-purple-6a1b9a">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-purple); font-size: 1.625rem; margin-bottom: 20px; text-align: center;">
+                        <h3 class="u-color-purple u-font-size-1_625rem u-margin-bottom-20px u-text-align-center">
                             4. Red Comunitaria
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin-bottom: 20px;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-bottom-20px">
                             Más de <strong>150 organizaciones</strong> trabajando en red.
                         </p>
-                        <ul style="list-style: none; padding: 0; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1_125rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>45 Centros de Día con actividades recreativas y sociales</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Banco de Tiempo para intercambio de servicios entre vecinos</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Talleres culturales, ejercicio físico adaptado, alfabetización digital</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Articulación con hospitales, farmacias y servicios públicos</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Protocolo de detección de violencia y maltrato hacia personas mayores, con derivación a la línea 137 y al Programa Proteger del GCBA</span>
                             </li>
                         </ul>
@@ -571,113 +337,113 @@
     </section>
 
     <!-- Niveles de servicio -->
-    <section style="padding: 60px 0; background-color: white;" aria-labelledby="niveles-titulo">
+    <section class="u-padding-60px-0 u-background-color-white" aria-labelledby="niveles-titulo">
         <div class="container">
-            <h2 id="niveles-titulo" style="color: var(--color-secondary-text); text-align: center; margin-bottom: 16px; font-size: 2.25rem;">
+            <h2 class="u-color-secondary-text u-text-align-center u-margin-bottom-16px u-font-size-2_25rem" id="niveles-titulo">
                 Niveles de cuidado según tus necesidades
             </h2>
-            <p style="text-align: center; font-size: 1.25rem; color: #444; margin-bottom: 16px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p class="u-text-align-center u-font-size-1_25rem u-color-444 u-margin-bottom-16px u-max-width-800px u-margin-left-auto u-margin-right-auto">
                 Una evaluación funcional estandarizada determina qué tipo de acompañamiento necesitás. Tu nivel de ingreso no afecta qué recibís — solo cuánto copagás.
             </p>
-            <p style="text-align: center; font-size: 1rem; color: #505050; margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <p class="u-text-align-center u-font-size-1rem u-color-505050 u-margin-bottom-48px u-max-width-700px u-margin-left-auto u-margin-right-auto">
                 La evaluación utiliza instrumentos validados por el autoridad sanitaria nacional (Índice de Barthel y Mini Examen Cognitivo) aplicados por el equipo del Nodo.
             </p>
 
             <div class="row">
                 <!-- Nivel 0 -->
-                <article class="col-md-6" style="margin-bottom: 32px;">
-                    <div style="background-color: #F5F5F5; border-radius: 12px; padding: 32px; height: 100%; border-top: 4px solid #90A4AE;">
-                        <h3 style="color: #546E7A; font-size: 1.375rem; margin-bottom: 16px;">
+                <article class="col-md-6 u-margin-bottom-32px">
+                    <div class="u-background-color-f5f5f5 u-border-radius-12px u-padding-32px u-height-100pct u-border-top-4px-solid-90a4ae">
+                        <h3 class="u-color-546e7a u-font-size-1_375rem u-margin-bottom-16px">
                             <i class="fa fa-shield" aria-hidden="true"></i> Nivel 0 — Universal
                         </h3>
-                        <p style="font-size: 1rem; color: #505050; margin-bottom: 16px;">Todas las personas mayores de 65 años inscriptas en CABA</p>
-                        <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #90A4AE; margin-right: 8px;" aria-hidden="true"></i> Evaluación funcional inicial</li>
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #90A4AE; margin-right: 8px;" aria-hidden="true"></i> Teleasistencia: pulsera de emergencia + línea 147</li>
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: #90A4AE; margin-right: 8px;" aria-hidden="true"></i> Acceso al directorio de servicios y derivación al Nodo</li>
+                        <p class="u-font-size-1rem u-color-505050 u-margin-bottom-16px">Todas las personas mayores de 65 años inscriptas en CABA</p>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-90a4ae u-margin-right-8px" aria-hidden="true"></i> Evaluación funcional inicial</li>
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-90a4ae u-margin-right-8px" aria-hidden="true"></i> Teleasistencia: pulsera de emergencia + línea 147</li>
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-90a4ae u-margin-right-8px" aria-hidden="true"></i> Acceso al directorio de servicios y derivación al Nodo</li>
                         </ul>
-                        <p style="font-size: 1rem; color: var(--color-secondary-text); font-weight: 700; margin-top: 16px; margin-bottom: 0;">Sin copago</p>
+                        <p class="u-font-size-1rem u-color-secondary-text u-font-weight-700 u-margin-top-16px u-margin-bottom-0">Sin copago</p>
                     </div>
                 </article>
 
                 <!-- Nivel 1 -->
-                <article class="col-md-6" style="margin-bottom: 32px;">
-                    <div style="background-color: #E8F5E9; border-radius: 12px; padding: 32px; height: 100%; border-top: 4px solid var(--color-secondary);">
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.375rem; margin-bottom: 16px;">
+                <article class="col-md-6 u-margin-bottom-32px">
+                    <div class="u-background-color-e8f5e9 u-border-radius-12px u-padding-32px u-height-100pct u-border-top-4px-solid-secondary">
+                        <h3 class="u-color-secondary-text u-font-size-1_375rem u-margin-bottom-16px">
                             <i class="fa fa-leaf" aria-hidden="true"></i> Nivel 1 — Dependencia leve
                         </h3>
-                        <p style="font-size: 1rem; color: #505050; margin-bottom: 16px;">20–40 horas/mes de persona cuidadora · Reevaluación anual</p>
-                        <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary-text); margin-right: 8px;" aria-hidden="true"></i> Persona cuidadora domiciliaria</li>
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary-text); margin-right: 8px;" aria-hidden="true"></i> Tita en Modo Normal</li>
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-secondary-text); margin-right: 8px;" aria-hidden="true"></i> Pulsera de emergencia + sensores</li>
+                        <p class="u-font-size-1rem u-color-505050 u-margin-bottom-16px">20–40 horas/mes de persona cuidadora · Reevaluación anual</p>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-secondary-text u-margin-right-8px" aria-hidden="true"></i> Persona cuidadora domiciliaria</li>
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-secondary-text u-margin-right-8px" aria-hidden="true"></i> Tita en Modo Normal</li>
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-secondary-text u-margin-right-8px" aria-hidden="true"></i> Pulsera de emergencia + sensores</li>
                         </ul>
-                        <p style="font-size: 1rem; color: var(--color-secondary-text); font-weight: 700; margin-top: 16px; margin-bottom: 0;">Copago: 0% jubilación mínima · hasta 10% otros ingresos</p>
+                        <p class="u-font-size-1rem u-color-secondary-text u-font-weight-700 u-margin-top-16px u-margin-bottom-0">Copago: 0% jubilación mínima · hasta 10% otros ingresos</p>
                     </div>
                 </article>
 
                 <!-- Nivel 2 -->
-                <article class="col-md-6" style="margin-bottom: 32px;">
-                    <div style="background-color: #E3F2FD; border-radius: 12px; padding: 32px; height: 100%; border-top: 4px solid var(--color-primary);">
-                        <h3 style="color: var(--color-primary); font-size: 1.375rem; margin-bottom: 16px;">
+                <article class="col-md-6 u-margin-bottom-32px">
+                    <div class="u-background-color-e3f2fd u-border-radius-12px u-padding-32px u-height-100pct u-border-top-4px-solid-primary">
+                        <h3 class="u-color-primary u-font-size-1_375rem u-margin-bottom-16px">
                             <i class="fa fa-handshake-o" aria-hidden="true"></i> Nivel 2 — Dependencia moderada
                         </h3>
-                        <p style="font-size: 1rem; color: #505050; margin-bottom: 16px;">40–70 horas/mes de persona cuidadora · Reevaluación cada 6 meses</p>
-                        <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Persona cuidadora domiciliaria</li>
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Tita + sensor de cama incluido</li>
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-primary); margin-right: 8px;" aria-hidden="true"></i> Horas adicionales disponibles a tarifa regulada</li>
+                        <p class="u-font-size-1rem u-color-505050 u-margin-bottom-16px">40–70 horas/mes de persona cuidadora · Reevaluación cada 6 meses</p>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-primary u-margin-right-8px" aria-hidden="true"></i> Persona cuidadora domiciliaria</li>
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-primary u-margin-right-8px" aria-hidden="true"></i> Tita + sensor de cama incluido</li>
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-primary u-margin-right-8px" aria-hidden="true"></i> Horas adicionales disponibles a tarifa regulada</li>
                         </ul>
-                        <p style="font-size: 1rem; color: var(--color-primary); font-weight: 700; margin-top: 16px; margin-bottom: 0;">Copago: 0% jubilación mínima · hasta 10% medios · hasta 15% altos</p>
+                        <p class="u-font-size-1rem u-color-primary u-font-weight-700 u-margin-top-16px u-margin-bottom-0">Copago: 0% jubilación mínima · hasta 10% medios · hasta 15% altos</p>
                     </div>
                 </article>
 
                 <!-- Nivel 3 -->
-                <article class="col-md-6" style="margin-bottom: 32px;">
-                    <div style="background-color: #FFF3E0; border-radius: 12px; padding: 32px; height: 100%; border-top: 4px solid var(--color-accent);">
-                        <h3 style="color: var(--color-accent-text); font-size: 1.375rem; margin-bottom: 16px;">
+                <article class="col-md-6 u-margin-bottom-32px">
+                    <div class="u-background-color-fff3e0 u-border-radius-12px u-padding-32px u-height-100pct u-border-top-4px-solid-accent">
+                        <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-16px">
                             <i class="fa fa-heart" aria-hidden="true"></i> Nivel 3 — Dependencia severa
                         </h3>
-                        <p style="font-size: 1rem; color: #505050; margin-bottom: 16px;">70–100 horas/mes de persona cuidadora · Reevaluación cada 3 meses</p>
-                        <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent-text); margin-right: 8px;" aria-hidden="true"></i> Persona cuidadora domiciliaria + coordinación con equipo de salud</li>
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent-text); margin-right: 8px;" aria-hidden="true"></i> Tita (Modo Alzheimer si corresponde) + sensor de cama + módulo de baño</li>
-                            <li style="padding: 4px 0;"><i class="fa fa-check" style="color: var(--color-accent-text); margin-right: 8px;" aria-hidden="true"></i> Acceso prioritario a tecnología asistiva adicional</li>
+                        <p class="u-font-size-1rem u-color-505050 u-margin-bottom-16px">70–100 horas/mes de persona cuidadora · Reevaluación cada 3 meses</p>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-accent-text u-margin-right-8px" aria-hidden="true"></i> Persona cuidadora domiciliaria + coordinación con equipo de salud</li>
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-accent-text u-margin-right-8px" aria-hidden="true"></i> Tita (Modo Alzheimer si corresponde) + sensor de cama + módulo de baño</li>
+                            <li class="u-padding-4px-0"><i class="fa fa-check u-color-accent-text u-margin-right-8px" aria-hidden="true"></i> Acceso prioritario a tecnología asistiva adicional</li>
                         </ul>
-                        <p style="font-size: 1rem; color: var(--color-accent-text); font-weight: 700; margin-top: 16px; margin-bottom: 0;">Copago: 0% jubilación mínima · hasta 10% para el resto (tope reducido)</p>
+                        <p class="u-font-size-1rem u-color-accent-text u-font-weight-700 u-margin-top-16px u-margin-bottom-0">Copago: 0% jubilación mínima · hasta 10% para el resto (tope reducido)</p>
                     </div>
                 </article>
             </div>
 
             <!-- Servicios adicionales -->
-            <div style="max-width: 800px; margin: 24px auto 0; background-color: #F5F5F5; border-radius: 12px; padding: 32px; border-left: 4px solid #9E9E9E;">
-                <h3 style="color: #546E7A; font-size: 1.25rem; margin-bottom: 16px;">
+            <div class="u-max-width-800px u-margin-24px-auto-0 u-background-color-f5f5f5 u-border-radius-12px u-padding-32px u-border-left-4px-solid-9e9e9e">
+                <h3 class="u-color-546e7a u-font-size-1_25rem u-margin-bottom-16px">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i> Servicios adicionales a través del sistema
                 </h3>
-                <p style="font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 16px;">
+                <p class="u-font-size-1rem u-line-height-1_8 u-color-444 u-margin-bottom-16px">
                     Si necesitás algo que no está incluido en tu nivel, podés contratarlo a tarifa regulada con los mismos profesionales del sistema. El sistema coordina, no cobra comisión.
                 </p>
-                <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 1.8; color: #444;">
-                    <li style="padding: 4px 0;"><i class="fa fa-clock-o" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Horas extra de persona cuidadora por encima de las asignadas al nivel</li>
-                    <li style="padding: 4px 0;"><i class="fa fa-cog" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Tecnología asistiva no incluida en tu nivel (ej. módulo de baño en Nivel 1)</li>
-                    <li style="padding: 4px 0;"><i class="fa fa-ambulance" style="color: #9E9E9E; margin-right: 8px;" aria-hidden="true"></i> Acompañamiento a turnos médicos fuera del Nodo</li>
+                <ul class="u-list-style-none u-padding-0 u-font-size-1rem u-line-height-1_8 u-color-444">
+                    <li class="u-padding-4px-0"><i class="fa fa-clock-o u-color-9e9e9e u-margin-right-8px" aria-hidden="true"></i> Horas extra de persona cuidadora por encima de las asignadas al nivel</li>
+                    <li class="u-padding-4px-0"><i class="fa fa-cog u-color-9e9e9e u-margin-right-8px" aria-hidden="true"></i> Tecnología asistiva no incluida en tu nivel (ej. módulo de baño en Nivel 1)</li>
+                    <li class="u-padding-4px-0"><i class="fa fa-ambulance u-color-9e9e9e u-margin-right-8px" aria-hidden="true"></i> Acompañamiento a turnos médicos fuera del Nodo</li>
                 </ul>
-                <p style="font-size: 1rem; color: #505050; margin-top: 12px; margin-bottom: 0;">
+                <p class="u-font-size-1rem u-color-505050 u-margin-top-12px u-margin-bottom-0">
                     Sujeto a disponibilidad de profesionales en tu zona. Toda la tecnología del sistema está disponible para cualquier nivel si hay indicación clínica del equipo del Nodo.
                 </p>
             </div>
 
             <!-- Anti doble velocidad -->
-            <div style="max-width: 800px; margin: 24px auto 0; background-color: #E8F5E9; border-radius: 12px; padding: 24px; text-align: center;">
-                <p style="font-size: 1.0625rem; color: var(--color-secondary-text); margin: 0; line-height: 1.6;">
+            <div class="u-max-width-800px u-margin-24px-auto-0 u-background-color-e8f5e9 u-border-radius-12px u-padding-24px u-text-align-center">
+                <p class="u-font-size-1_0625rem u-color-secondary-text u-margin-0 u-line-height-1_6">
                     <i class="fa fa-balance-scale" aria-hidden="true"></i>
                     <strong>La evaluación funcional determina qué recibís. Tu ingreso determina cuánto copagás.</strong> Nadie paga más del 15% de su ingreso mensual. Si tus necesidades cambian, tu nivel se actualiza.
                 </p>
             </div>
 
             <!-- Fricción: demoras en evaluación -->
-            <div style="max-width: 800px; margin: 24px auto 0;" class="friction-alert">
-                <p style="margin: 0; color: #9A1515; font-size: 1rem; line-height: 1.6;">
+            <div class="friction-alert u-max-width-800px u-margin-24px-auto-0">
+                <p class="u-margin-0 u-color-9a1515 u-font-size-1rem u-line-height-1_6">
                     <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Tiempos reales:</strong>
                     La evaluación funcional inicial se hace dentro de los 15 días hábiles desde la inscripción; en los Nodos con lista de espera puede demorar hasta 30.
                     En los Nodos de Palermo, Belgrano, Recoleta y Caballito, las horas de Nivel 3 son las que más tardan en asignarse.
@@ -687,82 +453,82 @@
         </div>
     </section>
 
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="costos-titulo">
+    <section class="u-padding-60px-0 u-background-color-f5f5f5" aria-labelledby="costos-titulo">
         <div class="container">
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div class="card" style="text-align: center; padding: 48px;">
-                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--color-primary), #0D3B5E); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px auto;">
-                        <i class="fa fa-dollar" aria-hidden="true" style="font-size: 3.5rem; color: white;"></i>
+            <div class="u-max-width-800px u-margin-0-auto">
+                <div class="card u-text-align-center u-padding-48px">
+                    <div class="u-width-120px u-height-120px u-background-linear-gradient-135deg-primary-0d3b5e u-border-radius-50pct u-display-flex u-align-items-center u-justify-content-center u-margin-0-auto-32px-auto">
+                        <i class="fa fa-dollar u-font-size-3_5rem u-color-white" aria-hidden="true"></i>
                     </div>
 
-                    <h2 id="costos-titulo" style="color: var(--color-primary); font-size: 2.25rem; margin-bottom: 24px;">
+                    <h2 class="u-color-primary u-font-size-2_25rem u-margin-bottom-24px" id="costos-titulo">
                         ¿Cuánto cuesta?
                     </h2>
 
-                    <p style="font-size: 1.375rem; line-height: 1.8; color: #333; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <p class="u-font-size-1_375rem u-line-height-1_8 u-color-333 u-margin-bottom-32px u-max-width-600px u-margin-left-auto u-margin-right-auto">
                         <strong>Gratis</strong> para quienes cobran jubilación mínima, PUAM o pensión no contributiva.<br>
                         <strong>Copago proporcional</strong> para otros casos, según nivel de cuidado e ingresos.
                     </p>
 
-                    <div style="background-color: #E3F2FD; padding: 32px; border-radius: 12px; border-left: 4px solid var(--color-primary); margin-bottom: 32px; text-align: left;">
-                        <h3 style="color: var(--color-primary); margin-bottom: 20px; font-size: 1.375rem;">
+                    <div class="u-background-color-e3f2fd u-padding-32px u-border-radius-12px u-border-left-4px-solid-primary u-margin-bottom-32px u-text-align-left">
+                        <h3 class="u-color-primary u-margin-bottom-20px u-font-size-1_375rem">
                             <i class="fa fa-calculator" aria-hidden="true"></i> Cómo se calcula el copago
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 1.125rem; line-height: 2; color: #444;">
-                            <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1_125rem u-line-height-2 u-color-444">
+                            <li class="u-display-flex u-align-items-start u-gap-12px u-margin-bottom-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span><strong>Gratis (0%):</strong> Si cobrás jubilación mínima, PUAM o pensión no contributiva, en cualquier nivel</span>
                             </li>
-                            <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-display-flex u-align-items-start u-gap-12px u-margin-bottom-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span><strong>Hasta 10%:</strong> Para ingresos mayores en Nivel 1 y 2. Hasta 15% en Nivel 2 para ingresos altos</span>
                             </li>
-                            <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-display-flex u-align-items-start u-gap-12px u-margin-bottom-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span><strong>Nivel 3:</strong> Hasta 10% para todos (tope reducido por alta necesidad de cuidado)</span>
                             </li>
-                            <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-display-flex u-align-items-start u-gap-12px u-margin-bottom-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span><strong>Tope absoluto:</strong> Nadie paga más del 15% de su ingreso mensual en cuidados del sistema</span>
                             </li>
                         </ul>
                     </div>
 
                     <!-- Ejemplos prácticos -->
-                    <div style="background-color: #F5F5F5; padding: 32px; border-radius: 12px; margin-bottom: 32px; text-align: left;">
-                        <h3 style="color: var(--color-secondary-text); margin-bottom: 20px; font-size: 1.375rem;">
+                    <div class="u-background-color-f5f5f5 u-padding-32px u-border-radius-12px u-margin-bottom-32px u-text-align-left">
+                        <h3 class="u-color-secondary-text u-margin-bottom-20px u-font-size-1_375rem">
                             <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Ejemplos prácticos
                         </h3>
-                        <div style="display: flex; flex-direction: column; gap: 16px;">
-                            <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-secondary);">
-                                <p style="margin: 0; color: #333; line-height: 1.6;">
-                                    <strong>Caso 1:</strong> Norma cobra jubilación mínima ($680.000), Nivel 2 → <span style="color: var(--color-secondary-text); font-weight: 700;">Paga $0</span>
+                        <div class="u-display-flex u-flex-direction-column u-gap-16px">
+                            <div class="u-background-color-white u-padding-20px u-border-radius-8px u-border-left-4px-solid-secondary">
+                                <p class="u-margin-0 u-color-333 u-line-height-1_6">
+                                    <strong>Caso 1:</strong> Norma cobra jubilación mínima ($680.000), Nivel 2 → <span class="u-color-secondary-text u-font-weight-700">Paga $0</span>
                                 </p>
                             </div>
-                            <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-secondary);">
-                                <p style="margin: 0; color: #333; line-height: 1.6;">
-                                    <strong>Caso 2:</strong> Osvaldo cobra $1.200.000/mes, Nivel 1 → <span style="color: var(--color-secondary-text); font-weight: 700;">Paga $120.000/mes</span> (10%)
+                            <div class="u-background-color-white u-padding-20px u-border-radius-8px u-border-left-4px-solid-secondary">
+                                <p class="u-margin-0 u-color-333 u-line-height-1_6">
+                                    <strong>Caso 2:</strong> Osvaldo cobra $1.200.000/mes, Nivel 1 → <span class="u-color-secondary-text u-font-weight-700">Paga $120.000/mes</span> (10%)
                                 </p>
                             </div>
-                            <div style="background-color: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-secondary);">
-                                <p style="margin: 0; color: #333; line-height: 1.6;">
-                                    <strong>Caso 3:</strong> Nélida cobra $4.000.000/mes, Nivel 3 → <span style="color: var(--color-secondary-text); font-weight: 700;">Paga $400.000/mes</span> (10%, tope reducido por alta necesidad)
+                            <div class="u-background-color-white u-padding-20px u-border-radius-8px u-border-left-4px-solid-secondary">
+                                <p class="u-margin-0 u-color-333 u-line-height-1_6">
+                                    <strong>Caso 3:</strong> Nélida cobra $4.000.000/mes, Nivel 3 → <span class="u-color-secondary-text u-font-weight-700">Paga $400.000/mes</span> (10%, tope reducido por alta necesidad)
                                 </p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Fricción: lo que incluye y lo que NO -->
-                    <div style="background-color: #FFF3E0; padding: 32px; border-radius: 12px; border-left: 4px solid var(--color-accent); margin-bottom: 32px; text-align: left;">
-                        <h3 style="color: var(--color-accent-text); margin-bottom: 20px; font-size: 1.375rem;">
+                    <div class="u-background-color-fff3e0 u-padding-32px u-border-radius-12px u-border-left-4px-solid-accent u-margin-bottom-32px u-text-align-left">
+                        <h3 class="u-color-accent-text u-margin-bottom-20px u-font-size-1_375rem">
                             <i class="fa fa-info-circle" aria-hidden="true"></i> ¿Qué incluye y qué NO incluye el servicio?
                         </h3>
 
-                        <div style="margin-bottom: 24px;">
-                            <h4 style="color: var(--color-secondary-text); margin-bottom: 12px; font-size: 1.125rem;">
+                        <div class="u-margin-bottom-24px">
+                            <h4 class="u-color-secondary-text u-margin-bottom-12px u-font-size-1_125rem">
                                 <i class="fa fa-check" aria-hidden="true"></i> Incluido sin costo adicional:
                             </h4>
-                            <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444;">
+                            <ul class="u-margin-0 u-padding-left-24px u-line-height-1_8 u-color-444">
                                 <li>Visitas de la persona cuidadora (20–100 horas/mes según nivel asignado)</li>
                                 <li>Tita, sensores y tecnología asistiva según nivel (ver detalle arriba)</li>
                                 <li>Pulsera de emergencia</li>
@@ -772,10 +538,10 @@
                         </div>
 
                         <div>
-                            <h4 style="color: #9A1515; margin-bottom: 12px; font-size: 1.125rem;">
+                            <h4 class="u-color-9a1515 u-margin-bottom-12px u-font-size-1_125rem">
                                 <i class="fa fa-times" aria-hidden="true"></i> NO incluido (pagás aparte):
                             </h4>
-                            <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444;">
+                            <ul class="u-margin-0 u-padding-left-24px u-line-height-1_8 u-color-444">
                                 <li>Medicamentos y tratamientos médicos</li>
                                 <li>Internaciones hospitalarias</li>
                                 <li>Traslados en ambulancia o remis (salvo emergencias)</li>
@@ -786,11 +552,11 @@
                     </div>
 
                     <!-- Fricción: demoras en facturación -->
-                    <div class="friction-alert" style="background-color: #FFEBEE; border-left: 4px solid #D32F2F; padding: 20px; border-radius: 8px; margin-bottom: 32px; text-align: left;">
-                        <p style="margin: 0 0 12px 0; color: #9A1515; font-size: 1rem; line-height: 1.6;">
+                    <div class="friction-alert u-background-color-ffebee u-border-left-4px-solid-d32f2f u-padding-20px u-border-radius-8px u-margin-bottom-32px u-text-align-left">
+                        <p class="u-margin-0-0-12px-0 u-color-9a1515 u-font-size-1rem u-line-height-1_6">
                             <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Realidad del sistema de cobro:</strong>
                         </p>
-                        <ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444; font-size: 1rem;">
+                        <ul class="u-margin-0 u-padding-left-24px u-line-height-1_8 u-color-444 u-font-size-1rem">
                             <li>La factura del copago llega entre el 5 y el 15 de cada mes (a veces se demora hasta el día 20)</li>
                             <li>Si hay cambios en tus ingresos, avisá al Nodo. El sistema tarda 2 meses en actualizar el monto</li>
                             <li>Podés pagar en efectivo, débito automático o transferencia. El débito a veces presenta inconvenientes y hay que reclamar</li>
@@ -798,11 +564,11 @@
                         </ul>
                     </div>
 
-                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                        <a href="tel:147" class="btn btn-primary" style="padding: 16px 32px; font-size: 1.125rem;">
+                    <div class="u-display-flex u-gap-16px u-justify-content-center u-flex-wrap-wrap">
+                        <a href="tel:147" class="btn btn-primary u-padding-16px-32px u-font-size-1_125rem">
                             <i class="fa fa-phone" aria-hidden="true"></i> Consultar por teléfono
                         </a>
-                        <a href="inscripcion.html" class="btn btn-secondary" style="padding: 16px 32px; font-size: 1.125rem;">
+                        <a href="inscripcion.html" class="btn btn-secondary u-padding-16px-32px u-font-size-1_125rem">
                             <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme
                         </a>
                     </div>
@@ -811,9 +577,9 @@
         </div>
     </section>
 
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="flujo-titulo">
+    <section class="u-padding-60px-0 u-background-color-f5f5f5" aria-labelledby="flujo-titulo">
         <div class="container">
-            <h2 id="flujo-titulo" style="color: var(--color-secondary-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-secondary-text u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="flujo-titulo">
                 El recorrido de un usuario
             </h2>
 
@@ -821,10 +587,10 @@
                 <div class="flow-step">
                     <div class="flow-number">1</div>
                     <div class="flow-content">
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.5rem; margin-bottom: 12px;">
+                        <h3 class="u-color-secondary-text u-font-size-1_5rem u-margin-bottom-12px">
                             Inscripción y contacto
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             La persona se inscribe online, por teléfono o presencialmente en un Nodo.
                             <strong>En 24-48hs</strong> recibe un llamado del Nodo de su zona para agendar la visita inicial.
                             <span class="friction-badge">En zonas con alta demanda puede demorar hasta 5-7 días</span>
@@ -835,10 +601,10 @@
                 <div class="flow-step">
                     <div class="flow-number">2</div>
                     <div class="flow-content">
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.5rem; margin-bottom: 12px;">
+                        <h3 class="u-color-secondary-text u-font-size-1_5rem u-margin-bottom-12px">
                             Evaluación funcional domiciliaria
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             Un equipo interdisciplinario (médico geriatra, trabajador social, enfermero)
                             visita el domicilio. Aplican la evaluación funcional estandarizada (Barthel + MEC) para determinar
                             el <strong>nivel de cuidado</strong>. También evalúan condiciones de vivienda y red de apoyo familiar. Duración: 90 minutos.
@@ -850,10 +616,10 @@
                 <div class="flow-step">
                     <div class="flow-number">3</div>
                     <div class="flow-content">
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.5rem; margin-bottom: 12px;">
+                        <h3 class="u-color-secondary-text u-font-size-1_5rem u-margin-bottom-12px">
                             Asignación de nivel y plan de cuidado
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             Según la evaluación funcional, se asigna un <strong>nivel de cuidado</strong> (1, 2 o 3) que determina
                             las horas de persona cuidadora (20–100/mes), la tecnología incluida y la frecuencia de reevaluación.
                             El <strong>copago</strong> se calcula según ingresos, no según el nivel asignado.
@@ -864,10 +630,10 @@
                 <div class="flow-step">
                     <div class="flow-number">4</div>
                     <div class="flow-content">
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.5rem; margin-bottom: 12px;">
+                        <h3 class="u-color-secondary-text u-font-size-1_5rem u-margin-bottom-12px">
                             Asignación de persona cuidadora
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             El Nodo asigna una <strong>persona cuidadora asignada a esa zona</strong> con perfil compatible.
                             Las personas cuidadoras se asignan al Nodo con mejor accesibilidad desde su lugar de residencia.
                             Se hace una <strong>reunión de presentación</strong> en el domicilio (usuario, persona cuidadora, coordinador).
@@ -880,10 +646,10 @@
                 <div class="flow-step">
                     <div class="flow-number">5</div>
                     <div class="flow-content">
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.5rem; margin-bottom: 12px;">
+                        <h3 class="u-color-secondary-text u-font-size-1_5rem u-margin-bottom-12px">
                             Instalación de tecnología
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             Un técnico instala: <strong>sensores de movimiento</strong> (3-5 en living, cocina, baño),
                             <strong>sensor de cama</strong> bajo el colchón, <strong>módulo de baño</strong> en el baño,
                             <strong>pulsera de emergencia</strong> con GPS y <strong>Tita</strong> preconfigurada.
@@ -895,10 +661,10 @@
                 <div class="flow-step">
                     <div class="flow-number">6</div>
                     <div class="flow-content">
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.5rem; margin-bottom: 12px;">
+                        <h3 class="u-color-secondary-text u-font-size-1_5rem u-margin-bottom-12px">
                             Cuidado continuo
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             La persona cuidadora visita según lo planificado. <strong>Tita</strong> acompaña entre visitas.
                             El Nodo hace <strong>seguimiento mensual</strong>. Los sensores monitorean 24/7.
                             El sistema se adapta si cambian las necesidades.
@@ -907,10 +673,10 @@
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 40px;">
-                <div style="background-color: var(--color-warm); padding: 32px; border-radius: 12px; max-width: 700px; margin: 0 auto; border-left: 4px solid var(--color-accent);">
-                    <i class="fa fa-clock-o" style="font-size: 3rem; color: var(--color-accent-text); margin-bottom: 16px;" aria-hidden="true"></i>
-                    <p style="font-size: 1.25rem; color: #333; margin: 0; line-height: 1.6;">
+            <div class="u-text-align-center u-margin-top-40px">
+                <div class="u-background-color-warm u-padding-32px u-border-radius-12px u-max-width-700px u-margin-0-auto u-border-left-4px-solid-accent">
+                    <i class="fa fa-clock-o u-font-size-3rem u-color-accent-text u-margin-bottom-16px" aria-hidden="true"></i>
+                    <p class="u-font-size-1_25rem u-color-333 u-margin-0 u-line-height-1_6">
                         <strong>Tiempo promedio:</strong> 3 a 5 semanas desde la inscripción hasta el inicio del servicio (6 a 8 en los Nodos con lista de espera)
                         (depende de la demanda en tu zona)
                     </p>
@@ -919,9 +685,9 @@
         </div>
     </section>
 
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="tech-titulo">
+    <section class="u-padding-60px-0 u-background-color-f5f5f5" aria-labelledby="tech-titulo">
         <div class="container">
-            <h2 id="tech-titulo" style="color: var(--color-accent-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-accent-text u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="tech-titulo">
                 La tecnología que te cuida
             </h2>
 
@@ -931,19 +697,19 @@
                         <i class="fa fa-microphone" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 12px;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-12px">
                             Tita - Compañera Conversacional de Voz
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin-bottom: 12px;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-bottom-12px">
                             Compañera conversacional por voz, pensada para personas mayores. <strong>Voz natural argentina</strong>,
                             funciona con reconocimiento de voz en español rioplatense. No necesitás tipear nada.
                         </p>
-                        <p style="font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 8px;">
+                        <p class="u-font-size-1rem u-line-height-1_8 u-color-444 u-margin-bottom-8px">
                             <strong>Modo Normal:</strong> Compañía conversacional, recordatorios de medicación y turnos, videollamadas simplificadas,
                             juegos cognitivos, noticias personalizadas. Monitorea pasivamente patrones de lenguaje (diversidad léxica, fluidez,
                             coherencia semántica) para detección temprana de deterioro cognitivo. Reportes diarios a familiares y mensuales a profesionales.
                         </p>
-                        <p style="font-size: 1rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1rem u-line-height-1_8 u-color-444 u-margin-0">
                             <strong>Modo Alzheimer:</strong> Frases cortas, una pregunta a la vez y sin apurar las respuestas. Orientación temporal y espacial recurrente
                             ("Hoy es martes, son las 10, estás en tu casa en Almagro"). Reminiscencia guiada con música y fotos de su época.
                             Alertas en tiempo real a la persona cuidadora de guardia por confusión severa, agitación o no-respuesta.
@@ -956,10 +722,10 @@
                         <i class="fa fa-bed" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 12px;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-12px">
                             Sensor de Cama
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             Sensor piezoeléctrico que se coloca bajo el colchón — el usuario no se pone nada encima.
                             Mide <strong>frecuencia cardíaca, respiración, calidad de sueño y ocupación de cama</strong> mediante
                             balistocardiografía. Validado clínicamente con 88% de sensibilidad vs. polisomnografía.
@@ -974,10 +740,10 @@
                         <i class="fa fa-tint" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 12px;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-12px">
                             Módulo de baño
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             Dispositivo que se adapta al inodoro existente — no requiere obra ni cambio de baño.
                             Analiza automáticamente <strong>pH, gravedad específica, cetonas, vitamina C y calcio urinario</strong>
                             con cada uso. Los datos se integran al panel del Nodo para seguimiento de salud renal,
@@ -991,10 +757,10 @@
                         <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 12px;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-12px">
                             Sensores de movimiento
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             Detectan movimiento, caídas, ausencia prolongada de actividad. <strong>No tienen cámaras</strong>
                             (respetamos tu privacidad). Funcionan con WiFi o red celular. Si detectan algo inusual,
                             alertan automáticamente al Nodo y a la persona cuidadora.
@@ -1007,15 +773,15 @@
                         <i class="fa fa-hand-stop-o" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 12px;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-12px">
                             Pulsera de Emergencia
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin-bottom: 12px;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-bottom-12px">
                             Resistente al agua (podés bañarte con ella). <strong>GPS integrado</strong>. Botón grande y fácil de presionar.
                             Al activarla, llama automáticamente al Nodo + persona cuidadora + contacto de emergencia.
                             Batería de 7 días con alerta de carga baja.
                         </p>
-                        <p style="font-size: 1rem; line-height: 1.8; color: #505050; margin: 0;">
+                        <p class="u-font-size-1rem u-line-height-1_8 u-color-505050 u-margin-0">
                             Sabemos que no todas las personas se sienten cómodas usándola. Si tu familiar se la saca o no quiere ponérsela, el sistema tiene alternativas: el sensor de cama detecta emergencias nocturnas, los sensores de movimiento registran ausencia prolongada de actividad, y Tita puede activar una alerta si no hay respuesta en un período configurable. En Nivel 3, la combinación de sensor de cama + Tita + visitas más frecuentes de la persona cuidadora reduce la dependencia de un único dispositivo. La pulsera es una capa más de protección, no la única.
                         </p>
                     </div>
@@ -1026,10 +792,10 @@
                         <i class="fa fa-line-chart" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 12px;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-12px">
                             Panel integrado para familias
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                             Los familiares autorizados pueden ver: <strong>datos de sueño</strong> (sensor de cama),
                             <strong>indicadores de salud</strong> (módulo de baño), medicación tomada,
                             visitas de la persona cuidadora, última conexión con Tita y alertas generadas.
@@ -1041,11 +807,11 @@
         </div>
     </section>
 
-    <section style="padding: 60px 0; background-color: #FFF9E6;" aria-labelledby="desigualdad-titulo">
+    <section class="u-padding-60px-0 u-background-color-fff9e6" aria-labelledby="desigualdad-titulo">
         <div class="container">
             <!-- Contraste: Tecnología premium vs pública -->
-            <div style="margin-top: 48px; background-color: #FFF9E6; border: 2px solid var(--color-friction-warning-border); border-radius: 12px; padding: 40px;">
-                <h3 style="color: var(--color-friction-emphasis); text-align: center; margin-bottom: 32px; font-size: 1.75rem;">
+            <div class="u-margin-top-48px u-background-color-fff9e6 u-border-2px-solid-friction-warning-border u-border-radius-12px u-padding-40px">
+                <h3 class="u-color-friction-emphasis u-text-align-center u-margin-bottom-32px u-font-size-1_75rem">
                     <i class="fa fa-balance-scale" aria-hidden="true"></i>
                     Dos realidades, dos sistemas
                 </h3>
@@ -1053,34 +819,34 @@
                 <div class="row">
                     <!-- Sistema público Cuidados en Red -->
                     <div class="col-md-6">
-                        <div style="background-color: white; padding: 32px; border-radius: 12px; height: 100%; border-left: 4px solid var(--color-secondary);">
-                            <h4 style="color: var(--color-secondary-text); margin-bottom: 20px; font-size: 1.375rem; text-align: center;">
+                        <div class="u-background-color-white u-padding-32px u-border-radius-12px u-height-100pct u-border-left-4px-solid-secondary">
+                            <h4 class="u-color-secondary-text u-margin-bottom-20px u-font-size-1_375rem u-text-align-center">
                                 <i class="fa fa-heartbeat" aria-hidden="true"></i> Cuidados en Red (Sistema público)
                             </h4>
-                            <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 1.8; color: #444;">
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <ul class="u-list-style-none u-padding-0 u-font-size-1rem u-line-height-1_8 u-color-444">
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Tita (compañera conversacional):</strong> Compañía, recordatorios, detección cognitiva pasiva, modo Alzheimer dedicado</span>
                                 </li>
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Sensor de cama + módulo de baño:</strong> Monitoreo de sueño, signos vitales e indicadores de salud renal</span>
                                 </li>
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Sensores de movimiento + pulsera de emergencia:</strong> Detección de movimiento, caídas y pulsera de emergencia 24/7</span>
                                 </li>
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Personas cuidadoras humanas:</strong> 20–100 horas/mes según nivel de dependencia</span>
                                 </li>
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Costo:</strong> Gratis con jubilación mínima, PUAM o pensión no contributiva. Copago proporcional (hasta 15% del ingreso) para el resto</span>
                                 </li>
                             </ul>
-                            <div style="margin-top: 20px; padding: 16px; background-color: #E8F5E9; border-radius: 8px;">
-                                <p style="margin: 0; color: var(--color-secondary-text); font-size: 1rem; line-height: 1.6;">
+                            <div class="u-margin-top-20px u-padding-16px u-background-color-e8f5e9 u-border-radius-8px">
+                                <p class="u-margin-0 u-color-secondary-text u-font-size-1rem u-line-height-1_6">
                                     <strong>Objetivo:</strong> Cobertura masiva y accesible. 13.874 personas mayores atendidas en toda CABA.
                                 </p>
                             </div>
@@ -1089,35 +855,35 @@
 
                     <!-- Sistema privado premium -->
                     <div class="col-md-6">
-                        <div style="background-color: white; padding: 32px; border-radius: 12px; height: 100%; border-left: 4px solid var(--color-purple);">
-                            <h4 style="color: var(--color-purple); margin-bottom: 20px; font-size: 1.375rem; text-align: center;">
+                        <div class="u-background-color-white u-padding-32px u-border-radius-12px u-height-100pct u-border-left-4px-solid-purple">
+                            <h4 class="u-color-purple u-margin-bottom-20px u-font-size-1_375rem u-text-align-center">
                                 <i class="fa fa-diamond" aria-hidden="true"></i> Geriátricos privados (CABA)
                             </h4>
                             <p class="valores-referencia">Valores de 2025, cuando nació el programa. No están actualizados a 2032.</p>
-                            <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 1.8; color: #444;">
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-star" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <ul class="u-list-style-none u-padding-0 u-font-size-1rem u-line-height-1_8 u-color-444">
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-star u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Geriátrico estándar:</strong> $1.300.000 – $2.500.000/mes</span>
                                 </li>
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-star" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-star u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Geriátrico premium:</strong> $2.750.000 – $5.500.000+/mes. Los de alta complejidad superan los $5.000.000</span>
                                 </li>
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-star" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-star u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Persona cuidadora privada (con retiro):</strong> $455.000/mes por jornada completa — sin contar cargas sociales</span>
                                 </li>
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-star" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-star u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Jubilación mínima:</strong> ~$390.000/mes (con bono). No cubre ni la opción más económica de geriátrico</span>
                                 </li>
-                                <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                    <i class="fa fa-star" style="color: var(--color-purple); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                                <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                    <i class="fa fa-star u-color-purple u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                     <span><strong>Camas PAMI en residencias:</strong> Cayeron de 22.000 a 17.000. El 78% de las personas cuidadoras trabaja en la informalidad</span>
                                 </li>
                             </ul>
-                            <div style="margin-top: 20px; padding: 16px; background-color: #F3E5F5; border-radius: 8px;">
-                                <p style="margin: 0; color: #6A1B9A; font-size: 1rem; line-height: 1.6;">
+                            <div class="u-margin-top-20px u-padding-16px u-background-color-f3e5f5 u-border-radius-8px">
+                                <p class="u-margin-0 u-color-6a1b9a u-font-size-1rem u-line-height-1_6">
                                     <strong>En 2025,</strong> la jubilación mínima cubría apenas el 25,8% de la Canasta Básica Total para una persona mayor ($1.514.074). De 50 políticas de cuidado relevadas, solo 3 se mantenían activas. Cuidados en Red nació en ese contexto de emergencia.
                                 </p>
                             </div>
@@ -1126,21 +892,21 @@
                 </div>
 
                 <!-- Análisis crítico -->
-                <div style="margin-top: 32px; padding: 24px; background-color: white; border-radius: 12px; border-left: 4px solid var(--color-accent);">
-                    <h4 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.25rem;">
+                <div class="u-margin-top-32px u-padding-24px u-background-color-white u-border-radius-12px u-border-left-4px-solid-accent">
+                    <h4 class="u-color-accent-text u-margin-bottom-16px u-font-size-1_25rem">
                         <i class="fa fa-warning" aria-hidden="true"></i> Por qué Cuidados en Red no usa robots humanoides
                     </h4>
-                    <p style="color: #444; margin: 0 0 16px 0; line-height: 1.8; font-size: 1rem;">
+                    <p class="u-color-444 u-margin-0-0-16px-0 u-line-height-1_8 u-font-size-1rem">
                         No es por falta de ambición, sino por una decisión estratégica basada en realidad económica y social:
                     </p>
-                    <ul style="margin: 0 0 16px 0; padding-left: 24px; line-height: 1.8; color: #444; font-size: 1rem;">
+                    <ul class="u-margin-0-0-16px-0 u-padding-left-24px u-line-height-1_8 u-color-444 u-font-size-1rem">
                         <li><strong>Costo prohibitivo:</strong> Un robot Figure 3 cuesta USD 250.000. Con ese dinero, Cuidados en Red puede contratar 25 personas cuidadoras durante 1 año completo</li>
                         <li><strong>Mantenimiento complejo:</strong> Requiere técnicos especializados que no existen en Argentina. Cada falla significa semanas sin servicio</li>
                         <li><strong>Generación de empleo:</strong> Las 4.200 personas cuidadoras del sistema son trabajadores formales con salarios dignos. En un país donde el 78,4% de las personas cuidadoras trabaja en la informalidad, formalizar es una política en sí misma</li>
                         <li><strong>Aceptación cultural:</strong> El 78% de usuarios prefiere contacto humano. Los robots generan rechazo en población mayor de 70 años</li>
                         <li><strong>Tecnología que sí escala:</strong> Un sensor de cama cuesta USD 30-50 a escala pública. Un módulo de baño, menos de USD 100. Tita funciona en cualquier dispositivo con WiFi. Lo que Japón subsidia con ¥1.000.000 por robot, nosotros lo resolvemos con tecnología mundana que realmente llega a más de 13.000 hogares</li>
                     </ul>
-                    <p style="color: var(--color-accent-text); margin: 0; line-height: 1.6; font-size: 1rem; font-style: italic; padding: 16px; background-color: #FFF3E0; border-radius: 6px;">
+                    <p class="u-color-accent-text u-margin-0 u-line-height-1_6 u-font-size-1rem u-font-style-italic u-padding-16px u-background-color-fff3e0 u-border-radius-6px">
                         <strong><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Filosofía de diseño:</strong> Cuidados en Red prioriza soluciones de "tecnología mundana" que funcionen a escala masiva, sean culturalmente aceptables y generen empleo local. El sensor de cama que usamos tiene la misma evidencia clínica que los de geriátricos premium de Europa. La diferencia es que lo pagamos USD 50 en vez de USD 750. El objetivo es cuidado digno para miles, no lujo para unos pocos.
                     </p>
                 </div>
@@ -1148,9 +914,9 @@
         </div>
     </section>
 
-    <section style="padding: 60px 0;" aria-labelledby="red-titulo">
+    <section class="u-padding-60px-0" aria-labelledby="red-titulo">
         <div class="container">
-            <h2 id="red-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-primary u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="red-titulo">
                 Red de servicios complementarios
             </h2>
 
@@ -1159,10 +925,10 @@
                     <div class="ecosystem-icon">
                         <i class="fa fa-hospital-o" aria-hidden="true"></i>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.25rem; margin-bottom: 12px;">
+                    <h3 class="u-color-primary u-font-size-1_25rem u-margin-bottom-12px">
                         Centros de Día
                     </h3>
-                    <p style="font-size: 1rem; color: #444; line-height: 1.6;">
+                    <p class="u-font-size-1rem u-color-444 u-line-height-1_6">
                         45 centros en toda CABA con talleres, almuerzo, actividades.
                         Incluido sin costo adicional.
                     </p>
@@ -1172,10 +938,10 @@
                     <div class="ecosystem-icon">
                         <i class="fa fa-exchange" aria-hidden="true"></i>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.25rem; margin-bottom: 12px;">
+                    <h3 class="u-color-primary u-font-size-1_25rem u-margin-bottom-12px">
                         Banco de Tiempo
                     </h3>
-                    <p style="font-size: 1rem; color: #444; line-height: 1.6;">
+                    <p class="u-font-size-1rem u-color-444 u-line-height-1_6">
                         Intercambiá servicios con vecinos (te ayudan con las compras,
                         vos enseñás tejido).
                     </p>
@@ -1185,10 +951,10 @@
                     <div class="ecosystem-icon">
                         <i class="fa fa-cutlery" aria-hidden="true"></i>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.25rem; margin-bottom: 12px;">
+                    <h3 class="u-color-primary u-font-size-1_25rem u-margin-bottom-12px">
                         Comida a domicilio
                     </h3>
-                    <p style="font-size: 1rem; color: #444; line-height: 1.6;">
+                    <p class="u-font-size-1rem u-color-444 u-line-height-1_6">
                         Viandas saludables 5 veces por semana para quienes no pueden cocinar.
                         Costo diferenciado.
                     </p>
@@ -1198,10 +964,10 @@
                     <div class="ecosystem-icon">
                         <i class="fa fa-medkit" aria-hidden="true"></i>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.25rem; margin-bottom: 12px;">
+                    <h3 class="u-color-primary u-font-size-1_25rem u-margin-bottom-12px">
                         Telemedicina
                     </h3>
-                    <p style="font-size: 1rem; color: #444; line-height: 1.6;">
+                    <p class="u-font-size-1rem u-color-444 u-line-height-1_6">
                         Consultas médicas por videollamada con Tita.
                         Médicos clínicos y geriatras.
                     </p>
@@ -1211,10 +977,10 @@
                     <div class="ecosystem-icon">
                         <i class="fa fa-user-md" aria-hidden="true"></i>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.25rem; margin-bottom: 12px;">
+                    <h3 class="u-color-primary u-font-size-1_25rem u-margin-bottom-12px">
                         Apoyo psicológico
                     </h3>
-                    <p style="font-size: 1rem; color: #444; line-height: 1.6;">
+                    <p class="u-font-size-1rem u-color-444 u-line-height-1_6">
                         Sesiones con psicólogos especializados en personas mayores.
                         Individual o grupal.
                     </p>
@@ -1224,10 +990,10 @@
                     <div class="ecosystem-icon">
                         <i class="fa fa-wheelchair" aria-hidden="true"></i>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.25rem; margin-bottom: 12px;">
+                    <h3 class="u-color-primary u-font-size-1_25rem u-margin-bottom-12px">
                         Ayudas técnicas
                     </h3>
-                    <p style="font-size: 1rem; color: #444; line-height: 1.6;">
+                    <p class="u-font-size-1rem u-color-444 u-line-height-1_6">
                         Préstamo de sillas de ruedas, andadores, bastones,
                         según necesidad.
                     </p>
@@ -1237,7 +1003,7 @@
     </section>
 
     <!-- BLOQUE REALITY CHECK CON FRICCIÓN -->
-    <section style="padding: 60px 0; background-color: white;">
+    <section class="u-padding-60px-0 u-background-color-white">
         <div class="container">
             <div class="reality-check">
                 <h4>
@@ -1265,20 +1031,20 @@
         </div>
     </section>
 
-    <section style="padding: 80px 0; background: linear-gradient(135deg, var(--color-secondary), #14461A);">
+    <section class="u-padding-80px-0 u-background-linear-gradient-135deg-secondary-14461a">
         <div class="container">
-            <div style="text-align: center; color: white;">
-                <h2 style="font-size: 2.25rem; margin-bottom: 24px; color: white;">
+            <div class="u-text-align-center u-color-white">
+                <h2 class="u-font-size-2_25rem u-margin-bottom-24px u-color-white">
                     ¿Te gustaría ser parte de este sistema?
                 </h2>
-                <p style="font-size: 1.375rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <p class="u-font-size-1_375rem u-margin-bottom-40px u-max-width-700px u-margin-left-auto u-margin-right-auto">
                     Inscribite ahora o llamá al 147 para más información
                 </p>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="inscripcion.html" class="btn btn-lg" style="background-color: white; color: var(--color-secondary-text); border-color: white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Inscribirme en Cuidados en Red">
+                <div class="u-display-flex u-gap-20px u-justify-content-center u-flex-wrap-wrap">
+                    <a href="inscripcion.html" class="btn btn-lg u-background-color-white u-color-secondary-text u-border-color-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Inscribirme en Cuidados en Red">
                         <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme
                     </a>
-                    <a href="tel:147" class="btn btn-lg" style="background-color: transparent; color: white; border: 3px solid white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Llamar al 147">
+                    <a href="tel:147" class="btn btn-lg u-background-color-transparent u-color-white u-border-3px-solid-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Llamar al 147">
                         <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                     </a>
                 </div>

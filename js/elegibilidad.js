@@ -97,34 +97,34 @@ function checkEligibility() {
 }
 
 function stepList(items) {
-    return '<ol style="padding-left: 24px; margin: 0; line-height: 2; font-size: 1rem;">' +
+    return '<ol class="u-padding-left-24px u-margin-0 u-line-height-2 u-font-size-1rem">' +
         items.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ol>';
 }
 
 function actionButtons(primaryHref, primaryText) {
-    return '<div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">' +
-        '<a href="' + primaryHref + '" class="btn" style="background-color: #14461A; color: white; padding: 16px 40px; font-size: 1.125rem;"><i class="fa fa-edit" aria-hidden="true"></i> ' + primaryText + '</a>' +
-        '<a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 1.125rem;"><i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147</a>' +
+    return '<div class="u-display-flex u-gap-16px u-justify-content-center u-flex-wrap-wrap">' +
+        '<a href="' + primaryHref + '" class="btn u-background-color-14461a u-color-white u-padding-16px-40px u-font-size-1_125rem"><i class="fa fa-edit" aria-hidden="true"></i> ' + primaryText + '</a>' +
+        '<a href="tel:147" class="btn u-background-color-primary u-color-white u-padding-16px-40px u-font-size-1_125rem"><i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147</a>' +
         '</div>';
 }
 
 function showResult(reasons, answers) {
     var resultBox = document.getElementById('resultBox');
     var nivel = NIVELES[nivelOrientativo(answers)];
-    var box = 'background-color: white; padding: 24px; border-radius: 8px; margin-bottom: 24px; text-align: left;';
-    var note = 'background-color: #FFF3E0; padding: 16px; border-radius: 6px; margin-top: 16px; border-left: 4px solid var(--color-accent);';
-    var noteText = 'margin: 0; color: var(--color-accent-text); font-size: 1rem; line-height: 1.6;';
+    var box = 'resultado-caja';
+    var note = 'resultado-nota';
+    var noteText = 'resultado-nota-texto';
 
     var nivelHtml =
-        '<div style="' + box + '">' +
-            '<h3 style="color: var(--color-primary); margin-bottom: 8px; font-size: 1.25rem;"><i class="fa fa-sliders" aria-hidden="true"></i> Tu nivel de cuidado orientativo</h3>' +
-            '<p style="margin: 0 0 8px; color: #333;"><strong>' + nivel.nombre + ':</strong> ' + nivel.horas + '.</p>' +
-            '<p style="margin: 0; color: #505050; font-size: 1rem;">Es una estimación según tus respuestas. El nivel definitivo se decide en la evaluación domiciliaria.</p>' +
+        '<div class="' + box + '">' +
+            '<h3 class="u-color-primary u-margin-bottom-8px u-font-size-1_25rem"><i class="fa fa-sliders" aria-hidden="true"></i> Tu nivel de cuidado orientativo</h3>' +
+            '<p class="u-margin-0-0-8px u-color-333"><strong>' + nivel.nombre + ':</strong> ' + nivel.horas + '.</p>' +
+            '<p class="u-margin-0 u-color-505050 u-font-size-1rem">Es una estimación según tus respuestas. El nivel definitivo se decide en la evaluación domiciliaria.</p>' +
             (answers.autonomia === 'dependiente'
-                ? '<div style="' + note + '"><p style="' + noteText + '"><strong>Tené en cuenta:</strong> el servicio llega hasta 100 horas por mes, no es cuidado permanente las 24 horas. Si necesitás compañía todo el día, en la evaluación armamos cómo combinarlo con tu familia u otros programas.</p></div>'
+                ? '<div class="' + note + '"><p class="' + noteText + '"><strong>Tené en cuenta:</strong> el servicio llega hasta 100 horas por mes, no es cuidado permanente las 24 horas. Si necesitás compañía todo el día, en la evaluación armamos cómo combinarlo con tu familia u otros programas.</p></div>'
                 : '') +
             (answers.cuidadoActual === 'no'
-                ? '<p style="margin: 12px 0 0; color: #14461A;"><i class="fa fa-flag" aria-hidden="true"></i> Como hoy nadie te ayuda en tu casa, tu inscripción tiene prioridad.</p>'
+                ? '<p class="u-margin-12px-0-0 u-color-14461a"><i class="fa fa-flag" aria-hidden="true"></i> Como hoy nadie te ayuda en tu casa, tu inscripción tiene prioridad.</p>'
                 : '') +
         '</div>';
 
@@ -139,30 +139,30 @@ function showResult(reasons, answers) {
         }
         resultBox.innerHTML =
             '<div class="result-icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div>' +
-            '<h2 style="color: var(--color-accent-text); font-size: 2.25rem; margin-bottom: 16px;">Por el momento, no cumplís los requisitos</h2>' +
-            '<p style="font-size: 1.125rem; color: #333; margin-bottom: 24px; line-height: 1.6;">Según tus respuestas, hay requisitos que no se cumplen:</p>' +
-            '<div style="' + box + '"><ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444;">' +
+            '<h2 class="u-color-accent-text u-font-size-2_25rem u-margin-bottom-16px">Por el momento, no cumplís los requisitos</h2>' +
+            '<p class="u-font-size-1_125rem u-color-333 u-margin-bottom-24px u-line-height-1_6">Según tus respuestas, hay requisitos que no se cumplen:</p>' +
+            '<div class="' + box + '"><ul class="u-margin-0 u-padding-left-24px u-line-height-1_8 u-color-444">' +
                 reasons.map(function(r) { return '<li>' + r + '</li>'; }).join('') + '</ul></div>' +
-            '<div style="' + box + '"><h3 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.25rem;"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ¿Qué podés hacer?</h3>' +
-                '<ul style="margin: 0; padding-left: 24px; line-height: 1.8; color: #444;">' + alternativas.join('') + '</ul></div>' +
-            '<div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">' +
-                '<a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 16px 40px; font-size: 1.125rem;"><i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147 para orientación</a>' +
-                '<a href="contacto.html" class="btn" style="background-color: #14461A; color: white; padding: 16px 40px; font-size: 1.125rem;"><i class="fa fa-envelope" aria-hidden="true"></i> Contactanos</a>' +
+            '<div class="' + box + '"><h3 class="u-color-accent-text u-margin-bottom-16px u-font-size-1_25rem"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ¿Qué podés hacer?</h3>' +
+                '<ul class="u-margin-0 u-padding-left-24px u-line-height-1_8 u-color-444">' + alternativas.join('') + '</ul></div>' +
+            '<div class="u-display-flex u-gap-16px u-justify-content-center u-flex-wrap-wrap">' +
+                '<a href="tel:147" class="btn u-background-color-primary u-color-white u-padding-16px-40px u-font-size-1_125rem"><i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147 para orientación</a>' +
+                '<a href="contacto.html" class="btn u-background-color-14461a u-color-white u-padding-16px-40px u-font-size-1_125rem"><i class="fa fa-envelope" aria-hidden="true"></i> Contactanos</a>' +
             '</div>';
     } else if (answers.vivienda === 'geriatrico') {
         resultBox.className = 'result-box result-eligible show';
         resultBox.innerHTML =
             '<div class="result-icon"><i class="fa fa-home" aria-hidden="true"></i></div>' +
-            '<h2 style="color: #14461A; font-size: 2.25rem; margin-bottom: 16px;">Podés acceder por la vía de retorno a tu casa</h2>' +
-            '<p style="font-size: 1.25rem; color: #333; margin-bottom: 32px; line-height: 1.6;">Cuidados en Red nació para acompañar a personas que viven en una residencia y quieren volver a su casa. Tu caso entra por esa vía.</p>' +
-            '<div style="' + box + '"><h3 style="color: #14461A; margin-bottom: 16px; font-size: 1.375rem; text-align: center;"><i class="fa fa-list-ol" aria-hidden="true"></i> Cómo es la vuelta</h3>' +
+            '<h2 class="u-color-14461a u-font-size-2_25rem u-margin-bottom-16px">Podés acceder por la vía de retorno a tu casa</h2>' +
+            '<p class="u-font-size-1_25rem u-color-333 u-margin-bottom-32px u-line-height-1_6">Cuidados en Red nació para acompañar a personas que viven en una residencia y quieren volver a su casa. Tu caso entra por esa vía.</p>' +
+            '<div class="' + box + '"><h3 class="u-color-14461a u-margin-bottom-16px u-font-size-1_375rem u-text-align-center"><i class="fa fa-list-ol" aria-hidden="true"></i> Cómo es la vuelta</h3>' +
                 stepList([
                     '<strong>Inscribite</strong> y contá en “Contanos tu situación” que hoy vivís en una residencia',
                     'El Nodo evalúa <strong>la vivienda a la que volverías</strong> (tuya o de un familiar) y tu nivel de cuidado',
                     'Armamos el <strong>plan de vuelta</strong>: persona cuidadora y tecnología listas antes de que llegues',
                     '¡<strong>Volvés a tu casa</strong> con el servicio funcionando!'
                 ]) +
-                '<div style="' + note + '"><p style="' + noteText + '"><strong>La vuelta no es inmediata:</strong> se planifica con el equipo del Nodo y depende de que la vivienda esté en condiciones y de que haya personas cuidadoras disponibles en tu zona.</p></div>' +
+                '<div class="' + note + '"><p class="' + noteText + '"><strong>La vuelta no es inmediata:</strong> se planifica con el equipo del Nodo y depende de que la vivienda esté en condiciones y de que haya personas cuidadoras disponibles en tu zona.</p></div>' +
             '</div>' +
             nivelHtml +
             actionButtons('inscripcion.html', 'Inscribirme');
@@ -170,19 +170,19 @@ function showResult(reasons, answers) {
         resultBox.className = 'result-box result-eligible show';
         resultBox.innerHTML =
             '<div class="result-icon"><i class="fa fa-check" aria-hidden="true"></i></div>' +
-            '<h2 style="color: #14461A; font-size: 2.25rem; margin-bottom: 16px;">¡Sí, cumplís los requisitos!</h2>' +
-            '<p style="font-size: 1.25rem; color: #333; margin-bottom: 32px; line-height: 1.6;">Según tus respuestas, <strong>podés acceder a Cuidados en Red</strong>. El siguiente paso es inscribirte para que te hagamos una evaluación domiciliaria.</p>' +
+            '<h2 class="u-color-14461a u-font-size-2_25rem u-margin-bottom-16px">¡Sí, cumplís los requisitos!</h2>' +
+            '<p class="u-font-size-1_25rem u-color-333 u-margin-bottom-32px u-line-height-1_6">Según tus respuestas, <strong>podés acceder a Cuidados en Red</strong>. El siguiente paso es inscribirte para que te hagamos una evaluación domiciliaria.</p>' +
             nivelHtml +
-            '<div style="' + box + '"><h3 style="color: #14461A; margin-bottom: 16px; font-size: 1.375rem; text-align: center;"><i class="fa fa-list-ol" aria-hidden="true"></i> Próximos pasos</h3>' +
+            '<div class="' + box + '"><h3 class="u-color-14461a u-margin-bottom-16px u-font-size-1_375rem u-text-align-center"><i class="fa fa-list-ol" aria-hidden="true"></i> Próximos pasos</h3>' +
                 stepList([
                     '<strong>Inscribite</strong> online, por teléfono o presencialmente',
-                    'Te <strong>llamamos en 24-48 h hábiles</strong> del Nodo de tu zona <span style="color: #505050; font-size: 1rem;">(en los Nodos con más demanda, hasta 5-7 días)</span>',
-                    'Coordinamos una <strong>visita domiciliaria</strong> <span style="color: #505050; font-size: 1rem;">(puede reprogramarse por emergencias)</span>',
-                    'Evaluamos tus necesidades y armamos tu plan <span style="color: #505050; font-size: 1rem;">(dentro de los 15 días hábiles)</span>',
-                    'Asignamos persona cuidadora <span style="color: #505050; font-size: 1rem;">(7 a 14 días; más si tu Nodo tiene lista de espera)</span>',
+                    'Te <strong>llamamos en 24-48 h hábiles</strong> del Nodo de tu zona <span class="u-color-505050 u-font-size-1rem">(en los Nodos con más demanda, hasta 5-7 días)</span>',
+                    'Coordinamos una <strong>visita domiciliaria</strong> <span class="u-color-505050 u-font-size-1rem">(puede reprogramarse por emergencias)</span>',
+                    'Evaluamos tus necesidades y armamos tu plan <span class="u-color-505050 u-font-size-1rem">(dentro de los 15 días hábiles)</span>',
+                    'Asignamos persona cuidadora <span class="u-color-505050 u-font-size-1rem">(7 a 14 días; más si tu Nodo tiene lista de espera)</span>',
                     '¡<strong>Empezás con el servicio</strong>!'
                 ]) +
-                '<div style="' + note + '"><p style="' + noteText + '"><strong><i class="fa fa-clock-o" aria-hidden="true"></i> Tiempo total estimado:</strong> entre 3 y 5 semanas desde la inscripción; hasta 8 en Palermo, Belgrano, Recoleta y Caballito.</p></div>' +
+                '<div class="' + note + '"><p class="' + noteText + '"><strong><i class="fa fa-clock-o" aria-hidden="true"></i> Tiempo total estimado:</strong> entre 3 y 5 semanas desde la inscripción; hasta 8 en Palermo, Belgrano, Recoleta y Caballito.</p></div>' +
             '</div>' +
             actionButtons('inscripcion.html', 'Inscribirme ahora');
     }

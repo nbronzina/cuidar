@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cuidados en Red te acompaña en tu casa con respeto y cariño. Conocé todos los servicios de cuidado domiciliario para personas mayores en Buenos Aires.">
     <meta property="og:title" content="Servicios para Personas Mayores — Cuidados en Red GCBA">
@@ -26,208 +26,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        .hero-personas {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95));
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .hero-personas h1 {
-            font-size: 3rem;
-            margin-bottom: 24px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-personas .lead {
-            font-size: 1.625rem;
-            line-height: 1.5;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-
-        .service-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 32px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--color-secondary);
-            height: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--color-secondary), #14461A);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            color: white;
-            font-size: 2.25rem;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: start;
-            gap: 20px;
-            padding: 24px;
-            background-color: white;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .benefit-item:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            transform: translateX(8px);
-        }
-
-        .benefit-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--color-warm);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-accent-text);
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-
-        .faq-item {
-            background-color: white;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            overflow: hidden;
-        }
-
-        .faq-item details {
-            padding: 24px;
-        }
-
-        .faq-item summary {
-            font-weight: 700;
-            font-size: 1.25rem;
-            cursor: pointer;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            list-style: none;
-        }
-
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-item summary::before {
-            content: '+';
-            width: 32px;
-            height: 32px;
-            background-color: var(--color-secondary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .faq-item details[open] summary::before {
-            content: '−';
-        }
-
-        .faq-item details p {
-            margin-top: 20px;
-            padding-left: 48px;
-            font-size: 1.125rem;
-            line-height: 1.8;
-            color: #444;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-accent) 100%);
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding: 24px;
-            margin-bottom: 24px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -29px;
-            top: 32px;
-            width: 16px;
-            height: 16px;
-            background-color: var(--color-secondary);
-            border: 4px solid white;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        .cta-box {
-            background: linear-gradient(135deg, var(--color-secondary), #14461A);
-            color: white;
-            padding: 48px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(27,94,32,0.3);
-        }
-
-        @media (max-width: 767px) {
-            .hero-personas h1 {
-                font-size: 2rem;
-            }
-            .hero-personas .lead {
-                font-size: 1.25rem;
-            }
-            .service-card {
-                padding: 24px;
-            }
-            .timeline {
-                padding-left: 24px;
-            }
-            .timeline::before {
-                left: 7px;
-            }
-            .timeline-item::before {
-                left: -21px;
-            }
-        }
-    </style>
+    <link href="css/para-personas-mayores.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -438,8 +238,8 @@
             <p class="lead">
                 En tu casa, a tu ritmo, con respeto y cariño
             </p>
-            <div style="margin-top: 40px;">
-                <a href="tel:147" class="btn btn-lg" style="background-color: white; color: var(--color-accent-text); border-color: white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Llamar al 147">
+            <div class="u-margin-top-40px">
+                <a href="tel:147" class="btn btn-lg u-background-color-white u-color-accent-text u-border-color-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Llamar al 147">
                     <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                 </a>
             </div>
@@ -447,9 +247,9 @@
     </section>
 
     <!-- NUEVO: Banner de disponibilidad con fricción -->
-    <section style="padding: 0; background-color: #FFF9E6;">
+    <section class="u-padding-0 u-background-color-fff9e6">
         <div class="container">
-            <div class="system-status" style="margin: 0; border-radius: 0; border-left: none; border-right: none;">
+            <div class="system-status u-margin-0 u-border-radius-0 u-border-left-none u-border-right-none">
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                 <div class="system-status-content">
                     <p class="system-status-title">Alta demanda en algunos barrios</p>
@@ -463,12 +263,12 @@
     </section>
 
     <!-- Qué recibís -->
-    <section style="padding: 60px 0;" aria-labelledby="servicios-titulo">
+    <section class="u-padding-60px-0" aria-labelledby="servicios-titulo">
         <div class="container">
-            <h2 id="servicios-titulo" style="color: var(--color-accent-text); text-align: center; margin-bottom: 24px; font-size: 2.25rem;">
+            <h2 class="u-color-accent-text u-text-align-center u-margin-bottom-24px u-font-size-2_25rem" id="servicios-titulo">
                 ¿Qué recibís con Cuidados en Red?
             </h2>
-            <p style="text-align: center; font-size: 1.25rem; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p class="u-text-align-center u-font-size-1_25rem u-color-444 u-margin-bottom-48px u-max-width-800px u-margin-left-auto u-margin-right-auto">
                 No es solo una persona cuidadora. Es todo un sistema pensado para vos.
             </p>
 
@@ -478,24 +278,24 @@
                         <div class="service-icon">
                             <i class="fa fa-heart" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.5rem; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-secondary-text u-font-size-1_5rem u-margin-bottom-16px u-text-align-center">
                             Una persona que te cuida
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1_125rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Te acompaña entre 20 y 100 horas por mes, según lo que necesites</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Te ayuda con lo que necesites</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Compañía y charla</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-secondary-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-secondary-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Profesional capacitada</span>
                             </li>
                         </ul>
@@ -504,27 +304,27 @@
 
                 <article class="col-md-4">
                     <div class="service-card">
-                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-accent-text), #6B2600);">
+                        <div class="service-icon u-background-linear-gradient-135deg-accent-text-6b2600">
                             <i class="fa fa-microphone" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-accent-text); font-size: 1.5rem; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-accent-text u-font-size-1_5rem u-margin-bottom-16px u-text-align-center">
                             Tita, tu compañera
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1_125rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Hablá con ella como con una amiga — funciona con tu voz, no hay que tocar nada</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Te recuerda medicamentos, turnos y videollamadas con tu familia</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Juegos de memoria, música de tu época, noticias y juegos de preguntas</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Si tenés Alzheimer, Tita se adapta: frases cortas, sin apurarte, recuerdos guiados con fotos y música</span>
                             </li>
                         </ul>
@@ -533,27 +333,27 @@
 
                 <article class="col-md-4">
                     <div class="service-card">
-                        <div class="service-icon" style="background: linear-gradient(135deg, var(--color-primary), #0D3B5E);">
+                        <div class="service-icon u-background-linear-gradient-135deg-primary-0d3b5e">
                             <i class="fa fa-shield" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-primary); font-size: 1.5rem; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-primary u-font-size-1_5rem u-margin-bottom-16px u-text-align-center">
                             Tecnología que te cuida
                         </h3>
-                        <ul style="list-style: none; padding: 0; font-size: 1.125rem; line-height: 1.8; color: #444;">
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0 u-font-size-1_125rem u-line-height-1_8 u-color-444">
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Pulsera de emergencia + sensores de movimiento</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Sensor de cama que controla tu sueño y corazón sin que te pongas nada</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Módulo en el baño que chequea tu salud cada vez que vas</span>
                             </li>
-                            <li style="padding: 8px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-8px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Sin cámaras — todo 100% privado. Alertas automáticas al Nodo</span>
                             </li>
                         </ul>
@@ -562,36 +362,36 @@
             </div>
 
             <!-- Accordion: Modo Alzheimer -->
-            <div style="max-width: 800px; margin: 40px auto 0;">
-                <details style="background-color: #FFF3E0; border-radius: 12px; padding: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid var(--color-accent); overflow: hidden;">
-                    <summary style="padding: 24px 32px; cursor: pointer; font-size: 1.375rem; font-weight: 700; color: var(--color-accent-text); list-style: none; display: flex; align-items: center; gap: 12px;">
-                        <i class="fa fa-heart" aria-hidden="true" style="flex-shrink: 0;"></i>
+            <div class="u-max-width-800px u-margin-40px-auto-0">
+                <details class="u-background-color-fff3e0 u-border-radius-12px u-padding-0 u-box-shadow-0-4px-16px-rgba-0-0-0-0_08 u-border-left-4px-solid-accent u-overflow-hidden">
+                    <summary class="u-padding-24px-32px u-cursor-pointer u-font-size-1_375rem u-font-weight-700 u-color-accent-text u-list-style-none u-display-flex u-align-items-center u-gap-12px">
+                        <i class="fa fa-heart u-flex-shrink-0" aria-hidden="true"></i>
                         ¿Tu familiar tiene deterioro cognitivo?
-                        <i class="fa fa-chevron-down" aria-hidden="true" style="margin-left: auto; font-size: 1rem; transition: transform 0.3s;"></i>
+                        <i class="fa fa-chevron-down u-margin-left-auto u-font-size-1rem u-transition-transform-0_3s" aria-hidden="true"></i>
                     </summary>
-                    <div style="padding: 0 32px 32px; font-size: 1.125rem; line-height: 1.8; color: #444444;">
-                        <p style="margin-bottom: 16px;">
+                    <div class="u-padding-0-32px-32px u-font-size-1_125rem u-line-height-1_8 u-color-444444">
+                        <p class="u-margin-bottom-16px">
                             Sabemos que es una situación difícil para toda la familia. Por eso Tita tiene un <strong>modo especial</strong> pensado para personas con Alzheimer u otro deterioro cognitivo:
                         </p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <ul class="u-list-style-none u-padding-0">
+                            <li class="u-padding-6px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Habla con frases cortas y claras, sin apurar. Si la persona no entiende, repite con paciencia.</span>
                             </li>
-                            <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-6px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Ayuda con la orientación: le recuerda qué día es, dónde está, quién viene a visitarla.</span>
                             </li>
-                            <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-6px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>Propone recuerdos guiados con fotos y música de su época — momentos que reconfortan.</span>
                             </li>
-                            <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                                <i class="fa fa-check-circle" style="color: var(--color-accent-text); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                            <li class="u-padding-6px-0 u-display-flex u-align-items-start u-gap-12px">
+                                <i class="fa fa-check-circle u-color-accent-text u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                                 <span>La persona cuidadora recibe capacitación específica y acompañamiento del equipo del Nodo.</span>
                             </li>
                         </ul>
-                        <p style="margin-top: 16px; color: #505050; font-size: 1rem;">
+                        <p class="u-margin-top-16px u-color-505050 u-font-size-1rem">
                             Este modo se activa cuando el equipo profesional del Nodo lo indica, a partir de la evaluación inicial o de las señales que detecta la persona cuidadora en sus visitas.
                         </p>
                     </div>
@@ -601,19 +401,19 @@
     </section>
 
     <!-- Cómo se arma tu plan de cuidado -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;">
+    <section class="u-padding-60px-0 u-background-color-f5f5f5">
         <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; background-color: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid var(--color-secondary);">
-                <h2 style="color: var(--color-secondary-text); font-size: 1.75rem; margin-bottom: 20px;">
+            <div class="u-max-width-800px u-margin-0-auto u-background-color-white u-border-radius-12px u-padding-40px u-box-shadow-0-4px-16px-rgba-0-0-0-0_08 u-border-left-4px-solid-secondary">
+                <h2 class="u-color-secondary-text u-font-size-1_75rem u-margin-bottom-20px">
                     <i class="fa fa-clipboard" aria-hidden="true"></i> Tu plan de cuidado se arma a tu medida
                 </h2>
-                <p style="font-size: 1.125rem; line-height: 1.8; color: #444444; margin-bottom: 16px;">
+                <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444444 u-margin-bottom-16px">
                     Cuando te inscribís, un equipo del Nodo más cercano te visita en tu casa para entender qué necesitás. Según eso, te asignan un acompañamiento que puede ir desde unas pocas horas por semana hasta un cuidado más intensivo con tecnología de apoyo.
                 </p>
-                <p style="font-size: 1.125rem; line-height: 1.8; color: #444444; margin-bottom: 16px;">
+                <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444444 u-margin-bottom-16px">
                     Si tus necesidades cambian, tu plan se actualiza. Si necesitás algo que no está incluido, podés contratarlo a través del sistema a un valor regulado, con los mismos profesionales.
                 </p>
-                <p style="font-size: 1rem; color: #505050; margin-bottom: 0;">
+                <p class="u-font-size-1rem u-color-505050 u-margin-bottom-0">
                     La evaluación inicial se hace dentro de los 15 días hábiles desde la inscripción (hasta 30 en los Nodos con lista de espera). Te van a avisar del Nodo para coordinar.
                 </p>
             </div>
@@ -621,9 +421,9 @@
     </section>
 
     <!-- Beneficios -->
-    <section style="padding: 60px 0; background-color: var(--color-warm);" aria-labelledby="beneficios-titulo">
+    <section class="u-padding-60px-0 u-background-color-warm" aria-labelledby="beneficios-titulo">
         <div class="container">
-            <h2 id="beneficios-titulo" style="color: var(--color-accent-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-accent-text u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="beneficios-titulo">
                 ¿Qué ganás vos?
             </h2>
 
@@ -634,10 +434,10 @@
                             <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent-text); font-size: 1.375rem; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Seguís en tu casa
                             </h3>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 No tenés que ir a un geriátrico ni mudarte. Te cuidamos donde vos querés estar.
                             </p>
                         </div>
@@ -650,10 +450,10 @@
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent-text); font-size: 1.375rem; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Menos soledad
                             </h3>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Tenés con quien charlar, compartir un mate, contar tus historias.
                             </p>
                         </div>
@@ -666,10 +466,10 @@
                             <i class="fa fa-heartbeat" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent-text); font-size: 1.375rem; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Mejor salud
                             </h3>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Te ayudamos a tomar tus medicamentos a horario y controlar tu salud. El sensor de cama y el módulo del baño monitorean tu bienestar todos los días sin que tengas que hacer nada.
                             </p>
                         </div>
@@ -682,10 +482,10 @@
                             <i class="fa fa-shield" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent-text); font-size: 1.375rem; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Detección temprana
                             </h3>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Tita y tu persona cuidadora están atentas a cambios sutiles en tu memoria y tu habla. Si notan algo, avisan al Nodo para que te vea un profesional — mucho antes de que sea tarde.
                             </p>
                         </div>
@@ -698,10 +498,10 @@
                             <i class="fa fa-smile-o" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent-text); font-size: 1.375rem; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Más tranquilidad
                             </h3>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Sabés que si pasa algo, hay alguien que te va a ayudar de inmediato.
                             </p>
                         </div>
@@ -714,10 +514,10 @@
                             <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent-text); font-size: 1.375rem; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Más independencia
                             </h3>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Te ayudamos con las tareas difíciles para que puedas hacer lo que te gusta.
                             </p>
                         </div>
@@ -730,10 +530,10 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-accent-text); font-size: 1.375rem; margin-bottom: 8px;">
+                            <h3 class="u-color-accent-text u-font-size-1_375rem u-margin-bottom-8px">
                                 Dignidad y respeto
                             </h3>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 La persona cuidadora respeta tus tiempos, tus gustos, tu forma de ser.
                             </p>
                         </div>
@@ -744,77 +544,77 @@
     </section>
 
     <!-- Cómo es un día con Cuidados en Red -->
-    <section style="padding: 60px 0;" aria-labelledby="dia-titulo">
+    <section class="u-padding-60px-0" aria-labelledby="dia-titulo">
         <div class="container">
-            <h2 id="dia-titulo" style="color: var(--color-secondary-text); text-align: center; margin-bottom: 24px; font-size: 2.25rem;">
+            <h2 class="u-color-secondary-text u-text-align-center u-margin-bottom-24px u-font-size-2_25rem" id="dia-titulo">
                 Un día con Cuidados en Red
             </h2>
-            <p style="text-align: center; font-size: 1.25rem; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p class="u-text-align-center u-font-size-1_25rem u-color-444 u-margin-bottom-48px u-max-width-800px u-margin-left-auto u-margin-right-auto">
                 Así es un día típico de Beatriz, usuaria de Cuidados en Red
             </p>
 
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
+                <div class="col-md-8 u-margin-0-auto">
                     <div class="timeline">
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary-text); font-size: 1.25rem; display: block; margin-bottom: 8px;">
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 8:00 h
                             </strong>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Tita te saluda: "Buen día, Beatriz. Hoy es martes, hace 18 grados". Te recuerda tus medicamentos. Mientras tanto, el sensor de cama ya mandó al Nodo que dormiste bien anoche.
                             </p>
                         </div>
 
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary-text); font-size: 1.25rem; display: block; margin-bottom: 8px;">
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 10:00 h
                             </strong>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Llega Carlos, tu persona cuidadora. Hoy se demoró 20 minutos por un paro de colectivos y te avisó antes por mensaje. Tomás un mate juntos mientras charlan. Carlos ya vio en su app que dormiste bien y que los valores del baño están normales.
                             </p>
                         </div>
 
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary-text); font-size: 1.25rem; display: block; margin-bottom: 8px;">
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 h
                             </strong>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Van juntos al supermercado del barrio. Carlos te ayuda a cargar las bolsas.
                             </p>
                         </div>
 
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary-text); font-size: 1.25rem; display: block; margin-bottom: 8px;">
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM
                             </strong>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Preparan el almuerzo juntos. Carlos te ayuda a cortar las verduras.
                             </p>
                         </div>
 
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary-text); font-size: 1.25rem; display: block; margin-bottom: 8px;">
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 15:00 h
                             </strong>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Videollamada con tu nieto por Tita. Le contás cómo te fue en la semana.
                             </p>
                         </div>
 
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary-text); font-size: 1.25rem; display: block; margin-bottom: 8px;">
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 19:00 h
                             </strong>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Tita te recuerda tu medicación de la noche. "¿Querés que te ponga Sábados Circulares?" Le decís que sí y te pone tu programa favorito. También te recuerda tomar agua — el módulo del baño notó que estás un poco deshidratada.
                             </p>
                         </div>
 
                         <div class="timeline-item">
-                            <strong style="color: var(--color-secondary-text); font-size: 1.25rem; display: block; margin-bottom: 8px;">
+                            <strong class="u-color-secondary-text u-font-size-1_25rem u-display-block u-margin-bottom-8px">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 23:00 h
                             </strong>
-                            <p style="font-size: 1.125rem; line-height: 1.8; color: #444; margin: 0;">
+                            <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-margin-0">
                                 Te acostás tranquila sabiendo que si pasa algo, el sensor de cama y la pulsera de emergencia están ahí. Y si la pulsera no te resulta cómoda, el sensor de cama y Tita cubren la noche.
                             </p>
                         </div>
@@ -825,14 +625,14 @@
     </section>
 
     <!-- Preguntas frecuentes -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="preguntas-titulo">
+    <section class="u-padding-60px-0 u-background-color-f5f5f5" aria-labelledby="preguntas-titulo">
         <div class="container">
-            <h2 id="preguntas-titulo" style="color: var(--color-primary); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-primary u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="preguntas-titulo">
                 Preguntas que nos hacen seguido
             </h2>
 
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
+                <div class="col-md-8 u-margin-0-auto">
 
                     <!-- NUEVAS FAQs con fricción -->
                     <div class="faq-item">
@@ -986,11 +786,11 @@
                 </div>
 
                     <!-- Privacidad -->
-                    <div style="margin-top: 32px; padding: 24px; background-color: #E3F2FD; border-radius: 8px; text-align: center;">
-                        <p style="font-size: 1.125rem; color: #0D47A1; margin: 0; line-height: 1.6;">
-                            <i class="fa fa-lock" aria-hidden="true" style="margin-right: 8px;"></i>
+                    <div class="u-margin-top-32px u-padding-24px u-background-color-e3f2fd u-border-radius-8px u-text-align-center">
+                        <p class="u-font-size-1_125rem u-color-0d47a1 u-margin-0 u-line-height-1_6">
+                            <i class="fa fa-lock u-margin-right-8px" aria-hidden="true"></i>
                             <strong>Tus datos son tuyos.</strong> Podés ver qué información tiene el sistema sobre vos y pedir que se borre en cualquier momento. Nadie fuera del programa accede a tus datos.
-                            <a href="politica-privacidad.html" style="color: var(--color-primary); text-decoration: underline; margin-left: 4px;">Más información</a>
+                            <a class="u-color-primary u-text-decoration-underline u-margin-left-4px" href="politica-privacidad.html">Más información</a>
                         </p>
                     </div>
 
@@ -999,22 +799,22 @@
     </section>
 
     <!-- CTA Final -->
-    <section style="padding: 80px 0;">
+    <section class="u-padding-80px-0">
         <div class="container">
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
+                <div class="col-md-8 u-margin-0-auto">
                     <div class="cta-box">
-                        <h2 style="font-size: 2.25rem; margin-bottom: 24px; color: white;">
+                        <h2 class="u-font-size-2_25rem u-margin-bottom-24px u-color-white">
                             ¿Te gustaría recibir este acompañamiento?
                         </h2>
-                        <p style="font-size: 1.375rem; margin-bottom: 40px;">
+                        <p class="u-font-size-1_375rem u-margin-bottom-40px">
                             Llamanos gratis al 147 o inscribite online. Te contactamos en 24-48hs.
                         </p>
-                        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                            <a href="tel:147" class="btn btn-lg" style="background-color: white; color: var(--color-secondary-text); border-color: white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Llamar al 147">
+                        <div class="u-display-flex u-gap-20px u-justify-content-center u-flex-wrap-wrap">
+                            <a href="tel:147" class="btn btn-lg u-background-color-white u-color-secondary-text u-border-color-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Llamar al 147">
                                 <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                             </a>
-                            <a href="inscripcion.html" class="btn btn-lg" style="background-color: transparent; color: white; border: 3px solid white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Inscribirme online">
+                            <a href="inscripcion.html" class="btn btn-lg u-background-color-transparent u-color-white u-border-3px-solid-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Inscribirme online">
                                 <i class="fa fa-edit" aria-hidden="true"></i> Inscribirme online
                             </a>
                         </div>

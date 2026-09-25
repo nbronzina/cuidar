@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Inscribite en Cuidados en Red en 5 minutos. Dejá tus datos online y te contactamos en 24 a 48 horas hábiles (hasta 7 días en los Nodos con más demanda).">
     <meta property="og:title" content="Inscripción en Cuidados en Red — Formulario Online GCBA">
@@ -26,388 +26,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        .hero-inscripcion {
-            background: linear-gradient(135deg, rgba(27,94,32,0.95), rgba(27,94,32,0.95));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .hero-inscripcion h1 {
-            font-size: 2.625rem;
-            margin-bottom: 16px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-inscripcion .lead {
-            font-size: 1.25rem;
-            line-height: 1.5;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .progress-steps {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
-        }
-
-        .step {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 24px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            font-weight: 600;
-            color: #505050;
-        }
-
-        .step.active {
-            background: linear-gradient(135deg, var(--color-secondary), #14461A);
-            color: white;
-            box-shadow: 0 4px 12px rgba(27,94,32,0.3);
-        }
-
-        .step-number {
-            width: 32px;
-            height: 32px;
-            background-color: rgba(0,0,0,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
-
-        .step.active .step-number {
-            background-color: rgba(255,255,255,0.3);
-        }
-
-        .form-container {
-            background-color: white;
-            border-radius: 12px;
-            padding: 48px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .form-section {
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 2px solid #E0E0E0;
-        }
-
-        .form-section:last-of-type {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .form-section h3 {
-            color: var(--color-secondary-text);
-            font-size: 1.5rem;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--color-secondary), #14461A);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-            font-size: 1rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #767676;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Roboto', sans-serif;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .form-group input:focus-visible,
-        .form-group select:focus-visible,
-        .form-group textarea:focus-visible {
-            outline: none;
-            border-color: var(--color-secondary);
-            box-shadow: 0 0 0 3px rgba(27,94,32,0.1);
-        }
-
-        .form-group small {
-            display: block;
-            margin-top: 6px;
-            color: #444;
-            font-size: 1rem;
-        }
-
-        .form-group .help-text {
-            display: flex;
-            align-items: start;
-            gap: 8px;
-            margin-top: 6px;
-            padding: 12px;
-            background-color: #E3F2FD;
-            border-radius: 6px;
-            font-size: 1rem;
-            color: #0D47A1;
-        }
-
-        .required {
-            color: #9A1515;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-        }
-
-        .radio-option input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: start;
-            gap: 12px;
-            padding: 16px;
-            background-color: #F5F5F5;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .checkbox-group:hover {
-            background-color: #E8F5E9;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            flex-shrink: 0;
-            width: 24px;
-            height: 24px;
-            margin-top: 2px;
-            cursor: pointer;
-        }
-
-        .info-box {
-            background: linear-gradient(135deg, #E3F2FD, #E0F0FD);
-            border-left: 4px solid var(--color-primary);
-            padding: 24px;
-            border-radius: 8px;
-            margin-bottom: 32px;
-        }
-
-        .info-box h3 {
-            color: var(--color-primary);
-            margin-bottom: 12px;
-            font-size: 1.125rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .info-box ul {
-            margin: 0;
-            padding-left: 24px;
-        }
-
-        .info-box li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .alternative-methods {
-            background-color: var(--color-warm);
-            padding: 32px;
-            border-radius: 12px;
-            margin-top: 48px;
-            text-align: center;
-        }
-
-        .alternative-methods h3 {
-            color: var(--color-accent-text);
-            margin-bottom: 24px;
-            font-size: 1.5rem;
-        }
-
-        .alt-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .success-message {
-            display: none;
-            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
-            border: 2px solid var(--color-secondary);
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        .tramite-box {
-            background: white;
-            border: 2px dashed var(--color-secondary);
-            border-radius: 12px;
-            padding: 20px;
-            max-width: 500px;
-            margin: 0 auto 24px;
-        }
-
-        .tramite-label {
-            margin: 0;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .tramite-number {
-            font-family: 'Roboto Mono', ui-monospace, Menlo, Consolas, monospace;
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            color: #14461A;
-            margin: 4px 0 12px;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .btn-copy, .draft-clear {
-            background: white;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-            border-radius: 8px;
-            padding: 8px 16px;
-            min-height: 44px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .tramite-help {
-            margin: 12px 0 0;
-            font-size: 1rem;
-            color: #444;
-        }
-
-        .draft-note {
-            background: #E3F2FD;
-            border-radius: 8px;
-            padding: 12px 16px;
-            font-size: 1rem;
-            color: #333;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 12px;
-            align-items: center;
-        }
-
-        .draft-note[hidden] {
-            display: none;
-        }
-
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--color-secondary), #14461A);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            color: white;
-            font-size: 2.5rem;
-            animation: scaleIn 0.5s ease-out;
-        }
-
-        @keyframes scaleIn {
-            from {
-                transform: scale(0);
-            }
-            to {
-                transform: scale(1);
-            }
-        }
-
-        @media (max-width: 767px) {
-            .hero-inscripcion h1 {
-                font-size: 1.75rem;
-            }
-            .hero-inscripcion .lead {
-                font-size: 1rem;
-            }
-            .form-container {
-                padding: 24px;
-            }
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            .progress-steps {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .step {
-                justify-content: center;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+    <link href="css/inscripcion.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -500,7 +120,7 @@
         </div>
     </section>
 
-    <section style="padding: 60px 0;">
+    <section class="u-padding-60px-0">
         <div class="container">
             <!-- Progress Steps -->
             <div class="progress-steps">
@@ -523,7 +143,7 @@
                 <div class="success-icon">
                     <i class="fa fa-check" aria-hidden="true"></i>
                 </div>
-                <h2 id="successTitle" style="color: var(--color-secondary-text); font-size: 2rem; margin-bottom: 16px;">
+                <h2 class="u-color-secondary-text u-font-size-2rem u-margin-bottom-16px" id="successTitle">
                     ¡Inscripción recibida!
                 </h2>
                 <div class="tramite-box">
@@ -536,18 +156,18 @@
                         Guardalo: lo vas a necesitar para <a href="estado-tramite.html">consultar el estado de tu solicitud</a>.
                     </p>
                 </div>
-                <p style="font-size: 1.25rem; color: #333; margin-bottom: 24px; line-height: 1.6;">
+                <p class="u-font-size-1_25rem u-color-333 u-margin-bottom-24px u-line-height-1_6">
                     Gracias por inscribirte en Cuidados en Red.
                     <strong>Te vamos a contactar según los tiempos de tu zona (ver arriba)</strong> al teléfono que nos dejaste.
                 </p>
-                <p style="font-size: 1rem; color: #444; margin-bottom: 32px;">
+                <p class="u-font-size-1rem u-color-444 u-margin-bottom-32px">
                     También te enviamos el número por email a <strong id="confirmedEmail"></strong>. Puede tardar en llegar: si no lo ves, revisá la carpeta de correo no deseado.
                 </p>
-                <div style="background-color: white; padding: 24px; border-radius: 8px; max-width: 500px; margin: 0 auto;">
-                    <h3 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.25rem;">
+                <div class="u-background-color-white u-padding-24px u-border-radius-8px u-max-width-500px u-margin-0-auto">
+                    <h3 class="u-color-accent-text u-margin-bottom-16px u-font-size-1_25rem">
                         <i class="fa fa-info-circle" aria-hidden="true"></i> ¿Qué sigue ahora?
                     </h3>
-                    <ol style="text-align: left; padding-left: 24px; margin: 0; line-height: 1.8;">
+                    <ol class="u-text-align-left u-padding-left-24px u-margin-0 u-line-height-1_8">
                         <li>Te llamamos del <strong>Nodo de tu zona</strong></li>
                         <li>Coordinamos una <strong>visita a tu domicilio</strong></li>
                         <li>Evaluamos tus necesidades</li>
@@ -555,14 +175,14 @@
                     </ol>
                 </div>
 
-                <div style="background-color: #fff3e0; padding: 16px; border-radius: 8px; margin-top: 24px; border-left: 3px solid var(--color-accent);">
-                    <p style="font-size: 1rem; color: #444; margin: 0; line-height: 1.6;">
-                        <strong style="color: var(--color-accent-text);">Recordá:</strong> La confirmación de inscripción no garantiza la asignación inmediata del servicio.
+                <div class="u-background-color-fff3e0-2 u-padding-16px u-border-radius-8px u-margin-top-24px u-border-left-3px-solid-accent">
+                    <p class="u-font-size-1rem u-color-444 u-margin-0 u-line-height-1_6">
+                        <strong class="u-color-accent-text">Recordá:</strong> La confirmación de inscripción no garantiza la asignación inmediata del servicio.
                         Los tiempos dependen de la disponibilidad de cuidadoras en tu zona y tu situación particular.
                     </p>
                 </div>
-                <div style="margin-top: 32px;">
-                    <a href="index.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 14px 32px; font-size: 1.125rem;">
+                <div class="u-margin-top-32px">
+                    <a href="index.html" class="btn u-background-color-secondary u-color-white u-padding-14px-32px u-font-size-1_125rem">
                         <i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
                     </a>
                 </div>
@@ -584,34 +204,34 @@
             </div>
 
             <!-- BLOQUE REALITY CHECK - FRICCIÓN REALISTA -->
-            <div class="reality-check" style="margin-bottom: 32px; background: linear-gradient(135deg, #FFF3E0, #FFEFDC); border-left: 4px solid var(--color-accent); padding: 24px; border-radius: 8px;">
-                <h3 style="color: var(--color-accent-text); margin-bottom: 16px; font-size: 1.125rem; display: flex; align-items: center; gap: 8px;">
+            <div class="reality-check u-margin-bottom-32px u-background-linear-gradient-135deg-fff3e0-ffefdc u-border-left-4px-solid-accent u-padding-24px u-border-radius-8px">
+                <h3 class="u-color-accent-text u-margin-bottom-16px u-font-size-1_125rem u-display-flex u-align-items-center u-gap-8px">
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     Tiempos y limitaciones del proceso
                 </h3>
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
+                <ul class="u-list-style-none u-padding-0 u-margin-0">
+                    <li class="u-margin-bottom-12px u-padding-left-24px u-position-relative u-color-444 u-line-height-1_6">
+                        <span class="u-position-absolute u-left-0 u-color-accent-text">⚠</span>
                         <strong>Tiempo de respuesta variable:</strong> En los Nodos de Palermo, Belgrano, Recoleta y Caballito el primer llamado puede tardar hasta 5-7 días hábiles. En el resto de la Ciudad suele llegar en 48-72 horas.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
+                    <li class="u-margin-bottom-12px u-padding-left-24px u-position-relative u-color-444 u-line-height-1_6">
+                        <span class="u-position-absolute u-left-0 u-color-accent-text">⚠</span>
                         <strong>Documentación adicional:</strong> En la visita domiciliaria van a pedirte: DNI original, último recibo de jubilación o ANSES, comprobante de domicilio (ABL o servicio), y certificado de discapacidad si tenés.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
+                    <li class="u-margin-bottom-12px u-padding-left-24px u-position-relative u-color-444 u-line-height-1_6">
+                        <span class="u-position-absolute u-left-0 u-color-accent-text">⚠</span>
                         <strong>El copago depende de tus ingresos:</strong> con jubilación mínima, PUAM o pensión no contributiva es gratis. Con ingresos más altos pagás un copago de hasta el 15% de tu ingreso, pero nadie queda afuera por lo que cobra.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
+                    <li class="u-margin-bottom-12px u-padding-left-24px u-position-relative u-color-444 u-line-height-1_6">
+                        <span class="u-position-absolute u-left-0 u-color-accent-text">⚠</span>
                         <strong>Limitaciones de servicio:</strong> El programa NO cubre cuidados médicos especializados (enfermería, kinesiología), traslados en ambulancia, ni atención nocturna permanente.
                     </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
+                    <li class="u-margin-bottom-12px u-padding-left-24px u-position-relative u-color-444 u-line-height-1_6">
+                        <span class="u-position-absolute u-left-0 u-color-accent-text">⚠</span>
                         <strong>Problemas técnicos frecuentes:</strong> El sistema puede tener demoras en procesamiento. 18% de las inscripciones online requieren completar datos por teléfono.
                     </li>
-                    <li style="margin-bottom: 0; padding-left: 24px; position: relative; color: #444; line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: var(--color-accent-text);">⚠</span>
+                    <li class="u-margin-bottom-0 u-padding-left-24px u-position-relative u-color-444 u-line-height-1_6">
+                        <span class="u-position-absolute u-left-0 u-color-accent-text">⚠</span>
                         <strong>Cambio de cuidadora:</strong> Si por alguna razón necesitás cambiar de cuidadora, el proceso puede demorar 2-3 semanas adicionales y quedás sin servicio durante ese período.
                     </li>
                 </ul>
@@ -658,8 +278,8 @@
                         </div>
                     </div>
 
-                    <fieldset class="form-group" style="border: none; padding: 0; margin-bottom: 24px;">
-                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 1rem;">
+                    <fieldset class="form-group u-border-none u-padding-0 u-margin-bottom-24px">
+                        <legend class="u-font-weight-600 u-margin-bottom-8px u-color-333 u-font-size-1rem">
                             Género <span class="required" aria-hidden="true">*</span>
                         </legend>
                         <div class="radio-group">
@@ -842,8 +462,8 @@
                         <small>No hace falta dar muchos detalles, esto lo charlamos en la visita domiciliaria</small>
                     </div>
 
-                    <fieldset class="form-group" style="border: none; padding: 0; margin-bottom: 24px;">
-                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 1rem;">
+                    <fieldset class="form-group u-border-none u-padding-0 u-margin-bottom-24px">
+                        <legend class="u-font-weight-600 u-margin-bottom-8px u-color-333 u-font-size-1rem">
                             ¿Vivís solo/a? <span class="required" aria-hidden="true">*</span>
                         </legend>
                         <div class="radio-group">
@@ -858,8 +478,8 @@
                         </div>
                     </fieldset>
 
-                    <fieldset class="form-group" style="border: none; padding: 0; margin-bottom: 24px;">
-                        <legend style="font-weight: 600; margin-bottom: 8px; color: #333; font-size: 1rem;">
+                    <fieldset class="form-group u-border-none u-padding-0 u-margin-bottom-24px">
+                        <legend class="u-font-weight-600 u-margin-bottom-8px u-color-333 u-font-size-1rem">
                             ¿Tenés alguna obra social o prepaga? <span class="required" aria-hidden="true">*</span>
                         </legend>
                         <div class="radio-group">
@@ -889,7 +509,7 @@
                         <label class="checkbox-group">
                             <input type="checkbox" id="privacidad" name="privacidad" required aria-required="true" data-error-required="Para inscribirte necesitamos que aceptes la política de privacidad.">
                             <span>
-                                He leído y acepto la <a href="politica-privacidad.html" style="color: var(--color-primary); text-decoration: underline; display: inline-block;" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>
+                                He leído y acepto la <a class="u-color-primary u-text-decoration-underline u-display-inline-block" href="politica-privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>
                                 y autorizo el tratamiento de mis datos personales conforme a la Ley 25.326, incluyendo: datos de salud relevantes para la evaluación funcional, monitoreo domiciliario mediante dispositivos (sensor de cama, módulo de baño), análisis conversacional de voz (Tita) y reportes a familiares autorizados. Puedo revocar el monitoreo en cualquier momento sin perder acceso al programa.
                                 <span class="required" aria-hidden="true">*</span>
                             </span>
@@ -907,9 +527,9 @@
                 </div>
 
                 <!-- Submit Button -->
-                <div style="text-align: center; margin-top: 40px;">
+                <div class="u-text-align-center u-margin-top-40px">
                     <p class="form-status" hidden></p>
-                    <button type="submit" class="btn btn-lg" style="background: linear-gradient(135deg, var(--color-secondary), #14461A); color: white; padding: 18px 48px; font-size: 1.25rem; box-shadow: 0 4px 16px rgba(27,94,32,0.3);">
+                    <button type="submit" class="btn btn-lg u-background-linear-gradient-135deg-secondary-14461a u-color-white u-padding-18px-48px u-font-size-1_25rem u-box-shadow-0-4px-16px-rgba-27-94-32-0_3">
                         <i class="fa fa-check-circle" aria-hidden="true"></i> Completar inscripción
                     </button>
                 </div>
@@ -921,17 +541,17 @@
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                     ¿Preferís inscribirte de otra forma?
                 </h3>
-                <p style="color: #444; margin-bottom: 24px; font-size: 1rem;">
+                <p class="u-color-444 u-margin-bottom-24px u-font-size-1rem">
                     Podés hacerlo por teléfono o presencialmente en cualquiera de nuestros Nodos
                 </p>
                 <div class="alt-buttons">
-                    <a href="tel:147" class="btn" style="background-color: var(--color-primary); color: white; padding: 14px 32px;">
+                    <a href="tel:147" class="btn u-background-color-primary u-color-white u-padding-14px-32px">
                         <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                     </a>
-                    <a href="nodos.html" class="btn" style="background-color: var(--color-secondary); color: white; padding: 14px 32px;">
+                    <a href="nodos.html" class="btn u-background-color-secondary u-color-white u-padding-14px-32px">
                         <i class="fa fa-map-marker" aria-hidden="true"></i> Ver Nodos cercanos
                     </a>
-                    <a href="contacto.html#whatsapp" class="btn" style="background-color: #075E54; color: white; padding: 14px 32px;">
+                    <a href="contacto.html#whatsapp" class="btn u-background-color-075e54 u-color-white u-padding-14px-32px">
                         <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
                     </a>
                 </div>

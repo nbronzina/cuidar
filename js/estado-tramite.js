@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function showOnly(id) {
     ['resultContainer', 'notFound', 'newRecord'].forEach(function(x) {
-        document.getElementById(x).style.display = x === id ? 'block' : 'none';
+        var el = document.getElementById(x);
+        el.hidden = x !== id;
+        el.style.display = x === id ? 'block' : '';
     });
 }
 

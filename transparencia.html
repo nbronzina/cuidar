@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datos abiertos, presupuesto público e informes de gestión de Cuidados en Red. Accedé a datasets descargables, API pública y estadísticas en tiempo real.">
     <meta property="og:title" content="Transparencia y Datos Abiertos — Cuidados en Red GCBA">
@@ -26,389 +26,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        /* Estilos específicos solo para transparencia.html */
-        .hero-transparencia {
-            background: linear-gradient(135deg, rgba(27,94,32,0.95), rgba(27,94,32,0.95));
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .hero-transparencia h1 {
-            font-size: 3rem;
-            margin-bottom: 24px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-transparencia .lead {
-            font-size: 1.5rem;
-            line-height: 1.5;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .stat-box {
-            background-color: white;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
-            border-top: 4px solid var(--color-secondary);
-            margin-bottom: 20px;
-        }
-
-        .stat-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .stat-box.friction {
-            border-top-color: var(--color-friction-warning-border);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--color-secondary-text);
-            line-height: 1.3;
-            margin-bottom: 8px;
-        }
-
-        .stat-number.warning {
-            color: var(--color-friction-emphasis);
-        }
-
-        .stat-label {
-            font-size: 1.125rem;
-            color: #444;
-            font-weight: 500;
-        }
-
-        .friction-note {
-            font-size: 1rem;
-            color: #505050;
-            font-style: italic;
-            margin-top: 8px;
-        }
-
-        .budget-section {
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 32px;
-        }
-
-        .budget-item {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            padding: 24px;
-            background-color: #F5F5F5;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .budget-item:hover {
-            background-color: #E8F5E9;
-        }
-
-        .budget-item.delayed {
-            background-color: #FFF3E0;
-            border-left: 4px solid var(--color-friction-warning-border);
-        }
-
-        .budget-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--color-secondary), #14461A);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-
-        .budget-bar {
-            flex: 1;
-        }
-
-        .budget-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .progress-bar-container {
-            width: 100%;
-            height: 24px;
-            background-color: #E0E0E0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--color-secondary), var(--color-accent-text));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 12px;
-            color: white;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: width 1s ease-out;
-        }
-
-        .progress-bar-fill.small {
-            font-size: 0;
-        }
-
-        .progress-bar-fill.delayed {
-            background: linear-gradient(90deg, var(--color-friction-emphasis), var(--color-accent-text));
-        }
-
-        .delayed-info {
-            background-color: #FFF3E0;
-            border-left: 3px solid var(--color-friction-warning-border);
-            padding: 12px 16px;
-            margin-top: 12px;
-            border-radius: 4px;
-            font-size: 1rem;
-            color: #444;
-        }
-
-        .download-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 24px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid var(--color-primary);
-        }
-
-        .download-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .download-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .download-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-        }
-
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background-color: var(--color-primary);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s, background-color 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-download:hover {
-            background-color: #0D3B5E;
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 32px;
-            margin-bottom: 48px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid #E0E0E0;
-        }
-
-        .timeline-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-
-        .timeline-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .timeline-dot {
-            width: 24px;
-            height: 24px;
-            background-color: var(--color-secondary);
-            border-radius: 50%;
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
-
-        .timeline-item.friction .timeline-dot {
-            background-color: var(--color-friction-emphasis);
-        }
-
-        .timeline-content strong {
-            color: var(--color-secondary-text);
-            font-size: 1.25rem;
-            display: block;
-            margin-bottom: 8px;
-            overflow-wrap: anywhere;
-            hyphens: auto;
-        }
-
-        @media (max-width: 576px) {
-            .timeline-item {
-                gap: 16px;
-            }
-        }
-
-        .timeline-item.friction .timeline-content strong {
-            color: var(--color-friction-emphasis);
-        }
-
-        .timeline-content p {
-            font-size: 1rem;
-            color: #444;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .section-bg-gray {
-            background-color: #F5F5F5;
-            padding: 60px 0;
-        }
-
-        .section-bg-white {
-            background-color: white;
-            padding: 60px 0;
-        }
-
-        .section-bg-warm {
-            background-color: var(--color-warm);
-            padding: 60px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 48px;
-            color: var(--color-primary);
-            font-size: 2.25rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.125rem;
-            color: #444;
-            margin-bottom: 48px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-
-        .api-code {
-            background-color: #F5F5F5;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-
-        .api-list {
-            list-style: none;
-            padding: 0;
-            font-size: 1rem;
-            line-height: 2;
-        }
-
-        .api-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #E0E0E0;
-        }
-
-        .api-list li:last-child {
-            border-bottom: none;
-        }
-
-        .cta-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
-            text-align: center;
-            color: white;
-        }
-
-        .cta-section h2 {
-            font-size: 2.25rem;
-            margin-bottom: 24px;
-            color: white;
-        }
-
-        .cta-section p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-        }
-
-        .cta-section a {
-            color: white;
-            text-decoration: underline;
-            font-weight: 700;
-        }
-
-        @media (max-width: 767px) {
-            .hero-transparencia {
-                padding: 48px 0;
-            }
-            .hero-transparencia h1 {
-                font-size: 1.75rem;
-            }
-            .hero-transparencia .lead {
-                font-size: 1.125rem;
-            }
-            .stat-number {
-                font-size: 2.25rem;
-            }
-            .budget-section {
-                padding: 24px;
-            }
-            .budget-item {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        .datos-licencia {
-            margin: 8px 0 0;
-            color: #444;
-            font-size: 1rem;
-        }
-    </style>
+    <link href="css/transparencia.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -568,7 +187,7 @@
             </div>
 
             <!-- KPIs Línea 147 -->
-            <h3 style="color: var(--color-primary); text-align: center; margin: 40px 0 24px; font-size: 1.375rem;">
+            <h3 class="u-color-primary u-text-align-center u-margin-40px-0-24px u-font-size-1_375rem">
                 <i class="fa fa-phone" aria-hidden="true"></i> Línea 147 — sistema de triaje automatizado con escalamiento a operadores
             </h3>
             <div class="row">
@@ -598,7 +217,7 @@
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; color: #505050; font-size: 1rem; margin-top: 12px;">
+            <p class="u-text-align-center u-color-505050 u-font-size-1rem u-margin-top-12px">
                 Tasa de abandono: 1,8% · Duración promedio de llamada: 2:40 min
             </p>
         </div>
@@ -607,10 +226,10 @@
     <!-- Distribución por nivel y copago -->
     <section class="section-bg-white">
         <div class="container">
-            <h3 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 1.375rem;">
+            <h3 class="u-color-primary u-text-align-center u-margin-bottom-32px u-font-size-1_375rem">
                 <i class="fa fa-bar-chart" aria-hidden="true"></i> Distribución por nivel de cuidado
             </h3>
-            <p style="text-align: center; font-size: 1rem; color: #444; margin-bottom: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <p class="u-text-align-center u-font-size-1rem u-color-444 u-margin-bottom-24px u-max-width-700px u-margin-left-auto u-margin-right-auto">
                 Niveles asignados mediante evaluación funcional estandarizada (Índice de Barthel + Mini Examen Cognitivo) conforme a la Resolución 3315/2023 de la autoridad sanitaria nacional.
             </p>
             <div class="row">
@@ -644,7 +263,7 @@
                 </div>
             </div>
 
-            <div class="row" style="margin-top: 24px;">
+            <div class="row u-margin-top-24px">
                 <div class="col-md-4">
                     <div class="stat-box">
                         <div class="stat-number">62 %</div>
@@ -720,7 +339,7 @@
                             <span>$57.800 millones (61,2 %)</span>
                         </div>
                         <div class="progress-bar-container" aria-hidden="true">
-                            <div class="progress-bar-fill" style="width: 61.2%;">61,2 %</div>
+                            <div class="progress-bar-fill" data-ancho="61.2">61,2 %</div>
                         </div>
                     </div>
                 </div>
@@ -735,7 +354,7 @@
                             <span>$18.200 millones (19,3 %)</span>
                         </div>
                         <div class="progress-bar-container" aria-hidden="true">
-                            <div class="progress-bar-fill delayed" style="width: 19.3%;">19,3 %</div>
+                            <div class="progress-bar-fill delayed" data-ancho="19.3">19,3 %</div>
                         </div>
                         <div class="delayed-info">
                             <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -754,7 +373,7 @@
                             <span>$9.900 millones (10,5 %)</span>
                         </div>
                         <div class="progress-bar-container" aria-hidden="true">
-                            <div class="progress-bar-fill" style="width: 10.5%;">10,5 %</div>
+                            <div class="progress-bar-fill" data-ancho="10.5">10,5 %</div>
                         </div>
                     </div>
                 </div>
@@ -769,7 +388,7 @@
                             <span>$5.700 millones (6 %)</span>
                         </div>
                         <div class="progress-bar-container" aria-hidden="true">
-                            <div class="progress-bar-fill small" style="width: 6%;"></div>
+                            <div class="progress-bar-fill small" data-ancho="6"></div>
                         </div>
                     </div>
                 </div>
@@ -784,7 +403,7 @@
                             <span>$2.900 millones (3 %)</span>
                         </div>
                         <div class="progress-bar-container" aria-hidden="true">
-                            <div class="progress-bar-fill small" style="width: 3%;"></div>
+                            <div class="progress-bar-fill small" data-ancho="3"></div>
                         </div>
                     </div>
                 </div>
@@ -807,11 +426,11 @@
                                 <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="margin: 0 0 8px 0; font-size: 1.375rem; color: #333;">Resumen de gestión 2032</h3>
-                                <p style="margin: 0; color: #444; font-size: 1rem;">Resultados, desafíos y aprendizajes del último año</p>
+                                <h3 class="u-margin-0-0-8px-0 u-font-size-1_375rem u-color-333">Resumen de gestión 2032</h3>
+                                <p class="u-margin-0 u-color-444 u-font-size-1rem">Resultados, desafíos y aprendizajes del último año</p>
                             </div>
                         </div>
-                        <p style="margin-bottom: 20px; font-size: 1rem; color: #444; line-height: 1.6;">
+                        <p class="u-margin-bottom-20px u-font-size-1rem u-color-444 u-line-height-1_6">
                             Cobertura, presupuesto y ejecución, con una sección sobre <strong>lo que todavía no funciona como debería</strong>
                             y los aprendizajes desde 2025. El informe anual completo se publica al cierre del ejercicio.
                         </p>
@@ -828,11 +447,11 @@
                                 <i class="fa fa-line-chart" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="margin: 0 0 8px 0; font-size: 1.375rem; color: #333;">Indicadores 2032</h3>
-                                <p style="margin: 0; color: #444; font-size: 1rem;">Indicadores de gestión y métricas de impacto</p>
+                                <h3 class="u-margin-0-0-8px-0 u-font-size-1_375rem u-color-333">Indicadores 2032</h3>
+                                <p class="u-margin-0 u-color-444 u-font-size-1rem">Indicadores de gestión y métricas de impacto</p>
                             </div>
                         </div>
-                        <p style="margin-bottom: 20px; font-size: 1rem; color: #444; line-height: 1.6;">
+                        <p class="u-margin-bottom-20px u-font-size-1rem u-color-444 u-line-height-1_6">
                             27 indicadores de gestión con su unidad: cobertura, lista de espera, línea 147, reclamos, pagos y copago.
                             <strong>Todavía no están desagregados por comuna:</strong> esa apertura está en preparación. Actualizado al cierre del <span data-mundo-trimestre>3.er trimestre de 2032</span>.
                         </p>
@@ -851,11 +470,11 @@
                                 <i class="fa fa-database" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="margin: 0 0 8px 0; font-size: 1.375rem; color: #333;">Serie histórica 2025-2032</h3>
-                                <p style="margin: 0; color: #444; font-size: 1rem;">Datos abiertos en formato CSV</p>
+                                <h3 class="u-margin-0-0-8px-0 u-font-size-1_375rem u-color-333">Serie histórica 2025-2032</h3>
+                                <p class="u-margin-0 u-color-444 u-font-size-1rem">Datos abiertos en formato CSV</p>
                             </div>
                         </div>
-                        <p style="margin-bottom: 20px; font-size: 1rem; color: #444; line-height: 1.6;">
+                        <p class="u-margin-bottom-20px u-font-size-1rem u-color-444 u-line-height-1_6">
                             Nodos, personas atendidas, personas cuidadoras y presupuesto de cada año.
                             <strong>Hay años sin datos publicados</strong> (2026, 2028, 2030 y 2031): la serie se sistematizó recién en 2029 y esos huecos no se completan con estimaciones.
                         </p>
@@ -872,11 +491,11 @@
                                 <i class="fa fa-comments" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h3 style="margin: 0 0 8px 0; font-size: 1.375rem; color: #333;">Informe de reclamos y sugerencias</h3>
-                                <p style="margin: 0; color: #444; font-size: 1rem;">Transparencia en quejas y resoluciones</p>
+                                <h3 class="u-margin-0-0-8px-0 u-font-size-1_375rem u-color-333">Informe de reclamos y sugerencias</h3>
+                                <p class="u-margin-0 u-color-444 u-font-size-1rem">Transparencia en quejas y resoluciones</p>
                             </div>
                         </div>
-                        <p style="margin-bottom: 20px; font-size: 1rem; color: #444; line-height: 1.6;">
+                        <p class="u-margin-bottom-20px u-font-size-1rem u-color-444 u-line-height-1_6">
                             <strong>1.247 reclamos recibidos en 2032.</strong> 68% resueltos satisfactoriamente.
                             Principales motivos: demoras en pagos, conflictos vecinales y problemas de coordinación.
                         </p>
@@ -900,8 +519,8 @@
                 Historia del sistema: de la idea a la realidad
             </h2>
 
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div style="background-color: white; border-radius: 12px; padding: 48px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+            <div class="u-max-width-900px u-margin-0-auto">
+                <div class="u-background-color-white u-border-radius-12px u-padding-48px u-box-shadow-0-4px-16px-rgba-0-0-0-0_08">
 
                     <!-- 2025 -->
                     <div class="timeline-item">
@@ -1018,27 +637,27 @@
     </section>
 
     <!-- Contexto internacional -->
-    <section style="padding: 60px 0; background-color: white;" aria-labelledby="contexto-int-titulo">
+    <section class="u-padding-60px-0 u-background-color-white" aria-labelledby="contexto-int-titulo">
         <div class="container">
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div style="background-color: #E3F2FD; border-radius: 12px; padding: 40px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid var(--color-primary);">
-                    <h2 id="contexto-int-titulo" style="color: var(--color-primary); font-size: 1.625rem; margin-bottom: 16px;">
+            <div class="u-max-width-900px u-margin-0-auto">
+                <div class="u-background-color-e3f2fd u-border-radius-12px u-padding-40px u-box-shadow-0-4px-16px-rgba-0-0-0-0_08 u-border-left-4px-solid-primary">
+                    <h2 class="u-color-primary u-font-size-1_625rem u-margin-bottom-16px" id="contexto-int-titulo">
                         <i class="fa fa-globe" aria-hidden="true"></i> Contexto internacional
                     </h2>
-                    <p style="font-size: 1.125rem; line-height: 1.8; color: #333; margin-bottom: 16px;">
+                    <p class="u-font-size-1_125rem u-line-height-1_8 u-color-333 u-margin-bottom-16px">
                         Cuidados en Red se inscribe en una tendencia regional e internacional hacia modelos de cuidado domiciliario y comunitario:
                     </p>
-                    <ul style="list-style: none; padding: 0; font-size: 1.0625rem; line-height: 1.8; color: #444444;">
-                        <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                            <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                    <ul class="u-list-style-none u-padding-0 u-font-size-1_0625rem u-line-height-1_8 u-color-444444">
+                        <li class="u-padding-6px-0 u-display-flex u-align-items-start u-gap-12px">
+                            <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                             <span><strong>España:</strong> Estrategia Nacional de Desinstitucionalización con más de €2.053 millones movilizados entre 2024 y 2025.</span>
                         </li>
-                        <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                            <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <li class="u-padding-6px-0 u-display-flex u-align-items-start u-gap-12px">
+                            <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                             <span><strong>Barcelona:</strong> Plan "Cap al dret a la cura" con €140,5 millones para atención domiciliaria (2025–2030).</span>
                         </li>
-                        <li style="padding: 6px 0; display: flex; align-items: start; gap: 12px;">
-                            <i class="fa fa-check-circle" style="color: var(--color-primary); margin-top: 4px; flex-shrink: 0;" aria-hidden="true"></i>
+                        <li class="u-padding-6px-0 u-display-flex u-align-items-start u-gap-12px">
+                            <i class="fa fa-check-circle u-color-primary u-margin-top-4px u-flex-shrink-0" aria-hidden="true"></i>
                             <span><strong>Uruguay:</strong> Sistema Nacional Integrado de Cuidados desde 2015, con Plan Nacional de Cuidados 2026–2030 en ejecución.</span>
                         </li>
                     </ul>
@@ -1060,8 +679,8 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div style="background-color: white; border-radius: 12px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); max-width: 800px; margin: 0 auto;">
-                        <h3 style="color: var(--color-primary); margin-bottom: 20px; font-size: 1.375rem;">
+                    <div class="u-background-color-white u-border-radius-12px u-padding-32px u-box-shadow-0-4px-16px-rgba-0-0-0-0_08 u-max-width-800px u-margin-0-auto">
+                        <h3 class="u-color-primary u-margin-bottom-20px u-font-size-1_375rem">
                             <i class="fa fa-code" aria-hidden="true"></i> Endpoints disponibles
                         </h3>
                         <ul class="api-list">
@@ -1087,7 +706,7 @@
                             </li>
                         </ul>
 
-                        <p class="text-center mt-4" style="color: #444;">
+                        <p class="text-center mt-4 u-color-444">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             La documentación completa de la API todavía no está publicada. Mientras tanto, los mismos datos están en los archivos CSV de <a href="#informes-titulo">Informes y reportes</a>.
                         </p>
@@ -1104,7 +723,7 @@
             <p>
                 Escribinos a <a href="mailto:transparencia@cuidadosenred.gob.ar">transparencia@cuidadosenred.gob.ar</a>
             </p>
-            <a href="contacto.html" class="btn btn-lg" style="background-color: white; color: var(--color-primary); border-color: white;" aria-label="Ir a la página de contacto">
+            <a href="contacto.html" class="btn btn-lg u-background-color-white u-color-primary u-border-color-white" aria-label="Ir a la página de contacto">
                 <i class="fa fa-envelope" aria-hidden="true"></i> Contactanos
             </a>
         </div>

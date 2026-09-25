@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Trabajá como persona cuidadora en Cuidados en Red. Trabajo registrado, capacitación permanente, acompañamiento profesional y salario por encima del convenio.">
     <meta property="og:title" content="Trabajá como Persona Cuidadora — Cuidados en Red GCBA">
@@ -26,200 +26,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        .hero-cuidadores {
-            background: linear-gradient(135deg, rgba(27,94,32,0.95), rgba(27,94,32,0.95));
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .hero-cuidadores h1 {
-            font-size: 3rem;
-            margin-bottom: 24px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-cuidadores .lead {
-            font-size: 1.625rem;
-            line-height: 1.5;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-
-        .benefit-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 24px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid var(--color-purple);
-            height: 100%;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .benefit-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--color-purple), #6A1B9A);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 2rem;
-        }
-
-        .requirement-box {
-            background-color: white;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            display: flex;
-            align-items: start;
-            gap: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .requirement-box:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-
-        .requirement-icon {
-            width: 50px;
-            height: 50px;
-            background-color: #F3E5F5;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-purple);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .process-step {
-            background-color: white;
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            position: relative;
-            border-top: 4px solid var(--color-purple);
-        }
-
-        .process-number {
-            position: absolute;
-            top: -20px;
-            left: 32px;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--color-purple), #6A1B9A);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-            box-shadow: 0 4px 12px rgba(123,31,162,0.3);
-        }
-
-        .testimonial-cuidador {
-            background: linear-gradient(135deg, #F3E5F5, #EEDDF1);
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            margin-bottom: 24px;
-        }
-
-        /* Testimonial realista con fricción */
-        .testimonial-cuidador.realistic {
-            background: linear-gradient(135deg, #FFF9E6, #FFF3CD);
-            border-left: 4px solid var(--color-friction-warning-border);
-        }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-img {
-            flex-shrink: 0;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .testimonial-initials {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--color-purple);
-            color: white;
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-        }
-
-        .testimonial-initials-friction {
-            background: var(--color-accent-text);
-        }
-
-        .salary-box {
-            background: linear-gradient(135deg, var(--color-secondary), #14461A);
-            color: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(27,94,32,0.3);
-            margin-bottom: 32px;
-        }
-
-        .salary-amount {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin: 20px 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .cta-cuidadores {
-            background: linear-gradient(135deg, var(--color-purple), #6A1B9A);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(123,31,162,0.3);
-        }
-
-        @media (max-width: 767px) {
-            .hero-cuidadores h1 {
-                font-size: 2rem;
-            }
-            .hero-cuidadores .lead {
-                font-size: 1.25rem;
-            }
-            .salary-amount {
-                font-size: 2.625rem;
-            }
-            .testimonial-header {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+    <link href="css/para-cuidadores.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -390,8 +198,8 @@
             <p class="lead">
                 Tres meses de capacitación paga, trabajo registrado y un equipo del Nodo que te acompaña
             </p>
-            <div style="margin-top: 40px;">
-                <a href="#postularme" class="btn btn-lg" style="background-color: white; color: var(--color-purple); border-color: white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Postularme como persona cuidadora">
+            <div class="u-margin-top-40px">
+                <a href="#postularme" class="btn btn-lg u-background-color-white u-color-purple u-border-color-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Postularme como persona cuidadora">
                     <i class="fa fa-hand-o-up" aria-hidden="true"></i> Quiero postularme
                 </a>
             </div>
@@ -399,9 +207,9 @@
     </section>
 
     <!-- NUEVO: Banner de proceso competitivo -->
-    <section style="padding: 0; background-color: #FFF9E6;">
+    <section class="u-padding-0 u-background-color-fff9e6">
         <div class="container">
-            <div class="system-status" style="margin: 0; border-radius: 0; border-left: none; border-right: none;">
+            <div class="system-status u-margin-0 u-border-radius-0 u-border-left-none u-border-right-none">
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                 <div class="system-status-content">
                     <p class="system-status-title">Proceso de selección exigente</p>
@@ -416,12 +224,12 @@
     </section>
 
     <!-- Por qué trabajar acá -->
-    <section style="padding: 60px 0;" aria-labelledby="beneficios-titulo">
+    <section class="u-padding-60px-0" aria-labelledby="beneficios-titulo">
         <div class="container">
-            <h2 id="beneficios-titulo" style="color: var(--color-purple); text-align: center; margin-bottom: 24px; font-size: 2.25rem;">
+            <h2 class="u-color-purple u-text-align-center u-margin-bottom-24px u-font-size-2_25rem" id="beneficios-titulo">
                 ¿Por qué trabajar en Cuidados en Red?
             </h2>
-            <p style="text-align: center; font-size: 1.25rem; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p class="u-text-align-center u-font-size-1_25rem u-color-444 u-margin-bottom-48px u-max-width-800px u-margin-left-auto u-margin-right-auto">
                 Salario fijado por convenio, capacitación permanente y posibilidad de coordinar equipos con los años.
             </p>
 
@@ -431,10 +239,10 @@
                         <div class="benefit-icon">
                             <i class="fa fa-money" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-16px u-text-align-center">
                             Salario digno
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-text-align-center">
                             Cobrás <strong>$790.000 por mes</strong> en blanco, con todos los aportes.
                             Más aguinaldo y vacaciones pagas.
                         </p>
@@ -446,10 +254,10 @@
                         <div class="benefit-icon">
                             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-16px u-text-align-center">
                             Capacitación gratuita
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-text-align-center">
                             Te formamos como <strong>persona cuidadora profesional certificada</strong>.
                             Aprendés primeros auxilios, geriatría, comunicación y detección cognitiva básica. La formación te prepara para trabajar con todos los niveles de dependencia.
                         </p>
@@ -461,10 +269,10 @@
                         <div class="benefit-icon">
                             <i class="fa fa-briefcase" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-16px u-text-align-center">
                             Trabajo estable
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-text-align-center">
                             Contrato de 40 horas semanales. No trabajás por día ni por hora.
                             <strong>Estabilidad laboral real</strong>.
                         </p>
@@ -476,10 +284,10 @@
                         <div class="benefit-icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-16px u-text-align-center">
                             Equipo de apoyo
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-text-align-center">
                             No estás sola. Tenés un <strong>equipo profesional</strong> que te acompaña:
                             psicólogos, trabajadores sociales, coordinadores.
                         </p>
@@ -491,10 +299,10 @@
                         <div class="benefit-icon">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-16px u-text-align-center">
                             Cerca de tu casa
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-text-align-center">
                             Te asignamos <strong>usuarios de tu zona</strong>. No perdés horas viajando.
                             Más tiempo con tu familia.
                         </p>
@@ -506,10 +314,10 @@
                         <div class="benefit-icon">
                             <i class="fa fa-heart" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-purple); font-size: 1.375rem; margin-bottom: 16px; text-align: center;">
+                        <h3 class="u-color-purple u-font-size-1_375rem u-margin-bottom-16px u-text-align-center">
                             Trabajo con sentido
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444; text-align: center;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444 u-text-align-center">
                             Acompañás a entre 2 y 5 personas de tu zona, con un plan de cuidado
                             armado por el equipo del Nodo. <strong>Sabés qué hacer y a quién consultar</strong>.
                         </p>
@@ -520,87 +328,87 @@
     </section>
 
     <!-- Salario y condiciones -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="salario-titulo">
+    <section class="u-padding-60px-0 u-background-color-f5f5f5" aria-labelledby="salario-titulo">
         <div class="container">
-            <h2 id="salario-titulo" style="color: var(--color-secondary-text); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-secondary-text u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="salario-titulo">
                 ¿Cuánto ganás?
             </h2>
 
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
+                <div class="col-md-8 u-margin-0-auto">
                     <div class="salary-box">
-                        <div style="font-size: 1.25rem; margin-bottom: 16px;">Salario mensual en blanco, a través de una cooperativa regulada por el GCBA</div>
+                        <div class="u-font-size-1_25rem u-margin-bottom-16px">Salario mensual en blanco, a través de una cooperativa regulada por el GCBA</div>
                         <div class="salary-amount">$790.000</div>
-                        <div style="font-size: 1.125rem; opacity: 0.95;">
+                        <div class="u-font-size-1_125rem u-opacity-0_95">
                             + Aguinaldo + Vacaciones pagas + Aportes jubilatorios + Obra social
                         </div>
-                        <div style="font-size: 1rem; opacity: 0.8; margin-top: 12px;">
+                        <div class="u-font-size-1rem u-opacity-0_8 u-margin-top-12px">
                             El GCBA fija el salario en convenio con las cooperativas: parte del piso de la Res. CNTCP 1/2026 ($455.160) y se actualiza por paritarias. Cobrás a través de tu cooperativa: el 32 % de los pagos llega con 15 a 30 días de demora.
                         </div>
                     </div>
 
-                    <div style="background-color: white; padding: 32px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-                        <h3 style="color: var(--color-purple); margin-bottom: 24px; font-size: 1.5rem; text-align: center;">
+                    <div class="u-background-color-white u-padding-32px u-border-radius-12px u-box-shadow-0-4px-16px-rgba-0-0-0-0_08">
+                        <h3 class="u-color-purple u-margin-bottom-24px u-font-size-1_5rem u-text-align-center">
                             Condiciones laborales
                         </h3>
 
-                        <div style="display: grid; gap: 20px;">
-                            <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-clock-o" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                        <div class="u-display-grid u-gap-20px">
+                            <div class="u-display-flex u-align-items-start u-gap-16px">
+                                <i class="fa fa-clock-o u-color-secondary-text u-font-size-1_5rem u-margin-top-4px" aria-hidden="true"></i>
                                 <div>
-                                    <strong style="font-size: 1.125rem; color: #333;">Horario:</strong>
-                                    <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
+                                    <strong class="u-font-size-1_125rem u-color-333">Horario:</strong>
+                                    <p class="u-font-size-1_125rem u-color-444 u-margin-4px-0-0-0">
                                         40 horas semanales distribuidas en 5 días. Horarios rotativos (mañana/tarde).
                                     </p>
                                 </div>
                             </div>
 
-                            <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-calendar" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                            <div class="u-display-flex u-align-items-start u-gap-16px">
+                                <i class="fa fa-calendar u-color-secondary-text u-font-size-1_5rem u-margin-top-4px" aria-hidden="true"></i>
                                 <div>
-                                    <strong style="font-size: 1.125rem; color: #333;">Vacaciones:</strong>
-                                    <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
+                                    <strong class="u-font-size-1_125rem u-color-333">Vacaciones:</strong>
+                                    <p class="u-font-size-1_125rem u-color-444 u-margin-4px-0-0-0">
                                         14 días corridos de vacaciones pagas por año (aumenta con antigüedad).
                                     </p>
                                 </div>
                             </div>
 
-                            <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-medkit" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                            <div class="u-display-flex u-align-items-start u-gap-16px">
+                                <i class="fa fa-medkit u-color-secondary-text u-font-size-1_5rem u-margin-top-4px" aria-hidden="true"></i>
                                 <div>
-                                    <strong style="font-size: 1.125rem; color: #333;">Obra social:</strong>
-                                    <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
+                                    <strong class="u-font-size-1_125rem u-color-333">Obra social:</strong>
+                                    <p class="u-font-size-1_125rem u-color-444 u-margin-4px-0-0-0">
                                         Cobertura médica para vos y tu grupo familiar (ObSBA, por el convenio de las cooperativas con la Ciudad).
                                     </p>
                                 </div>
                             </div>
 
-                            <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-umbrella" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                            <div class="u-display-flex u-align-items-start u-gap-16px">
+                                <i class="fa fa-umbrella u-color-secondary-text u-font-size-1_5rem u-margin-top-4px" aria-hidden="true"></i>
                                 <div>
-                                    <strong style="font-size: 1.125rem; color: #333;">Seguro:</strong>
-                                    <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
+                                    <strong class="u-font-size-1_125rem u-color-333">Seguro:</strong>
+                                    <p class="u-font-size-1_125rem u-color-444 u-margin-4px-0-0-0">
                                         ART completo (accidentes de trabajo) y seguro de vida.
                                     </p>
                                 </div>
                             </div>
 
-                            <div style="display: flex; align-items: start; gap: 16px;">
-                                <i class="fa fa-bus" style="color: var(--color-secondary-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                            <div class="u-display-flex u-align-items-start u-gap-16px">
+                                <i class="fa fa-bus u-color-secondary-text u-font-size-1_5rem u-margin-top-4px" aria-hidden="true"></i>
                                 <div>
-                                    <strong style="font-size: 1.125rem; color: #333;">Viático de transporte:</strong>
-                                    <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
+                                    <strong class="u-font-size-1_125rem u-color-333">Viático de transporte:</strong>
+                                    <p class="u-font-size-1_125rem u-color-444 u-margin-4px-0-0-0">
                                         Viático mensual según zona de residencia, que cubre el traslado hasta el Nodo asignado en transporte público. No se contempla transporte privado.
                                     </p>
                                 </div>
                             </div>
 
                             <!-- NUEVO: Periodo de prueba -->
-                            <div style="display: flex; align-items: start; gap: 16px; padding-top: 12px; border-top: 2px solid #F5F5F5;">
-                                <i class="fa fa-info-circle" style="color: var(--color-accent-text); font-size: 1.5rem; margin-top: 4px;" aria-hidden="true"></i>
+                            <div class="u-display-flex u-align-items-start u-gap-16px u-padding-top-12px u-border-top-2px-solid-f5f5f5">
+                                <i class="fa fa-info-circle u-color-accent-text u-font-size-1_5rem u-margin-top-4px" aria-hidden="true"></i>
                                 <div>
-                                    <strong style="font-size: 1.125rem; color: #333;">Periodo de prueba:</strong>
-                                    <p style="font-size: 1.125rem; color: #444; margin: 4px 0 0 0;">
+                                    <strong class="u-font-size-1_125rem u-color-333">Periodo de prueba:</strong>
+                                    <p class="u-font-size-1_125rem u-color-444 u-margin-4px-0-0-0">
                                         Los primeros 6 meses son de periodo de prueba. Durante este tiempo evaluamos tu desempeño
                                         y adaptación al rol. Pasado este periodo, el contrato se convierte en indefinido.
                                     </p>
@@ -614,12 +422,12 @@
     </section>
 
     <!-- Requisitos -->
-    <section style="padding: 60px 0;" aria-labelledby="requisitos-titulo">
+    <section class="u-padding-60px-0" aria-labelledby="requisitos-titulo">
         <div class="container">
-            <h2 id="requisitos-titulo" style="color: var(--color-purple); text-align: center; margin-bottom: 24px; font-size: 2.25rem;">
+            <h2 class="u-color-purple u-text-align-center u-margin-bottom-24px u-font-size-2_25rem" id="requisitos-titulo">
                 ¿Qué necesito para postularme?
             </h2>
-            <p style="text-align: center; font-size: 1.25rem; color: #444; margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p class="u-text-align-center u-font-size-1_25rem u-color-444 u-margin-bottom-48px u-max-width-800px u-margin-left-auto u-margin-right-auto">
                 No necesitás experiencia previa. Te capacitamos nosotros.
             </p>
 
@@ -630,10 +438,10 @@
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="font-size: 1.25rem; color: var(--color-purple); display: block; margin-bottom: 8px;">
+                            <strong class="u-font-size-1_25rem u-color-purple u-display-block u-margin-bottom-8px">
                                 Ser mayor de 21 años
                             </strong>
-                            <p style="font-size: 1.125rem; color: #444; margin: 0; line-height: 1.6;">
+                            <p class="u-font-size-1_125rem u-color-444 u-margin-0 u-line-height-1_6">
                                 Sin límite máximo de edad. Valoramos la experiencia de vida.
                             </p>
                         </div>
@@ -646,10 +454,10 @@
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="font-size: 1.25rem; color: var(--color-purple); display: block; margin-bottom: 8px;">
+                            <strong class="u-font-size-1_25rem u-color-purple u-display-block u-margin-bottom-8px">
                                 Residencia en CABA o Área Metropolitana
                             </strong>
-                            <p style="font-size: 1.125rem; color: #444; margin: 0; line-height: 1.6;">
+                            <p class="u-font-size-1_125rem u-color-444 u-margin-0 u-line-height-1_6">
                                 Con domicilio comprobable en la Ciudad de Buenos Aires o en partidos del AMBA con acceso a transporte público hacia la Ciudad.
                             </p>
                         </div>
@@ -662,10 +470,10 @@
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="font-size: 1.25rem; color: var(--color-purple); display: block; margin-bottom: 8px;">
+                            <strong class="u-font-size-1_25rem u-color-purple u-display-block u-margin-bottom-8px">
                                 Secundario completo
                             </strong>
-                            <p style="font-size: 1.125rem; color: #444; margin: 0; line-height: 1.6;">
+                            <p class="u-font-size-1_125rem u-color-444 u-margin-0 u-line-height-1_6">
                                 Podés estar terminando el secundario. Título en trámite también sirve.
                             </p>
                         </div>
@@ -678,10 +486,10 @@
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="font-size: 1.25rem; color: var(--color-purple); display: block; margin-bottom: 8px;">
+                            <strong class="u-font-size-1_25rem u-color-purple u-display-block u-margin-bottom-8px">
                                 Vocación de servicio
                             </strong>
-                            <p style="font-size: 1.125rem; color: #444; margin: 0; line-height: 1.6;">
+                            <p class="u-font-size-1_125rem u-color-444 u-margin-0 u-line-height-1_6">
                                 Ganas de ayudar, paciencia, empatía. Lo técnico te lo enseñamos.
                             </p>
                         </div>
@@ -694,10 +502,10 @@
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="font-size: 1.25rem; color: var(--color-purple); display: block; margin-bottom: 8px;">
+                            <strong class="u-font-size-1_25rem u-color-purple u-display-block u-margin-bottom-8px">
                                 Disponibilidad horaria
                             </strong>
-                            <p style="font-size: 1.125rem; color: #444; margin: 0; line-height: 1.6;">
+                            <p class="u-font-size-1_125rem u-color-444 u-margin-0 u-line-height-1_6">
                                 40 horas semanales en turnos rotativos (mañana o tarde).
                             </p>
                         </div>
@@ -710,10 +518,10 @@
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <strong style="font-size: 1.25rem; color: #9A1515; display: block; margin-bottom: 8px;">
+                            <strong class="u-font-size-1_25rem u-color-9a1515 u-display-block u-margin-bottom-8px">
                                 NO se necesita
                             </strong>
-                            <p style="font-size: 1.125rem; color: #444; margin: 0; line-height: 1.6;">
+                            <p class="u-font-size-1_125rem u-color-444 u-margin-0 u-line-height-1_6">
                                 Experiencia previa, título de enfermería, o conocimientos de cuidado.
                             </p>
                         </div>
@@ -724,30 +532,30 @@
     </section>
 
     <!-- Proceso de selección -->
-    <section style="padding: 60px 0; background-color: #F3E5F5;" aria-labelledby="proceso-titulo">
+    <section class="u-padding-60px-0 u-background-color-f3e5f5" aria-labelledby="proceso-titulo">
         <div class="container">
-            <h2 id="proceso-titulo" style="color: var(--color-purple); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-purple u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="proceso-titulo">
                 Proceso de selección
             </h2>
 
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
+                <div class="col-md-8 u-margin-0-auto">
                     <div class="process-step">
                         <div class="process-number">1</div>
-                        <h3 style="color: var(--color-purple); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
+                        <h3 class="u-color-purple u-margin-bottom-16px u-font-size-1_5rem u-padding-top-8px">
                             Postulación por email
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Mandás tu CV a trabajaencuidados@cuidadosenred.gob.ar con tu DNI y un teléfono de contacto.
                         </p>
                     </div>
 
                     <div class="process-step">
                         <div class="process-number">2</div>
-                        <h3 style="color: var(--color-purple); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
+                        <h3 class="u-color-purple u-margin-bottom-16px u-font-size-1_5rem u-padding-top-8px">
                             Entrevista inicial (2-3 semanas)
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Te llamamos para una entrevista telefónica. Charlamos sobre tus motivaciones y expectativas.
                             El volumen de postulaciones puede demorar la respuesta.
                         </p>
@@ -755,10 +563,10 @@
 
                     <div class="process-step">
                         <div class="process-number">3</div>
-                        <h3 style="color: var(--color-purple); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
+                        <h3 class="u-color-purple u-margin-bottom-16px u-font-size-1_5rem u-padding-top-8px">
                             Evaluación psicológica
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Entrevista con un psicólogo/a para evaluar aptitudes para el cuidado. No es un examen, es una charla.
                             <strong>Aproximadamente el 30% de postulantes no avanza después de esta etapa</strong>,
                             principalmente por incompatibilidad con las demandas emocionales del trabajo.
@@ -767,10 +575,10 @@
 
                     <div class="process-step">
                         <div class="process-number">4</div>
-                        <h3 style="color: var(--color-purple); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
+                        <h3 class="u-color-purple u-margin-bottom-16px u-font-size-1_5rem u-padding-top-8px">
                             Curso de capacitación (3 meses)
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Capacitación intensiva <strong>paga</strong> (cobrás $340.000/mes mientras estudiás).
                             Aprendés cuidado de personas mayores, primeros auxilios, comunicación, uso de tecnología
                             y <strong>detección cognitiva básica</strong> (observación de actividades de la vida diaria,
@@ -781,23 +589,23 @@
 
                     <div class="process-step">
                         <div class="process-number">5</div>
-                        <h3 style="color: var(--color-purple); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
+                        <h3 class="u-color-purple u-margin-bottom-16px u-font-size-1_5rem u-padding-top-8px">
                             Práctica supervisada (1 mes)
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Trabajás con usuarios reales pero acompañada por una persona cuidadora con experiencia. Ya cobrás sueldo completo.
                             Aquí evaluamos tu desempeño en situaciones reales.
                         </p>
                     </div>
 
-                    <div class="process-step" style="border-top-color: var(--color-secondary);">
-                        <div class="process-number" style="background: linear-gradient(135deg, var(--color-secondary), #14461A);">
+                    <div class="process-step u-border-top-color-secondary">
+                        <div class="process-number u-background-linear-gradient-135deg-secondary-14461a">
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
-                        <h3 style="color: var(--color-secondary-text); margin-bottom: 16px; font-size: 1.5rem; padding-top: 8px;">
+                        <h3 class="u-color-secondary-text u-margin-bottom-16px u-font-size-1_5rem u-padding-top-8px">
                             ¡Empezás a trabajar!
                         </h3>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Te asignamos tus primeros usuarios. Sos oficialmente <strong>Persona Cuidadora Profesional Certificada</strong>
                             de Cuidados en Red. Los primeros 6 meses son periodo de prueba con evaluaciones mensuales.
                         </p>
@@ -805,10 +613,10 @@
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 40px;">
-                <div style="background-color: white; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-                    <i class="fa fa-clock-o" style="font-size: 3rem; color: var(--color-accent-text); margin-bottom: 16px;" aria-hidden="true"></i>
-                    <p style="font-size: 1.25rem; color: #333; margin: 0; line-height: 1.6;">
+            <div class="u-text-align-center u-margin-top-40px">
+                <div class="u-background-color-white u-padding-24px u-border-radius-12px u-max-width-600px u-margin-0-auto u-box-shadow-0-4px-16px-rgba-0-0-0-0_08">
+                    <i class="fa fa-clock-o u-font-size-3rem u-color-accent-text u-margin-bottom-16px" aria-hidden="true"></i>
+                    <p class="u-font-size-1_25rem u-color-333 u-margin-0 u-line-height-1_6">
                         <strong>Tiempo total:</strong> 4-6 meses desde que te postulás hasta que empezás a trabajar
                     </p>
                 </div>
@@ -817,9 +625,9 @@
     </section>
 
     <!-- Testimonios -->
-    <section style="padding: 60px 0;" aria-labelledby="testimonios-titulo">
+    <section class="u-padding-60px-0" aria-labelledby="testimonios-titulo">
         <div class="container">
-            <h2 id="testimonios-titulo" style="color: var(--color-purple); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-purple u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="testimonios-titulo">
                 Personas cuidadoras como vos
             </h2>
 
@@ -829,11 +637,11 @@
                         <div class="testimonial-header">
                             <span class="testimonial-img testimonial-initials" aria-hidden="true">GR</span>
                             <div>
-                                <strong style="font-size: 1.375rem; color: var(--color-purple); display: block;">Gladys Rodríguez</strong>
-                                <p style="color: #444; margin: 4px 0; font-size: 1rem;">Persona cuidadora en Caballito · 3 años</p>
+                                <strong class="u-font-size-1_375rem u-color-purple u-display-block">Gladys Rodríguez</strong>
+                                <p class="u-color-444 u-margin-4px-0 u-font-size-1rem">Persona cuidadora en Caballito · 3 años</p>
                             </div>
                         </div>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #333; font-style: italic;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-333 u-font-style-italic">
                             "Antes trabajaba limpiando casas por día. Ahora tengo sueldo fijo, vacaciones,
                             obra social. Y lo mejor: cada día siento que ayudo a alguien de verdad.
                             Mis usuarios son como mi familia."
@@ -847,11 +655,11 @@
                         <div class="testimonial-header">
                             <span class="testimonial-img testimonial-initials testimonial-initials-friction" aria-hidden="true">MS</span>
                             <div>
-                                <strong style="font-size: 1.375rem; color: var(--color-friction-emphasis); display: block;">Marta Silva</strong>
-                                <p style="color: #444; margin: 4px 0; font-size: 1rem;">Persona cuidadora en Floresta · 1 año</p>
+                                <strong class="u-font-size-1_375rem u-color-friction-emphasis u-display-block">Marta Silva</strong>
+                                <p class="u-color-444 u-margin-4px-0 u-font-size-1rem">Persona cuidadora en Floresta · 1 año</p>
                             </div>
                         </div>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #333; font-style: italic;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-333 u-font-style-italic">
                             "No te voy a mentir, los primeros meses fueron duros emocionalmente. Ver el deterioro
                             de algunos usuarios me afectaba. Pero el equipo de psicólogos me ayudó mucho.
                             Aprendí que puedo cuidar sin cargar todo el peso sola. Ahora me siento más preparada."
@@ -864,11 +672,11 @@
                         <div class="testimonial-header">
                             <span class="testimonial-img testimonial-initials" aria-hidden="true">RF</span>
                             <div>
-                                <strong style="font-size: 1.375rem; color: var(--color-purple); display: block;">Roberto Fernández</strong>
-                                <p style="color: #444; margin: 4px 0; font-size: 1rem;">Persona cuidadora en Flores · 2 años</p>
+                                <strong class="u-font-size-1_375rem u-color-purple u-display-block">Roberto Fernández</strong>
+                                <p class="u-color-444 u-margin-4px-0 u-font-size-1rem">Persona cuidadora en Flores · 2 años</p>
                             </div>
                         </div>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #333; font-style: italic;">
+                        <p class="u-font-size-1_125rem u-line-height-1_8 u-color-333 u-font-style-italic">
                             "No tenía experiencia cuidando. Me capacitaron de cero. Ahora soy profesional
                             certificado y gano bien. Puedo mantener a mis hijos tranquilo.
                             Esto cambió mi vida."
@@ -880,30 +688,30 @@
     </section>
 
     <!-- Preguntas frecuentes -->
-    <section style="padding: 60px 0; background-color: #F5F5F5;" aria-labelledby="faq-titulo">
+    <section class="u-padding-60px-0 u-background-color-f5f5f5" aria-labelledby="faq-titulo">
         <div class="container">
-            <h2 id="faq-titulo" style="color: var(--color-purple); text-align: center; margin-bottom: 48px; font-size: 2.25rem;">
+            <h2 class="u-color-purple u-text-align-center u-margin-bottom-48px u-font-size-2_25rem" id="faq-titulo">
                 Preguntas frecuentes
             </h2>
 
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
-                    <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
-                        <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
+                <div class="col-md-8 u-margin-0-auto">
+                    <details class="u-background-color-white u-padding-24px u-border-radius-12px u-margin-bottom-16px u-box-shadow-0-2px-8px-rgba-0-0-0-0_1 u-border-left-4px-solid-purple">
+                        <summary class="u-font-weight-700 u-font-size-1_25rem u-cursor-pointer u-color-333">
                             ¿Puedo trabajar si no tengo experiencia?
                         </summary>
-                        <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-margin-top-20px u-padding-left-16px u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Sí, no necesitás experiencia previa. Te capacitamos de cero durante 3 meses (pagos).
                             Lo que importa es tu vocación y ganas de ayudar.
                         </p>
                     </details>
 
                     <!-- NUEVA FAQ: Desafíos emocionales -->
-                    <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
-                        <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
+                    <details class="u-background-color-white u-padding-24px u-border-radius-12px u-margin-bottom-16px u-box-shadow-0-2px-8px-rgba-0-0-0-0_1 u-border-left-4px-solid-purple">
+                        <summary class="u-font-weight-700 u-font-size-1_25rem u-cursor-pointer u-color-333">
                             ¿Es emocionalmente difícil este trabajo?
                         </summary>
-                        <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-margin-top-20px u-padding-left-16px u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Sí, puede serlo. Trabajás con personas mayores, algunas con deterioro cognitivo o en situaciones
                             de soledad. A veces vas a crear vínculos fuertes y luego enfrentar pérdidas. Por eso tenés
                             <strong>apoyo psicológico permanente</strong>, reuniones de supervisión mensuales, y espacios de
@@ -912,11 +720,11 @@
                     </details>
 
                     <!-- NUEVA FAQ: Tasa de abandono -->
-                    <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
-                        <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
+                    <details class="u-background-color-white u-padding-24px u-border-radius-12px u-margin-bottom-16px u-box-shadow-0-2px-8px-rgba-0-0-0-0_1 u-border-left-4px-solid-purple">
+                        <summary class="u-font-weight-700 u-font-size-1_25rem u-cursor-pointer u-color-333">
                             ¿Mucha gente deja el trabajo?
                         </summary>
-                        <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-margin-top-20px u-padding-left-16px u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Aproximadamente el 15% del equipo rota por año, principalmente en los primeros 6 meses
                             cuando descubren que no es para ellos. Es normal. El trabajo de cuidado no es para todas.
                             Por eso el proceso de selección es riguroso: queremos que quienes ingresen realmente
@@ -925,11 +733,11 @@
                     </details>
 
                     <!-- NUEVA FAQ: Casos difíciles -->
-                    <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
-                        <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
+                    <details class="u-background-color-white u-padding-24px u-border-radius-12px u-margin-bottom-16px u-box-shadow-0-2px-8px-rgba-0-0-0-0_1 u-border-left-4px-solid-purple">
+                        <summary class="u-font-weight-700 u-font-size-1_25rem u-cursor-pointer u-color-333">
                             ¿Qué pasa si tengo un usuario muy difícil?
                         </summary>
-                        <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-margin-top-20px u-padding-left-16px u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Podés pedir apoyo al equipo en cualquier momento. El equipo de coordinación interviene en situaciones
                             complejas. Si un caso es insostenible (agresividad, situaciones de riesgo), te reasignamos.
                             Tu bienestar importa tanto como el del usuario. <strong>No estás sola</strong>, siempre hay
@@ -937,51 +745,51 @@
                         </p>
                     </details>
 
-                    <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
-                        <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
+                    <details class="u-background-color-white u-padding-24px u-border-radius-12px u-margin-bottom-16px u-box-shadow-0-2px-8px-rgba-0-0-0-0_1 u-border-left-4px-solid-purple">
+                        <summary class="u-font-weight-700 u-font-size-1_25rem u-cursor-pointer u-color-333">
                             ¿Tengo que limpiar casas?
                         </summary>
-                        <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-margin-top-20px u-padding-left-16px u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             No. Tu trabajo es <strong>cuidar a la persona</strong>, no hacer tareas domésticas pesadas.
                             Podés ayudar a ordenar un poco o cocinar juntos, pero no es trabajo de limpieza.
                         </p>
                     </details>
 
-                    <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
-                        <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
+                    <details class="u-background-color-white u-padding-24px u-border-radius-12px u-margin-bottom-16px u-box-shadow-0-2px-8px-rgba-0-0-0-0_1 u-border-left-4px-solid-purple">
+                        <summary class="u-font-weight-700 u-font-size-1_25rem u-cursor-pointer u-color-333">
                             ¿Cuántas personas tengo que cuidar?
                         </summary>
-                        <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-margin-top-20px u-padding-left-16px u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Cuidás entre 2 y 5 personas, según el nivel de cuidado de cada una.
                             Todas en tu zona para que no viajes mucho. La carga puede variar: algunos usuarios
                             necesitan más tiempo y atención que otros.
                         </p>
                     </details>
 
-                    <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
-                        <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
+                    <details class="u-background-color-white u-padding-24px u-border-radius-12px u-margin-bottom-16px u-box-shadow-0-2px-8px-rgba-0-0-0-0_1 u-border-left-4px-solid-purple">
+                        <summary class="u-font-weight-700 u-font-size-1_25rem u-cursor-pointer u-color-333">
                             ¿Trabajo fines de semana?
                         </summary>
-                        <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-margin-top-20px u-padding-left-16px u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             En general no. Los fines de semana se rotan entre todas. Si te toca, cobrás plus por día no laborable.
                         </p>
                     </details>
 
-                    <details style="background-color: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
-                        <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
+                    <details class="u-background-color-white u-padding-24px u-border-radius-12px u-margin-bottom-16px u-box-shadow-0-2px-8px-rgba-0-0-0-0_1 u-border-left-4px-solid-purple">
+                        <summary class="u-font-weight-700 u-font-size-1_25rem u-cursor-pointer u-color-333">
                             ¿Qué pasa si tengo un problema con un usuario?
                         </summary>
-                        <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-margin-top-20px u-padding-left-16px u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Tenés todo un equipo de apoyo: personal de coordinación, psicólogos, trabajadores sociales.
                             Si hay algún conflicto o situación difícil, te acompañamos y buscamos soluciones juntos.
                         </p>
                     </details>
 
-                    <details style="background-color: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid var(--color-purple);">
-                        <summary style="font-weight: 700; font-size: 1.25rem; cursor: pointer; color: #333;">
+                    <details class="u-background-color-white u-padding-24px u-border-radius-12px u-box-shadow-0-2px-8px-rgba-0-0-0-0_1 u-border-left-4px-solid-purple">
+                        <summary class="u-font-weight-700 u-font-size-1_25rem u-cursor-pointer u-color-333">
                             ¿Hay posibilidades de crecer?
                         </summary>
-                        <p style="margin-top: 20px; padding-left: 16px; font-size: 1.125rem; line-height: 1.8; color: #444;">
+                        <p class="u-margin-top-20px u-padding-left-16px u-font-size-1_125rem u-line-height-1_8 u-color-444">
                             Sí. Podés ser persona cuidadora con experiencia (coordinás a otras personas cuidadoras), capacitadora,
                             o especializarte en áreas como demencia, cuidados paliativos, etc. Siempre con más capacitación paga.
                         </p>
@@ -992,29 +800,29 @@
     </section>
 
     <!-- CTA Postulación -->
-    <section style="padding: 80px 0;" id="postularme">
+    <section class="u-padding-80px-0" id="postularme">
         <div class="container">
             <div class="row">
-                <div class="col-md-8" style="margin: 0 auto;">
+                <div class="col-md-8 u-margin-0-auto">
                     <div class="cta-cuidadores">
-                        <h2 style="font-size: 2.25rem; margin-bottom: 24px; color: white;">
+                        <h2 class="u-font-size-2_25rem u-margin-bottom-24px u-color-white">
                             ¿Querés ser parte del equipo?
                         </h2>
-                        <p style="font-size: 1.375rem; margin-bottom: 40px;">
+                        <p class="u-font-size-1_375rem u-margin-bottom-40px">
                             Mandanos tu CV por email y te contactamos en 2-3 semanas para arrancar el proceso.
                         </p>
-                        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                            <a href="mailto:trabajaencuidados@cuidadosenred.gob.ar" class="btn btn-lg" style="background-color: white; color: var(--color-purple); border-color: white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Enviar CV por email">
+                        <div class="u-display-flex u-gap-20px u-justify-content-center u-flex-wrap-wrap">
+                            <a href="mailto:trabajaencuidados@cuidadosenred.gob.ar" class="btn btn-lg u-background-color-white u-color-purple u-border-color-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Enviar CV por email">
                                 <i class="fa fa-envelope" aria-hidden="true"></i> Mandá tu CV
                             </a>
-                            <a href="tel:147" class="btn btn-lg" style="background-color: transparent; color: white; border: 3px solid white; font-size: 1.25rem; padding: 18px 40px;" aria-label="Llamar al 147 para consultas">
+                            <a href="tel:147" class="btn btn-lg u-background-color-transparent u-color-white u-border-3px-solid-white u-font-size-1_25rem u-padding-18px-40px" aria-label="Llamar al 147 para consultas">
                                 <i class="fa fa-phone" aria-hidden="true"></i> Llamá al 147
                             </a>
                         </div>
-                        <p style="margin-top: 24px; font-size: 1rem; opacity: 0.9;">
+                        <p class="u-margin-top-24px u-font-size-1rem u-opacity-0_9">
                             Si ya sos cuidadora del sistema, el 147 te identifica por tu DNI y te conecta directamente con tu Nodo para reportar situaciones, consultar turnos o pedir un cambio.
                         </p>
-                        <p style="margin-top: 12px; font-size: 1rem; opacity: 0.9;">
+                        <p class="u-margin-top-12px u-font-size-1rem u-opacity-0_9">
                             Email: trabajaencuidados@cuidadosenred.gob.ar
                         </p>
 

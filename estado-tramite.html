@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Consultá el estado de tu solicitud en Cuidados en Red ingresando tu DNI o número de trámite. Seguimiento online en tiempo real de cada etapa del proceso.">
     <meta property="og:title" content="Consultá el Estado de tu Solicitud — Cuidados en Red">
@@ -26,426 +26,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        /* Estilos específicos solo para estado-tramite.html */
-
-        .hero-estado {
-            background: linear-gradient(135deg, rgba(26,82,118,0.95), rgba(13,59,94,0.95));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .hero-estado h1 {
-            font-size: 2.625rem;
-            margin-bottom: 16px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-estado .lead {
-            font-size: 1.25rem;
-            line-height: 1.5;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .search-container {
-            background-color: white;
-            border-radius: 12px;
-            padding: 48px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .search-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 0;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-            font-size: 1rem;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #767676;
-            border-radius: 8px;
-            font-size: 1.125rem;
-            font-family: 'Roboto', sans-serif;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .form-group input:focus-visible {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(26,82,118,0.1);
-        }
-
-        .form-group small {
-            display: block;
-            margin-top: 6px;
-            color: #444;
-            font-size: 1rem;
-        }
-
-        .btn-search {
-            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
-            color: white;
-            padding: 18px 48px;
-            font-size: 1.25rem;
-            border-radius: 8px;
-            border: none;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .btn-search:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(26,82,118,0.3);
-        }
-
-        .result-container {
-            display: none;
-            margin-top: 48px;
-            background-color: white;
-            border-radius: 12px;
-            padding: 48px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-        }
-
-        .user-header {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-            border-bottom: 2px solid #E0E0E0;
-        }
-
-        .status-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--color-primary), #0D3B5E);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.25rem;
-            flex-shrink: 0;
-        }
-
-        .status-info h2 {
-            margin: 0 0 8px 0;
-            color: var(--color-primary);
-            font-size: 1.75rem;
-        }
-
-        .status-info p {
-            margin: 0;
-            color: #444;
-            font-size: 1rem;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 60px;
-            margin: 32px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 10px;
-            bottom: 10px;
-            width: 3px;
-            background: linear-gradient(180deg, var(--color-secondary) 0%, #E0E0E0 100%);
-        }
-
-        .timeline-step {
-            position: relative;
-            margin-bottom: 32px;
-        }
-
-        .step-marker {
-            position: absolute;
-            left: -49px;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.125rem;
-            z-index: 1;
-        }
-
-        .step-marker.completed {
-            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
-        }
-
-        .step-marker.current {
-            background: linear-gradient(135deg, var(--color-accent-text), #6B2600);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(230,81,0,0.7); }
-            50% { box-shadow: 0 0 0 15px rgba(230,81,0,0); }
-        }
-
-        .step-marker.pending {
-            background: linear-gradient(135deg, #90A4AE, #757575);
-        }
-
-        .step-content {
-            background-color: #F5F5F5;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #E0E0E0;
-        }
-
-        .step-content.current {
-            background-color: var(--color-warm);
-            border-left-color: var(--color-accent);
-        }
-
-        .step-content h3 {
-            margin: 0 0 8px 0;
-            color: var(--color-primary);
-            font-size: 1.25rem;
-        }
-
-        .step-content p {
-            margin: 0 0 12px 0;
-            color: #444;
-            line-height: 1.6;
-        }
-
-        .date {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #505050;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .next-steps {
-            background-color: #E3F2FD;
-            border-left: 4px solid var(--color-primary);
-            padding: 24px;
-            border-radius: 8px;
-            margin: 32px 0;
-        }
-
-        .next-steps h3 {
-            margin: 0 0 16px 0;
-            color: var(--color-primary);
-            font-size: 1.375rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .next-steps ul {
-            margin: 0;
-            padding-left: 24px;
-            line-height: 1.8;
-        }
-
-        .next-steps li {
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .contact-box {
-            background: linear-gradient(135deg, rgba(27,94,32,0.1), rgba(27,94,32,0.1));
-            border: 2px solid var(--color-secondary);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            margin-top: 32px;
-        }
-
-        .contact-box h3 {
-            color: var(--color-secondary-text);
-            font-size: 1.25rem;
-            margin: 0 0 16px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .states-guide {
-            background-color: #F5F5F5;
-            border-radius: 12px;
-            padding: 48px;
-            margin-top: 48px;
-        }
-
-        .state-item {
-            display: flex;
-            gap: 24px;
-            padding: 24px;
-            background-color: white;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            border-left: 4px solid var(--color-secondary);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .state-item:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .state-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--color-secondary), #1B5E20);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .friction-alert {
-            background-color: #FFF3E0;
-            border-left: 4px solid var(--color-accent);
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin: 12px 0;
-        }
-
-        .friction-alert p {
-            margin: 0;
-            color: var(--color-accent-text);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .friction-alert strong {
-            color: #8F3200;
-        }
-
-        @media (max-width: 767px) {
-            .search-container {
-                padding: 32px 24px;
-            }
-
-            .result-container {
-                padding: 32px 24px;
-            }
-
-            .timeline {
-                padding-left: 50px;
-            }
-
-            .step-marker {
-                left: -44px;
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-
-            .states-guide {
-                padding: 32px 20px;
-            }
-
-            .state-item {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .user-header {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        .demo-hint {
-            background: linear-gradient(135deg, #FFF3E0, #FFEFDC);
-            border-top: 3px solid var(--color-accent);
-            color: #3E2723;
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin: 24px 0 0;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .demo-hint i {
-            color: var(--color-accent-text);
-            margin-right: 6px;
-        }
-
-        .lookup-card {
-            margin-top: 48px;
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            border-left: 6px solid var(--color-secondary);
-        }
-
-        .lookup-card h2 {
-            color: var(--color-primary);
-            font-size: 1.75rem;
-        }
-
-        .lookup-empty {
-            border-left-color: var(--color-accent);
-        }
-
-        .lookup-state {
-            font-size: 1.25rem;
-            color: #14461A;
-        }
-
-        .lookup-note {
-            background: #FFF3E0;
-            border-radius: 8px;
-            padding: 12px 16px;
-            color: #444;
-        }
-
-        @media (max-width: 767px) {
-            .lookup-card {
-                padding: 24px;
-            }
-        }
-    </style>
+    <link href="css/estado-tramite.css" rel="stylesheet">
+    <link href="css/utilidades.css" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -542,25 +124,25 @@
     </section>
 
     <!-- Contenido principal -->
-    <section style="padding: 60px 0;">
+    <section class="u-padding-60px-0">
         <div class="container">
             <!-- Info banner usando clase alert-info -->
             <div class="alert alert-info">
-                <h2 style="margin: 0 0 12px 0;">
+                <h2 class="u-margin-0-0-12px-0">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     ¿Cómo consultar?
                 </h2>
-                <p style="color: #333; margin: 0; line-height: 1.6;">
+                <p class="u-color-333 u-margin-0 u-line-height-1_6">
                     Ingresá tu <strong>DNI</strong> o el <strong>número de trámite</strong> que recibiste por email
                     cuando te inscribiste. También podés llamar al
-                    <a href="tel:147" style="color: var(--color-primary); font-weight: 700;">147</a>
+                    <a class="u-color-primary u-font-weight-700" href="tel:147">147</a>
                     y consultar el estado de tu trámite por teléfono — te lo buscan con tu DNI o número de trámite y te lo dictan.
                 </p>
             </div>
 
             <!-- Search Form -->
             <div class="search-container">
-                <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 32px; font-size: 1.75rem;">
+                <h2 class="u-color-primary u-text-align-center u-margin-bottom-32px u-font-size-1_75rem">
                     Consultá tu solicitud
                 </h2>
 
@@ -584,7 +166,7 @@
                         <small>Solo números, sin puntos ni espacios</small>
                     </div>
 
-                    <div style="text-align: center; color: #505050; font-weight: 600; margin: 8px 0;" aria-hidden="true">
+                    <div class="u-text-align-center u-color-505050 u-font-weight-600 u-margin-8px-0" aria-hidden="true">
                         o
                     </div>
 
@@ -616,14 +198,14 @@
             </div>
 
             <!-- Sin resultados -->
-            <div class="lookup-card lookup-empty" id="notFound" style="display: none;">
+            <div class="lookup-card lookup-empty" id="notFound" hidden>
                 <h2 id="notFoundTitle">No encontramos un trámite con esos datos</h2>
                 <p>Revisá que el DNI esté escrito sin puntos y que el número de trámite sea el que figura en el email de confirmación.</p>
                 <p>Si te inscribiste por teléfono o en un Nodo, puede que tu trámite todavía no aparezca en esta consulta. Llamá al <a href="tel:147">147</a> y pedí el estado de tu inscripción a Cuidados en Red.</p>
             </div>
 
             <!-- Trámite iniciado en esta sesión desde el formulario de inscripción -->
-            <div class="lookup-card" id="newRecord" style="display: none;">
+            <div class="lookup-card" id="newRecord" hidden>
                 <h2 id="newRecordTitle">Tu solicitud</h2>
                 <p>DNI: <strong id="newRecordDni"></strong> | Trámite: <strong id="newRecordTramite"></strong></p>
                 <p class="lookup-state">Estado actual: <strong>Inscripción recibida</strong></p>
@@ -643,10 +225,10 @@
                     </div>
                 </div>
 
-                <div style="text-align: center; margin-bottom: 32px;">
-                    <div style="display: inline-block; padding: 12px 24px; background-color: rgba(255,255,255,0.7); border-radius: 8px;">
-                        <strong style="color: var(--color-accent-text); font-size: 1rem;">
-                            Estado actual: <span id="currentStatus" style="font-size: 1.25rem;">En evaluación domiciliaria</span>
+                <div class="u-text-align-center u-margin-bottom-32px">
+                    <div class="u-display-inline-block u-padding-12px-24px u-background-color-rgba-255-255-255-0_7 u-border-radius-8px">
+                        <strong class="u-color-accent-text u-font-size-1rem">
+                            Estado actual: <span class="u-font-size-1_25rem" id="currentStatus">En evaluación domiciliaria</span>
                         </strong>
                     </div>
                 </div>
@@ -750,11 +332,11 @@
                 <!-- Contact Box -->
                 <div class="contact-box">
                     <h3><i class="fa fa-question-circle" aria-hidden="true"></i> ¿Tenés alguna duda?</h3>
-                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
+                    <div class="u-display-flex u-gap-16px u-justify-content-center u-flex-wrap-wrap u-margin-top-16px">
                         <a href="tel:147" class="btn btn-primary">
                             <i class="fa fa-phone" aria-hidden="true"></i> Llamar al 147
                         </a>
-                        <a href="contacto.html#whatsapp" class="btn" style="background-color: #075E54; color: white;">
+                        <a href="contacto.html#whatsapp" class="btn u-background-color-075e54 u-color-white">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
                         </a>
                     </div>
@@ -763,7 +345,7 @@
 
             <!-- States Guide -->
             <div class="states-guide">
-                <h2 style="color: var(--color-secondary-text); text-align: center; margin-bottom: 32px; font-size: 2rem;">
+                <h2 class="u-color-secondary-text u-text-align-center u-margin-bottom-32px u-font-size-2rem">
                     Estados posibles de tu solicitud
                 </h2>
 
@@ -772,10 +354,10 @@
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.25rem; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Inscripción recibida
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
                             Tu solicitud fue registrada. <strong>En 24-48hs hábiles</strong> te vamos a contactar
                             del Nodo de tu zona para coordinar la evaluación domiciliaria.
                         </p>
@@ -790,10 +372,10 @@
                         <i class="fa fa-phone" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.25rem; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Contacto inicial
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
                             Ya nos comunicamos con vos y coordinamos la visita. Esperá nuestro llamado
                             para confirmar día y hora.
                         </p>
@@ -808,10 +390,10 @@
                         <i class="fa fa-home" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.25rem; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Evaluación funcional domiciliaria
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
                             El equipo interdisciplinario está evaluando tus necesidades en tu domicilio para determinar tu nivel de cuidado.
                             Esto se hace <strong>dentro de los 15 días hábiles</strong> desde la inscripción.
                         </p>
@@ -826,10 +408,10 @@
                         <i class="fa fa-users" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.25rem; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Asignación de nivel y persona cuidadora
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
                             Con la evaluación completada, te asignamos un nivel de cuidado con las horas correspondientes y buscamos la persona cuidadora ideal para vos. Te llamamos para
                             coordinar la reunión de presentación.
                         </p>
@@ -844,10 +426,10 @@
                         <i class="fa fa-cogs" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.25rem; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Instalación de tecnología
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
                             Estamos instalando los sensores, la pulsera de emergencia y Tita en tu domicilio.
                             El técnico te explica cómo usar todo.
                         </p>
@@ -858,29 +440,29 @@
                 </div>
 
                 <div class="state-item">
-                    <div class="state-icon" style="background: linear-gradient(135deg, #4CAF50, #1B5E20);">
+                    <div class="state-icon u-background-linear-gradient-135deg-4caf50-1b5e20">
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-secondary-text); font-size: 1.25rem; margin: 0 0 8px 0;">
+                        <h3 class="u-color-secondary-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             Servicio activo
                         </h3>
-                        <p style="color: #444; margin: 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0 u-line-height-1_6">
                             <strong>¡Ya estás recibiendo el servicio!</strong> Tu persona cuidadora te visita según
                             lo acordado y el sistema de monitoreo está funcionando.
                         </p>
                     </div>
                 </div>
 
-                <div class="state-item" style="border-left-color: var(--color-accent);">
-                    <div class="state-icon" style="background: linear-gradient(135deg, var(--color-accent-text), #6B2600);">
+                <div class="state-item u-border-left-color-accent">
+                    <div class="state-icon u-background-linear-gradient-135deg-accent-text-6b2600">
                         <i class="fa fa-pause" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-accent-text); font-size: 1.25rem; margin: 0 0 8px 0;">
+                        <h3 class="u-color-accent-text u-font-size-1_25rem u-margin-0-0-8px-0">
                             En espera (lista de espera)
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
                             Cumplís los requisitos pero temporalmente no hay cupo disponible en tu zona.
                             Te avisamos cuando se libere un lugar. <strong>Tiempo promedio: 21 días.</strong>
                         </p>
@@ -890,15 +472,15 @@
                     </div>
                 </div>
 
-                <div class="state-item" style="border-left-color: #D32F2F;">
-                    <div class="state-icon" style="background: linear-gradient(135deg, #F44336, #C62828);">
+                <div class="state-item u-border-left-color-d32f2f">
+                    <div class="state-icon u-background-linear-gradient-135deg-f44336-c62828">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 style="color: #9A1515; font-size: 1.25rem; margin: 0 0 8px 0;">
+                        <h3 class="u-color-9a1515 u-font-size-1_25rem u-margin-0-0-8px-0">
                             No admitido
                         </h3>
-                        <p style="color: #444; margin: 0 0 8px 0; line-height: 1.6;">
+                        <p class="u-color-444 u-margin-0-0-8px-0 u-line-height-1_6">
                             Luego de la evaluación, determinamos que Cuidados en Red no es el programa adecuado
                             para tu situación. Te orientamos hacia otros servicios más apropiados.
                         </p>
